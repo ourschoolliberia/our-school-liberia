@@ -53,7 +53,17 @@ html
 					.collapse.navbar-collapse
 						ul.nav.navbar-nav.navbar-left
 							each link in navLinks
-								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+								if link.children
+									li(class='dropdown'): a(href=link.href)= link.label 
+										span.caret
+										ul.dropdown-menu
+											each sublink in link.children
+												li(class=(section == sublink.key ? 'active' : null)): a(href=sublink.href)= sublink.label
+								else
+									li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+
+								
+
 						ul.nav.navbar-nav.navbar-right
 							if user
 								if user.canAccessKeystone
@@ -107,3 +117,9 @@ html
 
 		//- Include template-specific javascript files by extending the js block
 		block js
+			//- script.
+			//- 	$('ul.nav li.dropdown').hover(function() {
+			//- 	  $(this).find('.dropdown-menu').stop(true, true).show();
+			//- 	}, function() {
+			//- 	  $(this).find('.dropdown-menu').stop(true, true).hide();
+			//- 	});

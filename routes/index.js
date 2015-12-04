@@ -19,8 +19,12 @@
  */
 
 var keystone = require('keystone');
+var i18n = require("i18n");
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
+
+// Add-in i18n support
+keystone.pre('routes', i18n.init);
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -36,9 +40,22 @@ exports = module.exports = function(app) {
 	
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
-	app.get('/gallery', routes.views.gallery);
+
+	app.get('/news/updates', routes.views.updates);
+	app.get('/news/updates/category/:category?', routes.views.updates);
+	app.get('/news/updates/:post', routes.views.post);
+	
+	app.get('/testpage', routes.views.post, function() {
+		return ;
+	});
+	// app.get('/gallery', routes.views.gallery);
+	// app.get('/about', routes.views.about);
+	app.get('/about/what-we-do', routes.views['about-whatwedo']);
+// { label: 'Where We Work',	key: 'where-we-work',	href: '/about/where-we-work'},
+// { label: 'Our Team',		key: 'our-team',		href: '/about/our-team'  	},
+// { label: 'Our Students',	key: 'our-students',	href: '/about/our-students' },
+// { label: 'Supporters',		key: 'supporters',		href: '/about/supporters'  	},
+// { label: 'Financials',		key: 'financials',		href: '/about/financials'  	}	
 	app.all('/contact', routes.views.contact);
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

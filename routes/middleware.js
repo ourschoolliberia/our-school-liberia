@@ -25,8 +25,35 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.navLinks = [
 		{ label: 'Home',		key: 'home',		href: '/' },
-		{ label: 'Blog',		key: 'blog',		href: '/blog' },
-		{ label: 'Gallery',		key: 'gallery',		href: '/gallery' },
+		{ label: 'About',		key: 'about',		href: '/about', children: 
+			[
+				{ label: 'What We Do',		key: 'what-we-do',	 	href: '/about/what-we-do'  	},
+				{ label: 'Where We Work',	key: 'where-we-work',	href: '/about/where-we-work'},
+				{ label: 'Our Team',		key: 'our-team',		href: '/about/our-team'  	},
+				{ label: 'Our Students',	key: 'our-students',	href: '/about/our-students' },
+				{ label: 'Supporters',		key: 'supporters',		href: '/about/supporters'  	},
+				{ label: 'Financials',		key: 'financials',		href: '/about/financials'  	}
+			]
+		},
+		{ label: 'Donate',		key: 'donate',	href: '/donate'  },
+		{ label: 'Get Involved',key: 'get-involved',	href: '/get-involved', children:
+			[
+				{ label: 'Subscribe',		key: 'subscribe',		href: '/get-involved/subscribe' },
+				{ label: 'Events',			key: 'events',			href: '/get-involved/events'  	},
+				{ label: 'Fundraise',		key: 'fundraise',		href: '/get-involved/fundraise' },
+				{ label: 'Volunteer',		key: 'volunteer',		href: '/get-involved/volunteer' },
+				{ label: 'Volunteer',		key: 'volunteer',		href: '/get-involved/volunteer' }
+			]
+		},
+		{ label: 'News',		key: 'news',		href: '/news', children:
+			[
+				{ label: 'Updates',		key: 'updates',		href: '/news/updates'  },
+				{ label: 'Press',		key: 'press',		href: '/news/press'  },
+				{ label: 'Videos',		key: 'videos',		href: '/news/videos'  }
+
+			]
+		},
+		// { label: 'Gallery',		key: 'gallery',		href: '/gallery' },
 		{ label: 'Contact',		key: 'contact',		href: '/contact' }
 	];
 	
