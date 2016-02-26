@@ -38,25 +38,39 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	
+	app.use(middleware.initLanguage);
+	app.use(middleware.initNav);
 	// Views
+
 	app.get('/', routes.views.index);
 
 	app.get('/news/updates', routes.views.updates);
 	app.get('/news/updates/category/:category?', routes.views.updates);
 	app.get('/news/updates/:post', routes.views.post);
+	app.get('/news/press', routes.views.post);
+	app.get('/news/press/:post', routes.views.post);
+	app.get('/news/videos', routes.views.post);
+	app.get('/news/videos/:post', routes.views.post);
+
+	app.get('/nachrichten/updates', routes.views.updates);
+	app.get('/nachrichten/updates/category/:category?', routes.views.updates);
+	app.get('/nachrichten/updates/:post', routes.views.post);
+	app.get('/nachrichten/press', routes.views.post);
+	app.get('/nachrichten/press/:post', routes.views.post);
+	app.get('/nachrichten/videos', routes.views.post);
+	app.get('/nachrichten/videos/:post', routes.views.post);
+
+
 	
-	app.get('/testpage', routes.views.post, function() {
-		return ;
-	});
-	// app.get('/gallery', routes.views.gallery);
 	// app.get('/about', routes.views.about);
 	app.get('/about/what-we-do', routes.views['about-whatwedo']);
-// { label: 'Where We Work',	key: 'where-we-work',	href: '/about/where-we-work'},
-// { label: 'Our Team',		key: 'our-team',		href: '/about/our-team'  	},
-// { label: 'Our Students',	key: 'our-students',	href: '/about/our-students' },
-// { label: 'Supporters',		key: 'supporters',		href: '/about/supporters'  	},
-// { label: 'Financials',		key: 'financials',		href: '/about/financials'  	}	
-	app.all('/contact', routes.views.contact);
+	// app.get('/about/where-we-work', routes.views['about-wherewework']);
+	// app.get('/about/our-team', routes.views['about-ourteam']);
+	// app.get('/about/our-students', routes.views['about-ourstudents']);
+	// app.get('/about/supporters', routes.views['about-supporters']);
+	// app.get('/about/financials', routes.views['about-financials']);
+
+app.all('/contact', routes.views.contact);
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
