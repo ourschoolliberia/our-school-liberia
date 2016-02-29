@@ -19,12 +19,15 @@
  */
 
 var keystone = require('keystone');
-var i18n = require("i18n");
+var i18n = require("i18n-2");
+var _ = require('underscore');
 var middleware = require('./middleware');
+var nav = require('./nav');
+
 var importRoutes = keystone.importer(__dirname);
 
 // Add-in i18n support
-keystone.pre('routes', i18n.init);
+// keystone.pre('routes', i18n.init);
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -37,11 +40,23 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	
+
+	i18n.expressBind(app, {
+	    // setup some locales - other locales default to en silently
+	    locales: ['en', 'de'],
+	    // change the cookie name from 'lang' to 'locale'
+	    cookieName: 'lang',
+	});
+
 	app.use(middleware.initLanguage);
 	app.use(middleware.initNav);
-	// Views
 
+	// app.use(middleware.initStaticRoutes);
+
+	nav.initStaticPageRoutes(app);
+
+
+	//dynamic page routes
 	app.get('/', routes.views.index);
 
 	app.get('/news/updates', routes.views.updates);
@@ -62,8 +77,8 @@ exports = module.exports = function(app) {
 
 
 	
+	
 	// app.get('/about', routes.views.about);
-	app.get('/about/what-we-do', routes.views['about-whatwedo']);
 	// app.get('/about/where-we-work', routes.views['about-wherewework']);
 	// app.get('/about/our-team', routes.views['about-ourteam']);
 	// app.get('/about/our-students', routes.views['about-ourstudents']);
@@ -76,3 +91,6 @@ app.all('/contact', routes.views.contact);
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	
 };
+
+
+

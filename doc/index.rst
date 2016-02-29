@@ -2,12 +2,31 @@ Our School Liberia
 ==================
 
 
+Today
+=====
+
+- update model to include german and english inputs
+- create the static pages for the rest of the site
+
+
+
+
+
 Donations - paypal api?
 Email Signup Form - mailchimp
 
 Backward Compatible Links?
 	Do we need to provide links that will forward to the equivalent new page with the new url scheme?
 	Potentially redirect all 404s (broken links) to the homepage?
+
+
+Url scheme for language:
+/en/about
+/de/about
+
+/about
+/etwa
+
 
 
 About
