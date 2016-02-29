@@ -36,13 +36,14 @@ exports.findRedirectForLang = function (currentLang, newLang, currentPath) {
 	var objectPath;
 	walkNav(langMaps[currentLang], function (node, parent, path) {
 		if(currentPath === node.href) {
+			debugger;
 			objectPath = path;
 			return false;
 		}
 	});
 
 	//return the href from the other language at the same node point
-	return objbyString(langMaps[newLang], objectPath.join('.')).href;
+	return objByString(langMaps[newLang], objectPath.join('.children.')).href;
 };
 
 //helpers
@@ -78,7 +79,7 @@ function createDynamicRoutes (app, tree, lang) {
 	staticRoutes.forEach(function(route) {
 
 		console.log('route', route);
-		app.get('/' + lang + route.path, function (req, res) {
+		app.get(route.path, function (req, res) {
 			console.log('running view');
 			
 			var view = new keystone.View(req, res);
@@ -95,7 +96,7 @@ function createDynamicRoutes (app, tree, lang) {
 	});
 }
 
-function objbyString (o, s) {
+function objByString (o, s) {
     s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
     s = s.replace(/^\./, '');           // strip a leading dot
     var a = s.split('.');

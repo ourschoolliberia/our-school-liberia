@@ -80,10 +80,13 @@ exports.initLanguage = function(req, res, next) {
 	if(req.query.setlanguage) {
 		res.cookie('lang', req.query.setlanguage, { maxAge: 900000, httpOnly: true });
 		siteLanguage = req.query.setlanguage;
-// 		var redirect = nav.findRedirectForLang(oldLanguage, siteLanguage, req.path);
-// console.log("REDIRECT", redirect);
-		req.i18n.setLocale(siteLanguage);
-		console.log("But now we're in: ", siteLanguage);
+
+		if(oldLanguage != siteLanguage) {
+			var redirect = nav.findRedirectForLang(oldLanguage, siteLanguage, req.path);
+			req.i18n.setLocale(siteLanguage);
+			console.log("REDIRECTING to " + siteLanguage, redirect);
+			res.redirect(redirect);
+		}
 	} 
 
 	res.locals.siteLanguage = siteLanguage;
@@ -98,25 +101,6 @@ exports.initNav = function(req, res, next) {
 	res.locals.navLinks = req.i18n.__('sitemapping');
 	next();
 }
-
-
-exports.initStaticRoutes = function (req, res, next) {
-
-	res.app.get('/about/what-we-do', function (req, res) {
-		var view = new keystone.View(req, res);
-		var locals = res.locals;
-		
-		// locals.section is used to set the currently selected
-		// item in the header navigation.
-		locals.section = 'about';
-		
-		// Render the view, view is named as the key
-		view.render('about-whatwedo');
-	});
-
-	next();
-}
-
 
 
 
