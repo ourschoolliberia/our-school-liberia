@@ -15,6 +15,9 @@ Update.add({
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	language: { type: Types.Relationship, ref: 'Language', index: true, initial: 'en' },
+	
+	translation: {type: Types.Relationship, ref: 'Update' },
+	
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.CloudinaryImage },
@@ -29,6 +32,12 @@ Update.add({
 Update.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
+
+// Update.schema.post('save', function (next) {
+// 	console.log('this will update the linked translation to link back to this Update');
+
+// 	next()
+// })
 
 Update.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Update.register();

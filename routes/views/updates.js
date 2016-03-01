@@ -7,12 +7,12 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 	
 	// Init locals
-	locals.section = 'updates';
+	locals.section = 'posts';
 	locals.filters = {
 		category: req.params.category
 	};
 	locals.data = {
-		updates: [],
+		posts: [],
 		categories: []
 	};
 	
@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
 			async.each(locals.data.categories, function(category, next) {
 				
 				keystone.list('Update').model.count().where('categories').in([category.id]).exec(function(err, count) {
-					category.updateCount = count;
+					category.postCount = count;
 					next(err);
 				});
 				
@@ -57,7 +57,7 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	// Load the updates
+	// Load the posts
 	view.on('init', function(next) {
 		
 		var q = keystone.list('Update').paginate({
@@ -74,7 +74,7 @@ exports = module.exports = function(req, res) {
 		}
 		
 		q.exec(function(err, results) {
-			locals.data.updates = results;
+			locals.data.posts = results;
 			next(err);
 		});
 		

@@ -5,6 +5,8 @@ require('dotenv').load();
 // Require keystone
 var keystone = require('keystone');
 var i18n = require('i18n-2');
+var express = require('express');
+var app = express();
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -28,7 +30,6 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': 'XW)Kb1t54s_MnM@"*`8`_gulw/*.LW94s_C>{NkG@ixc<-!i"X)/ox]:nVAb6"gb',
-
 });
 
 // Load your project's Models
@@ -45,15 +46,6 @@ keystone.set('locals', {
 	utils: keystone.utils,
 	editable: keystone.content.editable
 });
-
-
-// Configure i18n
-
-// i18n.configure({
-// 	locales:['en', 'de'],
-// 	directory: __dirname + '/locales',
-// 	cookie: 'siteLanguage'
-// });
 
 
 // Load your project's Routes
@@ -101,6 +93,7 @@ keystone.set('email tests', require('./routes/emails'));
 keystone.set('nav', {
 	'languages': 'languages',
 	'updates': ['updates', 'categories'],
+	'team-members': 'team-members',
 	'galleries': 'galleries',
 	'enquiries': 'enquiries',
 	'users': 'users'
@@ -109,4 +102,3 @@ keystone.set('nav', {
 // Start Keystone to connect to your database and initialise the web server
 
 keystone.start();
-

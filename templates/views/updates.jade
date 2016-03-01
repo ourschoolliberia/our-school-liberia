@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 mixin post(post)
-	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+	.post(data-ks-editable=editable(user, { list: 'Update', id: post.id }))
 		h2: a(href='/news/updates/' + post.slug)= post.title
 		p.lead.text-muted Posted 
 			if post.publishedDate
@@ -24,7 +24,7 @@ mixin post(post)
 
 block intro
 	.container
-		h1= data.category ? data.category.name : 'Updates'
+		h1= data.category ? data.category.name : 'News Updates'
 
 block content
 	.container: .row

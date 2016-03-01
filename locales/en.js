@@ -1,10 +1,10 @@
 {
 	"sitemapping": {
-	"home": {
-	  "label": "Home",
-	  "key": "home",
-	  "href": "/"
-	},
+		"home": {
+			"label": "Home",
+			"key": "home",
+			"href": "/"
+		},
 		"about": {
 			"label": "About",
 			"key": "about",
@@ -107,5 +107,7 @@
 			"key": "contact",
 			"href": "/contact"
 		}
-	}
+	},
+	"backto": "backto",
+	"updates": "updates"
 }

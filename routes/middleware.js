@@ -72,20 +72,19 @@ exports.requireUser = function(req, res, next) {
 
 exports.initLanguage = function(req, res, next) {
 	var oldLanguage, siteLanguage;
-	
 	req.i18n.setLocaleFromCookie();
 	oldLanguage = siteLanguage = req.i18n.getLocale();
 	
 	console.log("we're in: ", siteLanguage);
 	if(req.query.setlanguage) {
-		res.cookie('lang', req.query.setlanguage, { maxAge: 900000, httpOnly: true });
 		siteLanguage = req.query.setlanguage;
 
 		if(oldLanguage != siteLanguage) {
-			var redirect = nav.findRedirectForLang(oldLanguage, siteLanguage, req.path);
 			req.i18n.setLocale(siteLanguage);
-			console.log("REDIRECTING to " + siteLanguage, redirect);
-			res.redirect(redirect);
+			res.cookie('lang', req.query.setlanguage, { maxAge: 900000, httpOnly: true });
+			res.locals.langaugeSwitch = true;
+			console.log('OLD: ', oldLanguage);
+			res.locals.oldLanguage = oldLanguage;
 		}
 	} 
 
@@ -93,7 +92,6 @@ exports.initLanguage = function(req, res, next) {
 
 	next();
 }
-
 
 exports.initNav = function(req, res, next) {
 
