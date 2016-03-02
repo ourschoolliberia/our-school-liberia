@@ -22,7 +22,6 @@ module.exports = {
 	'home': {
 		controller: routes.views.index,
 		route: '/'
-
 	},
 	// 'about.index': {
 	// 	controller: false,
@@ -36,18 +35,19 @@ module.exports = {
 	// 		},
 	// 	}
 	// },
-	// 'about.whatwedo' : {
-	// 	controller: false,
-	// 	templatePefix: 'about-whatwedo',
-	// 	languages: {
-	// 		'en': {
-	// 			route: '/about/what-we-do',
-	// 		},
-	// 		'de': {
-	// 			route: '/etwa/vhat-ve-do',
-	// 		},
-	// 	}
-	// },
+	'about.whatwedo' : {
+		controller: false,
+		section: 'about',
+		templatePrefix: 'about-whatwedo',
+		languages: {
+			'en': {
+				route: '/about/what-we-do',
+			},
+			'de': {
+				route: '/etwa/vhat-ve-do',
+			},
+		}
+	},
 	// 'about.wherewework' : {
 	// 	controller: false,
 	// 	templatePefix: 'about-wherewework',
@@ -60,7 +60,19 @@ module.exports = {
 	// 		},
 	// 	}
 	// },
-	'news.updates.post': {
+	'news.updates': {
+		section: 'news',
+		controller: routes.views.updates,
+		languages: {
+			'en': {
+				route: '/news/updates'
+			},
+			'de': {
+				route: '/newsen/updaten'
+			}
+		}
+	},
+	'news.updates:post': {
 		controller: routes.views.updates,
 		languages: {
 			'en': {
@@ -68,6 +80,17 @@ module.exports = {
 			},
 			'de': {
 				route: '/newsen/updaten/:post'
+			}
+		}
+	},
+	'news.updates.category:category': {
+		controller: routes.views.updates,
+		languages: {
+			'en': {
+				route: '/news/updates/category/:category'
+			},
+			'de': {
+				route: '/newsen/updaten/category/:category'
 			}
 		}
 	}

@@ -57,13 +57,13 @@ exports = module.exports = function(app) {
 
 
 
-	app.use(middleware.initLanguage);
+	app.use(langRouter.initLanguage);
 	app.use(middleware.initNav);
 
 	// app.use(middleware.initStaticRoutes);
 
 
-	nav.initStaticPageRoutes(app);
+	// nav.initStaticPageRoutes(app);
 	langRouter.generateRoutes(app);
 
 	//dynamic page routes
