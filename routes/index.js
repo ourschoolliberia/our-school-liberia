@@ -67,7 +67,7 @@ exports = module.exports = function(app) {
 	langRouter.generateRoutes(app);
 
 	//dynamic page routes
-	app.get('/', routes.views.index);
+	// app.get('/', routes.views.index);
 
 	// app.get('/news/updates', middleware.languageRouteRedirect, routes.views.updates);
 	// app.get('/news/updates/category/:category?', middleware.languageRouteRedirect, routes.views.updates);

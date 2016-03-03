@@ -21,6 +21,7 @@ module.exports = {
 
 	'home': {
 		controller: routes.views.index,
+		section: null,
 		route: '/'
 	},
 	// 'about.index': {
@@ -48,18 +49,20 @@ module.exports = {
 			},
 		}
 	},
-	// 'about.wherewework' : {
-	// 	controller: false,
-	// 	templatePefix: 'about-wherewework',
-	// 	languages: {
-	// 		'en': {
-	// 			route: '/about/where-we-work',
-	// 		},
-	// 		'de': {
-	// 			route: '/etwa/wo-wir-arbeiten',
-	// 		},
-	// 	}
-	// },
+	'about.wherewework' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-wherewework',
+		languages: {
+			'en': {
+				route: '/about/where-we-work',
+			},
+			'de': {
+				route: '/etwa/wo-wir-arbeiten',
+			},
+		}
+	},
+
 	'news.updates': {
 		section: 'news',
 		controller: routes.views.updates,
@@ -73,6 +76,7 @@ module.exports = {
 		}
 	},
 	'news.updates:post': {
+		section: 'news',
 		controller: routes.views.updates,
 		languages: {
 			'en': {
@@ -84,6 +88,7 @@ module.exports = {
 		}
 	},
 	'news.updates.category:category': {
+		section: 'news',
 		controller: routes.views.updates,
 		languages: {
 			'en': {

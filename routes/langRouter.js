@@ -40,8 +40,9 @@ exports.generateRoutes = function (app) {
 	_(langRouteMap).each(function (page, routeName) {
 		console.log(routeName);
 		
-		if(page.languages) {
+		invariant((typeof page.section !== 'undefined'), "Page section required, can be null");
 
+		if(page.languages) {
 			_(languages).each(function (lang) { 
 				var langPage = page.languages[lang];
 				var langRouteName = lang + '.' + routeName;
@@ -52,16 +53,23 @@ exports.generateRoutes = function (app) {
 				if(langPage.route) {
 					if (page.controller) {
 						createDynamicRoute(app, langRouteName, langPage.route, page.controller);
-					} else {
-						invariant(page.templatePrefix, "If no controller is passed then a template prefix is expected");
-					var template = page.templatePrefix + '-' + lang;
+					} else if (page.templatePrefix) {
+						var template = page.templatePrefix + '-' + lang;
 						createStaticRoute(app, langRouteName, langPage.route, template, page.section)
+					} else {
+						invariant(page.sharedTemplate, "If no controller is passed then either a templatePrefix or a sharedTemplate is expected");
+						createStaticRoute(app, langRouteName, langPage.route, page.sharedTemplate, page.section)
 					}
 				} else {
 					throw "No route found";
 				}
 				console.log(langPage.route);
 			});
+		} else if (page.controller && page.route) {
+
+			//allows all language switching to be done in controller (home page)
+			createDynamicRoute(app, routeName, page.route, page.controller);
+
 		}
 
 	});
