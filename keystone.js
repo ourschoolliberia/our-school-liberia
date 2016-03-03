@@ -49,8 +49,8 @@ keystone.set('locals', {
 
 
 // Load your project's Routes
-
 keystone.set('routes', require('./routes'));
+
 
 // Setup common locals for your emails. The following are required by Keystone's
 // default email templates, you may remove them if you're using your own.
