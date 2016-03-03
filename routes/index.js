@@ -56,15 +56,13 @@ exports = module.exports = function(app) {
 	});
 
 
-
-	app.use(langRouter.initLanguage);
-	app.use(middleware.initNav);
-
+	langRouter.init(app);
+	
+	
 	// app.use(middleware.initStaticRoutes);
 
 
 	// nav.initStaticPageRoutes(app);
-	langRouter.generateRoutes(app);
 
 	//dynamic page routes
 	// app.get('/', routes.views.index);

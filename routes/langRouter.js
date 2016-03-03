@@ -2,39 +2,41 @@ var _ = require('underscore');
 var invariant = require('invariant');
 var keystone = require('keystone');
 var middleware = require('./middleware');
+
+var langNavMap = require('./langNavMap');
 var langRouteMap = require('./langRouteMap');
 
 
-exports.initLanguage = function(req, res, next) {
-	var oldLanguage, siteLanguage;
-	var setLanguage = false;
-	req.i18n.setLocaleFromCookie();
-	oldLanguage = siteLanguage = req.i18n.getLocale();
-	
-	console.log("we're in: ", siteLanguage);
-	if(req.query.setlanguage) {
-		siteLanguage = req.query.setlanguage;
-
-		if(oldLanguage != siteLanguage) {
-			setLanguage = true;
-			res.locals.langaugeSwitch = true;
-			console.log('OLD: ', oldLanguage);
-			res.locals.oldLanguage = oldLanguage;
-		}
-	} 
-
-	if(setLanguage) {
-		req.i18n.setLocale(siteLanguage);
-		res.cookie('lang', siteLanguage, { maxAge: 900000, httpOnly: true });
-	}
-
-	res.locals.siteLanguage = siteLanguage;
-
-	next();
+exports.init = function(app) {
+	app.use(initLanguage);
+	generateRoutes(app);
 }
 
 
-exports.generateRoutes = function (app) {
+function initLanguage (req, res, next) {
+	var oldLanguage, currentLanguage;
+	var setLanguage = false;
+	req.i18n.setLocaleFromCookie();
+	oldLanguage = currentLanguage = req.i18n.getLocale();
+	
+	console.log("we're in: ", currentLanguage);
+	if(req.query.setlanguage) {
+		currentLanguage = req.query.setlanguage;
+
+		if(oldLanguage != currentLanguage) {
+			req.i18n.setLocale(currentLanguage);
+			res.cookie('lang', currentLanguage, { maxAge: 900000, httpOnly: true });
+			res.locals.langaugeSwitch = true;
+			res.locals.oldLanguage = oldLanguage;
+		}
+	} 
+	
+	//fetch the correct navigation for current language
+	res.locals.navLinks = getLangNav(currentLanguage);
+	next();
+}
+
+function generateRoutes (app) {
 	var languages = ['en', 'de'];
 
 	_(langRouteMap).each(function (page, routeName) {
@@ -75,10 +77,31 @@ exports.generateRoutes = function (app) {
 	});
 };
 
+function getLangNav (lang) {
+
+	invariant(lang, "No Language provided");
+	invariant(langNavMap[lang], "No Language found for " + lang);
+
+	return langNavMap[lang];
+}
+
+
+
+/**
+ * Middleware to run before all routes
+ * Specified as a handler for all routes as it requires access to the req.route.name
+ *
+ * When changing language this will redirect the page to the localised route if there is such 
+ * a route matching in the langRouteMap.
+ *
+ * When not changing language, this will ensure the locale is set to the language of the localised route
+ * if specified in the langRouteMap (and update the nav)
+ */
 function languageRouteRedirect(req, res, next) {
 	var currentLang = req.i18n.getLocale();
 	
 	if(res.locals.langaugeSwitch) {
+		// redirect to the localised route;
 		var oldLang = res.locals.oldLanguage;
 		var currentRouteName = req.route.name;
 		var redirectUrl;
@@ -92,17 +115,18 @@ function languageRouteRedirect(req, res, next) {
 			return;
 		}
 	} else {
-		//lastly, if the route browsed to is from another language 
-		//lets insist we're in that language
-		//(but only if the query string to change isnt set...)
+
+		//if the route browsed to is from another language lets insist we're in that language
+		//but only if we're not currently changing language...
+
 		var routeLang = getLangFromRouteName(req.route.name)
 		if(routeLang && routeLang !== currentLang) {
 			req.i18n.setLocale(routeLang);
 			res.locals.siteLanguage = routeLang;
 			res.cookie('lang', routeLang, { maxAge: 900000, httpOnly: true });
 			
-			//HACK: redo the nav last minute
-			middleware.initNav(req, res, function(){/*noop*/});
+			//HACK: (is it?) redo the nav
+			res.locals.navLinks = getLangNav(currentLang);
 		}
 	} 
 
