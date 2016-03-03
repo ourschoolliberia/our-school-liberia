@@ -37,16 +37,16 @@ module.exports = {
 	// 	}
 	// },
 	'about.whatwedo' : {
-		controller: false,
 		section: 'about',
+		controller: false,
 		templatePrefix: 'about-whatwedo',
 		languages: {
 			'en': {
 				route: '/about/what-we-do',
 			},
-			'de': {
-				route: '/etwa/vhat-ve-do',
-			},
+			// 'de': {
+			// 	route: '/etwa/vhat-ve-do',
+			// },
 		}
 	},
 	'about.wherewework' : {

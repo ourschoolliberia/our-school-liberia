@@ -12,6 +12,10 @@ exports.init = function(app) {
 	generateRoutes(app);
 }
 
+exports.flashContentUnavailable = function (req) {
+	req.flash('info', "Sorry but this content is not yet available in the selected language")
+}
+
 
 function initLanguage (req, res, next) {
 	var oldLanguage, currentLanguage;
@@ -40,7 +44,7 @@ function generateRoutes (app) {
 	var languages = ['en', 'de'];
 
 	_(langRouteMap).each(function (page, routeName) {
-		console.log(routeName);
+		// console.log(routeName);
 		
 		invariant((typeof page.section !== 'undefined'), "Page section required, can be null");
 
@@ -52,38 +56,32 @@ function generateRoutes (app) {
 				if (!langPage)
 					return;
 
-				if(langPage.route) {
-					if (page.controller) {
-						createDynamicRoute(app, langRouteName, langPage.route, page.controller);
-					} else if (page.templatePrefix) {
-						var template = page.templatePrefix + '-' + lang;
-						createStaticRoute(app, langRouteName, langPage.route, template, page.section)
-					} else {
-						invariant(page.sharedTemplate, "If no controller is passed then either a templatePrefix or a sharedTemplate is expected");
-						createStaticRoute(app, langRouteName, langPage.route, page.sharedTemplate, page.section)
-					}
+				invariant(langPage.route, "Each language requires a route to be specified");
+				
+				
+				if (page.controller) {
+					createDynamicRoute(app, langRouteName, langPage.route, page.controller);
+				} else if (page.templatePrefix) {
+					var template = page.templatePrefix + '-' + lang;
+					createStaticRoute(app, langRouteName, langPage.route, template, page.section)
+				
 				} else {
-					throw "No route found";
+					invariant(page.sharedTemplate, "If no controller is passed then either a templatePrefix or a sharedTemplate is expected");
+					createStaticRoute(app, langRouteName, langPage.route, page.sharedTemplate, page.section)
 				}
-				console.log(langPage.route);
 			});
-		} else if (page.controller && page.route) {
+		} else {
+			invariant(page.controller && page.route, "If no languages are specified, a generic route and controller must be specified");
+
 
 			//allows all language switching to be done in controller (home page)
-			createDynamicRoute(app, routeName, page.route, page.controller);
+			createDynamicRoute(app, '*.' + routeName, page.route, page.controller);
 
 		}
 
 	});
 };
 
-function getLangNav (lang) {
-
-	invariant(lang, "No Language provided");
-	invariant(langNavMap[lang], "No Language found for " + lang);
-
-	return langNavMap[lang];
-}
 
 
 
@@ -109,10 +107,18 @@ function languageRouteRedirect(req, res, next) {
 		var routeName = findRouteNameForLang(oldLang, currentLang, currentRouteName);
 		
 		if(routeName) {
-			var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
-			console.log('redirecting from ' + currentRouteName + ' to ' + routeName);
-			res.redirect(redirectUrl);
-			return;
+
+			if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
+				&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
+				
+				var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
+				console.log('REDIRECT', currentRouteName + ' to ' + routeName);
+				res.redirect(redirectUrl);
+				return;
+			} else {
+				//no localised route for the content
+				exports.flashContentUnavailable(req);
+			}
 		}
 	} else {
 
@@ -125,7 +131,7 @@ function languageRouteRedirect(req, res, next) {
 			res.locals.siteLanguage = routeLang;
 			res.cookie('lang', routeLang, { maxAge: 900000, httpOnly: true });
 			
-			//HACK: (is it?) redo the nav
+			//HACK: (is it?) redo the nav for the new langauge
 			res.locals.navLinks = getLangNav(currentLang);
 		}
 	} 
@@ -134,14 +140,24 @@ function languageRouteRedirect(req, res, next) {
 }
 
 
+
+function getLangNav (lang) {
+
+	invariant(lang, "No Language provided");
+	invariant(langNavMap[lang], "No Language found for " + lang);
+
+	return langNavMap[lang];
+}
+
 function createDynamicRoute(app, routeName, routePath, controller) {
-	console.log('creating route for ' + routeName); 
+	console.log('DYNAMIC ROUTE', routeName); 
 	app.get(routePath, routeName, languageRouteRedirect, controller);
 }
 
 
 function createStaticRoute(app, routeName, routePath, template, section) {
 
+	console.log('STATIC ROUTE', routeName + ' (with template: ' + template + ')'); 
 	app.get(routePath, routeName, languageRouteRedirect, function (req, res) {
 		var view = new keystone.View(req, res);
 		var locals = res.locals;
@@ -157,15 +173,30 @@ function createStaticRoute(app, routeName, routePath, template, section) {
 
 function findRouteNameForLang (oldLang, newLang, langRouteName) {
 	//this basically just switches the 
+	var redirectRouteName;
 	var routeSplit = langRouteName.split('.');
-	var routeLang = routeSplit.shift();
-	routeSplit.unshift(newLang)
-	var redirectRouteName = routeSplit.join('.');
+
+	if('*' === routeSplit[0]) {
+		//this is an all language match, return no route
+		redirectRouteName = null;
+	} else {
+		var routeLang = routeSplit.shift();
+		routeSplit.unshift(newLang)
+		redirectRouteName = routeSplit.join('.');
+	}
+
 	return redirectRouteName;
 }
 
 function getLangFromRouteName (langRouteName) {
 	var routeSplit = langRouteName.split('.');
-	var routeLang = routeSplit.shift();
+	var routeLang;
+
+	if('*' === routeLang) {
+		routeLang = null;
+	} else {
+		routeLang = routeSplit.shift();
+	}
+	
 	return routeLang;
 }
