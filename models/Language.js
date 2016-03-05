@@ -6,15 +6,15 @@ var keystone = require('keystone');
  */
 
 var Language = new keystone.List('Language', {
-	autokey: { from: 'name', path: 'key', unique: true }
+	autokey: { from: 'languageKey', path: 'key', unique: true }
 });
 
 Language.add({
-	languageKey: { type: String, required: true, unique: true, initial: false },
-	name: { type: String, required: true, initial: false }
+	name: { type: String, required: true, initial: true },
+	languageKey: { type: String, required: true, unique: true, initial: true },
 });
 
-Language.defaultColumns = 'name, languageKey|20%';
+Language.defaultColumns = 'name, languageKey|20%, key';
 
 // Language.relationship({ ref: 'Post', path: 'language' });
 // Language.relationship({ ref: 'Page', path: 'language' });

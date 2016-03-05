@@ -44,7 +44,8 @@ function generateRoutes (app) {
 	var languages = ['en', 'de'];
 
 	_(langRouteMap).each(function (page, routeName) {
-		// console.log(routeName);
+		//consider adding other methods..
+		var routeFn = page.all ? app.all.bind(app) : app.get.bind(app);
 		
 		invariant((typeof page.section !== 'undefined'), "Page section required, can be null");
 
@@ -52,22 +53,21 @@ function generateRoutes (app) {
 			_(languages).each(function (lang) { 
 				var langPage = page.languages[lang];
 				var langRouteName = lang + '.' + routeName;
-				
+
 				if (!langPage)
-					return;
+					return; //?
 
 				invariant(langPage.route, "Each language requires a route to be specified");
 				
-				
 				if (page.controller) {
-					createDynamicRoute(app, langRouteName, langPage.route, page.controller);
+					createDynamicRoute(routeFn, langRouteName, langPage.route, page.controller);
 				} else if (page.templatePrefix) {
 					var template = page.templatePrefix + '-' + lang;
-					createStaticRoute(app, langRouteName, langPage.route, template, page.section)
+					createStaticRoute(routeFn, langRouteName, langPage.route, template, page.section)
 				
 				} else {
 					invariant(page.sharedTemplate, "If no controller is passed then either a templatePrefix or a sharedTemplate is expected");
-					createStaticRoute(app, langRouteName, langPage.route, page.sharedTemplate, page.section)
+					createStaticRoute(routeFn, langRouteName, langPage.route, page.sharedTemplate, page.section)
 				}
 			});
 		} else {
@@ -75,7 +75,7 @@ function generateRoutes (app) {
 
 
 			//allows all language switching to be done in controller (home page)
-			createDynamicRoute(app, '*.' + routeName, page.route, page.controller);
+			createDynamicRoute(routeFn, '*.' + routeName, page.route, page.controller);
 
 		}
 
@@ -149,16 +149,16 @@ function getLangNav (lang) {
 	return langNavMap[lang];
 }
 
-function createDynamicRoute(app, routeName, routePath, controller) {
+function createDynamicRoute(routeFn, routeName, routePath, controller) {
 	console.log('DYNAMIC ROUTE', routeName); 
-	app.get(routePath, routeName, languageRouteRedirect, controller);
+	routeFn(routePath, routeName, languageRouteRedirect, controller);
 }
 
 
-function createStaticRoute(app, routeName, routePath, template, section) {
+function createStaticRoute(routeFn, routeName, routePath, template, section) {
 
 	console.log('STATIC ROUTE', routeName + ' (with template: ' + template + ')'); 
-	app.get(routePath, routeName, languageRouteRedirect, function (req, res) {
+	routeFn(routePath, routeName, languageRouteRedirect, function (req, res) {
 		var view = new keystone.View(req, res);
 		var locals = res.locals;
 
