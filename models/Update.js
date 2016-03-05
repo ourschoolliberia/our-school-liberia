@@ -33,11 +33,11 @@ Update.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 
-// Update.schema.post('save', function (next) {
-// 	console.log('this will update the linked translation to link back to this Update');
+Update.schema.post('save', function (next) {
+	console.log('this will update the linked translation to link back to this Update');
 
-// 	next()
-// })
+	next()
+})
 
 Update.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Update.register();

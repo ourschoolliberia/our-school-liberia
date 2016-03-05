@@ -15,11 +15,11 @@ FinancialReport.add({
 	year: { type: Types.Name, required: true, default: '', initial: true },
 	// report: { 
 	// 	type: Types.S3File,
-	// 	s3path: '/data/financialreports',
+	// 	s3path: 'data/financialreports',
 	// 	// allowedTypes: ['pdf'],
-	// 	filename: function(item, filename) {
-	// 		return 'test.pdf';
-	// 	}
+	// 	// filename: function(item, filename) {
+	// 	// 	return 'test.pdf';
+	// 	// }
 	// },
 });
 
