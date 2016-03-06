@@ -1,0 +1,3 @@
+mixin buildRoute(routeName, params, text)
+	a(href=url(getLocale() + '.' + routeName, params))= text
+

@@ -34,6 +34,7 @@ exports = module.exports = function(req, res) {
 
 	// if the post loaded is in another language, fetch the translation 
 	// for the current language
+	// 
 	// TODO:Currently it's 1:1 but could be many to one quite easily 
 	//		and just pick the one that matches the current langauge
 	view.on('init', function (next) { 
