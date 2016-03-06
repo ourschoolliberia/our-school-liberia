@@ -3,8 +3,7 @@ var langRouter = require('../langRouter');
 
 exports = module.exports = function(req, res) {
 	
-	debugger;
-
+	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	
 	// Set locals
@@ -17,11 +16,6 @@ exports = module.exports = function(req, res) {
 		posts: []
 	};
 	
-
-
-	// function doView() {
-// console.log('WHAT THE FUX0R');
-	var view = new keystone.View(req, res);
 		
 	// // Load the current post
 	view.on('init', function(next) {
@@ -34,24 +28,24 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			locals.data.post = result;
 			next();
-			// doView();
 		});
-
-			
 	});
-		
+
+
+	// if the post loaded is in another language, fetch the translation 
+	// for the current language
+	// TODO:Currently it's 1:1 but could be many to one quite easily 
+	//		and just pick the one that matches the current langauge
 	view.on('init', function (next) { 
-		//if the post loaded is from another language
-		//fetch the translation for the current language
-		//TODO: Currently it's 1:1 but could be many to one quite easily
-		if(locals.language !== locals.data.post.language.languageKey) {
 			
+		if(locals.language !== locals.data.post.language.languageKey) {
 			if(locals.data.post.translation) {
 				req.params.post = locals.data.post.translation.slug;
-				debugger;
-				console.log("Breaking");
 				langRouter.redirectToLocalisedRoute(req, res, next);
 				return;
+			} else {
+				//no translation
+				langRouter.flashContentUnavailable(req);
 			}
 		}
 		next();

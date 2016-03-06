@@ -134,6 +134,7 @@ exports.redirectToLocalisedRoute = function (req, res, next) {
 			res.redirect(redirectUrl);
 			return;
 		} else {
+
 			//no localised route for the content
 			exports.flashContentUnavailable(req);
 			if('function' === typeof next) {
