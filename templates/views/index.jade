@@ -2,8 +2,12 @@ extends ../layouts/default
 
 block content
 	.container
-		img.heroimage(src='/images/hero@2x.jpg')
+		img.heroimage.hidden-xs(src='/images/hero@2x.jpg')
+		img.heroimage.visible-xs(src='/images/hero@2x.jpg')
 		h1.visible-xs OUR SCHOOL LIBERIA
 		h1.visible-sm OUR SCHOOL LIBERIA
 		h1.visible-md OUR SCHOOL LIBERIA
 		h1.visible-lg OUR SCHOOL LIBERIA
+		.donatenow.visible-xs DONATE NOW
+		.donatenow.visible-sm DONATE NOW
+		.donatenow.visible-lg.visible-md DONATE NOW

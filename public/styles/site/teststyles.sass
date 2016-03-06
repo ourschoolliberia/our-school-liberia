@@ -9,13 +9,19 @@ body
 	width: 100%
 	overflow-x: hidden
 
+.container
+	.visible-xs
+		top: -50px
+
 .navbar-default
 	background-color: #fff
 	border: none
 	text-transform: uppercase
+	margin-top: 30px
+	margin-bottom: 20px
 
 .navbar-nav > li > a
-	letter-spacing: 3px
+	letter-spacing: 0px
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
 	background: #fff
@@ -23,28 +29,95 @@ body
 	font-weight: bold
 
 .dropdown-menu
-    padding: 10px 0
-    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.175)
-    background-clip: padding-box
-    border: 1px solid #ddd
+	padding: 10px 0
+	box-shadow: 0 4px 0px rgba(0, 0, 0, 0.175)
+	background-clip: padding-box
+	border: 1px solid #ddd
 
 .heroimage
-    width: 110%
-    margin-top: -10px
-    left: 50%
-    margin-left: -55%
-    position: relative
-    @media screen and (min-width: 1024px)
-	    max-width: 1024px
-	    left: 50% 
-	    margin-left: -512.5px
+	width: 110%
+	margin-top: -10px
+	left: 50%
+	margin-left: -55%
+	position: relative
+	@media screen and (min-width: 1024px)
+		max-width: 1024px
+		left: 50% 
+		margin-left: -512.5px
+	&.visible-xs
+		width: 160%
+		margin-top: -10px
+		left: 50%
+		margin-left: -80%
+		position: relative
+
 
 h1
 	position: relative
 	margin-top: -60%
 	margin-bottom: 60%
-	font-weight: 500
+	font-weight: 600
 	font-size: 4em
 	text-align: center
 	color: #fff
+	&.visible-lg
+		top: 150px
+		font-size: 5em
+	&.visible-md
+		font-size: 5em
+		top: 30px
+	&.visible-sm
+		top: 35px
+	&.visible-xs
+		font-size: 3.5em
+		margin-top: -80%
+		margin-bottom: 80%
+
+.navbar-toggle
+	margin-top: -32px
+
+.donatenow
+	&.visible-ld, &.visible-md
+		position: relative
+		background-color: #edbe36
+		width: 50%
+		left: 50%
+		margin-left: -25%
+		text-align: center
+		padding: 30px
+		top: 0%
+		margin-top: -123px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 30px
+		font-family: "Open Sans"
+	&.visible-sm
+		position: relative
+		background-color: #edbe36
+		width: 50%
+		left: 50%
+		margin-left: -25%
+		text-align: center
+		padding: 30px
+		top: 0%
+		margin-top: -113px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 30px
+		font-family: "Open Sans"
+	&.visible-xs
+		position: relative
+		background-color: #edbe36
+		width: 120%
+		left: 50%
+		margin-left: -60%
+		text-align: center
+		padding: 30px
+		top: 0%
+		margin-top: -163px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 30px
+		font-family: "Open Sans"
+
 
