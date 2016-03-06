@@ -106,7 +106,7 @@ module.exports = {
 	},
 	'news.updates:post': {
 		section: 'news',
-		controller: routes.views.updates,
+		controller: routes.views.update,
 		languages: {
 			'en': {
 				route: '/news/updates/:post'

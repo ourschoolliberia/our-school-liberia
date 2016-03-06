@@ -30,7 +30,7 @@ function initLanguage (req, res, next) {
 		if(oldLanguage != currentLanguage) {
 			req.i18n.setLocale(currentLanguage);
 			res.cookie('lang', currentLanguage, { maxAge: 900000, httpOnly: true });
-			res.locals.langaugeSwitch = true;
+			res.locals.languageSwitch = true;
 			res.locals.oldLanguage = oldLanguage;
 		}
 	} 
@@ -45,7 +45,7 @@ function generateRoutes (app) {
 
 	_(langRouteMap).each(function (page, routeName) {
 		//consider adding other methods..
-		var routeFn = page.all ? app.all.bind(app) : app.get.bind(app);
+		var routeFn = page.method && 'function' === typeof app[page.method] ? app[page.method].bind(app) : app.get.bind(app);
 		
 		invariant((typeof page.section !== 'undefined'), "Page section required, can be null");
 
@@ -98,33 +98,12 @@ function generateRoutes (app) {
 function languageRouteRedirect(req, res, next) {
 	var currentLang = req.i18n.getLocale();
 	
-	if(res.locals.langaugeSwitch) {
-		// redirect to the localised route;
-		var oldLang = res.locals.oldLanguage;
-		var currentRouteName = req.route.name;
-		var redirectUrl;
-
-		var routeName = findRouteNameForLang(oldLang, currentLang, currentRouteName);
-		
-		if(routeName) {
-
-			if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
-				&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
-				
-				var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
-				console.log('REDIRECT', currentRouteName + ' to ' + routeName);
-				res.redirect(redirectUrl);
-				return;
-			} else {
-				//no localised route for the content
-				exports.flashContentUnavailable(req);
-			}
-		}
+	if(res.locals.languageSwitch) {
+		exports.redirectToLocalisedRoute(req, res, next);
 	} else {
 
 		//if the route browsed to is from another language lets insist we're in that language
 		//but only if we're not currently changing language...
-
 		var routeLang = getLangFromRouteName(req.route.name)
 		if(routeLang && routeLang !== currentLang) {
 			req.i18n.setLocale(routeLang);
@@ -134,9 +113,38 @@ function languageRouteRedirect(req, res, next) {
 			//HACK: (is it?) redo the nav for the new langauge
 			res.locals.navLinks = getLangNav(currentLang);
 		}
+		next();
 	} 
 
-	next();
+}
+
+exports.redirectToLocalisedRoute = function (req, res, next) {
+	// redirect to the localised route;
+	var currentRouteName = req.route.name;
+	var redirectUrl;
+	var routeName = findRouteNameForLang(req.i18n.getLocale(), currentRouteName);
+	
+	if(routeName) {
+
+		if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
+			&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
+			
+			var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
+			console.log('REDIRECT', currentRouteName + ' to ' + routeName);
+			res.redirect(redirectUrl);
+
+			if('function' === typeof next) {
+				next('redirect');
+			}
+			return;
+		} else {
+			//no localised route for the content
+			exports.flashContentUnavailable(req);
+			if('function' === typeof next) {
+				next();
+			}
+		}
+	}
 }
 
 
@@ -151,14 +159,14 @@ function getLangNav (lang) {
 
 function createDynamicRoute(routeFn, routeName, routePath, controller) {
 	console.log('DYNAMIC ROUTE', routeName); 
-	routeFn(routePath, routeName, languageRouteRedirect, controller);
+	routeFn(routePath, routeName, [languageRouteRedirect, controller]);
 }
 
 
 function createStaticRoute(routeFn, routeName, routePath, template, section) {
 
 	console.log('STATIC ROUTE', routeName + ' (with template: ' + template + ')'); 
-	routeFn(routePath, routeName, languageRouteRedirect, function (req, res) {
+	routeFn(routePath, routeName, [languageRouteRedirect, function (req, res) {
 		var view = new keystone.View(req, res);
 		var locals = res.locals;
 
@@ -168,10 +176,10 @@ function createStaticRoute(routeFn, routeName, routePath, template, section) {
 		
 		// Render the view to the template
 		view.render(template);
-	});
+	}]);
 }
 
-function findRouteNameForLang (oldLang, newLang, langRouteName) {
+function findRouteNameForLang (newLang, langRouteName) {
 	//this basically just switches the 
 	var redirectRouteName;
 	var routeSplit = langRouteName.split('.');
