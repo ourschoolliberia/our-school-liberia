@@ -1,3 +1,29 @@
 @import "bourbon/bourbon"
 
-.container
+@include font-face("Open Sans", "../fonts/fonts/source-sans-pro/Light/OpenSans-Light", light)
+@include font-face("Open Sans", "../fonts/fonts/source-sans-pro/Regular/OpenSans-Regular", normal)
+@include font-face("Open Sans", "../fonts/fonts/source-sans-pro/Bold/OpenSans-Bold", bold)
+
+body
+	font-family: "Open Sans"
+
+.navbar-default
+	background-color: #fff
+	border: none
+	text-transform: uppercase
+	margin-top: 30px
+
+.navbar-nav > li > a
+	letter-spacing: 3px
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+	background: #fff
+	color: #2d6895
+	font-weight: bold
+
+.dropdown-menu
+    padding: 10px 0
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.175)
+    background-clip: padding-box
+    border: 1px solid #ddd
+
