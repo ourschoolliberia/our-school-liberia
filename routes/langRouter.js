@@ -132,10 +132,6 @@ exports.redirectToLocalisedRoute = function (req, res, next) {
 			var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
 			console.log('REDIRECT', currentRouteName + ' to ' + routeName);
 			res.redirect(redirectUrl);
-
-			if('function' === typeof next) {
-				next('redirect');
-			}
 			return;
 		} else {
 			//no localised route for the content
