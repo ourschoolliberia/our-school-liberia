@@ -36,6 +36,7 @@ module.exports = {
 	// 		},
 	// 	}
 	// },
+	
 	'about.whatwedo' : {
 		section: 'about',
 		controller: false,
@@ -44,9 +45,9 @@ module.exports = {
 			'en': {
 				route: '/about/what-we-do',
 			},
-			// 'de': {
-			// 	route: '/etwa/vhat-ve-do',
-			// },
+			'de': {
+				route: '/etwa/vhat-ve-do',
+			},
 		}
 	},
 	'about.wherewework' : {
@@ -59,6 +60,34 @@ module.exports = {
 			},
 			'de': {
 				route: '/etwa/wo-wir-arbeiten',
+			},
+		}
+	},
+
+	'about.ourteam' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-ourteam',
+		languages: {
+			'en': {
+				route: '/about/our-team',
+			},
+			'de': {
+				route: '/etwa/unser-team',
+			},
+		}
+	},
+
+	'about.ourstudents' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-ourstudents',
+		languages: {
+			'en': {
+				route: '/about/our-students',
+			},
+			'de': {
+				route: '/etwa/unser-studenten',
 			},
 		}
 	},
@@ -98,5 +127,11 @@ module.exports = {
 				route: '/newsen/updaten/category/:category'
 			}
 		}
-	}
+	},
+	'contact': {
+		controller: routes.views.contact,
+		section: 'contact',
+		route: '/contact',
+		method: 'all'
+	},
 }
