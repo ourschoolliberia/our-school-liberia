@@ -5822,7 +5822,8 @@ button.close {
     display: none !important; } }
 
 #header {
-  margin-top: 30px; }
+  margin-top: 30px;
+  color: red; }
 
 #footer {
   margin-top: 30px;
@@ -5834,3 +5835,137 @@ button.close {
   display: block;
   max-width: 100%;
   height: auto; }
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: light;
+  src: url("../public/fonts/fonts/source-sans-pro/Light/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("../public/fonts/fonts/source-sans-pro/Light/OpenSans-Light.woff2") format("woff2"), url("../public/fonts/fonts/source-sans-pro/Light/OpenSans-Light.woff") format("woff"), url("../public/fonts/fonts/source-sans-pro/Light/OpenSans-Light.ttf") format("truetype"), url("../public/fonts/fonts/source-sans-pro/Light/OpenSans-Light.svg#Open Sans") format("svg"); }
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/fonts/source-sans-pro/Regular/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("../public/fonts/fonts/source-sans-pro/Regular/OpenSans-Regular.woff2") format("woff2"), url("../public/fonts/fonts/source-sans-pro/Regular/OpenSans-Regular.woff") format("woff"), url("../public/fonts/fonts/source-sans-pro/Regular/OpenSans-Regular.ttf") format("truetype"), url("../public/fonts/fonts/source-sans-pro/Regular/OpenSans-Regular.svg#Open Sans") format("svg"); }
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/fonts/source-sans-pro/Bold/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../public/fonts/fonts/source-sans-pro/Bold/OpenSans-Bold.woff2") format("woff2"), url("../public/fonts/fonts/source-sans-pro/Bold/OpenSans-Bold.woff") format("woff"), url("../public/fonts/fonts/source-sans-pro/Bold/OpenSans-Bold.ttf") format("truetype"), url("../public/fonts/fonts/source-sans-pro/Bold/OpenSans-Bold.svg#Open Sans") format("svg"); }
+
+body {
+  font-family: "Open Sans";
+  width: 100%;
+  overflow-x: hidden; }
+
+.container .visible-xs {
+  top: -50px; }
+
+.navbar-default {
+  background-color: #fff;
+  border: none;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 20px; }
+
+.navbar-nav > li > a {
+  letter-spacing: 0px; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background: #fff;
+  color: #2d6895;
+  font-weight: bold; }
+
+.dropdown-menu {
+  padding: 10px 0;
+  box-shadow: 0 4px 0px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  border: 1px solid #ddd; }
+
+.heroimage {
+  width: 110%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -55%;
+  position: relative; }
+  @media screen and (min-width: 1024px) {
+    .heroimage {
+      max-width: 1024px;
+      left: 50%;
+      margin-left: -512.5px; } }
+  .heroimage.visible-xs {
+    width: 160%;
+    margin-top: -10px;
+    left: 50%;
+    margin-left: -80%;
+    position: relative; }
+
+h1 {
+  position: relative;
+  margin-top: -60%;
+  margin-bottom: 60%;
+  font-weight: 600;
+  font-size: 4em;
+  text-align: center;
+  color: #fff; }
+  h1.visible-lg {
+    top: 150px;
+    font-size: 5em; }
+  h1.visible-md {
+    font-size: 5em;
+    top: 30px; }
+  h1.visible-sm {
+    top: 35px; }
+  h1.visible-xs {
+    font-size: 3.5em;
+    margin-top: -80%;
+    margin-bottom: 80%; }
+
+.navbar-toggle {
+  margin-top: -32px; }
+
+.donatenow.visible-ld, .donatenow.visible-md {
+  position: relative;
+  background-color: #edbe36;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  text-align: center;
+  padding: 30px;
+  top: 0%;
+  margin-top: -123px;
+  border: 6px solid #FFF;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Open Sans"; }
+
+.donatenow.visible-sm {
+  position: relative;
+  background-color: #edbe36;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  text-align: center;
+  padding: 30px;
+  top: 0%;
+  margin-top: -113px;
+  border: 6px solid #FFF;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Open Sans"; }
+
+.donatenow.visible-xs {
+  position: relative;
+  background-color: #edbe36;
+  width: 120%;
+  left: 50%;
+  margin-left: -60%;
+  text-align: center;
+  padding: 30px;
+  top: 0%;
+  margin-top: -163px;
+  border: 6px solid #FFF;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Open Sans"; }
