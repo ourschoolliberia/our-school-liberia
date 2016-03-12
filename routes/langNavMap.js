@@ -82,17 +82,17 @@ module.exports = {
 				"updates": {
 					"label": "Updates",
 					"key": "news-updates",
-					"href": "/news/updates"
+					"href": "/newsen/updaten"
 				},
 				"press": {
 					"label": "Press",
 					"key": "news-press",
-					"href": "/news/press"
+					"href": "/newsen/pressen"
 				},
 				"videos": {
 					"label": "Videos",
 					"key": "news-videos",
-					"href": "/news/videos"
+					"href": "/newsen/videosen"
 				}
 			}
 		},

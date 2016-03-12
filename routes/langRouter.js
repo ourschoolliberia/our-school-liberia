@@ -16,6 +16,33 @@ exports.flashContentUnavailable = function (req) {
 	req.flash('info', "Sorry but this content is not yet available in the selected language")
 }
 
+exports.redirectToLocalisedRoute = function (req, res, next) {
+	// redirect to the localised route;
+	var currentRouteName = req.route.name;
+	var redirectUrl;
+	var routeName = findRouteNameForLang(req.i18n.getLocale(), currentRouteName);
+	
+	if(routeName) {
+
+		if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
+			&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
+			
+			var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
+			console.log('REDIRECT', currentRouteName + ' to ' + routeName);
+			res.redirect(redirectUrl);
+			return;
+		} else {
+
+			//no localised route for the content
+			exports.flashContentUnavailable(req);
+			if('function' === typeof next) {
+				next();
+			}
+		}
+	} else {
+		next();
+	}
+}
 
 function initLanguage (req, res, next) {
 	var oldLanguage, currentLanguage;
@@ -24,6 +51,7 @@ function initLanguage (req, res, next) {
 	oldLanguage = currentLanguage = req.i18n.getLocale();
 	
 	console.log("we're in: ", currentLanguage);
+	debugger;
 	if(req.query.setlanguage) {
 		currentLanguage = req.query.setlanguage;
 
@@ -55,7 +83,7 @@ function generateRoutes (app) {
 				var langRouteName = lang + '.' + routeName;
 
 				if (!langPage)
-					return; //?
+					return; //No entry for this langauge on this page..??
 
 				invariant(langPage.route, "Each language requires a route to be specified");
 				
@@ -118,31 +146,6 @@ function languageRouteRedirect(req, res, next) {
 
 }
 
-exports.redirectToLocalisedRoute = function (req, res, next) {
-	// redirect to the localised route;
-	var currentRouteName = req.route.name;
-	var redirectUrl;
-	var routeName = findRouteNameForLang(req.i18n.getLocale(), currentRouteName);
-	
-	if(routeName) {
-
-		if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
-			&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
-			
-			var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
-			console.log('REDIRECT', currentRouteName + ' to ' + routeName);
-			res.redirect(redirectUrl);
-			return;
-		} else {
-
-			//no localised route for the content
-			exports.flashContentUnavailable(req);
-			if('function' === typeof next) {
-				next();
-			}
-		}
-	}
-}
 
 
 
@@ -197,7 +200,7 @@ function getLangFromRouteName (langRouteName) {
 	var routeSplit = langRouteName.split('.');
 	var routeLang;
 
-	if('*' === routeLang) {
+	if('*' === routeSplit) {
 		routeLang = null;
 	} else {
 		routeLang = routeSplit.shift();
