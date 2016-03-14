@@ -1,16 +1,33 @@
 extends ../layouts/default
 
 block content
-	.container
-		img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
-		img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
-		img.heroimage.hidden-xs(src='/images/hero@2x.png')
-		img.heroimage.visible-xs(src='/images/hero@2x.png')
-		h1.visible-xs OUR SCHOOL LIBERIA
-		h1.visible-sm OUR SCHOOL LIBERIA
-		h1.visible-md OUR SCHOOL LIBERIA
-		h1.visible-lg OUR SCHOOL LIBERIA
-		.donatenow.visible-xs DONATE NOW
-		.donatenow.visible-sm DONATE NOW
-		.donatenow.visible-lg.visible-md DONATE NOW
-	.aboutnow-prev
+	.intro-container
+		.container
+			img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
+			img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
+			img.heroimage.hidden-xs(src='/images/hero@2x.png')
+			img.heroimage.visible-xs(src='/images/hero@2x.png')
+			h1.visible-xs OUR SCHOOL LIBERIA
+			h1.visible-sm OUR SCHOOL LIBERIA
+			h1.visible-md OUR SCHOOL LIBERIA
+			h1.visible-lg OUR SCHOOL LIBERIA
+			.donatenow.visible-xs DONATE NOW
+				span.glyphicon.glyphicon-chevron-right
+			.donatenow.visible-sm DONATE NOW
+				span.glyphicon.glyphicon-chevron-right
+			.donatenow.visible-lg.visible-md DONATE NOW
+				span.glyphicon.glyphicon-chevron-right
+		.aboutnow-prev.visible-xs.visible-sm
+			h2 ABOUT OUR SCHOOL
+			p.aboutnow-prev-p
+				Our school was founded in January 2006 in Monrovia, capital of Liberia. We have made it our goal to build a school for disadvantaged children, who lack financial resources. We want to get an education and provide an opportunity to these children despite this difficult situation...
+				br
+				br
+				<a href="#">READ MORE</a>
+		.aboutnow-prev.visible-md.visible-lg
+			h2 ABOUT OUR SCHOOL
+			p.aboutnow-prev-p
+				Our school was founded in January 2006 in Monrovia, capital of Liberia. We have made it our goal to build a school for disadvantaged children, who lack financial resources. We want to get an education and provide an opportunity to these children despite this difficult situation...
+				br
+				br
+				<a href="#">READ MORE</a>
