@@ -5884,21 +5884,22 @@ body {
   border: 1px solid #ddd; }
 
 .heroimage {
-  width: 110%;
-  margin-top: -10px;
+  width: 50%;
+  margin-top: 10px;
   left: 50%;
-  margin-left: -55%;
+  margin-left: -25%;
   position: relative; }
   @media screen and (min-width: 1024px) {
     .heroimage {
-      max-width: 1024px;
+      max-width: 400px;
       left: 50%;
-      margin-left: -512.5px; } }
+      margin-left: -200px;
+      top: 10px; } }
   .heroimage.visible-xs {
-    width: 160%;
-    margin-top: -10px;
+    width: 60%;
+    margin-top: 90px;
     left: 50%;
-    margin-left: -80%;
+    margin-left: -30%;
     position: relative; }
 
 h1 {
@@ -5938,7 +5939,8 @@ h1 {
   border: 6px solid #FFF;
   color: #fff;
   font-size: 30px;
-  font-family: "Open Sans"; }
+  font-family: "Open Sans";
+  margin-bottom: -60px; }
 
 .donatenow.visible-sm {
   position: relative;
@@ -5953,7 +5955,8 @@ h1 {
   border: 6px solid #FFF;
   color: #fff;
   font-size: 30px;
-  font-family: "Open Sans"; }
+  font-family: "Open Sans";
+  margin-bottom: -57px; }
 
 .donatenow.visible-xs {
   position: relative;
@@ -5969,3 +5972,8 @@ h1 {
   color: #fff;
   font-size: 30px;
   font-family: "Open Sans"; }
+
+#body {
+  background-color: #8fc1e5;
+  background-image: -webkit-radial-gradient(#8fc1e5, #4682ad);
+  background-image: radial-gradient(  #8fc1e5, #4682ad); }

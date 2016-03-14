@@ -35,20 +35,21 @@ body
 	border: 1px solid #ddd
 
 .heroimage
-	width: 110%
-	margin-top: -10px
+	width: 50%
+	margin-top: 10px
 	left: 50%
-	margin-left: -55%
+	margin-left: -25%
 	position: relative
 	@media screen and (min-width: 1024px)
-		max-width: 1024px
-		left: 50% 
-		margin-left: -512.5px
-	&.visible-xs
-		width: 160%
-		margin-top: -10px
+		max-width: 400px
 		left: 50%
-		margin-left: -80%
+		margin-left: -200px
+		top: 10px
+	&.visible-xs
+		width: 60%
+		margin-top: 90px
+		left: 50%
+		margin-left: -30%
 		position: relative
 
 
@@ -91,6 +92,7 @@ h1
 		color: #fff
 		font-size: 30px
 		font-family: "Open Sans"
+		margin-bottom: -60px
 	&.visible-sm
 		position: relative
 		background-color: #edbe36
@@ -105,6 +107,7 @@ h1
 		color: #fff
 		font-size: 30px
 		font-family: "Open Sans"
+		margin-bottom: -57px
 	&.visible-xs
 		position: relative
 		background-color: #edbe36
@@ -120,4 +123,6 @@ h1
 		font-size: 30px
 		font-family: "Open Sans"
 
+#body
+	@include radial-gradient(#8fc1e5, #4682ad)
 
