@@ -6058,3 +6058,75 @@ p.aboutnow-prev-p {
 .read-more-arrow {
   width: 11px;
   margin-left: 6px; }
+
+.icon.visible-lg.fb, .icon.visible-md.fb {
+  position: absolute;
+  width: 50px;
+  left: 40px;
+  top: 190px; }
+
+.icon.visible-lg.li, .icon.visible-md.li {
+  position: absolute;
+  top: 193px;
+  width: 45px;
+  left: 93px; }
+
+.icon.visible-lg.vm, .icon.visible-md.vm {
+  position: absolute;
+  top: 193px;
+  width: 45px;
+  left: 147px; }
+
+.icon.visible-lg.yt, .icon.visible-md.yt {
+  position: absolute;
+  top: 193px;
+  width: 45px;
+  left: 202px; }
+
+.icon.visible-sm.fb {
+  position: absolute;
+  width: 50px;
+  left: 40px;
+  top: 220px; }
+
+.icon.visible-sm.li {
+  position: absolute;
+  top: 223px;
+  width: 45px;
+  left: 93px; }
+
+.icon.visible-sm.vm {
+  position: absolute;
+  top: 223px;
+  width: 45px;
+  left: 147px; }
+
+.icon.visible-sm.yt {
+  position: absolute;
+  top: 223px;
+  width: 45px;
+  left: 202px; }
+
+.icon.visible-xs.fb {
+  position: absolute;
+  width: 40px;
+  left: 20px;
+  top: 150px; }
+
+.icon.visible-xs.li {
+  position: absolute;
+  top: 194px;
+  width: 35px;
+  left: 23px; }
+
+.icon.visible-xs.vm {
+  position: absolute;
+  top: 236px;
+  width: 35px;
+  left: 23px; }
+
+.icon.visible-xs.yt {
+  position: absolute;
+  top: 281px;
+  width: 35px;
+  left: 24px; }
