@@ -1,8 +1,11 @@
 @import "bourbon/bourbon"
 
-@include font-face("Open Sans", "../public/fonts/fonts/source-sans-pro/Light/OpenSans-Light", light)
-@include font-face("Open Sans", "../public/fonts/fonts/source-sans-pro/Regular/OpenSans-Regular", normal)
-@include font-face("Open Sans", "../public/fonts/fonts/source-sans-pro/Bold/OpenSans-Bold", bold)
+@include font-face("Open Sans", "../fonts/fonts/Light/OpenSans-Light", light)
+@include font-face("Open Sans", "../fonts/fonts/Regular/OpenSans-Regular", normal)
+@include font-face("Open Sans", "../fonts/fonts/Bold/OpenSans-Bold", bold)
+
+$a-tags: 'a, a:active, a:hover, a:visited'
+$a-tags-hover: 'a:active, a:hover'
 
 body
 	font-family: "Open Sans"
@@ -88,7 +91,7 @@ h1
 		left: 50%
 		margin-left: -25%
 		text-align: center
-		padding: 30px
+		padding: 30px 20px 30px 0px
 		top: 0%
 		margin-top: -123px
 		border: 6px solid #FFF
@@ -96,14 +99,23 @@ h1
 		font-size: 40px
 		font-family: "Open Sans"
 		margin-bottom: -70px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 40px
+			right: 40px
 	&.visible-sm
 		position: relative
 		background-color: #edbe36
-		width: 50%
+		width: 60%
 		left: 50%
-		margin-left: -25%
+		margin-left: -30%
 		text-align: center
-		padding: 30px
+		padding: 30px 20px 30px 0px
 		top: 0%
 		margin-top: -113px
 		border: 6px solid #FFF
@@ -111,6 +123,15 @@ h1
 		font-size: 40px
 		font-family: "Open Sans"
 		margin-bottom: -57px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 40px
+			right: 40px
 	&.visible-xs
 		position: relative
 		background-color: #edbe36
@@ -118,14 +139,24 @@ h1
 		left: 50%
 		margin-left: -60%
 		text-align: center
-		padding: 30px
+		padding: 30px 20px 30px 0px
 		top: 0%
 		margin-top: -163px
 		border: 6px solid #FFF
 		color: #fff
 		font-size: 40px
 		font-family: "Open Sans"
-		
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 40px
+			right: 10%
+
+
 .intro-container
 	@include radial-gradient(#8fc1e5, #4682ad)
 
@@ -169,3 +200,14 @@ p.aboutnow-prev-p
 	text-align: center
 	color: #fff
 	padding: 0 10%
+	#{$a-tags}
+		color: #fff
+		text-decoration: underline
+	#{$a-tags-hover}
+		color: #fff
+		opacity: 0.6
+
+.read-more-arrow
+	width: 11px
+	margin-left: 6px
+
