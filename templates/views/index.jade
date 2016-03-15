@@ -11,20 +11,18 @@ block content
 			h1.visible-sm OUR SCHOOL LIBERIA
 			h1.visible-md OUR SCHOOL LIBERIA
 			h1.visible-lg OUR SCHOOL LIBERIA
-			a(href="/donate").donatenow.visible-xs DONATE NOW
-			a(href="/donate").donatenow.visible-sm DONATE NOW
-			a(href="/donate").donatenow.visible-lg.visible-md DONATE NOW
+			a(href="/donate").donatenow.visible-xs #{__('intro.donatenow')}
+			a(href="/donate").donatenow.visible-sm #{__('intro.donatenow')}
+			a(href="/donate").donatenow.visible-lg.visible-md #{__('intro.donatenow')}
 		.aboutnow-prev.visible-xs.visible-sm
-			h2 ABOUT OUR SCHOOL
-			p.aboutnow-prev-p
-				Our school was founded in January 2006 in Monrovia, capital of Liberia. We have made it our goal to build a school for disadvantaged children, who lack financial resources. We want to get an education and provide an opportunity to these children despite this difficult situation...
+			h2 #{__('intro.aboutourschool')}
+			p.aboutnow-prev-p #{__('intro.aboutourschoolprev')}
 				br
 				br
 				<a href="#">READ MORE</a>
 		.aboutnow-prev.visible-md.visible-lg
-			h2 ABOUT OUR SCHOOL
-			p.aboutnow-prev-p
-				Our school was founded in January 2006 in Monrovia, capital of Liberia. We have made it our goal to build a school for disadvantaged children, who lack financial resources. We want to get an education and provide an opportunity to these children despite this difficult situation...
+			h2 #{__('intro.aboutourschool')}
+			p.aboutnow-prev-p #{__('intro.aboutourschoolprev')}
 				br
 				br
-				<a href="/about">READ MORE #[img.read-more-arrow(src='/images/arrow@2x.png')]</a>
+				<a href="/about">#{__('intro.readmore')} #[img.read-more-arrow(src='/images/arrow@2x.png')]</a>
