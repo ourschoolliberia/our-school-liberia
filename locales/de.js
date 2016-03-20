@@ -9,7 +9,7 @@
 	},
 	"about": {
 		"wherewework": {
-			"wherewework-title": "wo-wir-arbeiten",
+			"wherewework-title": "wo wir arbeiten",
 			"maincontent": "Dies ist der Hauptinhalt"
 		}
 	},

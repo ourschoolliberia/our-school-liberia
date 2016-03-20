@@ -6131,3 +6131,96 @@ p.aboutnow-prev-p {
   width: 35px;
   left: 137px;
   margin-bottom: -220px; }
+
+.icon.visible-lg.fb, .icon.visible-md.fb {
+  position: relative;
+  width: 50px;
+  left: 0px;
+  top: -293px; }
+
+.icon.visible-lg.li, .icon.visible-md.li {
+  position: relative;
+  top: -340px;
+  width: 45px;
+  left: 56px; }
+
+.icon.visible-lg.vm, .icon.visible-md.vm {
+  position: relative;
+  top: -385px;
+  width: 45px;
+  left: 112px; }
+
+.icon.visible-lg.yt, .icon.visible-md.yt {
+  position: relative;
+  top: -429px;
+  width: 45px;
+  left: 167px; }
+
+.icon.visible-sm.fb {
+  position: relative;
+  width: 50px;
+  left: 0px;
+  top: -277px; }
+
+.icon.visible-sm.li {
+  position: relative;
+  top: -323px;
+  width: 45px;
+  left: 53px; }
+
+.icon.visible-sm.vm {
+  position: relative;
+  top: -367px;
+  width: 45px;
+  left: 107px; }
+
+.icon.visible-sm.yt {
+  position: relative;
+  top: -411px;
+  width: 45px;
+  left: 163px;
+  margin-bottom: -260px; }
+
+.icon.visible-xs.fb {
+  position: relative;
+  width: 40px;
+  left: 10px;
+  top: -220px; }
+
+.icon.visible-xs.li {
+  position: relative;
+  top: -256px;
+  width: 35px;
+  left: 53px; }
+
+.icon.visible-xs.vm {
+  position: relative;
+  top: -290px;
+  width: 35px;
+  left: 95px; }
+
+.icon.visible-xs.yt {
+  position: relative;
+  top: -324px;
+  width: 35px;
+  left: 137px;
+  margin-bottom: -250px; }
+
+h3 {
+  position: relative;
+  left: 16px;
+  font-family: "Open Sans";
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-right: 20px; }
+  h3.visible-xs, h3.visible-sm {
+    margin-bottom: 130px;
+    padding-right: 20px;
+    top: 0px !important; }
+  h3.visible-md, h3.visible-lg {
+    position: relative;
+    margin-bottom: -20px;
+    padding-right: 30px;
+    text-align: center;
+    font-size: 45px; }
