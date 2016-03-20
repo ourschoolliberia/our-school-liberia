@@ -6059,6 +6059,10 @@ p.aboutnow-prev-p {
   width: 11px;
   margin-left: 6px; }
 
+.home-icon img {
+  position: relative;
+  width: 100%; }
+
 .home-icon.visible-lg.fb, .home-icon.visible-md.fb {
   position: relative;
   width: 50px;
@@ -6081,7 +6085,8 @@ p.aboutnow-prev-p {
   position: relative;
   top: -966px;
   width: 45px;
-  left: 167px; }
+  left: 167px;
+  margin-bottom: -180px; }
 
 .home-icon.visible-sm.fb {
   position: relative;
@@ -6105,7 +6110,8 @@ p.aboutnow-prev-p {
   position: relative;
   top: -964px;
   width: 45px;
-  left: 163px; }
+  left: 163px;
+  margin-bottom: -193px; }
 
 .home-icon.visible-xs.fb {
   position: relative;
@@ -6132,27 +6138,31 @@ p.aboutnow-prev-p {
   left: 137px;
   margin-bottom: -220px; }
 
+.icon img {
+  position: relative;
+  width: 100%; }
+
 .icon.visible-lg.fb, .icon.visible-md.fb {
   position: relative;
   width: 50px;
   left: 0px;
-  top: -293px; }
+  top: -166px; }
 
 .icon.visible-lg.li, .icon.visible-md.li {
   position: relative;
-  top: -340px;
+  top: -213px;
   width: 45px;
   left: 56px; }
 
 .icon.visible-lg.vm, .icon.visible-md.vm {
   position: relative;
-  top: -385px;
+  top: -258px;
   width: 45px;
   left: 112px; }
 
 .icon.visible-lg.yt, .icon.visible-md.yt {
   position: relative;
-  top: -429px;
+  top: -302px;
   width: 45px;
   left: 167px; }
 
@@ -6160,23 +6170,23 @@ p.aboutnow-prev-p {
   position: relative;
   width: 50px;
   left: 0px;
-  top: -277px; }
+  top: -300px; }
 
 .icon.visible-sm.li {
   position: relative;
-  top: -323px;
+  top: -346px;
   width: 45px;
   left: 53px; }
 
 .icon.visible-sm.vm {
   position: relative;
-  top: -367px;
+  top: -390px;
   width: 45px;
   left: 107px; }
 
 .icon.visible-sm.yt {
   position: relative;
-  top: -411px;
+  top: -434px;
   width: 45px;
   left: 163px;
   margin-bottom: -260px; }
@@ -6214,10 +6224,16 @@ h3 {
   text-transform: uppercase;
   font-weight: bold;
   padding-right: 20px; }
-  h3.visible-xs, h3.visible-sm {
+  h3.visible-xs {
     margin-bottom: 130px;
     padding-right: 20px;
     top: 0px !important; }
+  h3.visible-sm {
+    margin-bottom: 130px;
+    padding-right: 20px;
+    top: 0px !important;
+    text-align: center;
+    font-size: 45px; }
   h3.visible-md, h3.visible-lg {
     position: relative;
     margin-bottom: -20px;

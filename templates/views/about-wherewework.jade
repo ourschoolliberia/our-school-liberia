@@ -5,7 +5,8 @@ block intro
 		.container
 			img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
 			img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
-			h3.visible-xs.visible-sm #{__('about.wherewework.wherewework-title')}
+			h3.visible-xs #{__('about.wherewework.wherewework-title')}
+			h3.visible-sm #{__('about.wherewework.wherewework-title')}
 			h3.visible-lg.visible-md #{__('about.wherewework.wherewework-title')}
 			a(target="#" href="http://www.facebook.com")
 				img.icon.fb.visible-xs(src='/images/icons/fb.png')
@@ -38,6 +39,5 @@ block intro
 block content
 	.container
 		.row: .col-sm-8.col-md-6
-			p Language is currently #{getLocale()}
 			p #{__('about.wherewework.maincontent')}
 
