@@ -15,6 +15,11 @@ var routes = {
  *
  * If the controller is set to false, it is assumed to be a static page
  * in this case the template needs to be specified.
+ *
+ * Templates are either specified as a sharedTemplate (the name of a template view)
+ * or as a templatePrefix, which will have -en -de appended on and expect that template
+ * view to exist.
+ * 
  */
 
 module.exports = {

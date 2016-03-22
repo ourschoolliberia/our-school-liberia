@@ -46,9 +46,10 @@ exports = module.exports = function(req, res) {
 				return;
 			} else {
 				//no translation
-				langRouter.flashContentUnavailable(req);
+				req.flash('info', req.i18n.__('messages.news-update-not-available'));
 			}
 		}
+
 		next();
 	});
 
@@ -56,7 +57,7 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 		
 		var q = keystone.list('Update').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
-		
+		console.log('loding other posts');
 		q.exec(function(err, results) {
 			locals.data.posts = results;
 			next(err);
@@ -66,6 +67,5 @@ exports = module.exports = function(req, res) {
 	
 	// Render the view
 	view.render('post');
-// }	
 	
 };

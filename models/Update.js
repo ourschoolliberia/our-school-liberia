@@ -33,9 +33,17 @@ Update.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 
-Update.schema.post('save', function (doc) {
-	console.log('This will update the linked translation to link back to this Update and remove any previously linked??');
+Update.schema.pre('save', function (doc, next) {
+	console.log(doc.translation);
+	console.log('Remove any references to this Update as a translation to other Updates');
+	next();
 })
+
+Update.schema.post('save', function (doc, next) {
+	console.log(doc.translation);
+	console.log('Linked translation Update back to this Update');
+})
+
 
 Update.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Update.register();

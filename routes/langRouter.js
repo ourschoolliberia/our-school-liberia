@@ -1,210 +1,274 @@
 var _ = require('underscore');
 var invariant = require('invariant');
+var i18n = require("i18n-2");
 var keystone = require('keystone');
-var middleware = require('./middleware');
 
-var langNavMap = require('./langNavMap');
-var langRouteMap = require('./langRouteMap');
+var Router = require('named-routes');
+var router = new Router();
+
+var localeNavMap = require('./localeNavMap');
+var localeRouteMap = require('./localeRouteMap');
 
 
-exports.init = function(app) {
-	app.use(initLanguage);
-	generateRoutes(app);
-}
+var LocaleRouter = {
 
-exports.flashContentUnavailable = function (req) {
-	req.flash('info', "Sorry but this content is not yet available in the selected language")
-}
+	init: function (app) {
 
-exports.redirectToLocalisedRoute = function (req, res, next) {
-	// redirect to the localised route;
-	var currentRouteName = req.route.name;
-	var redirectUrl;
-	var routeName = findRouteNameForLang(req.i18n.getLocale(), currentRouteName);
+		this.app = app.bind(app);
+
+		// Configure i18n bindings
+		i18n.expressBind(app, {
+		    // setup some locales - other locales default to en silently
+		    locales: ['en', 'de'],
+		    // change the cookie name from 'lang' to 'locale'
+		    cookieName: 'lang',
+		});
+
+		//setup named routes
+		router.extendExpress(app);
+		router.registerAppHelpers(app);
+
+		this.app.use(this.setLocaleFromCookie.bind(this));
+		this.app.use(this.setLocaleFromQueryString.bind(this));
+		this.app.use(this.setNavigationForLocale.bind(this));
+
+		this.generateRoutes();
+	},
+
+	/**
+	 * Sets the locale from the cookie if it exists
+	 */
+	setLocaleFromCookie: function (req, res, next) {
+		req.i18n.setLocaleFromCookie();
+		next();
+	},
+
+	/**
+	 * Sets locale from query string if it is passed and sets the cookie for it
+	 */
+	setLocaleFromQueryString: function (req, res, next) {
+		var oldLocale, currentLocale;
+
+		oldLocale = currentLocale = req.i18n.getLocale();
+
+		if(req.query.language) {
+			currentLocale = req.query.language;
+
+			if(oldLocale != currentLocale) {
+				this.setLocaleAndCookie(req, res, currentLocale);
+				res.locals.localeChange = true;
+				res.locals.oldLocale = oldLocale;
+			}
+		} 
+		next();
+	},
 	
-	if(routeName) {
+	/**
+	 * fetch the correct navigation for current language
+	 */
+	setNavigationForLocale: function (req, res, next) {
+		res.locals.navLinks = this.getNavigationForLocale(req.i18n.getLocale());
+		next();
+	},
 
-		if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
-			&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
+
+	/**
+	 * read through the language route map and generate the 
+	 * dynamic and static routes for each.
+	 */
+	generateRoutes: function () {
+		var languages = ['en', 'de'];
+
+		_(localeRouteMap).each((page, routeName) => {
+			var routeFn = page.method && 'function' === typeof this.app[page.method] 
+				? this.app[page.method].bind(this.app) 
+				: this.app.get.bind(this.app)
+			;
 			
-			var redirectUrl = req.app.namedRoutes.build(routeName, req.params)
-			console.log('REDIRECT', currentRouteName + ' to ' + routeName);
-			res.redirect(redirectUrl);
-			return;
-		} else {
+			invariant((typeof page.section !== 'undefined'), "Page section required, can be null");
 
-			//no localised route for the content
-			exports.flashContentUnavailable(req);
-			if('function' === typeof next) {
+			if(page.languages) {
+				_(languages).each((lang) => { 
+					var langPage = page.languages[lang];
+					var langRouteName = lang + '.' + routeName;
+
+					if (!langPage)
+						return; //No entry for this langauge on this page..??
+
+					invariant(langPage.route, "Each language requires a route to be specified");
+					
+					if (page.controller) {
+						this.createDynamicRoute(routeFn, langRouteName, langPage.route, page.controller);
+					} else if (page.templatePrefix) {
+						var template = page.templatePrefix + '-' + lang;
+						this.createStaticRoute(routeFn, langRouteName, langPage.route, template, page.section)
+					
+					} else {
+						invariant(page.sharedTemplate, "If no controller is passed then either a templatePrefix or a sharedTemplate is expected");
+						this.createStaticRoute(routeFn, langRouteName, langPage.route, page.sharedTemplate, page.section)
+					}
+				});
+			} else {
+				invariant(
+					page.controller && page.route, 
+					"If no languages are specified, a generic route and controller must be specified"
+				);
+
+				//allows all language switching to be done in controller/template (home page)
+				this.createDynamicRoute(routeFn, '*.' + routeName, page.route, page.controller);
+
+			}
+
+		});
+	},
+
+
+
+
+	/**
+	 * Middleware to run before all routes
+	 * Specified as initial handler for all generated routes as it requires access
+	 * to req.route.name
+	 *
+	 * When changing language this will redirect the page to the localised route if 
+	 * there is such a route matching in the localeRouteMap.
+	 *
+	 * When not changing language, this will ensure the locale is set to the language 
+	 * of the localised route if specified in the localeRouteMap (and update the nav)
+	 */
+	localeController: function (req, res, next) {
+			
+		if(res.locals.localeChange) {
+			this.redirectToLocalisedRoute(req, res, next);
+		} else {
+			this.setLanguageFromRoute(req, res, next);
+		} 
+
+	},
+
+	/**
+	 * Checks if a route exists for the given request in the current language;
+	 * This runs: 
+	 * 	- 	whenever the language is switched to find a seperate 
+	 * 	- 	if a view does a lookup for an alternate translation it can update the key parameter
+	 * 		and call this again to redirect.
+	 */
+	redirectToLocalisedRoute: function (req, res, next) {
+		var currentRouteName = req.route.name;
+		var redirectUrl;
+		var routeName = this.getRouteNameForLocale(req.i18n.getLocale(), currentRouteName);
+		
+		if(routeName) {
+
+			if(req.app.namedRoutes.routesByNameAndMethod[routeName] 
+				&& req.app.namedRoutes.routesByNameAndMethod[routeName][req.method.toLowerCase()]) {
+				
+				console.log('REDIRECT', currentRouteName + ' to ' + routeName);
+				redirectUrl = req.app.namedRoutes.build(routeName, req.params)
+				res.redirect(redirectUrl);
+				return;
+			} else {
+
+				//no localised route for the content
+				console.log('route not available');
+				req.flash('info', req.i18n.__('langRouter.routeNotAvailable'));
 				next();
 			}
-		}
-	} else {
-		next();
-	}
-}
-
-function initLanguage (req, res, next) {
-	var oldLanguage, currentLanguage;
-	var setLanguage = false;
-	req.i18n.setLocaleFromCookie();
-	oldLanguage = currentLanguage = req.i18n.getLocale();
-	
-	console.log("we're in: ", currentLanguage);
-	debugger;
-	if(req.query.setlanguage) {
-		currentLanguage = req.query.setlanguage;
-
-		if(oldLanguage != currentLanguage) {
-			req.i18n.setLocale(currentLanguage);
-			res.cookie('lang', currentLanguage, { maxAge: 900000, httpOnly: true });
-			res.locals.languageSwitch = true;
-			res.locals.oldLanguage = oldLanguage;
-		}
-	} 
-	
-	//fetch the correct navigation for current language
-	res.locals.navLinks = getLangNav(currentLanguage);
-	next();
-}
-
-function generateRoutes (app) {
-	var languages = ['en', 'de'];
-
-	_(langRouteMap).each(function (page, routeName) {
-		//consider adding other methods..
-		var routeFn = page.method && 'function' === typeof app[page.method] ? app[page.method].bind(app) : app.get.bind(app);
-		
-		invariant((typeof page.section !== 'undefined'), "Page section required, can be null");
-
-		if(page.languages) {
-			_(languages).each(function (lang) { 
-				var langPage = page.languages[lang];
-				var langRouteName = lang + '.' + routeName;
-
-				if (!langPage)
-					return; //No entry for this langauge on this page..??
-
-				invariant(langPage.route, "Each language requires a route to be specified");
-				
-				if (page.controller) {
-					createDynamicRoute(routeFn, langRouteName, langPage.route, page.controller);
-				} else if (page.templatePrefix) {
-					var template = page.templatePrefix + '-' + lang;
-					createStaticRoute(routeFn, langRouteName, langPage.route, template, page.section)
-				
-				} else {
-					invariant(page.sharedTemplate, "If no controller is passed then either a templatePrefix or a sharedTemplate is expected");
-					createStaticRoute(routeFn, langRouteName, langPage.route, page.sharedTemplate, page.section)
-				}
-			});
 		} else {
-			invariant(page.controller && page.route, "If no languages are specified, a generic route and controller must be specified");
+			next();
+		}
+	},
+
+	/**
+	 * if the route browsed to is from another locale than current, insist we're in that locale
+	 */
+	setLanguageFromRoute: function (req, res, next) {
+		var currentLang = req.i18n.getLocale();
+		var routeLang = this.getLocaleFromRouteName(req.route.name);
+
+		if(routeLang && routeLang !== currentLang) {
+			this.setLocaleAndCookie(req, res, currentLang);
+			
+			//HACK: (is it hacky?) 
+			//redo the nav fetch for the new langauge
+			res.locals.navLinks = this.getNavigationForLocale(currentLang);
+		}
+		next();
+	},
 
 
-			//allows all language switching to be done in controller (home page)
-			createDynamicRoute(routeFn, '*.' + routeName, page.route, page.controller);
+	setLocaleAndCookie: function (req, res, locale) {
+		req.i18n.setLocale(locale);
+		res.cookie('lang', locale, { maxAge: 900000, httpOnly: true });
+	},
 
+	getNavigationForLocale: function (locale) {
+
+		invariant(locale, "No Locale provided");
+		invariant(localeNavMap[locale], "No Locale found for " + locale);
+
+		return localeNavMap[locale];
+	},
+
+	createDynamicRoute: function (routeFn, routeName, routePath, controller) {
+		console.log('DYNAMIC ROUTE', routeName); 
+		routeFn(routePath, routeName, this.localeController.bind(this), controller);
+	},
+
+
+	createStaticRoute: function (routeFn, routeName, routePath, template, section) {
+
+		console.log('STATIC ROUTE', routeName + ' (with template: ' + template + ')'); 
+		routeFn(routePath, routeName, this.localeController.bind(this), function (req, res) {
+			var view = new keystone.View(req, res);
+			var locals = res.locals;
+
+			// locals.section is used to set the currently selected
+			// item in the header navigation.
+			locals.section = section;
+			
+			// Render the view to the template
+			view.render(template);
+		});
+	},
+
+	/**
+	 * This basically just switches the first component of the route to the new 
+	 * language, returning null for universal routes (*)
+	 */
+
+	getRouteNameForLocale: function (newLang, routeName) {
+		var redirectRouteName;
+		var routeSplit = routeName.split('.');
+
+		if('*' === routeSplit[0]) {
+			//this is an all language match, return no route
+			redirectRouteName = null;
+		} else {
+			var routeLang = routeSplit.shift();
+			routeSplit.unshift(newLang)
+			redirectRouteName = routeSplit.join('.');
 		}
 
-	});
+		return redirectRouteName;
+	},
+
+	getLocaleFromRouteName: function (langRouteName) {
+		var routeSplit = langRouteName.split('.');
+		var locale;
+
+		if('*' === routeSplit) {
+			locale = null;
+		} else {
+			locale = routeSplit.shift();
+		}
+		
+		return locale;
+	}
 };
 
 
+exports.init = LocaleRouter.init.bind(LocaleRouter);
+exports.redirectToLocalisedRoute = LocaleRouter.redirectToLocalisedRoute.bind(LocaleRouter);;
 
 
-/**
- * Middleware to run before all routes
- * Specified as a handler for all routes as it requires access to the req.route.name
- *
- * When changing language this will redirect the page to the localised route if there is such 
- * a route matching in the langRouteMap.
- *
- * When not changing language, this will ensure the locale is set to the language of the localised route
- * if specified in the langRouteMap (and update the nav)
- */
-function languageRouteRedirect(req, res, next) {
-	var currentLang = req.i18n.getLocale();
-	
-	if(res.locals.languageSwitch) {
-		exports.redirectToLocalisedRoute(req, res, next);
-	} else {
-
-		//if the route browsed to is from another language lets insist we're in that language
-		//but only if we're not currently changing language...
-		var routeLang = getLangFromRouteName(req.route.name)
-		if(routeLang && routeLang !== currentLang) {
-			req.i18n.setLocale(routeLang);
-			res.locals.siteLanguage = routeLang;
-			res.cookie('lang', routeLang, { maxAge: 900000, httpOnly: true });
-			
-			//HACK: (is it?) redo the nav for the new langauge
-			res.locals.navLinks = getLangNav(currentLang);
-		}
-		next();
-	} 
-
-}
-
-
-
-
-function getLangNav (lang) {
-
-	invariant(lang, "No Language provided");
-	invariant(langNavMap[lang], "No Language found for " + lang);
-
-	return langNavMap[lang];
-}
-
-function createDynamicRoute(routeFn, routeName, routePath, controller) {
-	console.log('DYNAMIC ROUTE', routeName); 
-	routeFn(routePath, routeName, [languageRouteRedirect, controller]);
-}
-
-
-function createStaticRoute(routeFn, routeName, routePath, template, section) {
-
-	console.log('STATIC ROUTE', routeName + ' (with template: ' + template + ')'); 
-	routeFn(routePath, routeName, [languageRouteRedirect, function (req, res) {
-		var view = new keystone.View(req, res);
-		var locals = res.locals;
-
-		// locals.section is used to set the currently selected
-		// item in the header navigation.
-		locals.section = section;
-		
-		// Render the view to the template
-		view.render(template);
-	}]);
-}
-
-function findRouteNameForLang (newLang, langRouteName) {
-	//this basically just switches the 
-	var redirectRouteName;
-	var routeSplit = langRouteName.split('.');
-
-	if('*' === routeSplit[0]) {
-		//this is an all language match, return no route
-		redirectRouteName = null;
-	} else {
-		var routeLang = routeSplit.shift();
-		routeSplit.unshift(newLang)
-		redirectRouteName = routeSplit.join('.');
-	}
-
-	return redirectRouteName;
-}
-
-function getLangFromRouteName (langRouteName) {
-	var routeSplit = langRouteName.split('.');
-	var routeLang;
-
-	if('*' === routeSplit) {
-		routeLang = null;
-	} else {
-		routeLang = routeSplit.shift();
-	}
-	
-	return routeLang;
-}

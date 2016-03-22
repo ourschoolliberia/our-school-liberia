@@ -19,12 +19,10 @@
  */
 
 var keystone = require('keystone');
-var i18n = require("i18n-2");
 var _ = require('underscore');
 var middleware = require('./middleware');
 var nav = require('./nav');
-var Router = require('named-routes');
-var router = new Router();
+
 
 var langRouter = require('./langRouter');
 var importRoutes = keystone.importer(__dirname);
@@ -42,59 +40,9 @@ keystone.pre('render', middleware.flashMessages);
 // Setup Route Bindings
 exports = module.exports = function(app) {
 
-	var langRedirect = middleware.languageChangeRedirect;
-
-	router.extendExpress(app);
-	router.registerAppHelpers(app);
-
-	// Configure i18n bindings
-	i18n.expressBind(app, {
-	    // setup some locales - other locales default to en silently
-	    locales: ['en', 'de'],
-	    // change the cookie name from 'lang' to 'locale'
-	    cookieName: 'lang',
-	});
-
 
 	langRouter.init(app);
-	
-	
-	// app.use(middleware.initStaticRoutes);
 
-
-	// nav.initStaticPageRoutes(app);
-
-	//dynamic page routes
-	// app.get('/', routes.views.index);
-
-	// app.get('/news/updates', middleware.languageRouteRedirect, routes.views.updates);
-	// app.get('/news/updates/category/:category?', middleware.languageRouteRedirect, routes.views.updates);
-	// app.get('/news/updates/:post', 'news.update.post', middleware.languageRouteRedirect, routes.views.update);
-	// app.get('/news/press', routes.views.post);
-	// app.get('/news/press/:post', routes.views.post);
-	// app.get('/news/videos', routes.views.post);
-	// app.get('/news/videos/:post', routes.views.post);
-
-	// app.get('/nachrichten/updates', routes.views.updates);
-	// app.get('/nachrichten/updates/category/:category?', routes.views.updates);
-	// app.get('/nachrichten/updates/:post', routes.views.update);
-	// app.get('/nachrichten/press', routes.views.post);
-	// app.get('/nachrichten/press/:post', routes.views.post);
-	// app.get('/nachrichten/videos', routes.views.post);
-	// app.get('/nachrichten/videos/:post', routes.views.post);
-
-
-	
-	
-	// app.get('/about', routes.views.about);
-	// app.get('/about/where-we-work', routes.views['about-wherewework']);
-	// app.get('/about/our-team', routes.views['about-ourteam']);
-	// app.get('/about/our-students', routes.views['about-ourstudents']);
-	// app.get('/about/supporters', routes.views['about-supporters']);
-	// app.get('/about/financials', routes.views['about-financials']);
-
-	// app.all('/contact', routes.views.contact);
-	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	

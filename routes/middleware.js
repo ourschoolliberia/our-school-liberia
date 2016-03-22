@@ -64,41 +64,6 @@ exports.requireUser = function(req, res, next) {
 	
 };
 
-// exports.getLanguage = function(req, res, next) {
-	
-// 	res.locals.siteLanguage = req.cookie('siteLanguage') || res.getLocale();
-// 	next();
-// }
-
-exports.initLanguage = function(req, res, next) {
-	var oldLanguage, siteLanguage;
-	req.i18n.setLocaleFromCookie();
-	oldLanguage = siteLanguage = req.i18n.getLocale();
-	
-	console.log("we're in: ", siteLanguage);
-	if(req.query.setlanguage) {
-		siteLanguage = req.query.setlanguage;
-
-		if(oldLanguage != siteLanguage) {
-			req.i18n.setLocale(siteLanguage);
-			res.cookie('lang', req.query.setlanguage, { maxAge: 900000, httpOnly: true });
-			res.locals.langaugeSwitch = true;
-			console.log('OLD: ', oldLanguage);
-			res.locals.oldLanguage = oldLanguage;
-		}
-	} 
-
-	res.locals.siteLanguage = siteLanguage;
-
-	next();
-}
-
-exports.initNav = function(req, res, next) {
-
-	//res.__ is a call to the i18n module, it retrieves the sitemap either in EN or DE pending language 
-	res.locals.navLinks = req.i18n.__('sitemapping');
-	next();
-}
 
 
 
