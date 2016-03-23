@@ -44,11 +44,10 @@ exports = module.exports = function(req, res) {
 	});
 
 
-	// Load the language filter
-	view.on('init', function(next) {
-		debugger;
-		keystone.list('Language').model.findOne({ key: req.i18n.getLocale() }).exec(function(err, result) {
-			debugger;
+	// Load the language filter (only show english if we're in en, etc)
+	view.on('init', (next) => {
+		var locale = req.i18n.getLocale();
+		keystone.list('Language').model.findOne({ key: locale }).exec(function(err, result) {
 			locals.data.language = result;
 			next(err);
 		});
@@ -71,7 +70,7 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	// Load the posts
+	// Load the posts according to filters
 	view.on('init', function(next) {
 		
 		var q = keystone.list('Update').paginate({
@@ -98,7 +97,7 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	// Render the view
+	// Render the view (string points to template under template/views/)
 	view.render('updates');
 	
 };

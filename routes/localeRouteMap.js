@@ -29,23 +29,24 @@ module.exports = {
 		section: null,
 		route: '/'
 	},
-	// 'about.index': {
-	// 	controller: false,
-	// 	templatePefix: 'about',
-	// 	languages: {
-	// 		'en': {
-	// 			route: '/about',
-	// 		},
-	// 		'de': {
-	// 			route: '/etwa',
-	// 		},
-	// 	}
-	// },
+	'about.index': {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about',
+		languages: {
+			'en': {
+				route: '/about',
+			},
+			'de': {
+				route: '/etwa',
+			},
+		}
+	},
 	
 	'about.whatwedo' : {
 		section: 'about',
 		controller: false,
-		templatePrefix: 'about-whatwedo',
+		sharedTemplate: 'about-whatwedo',
 		languages: {
 			'en': {
 				route: '/about/what-we-do',
@@ -97,6 +98,16 @@ module.exports = {
 		}
 	},
 
+	/**
+	 * 	TIP:
+	 *	see how this one has a controller? if you look at it (routes/views/updates.js)
+	 *	it does a bit of prep such as load in the updates from the database and make
+	 *	them available in the 'locals' variable which the template can access.
+	 *	
+	 *	If you look right at the bottom it will say view.render('updates')
+	 *	this string is the template it uses. so instead of dynamically configuring the
+	 *	template name here, it is manually loaded from within the controller.
+	 */
 	'news.updates': {
 		section: 'news',
 		controller: routes.views.updates,

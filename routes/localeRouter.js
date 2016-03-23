@@ -171,7 +171,7 @@ var LocaleRouter = {
 
 				//no localised route for the content
 				console.log('route not available');
-				req.flash('info', req.i18n.__('langRouter.routeNotAvailable'));
+				req.flash('info', req.i18n.__('localeRouter.routeNotAvailable'));
 				next();
 			}
 		} else {

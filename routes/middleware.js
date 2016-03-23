@@ -9,7 +9,6 @@
  */
 
 var _ = require('underscore');
-var nav = require('./nav');
 
 /**
 	Initialises the standard view locals

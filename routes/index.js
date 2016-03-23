@@ -24,7 +24,7 @@ var middleware = require('./middleware');
 var nav = require('./nav');
 
 
-var langRouter = require('./langRouter');
+var localeRouter = require('./localeRouter');
 var importRoutes = keystone.importer(__dirname);
 
 // Import Route Controllers
@@ -41,7 +41,7 @@ keystone.pre('render', middleware.flashMessages);
 exports = module.exports = function(app) {
 
 
-	langRouter.init(app);
+	localeRouter.init(app);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var langRouter = require('../langRouter');
+var localeRouter = require('../localeRouter');
 
 exports = module.exports = function(req, res) {
 	
@@ -42,7 +42,7 @@ exports = module.exports = function(req, res) {
 		if(locals.language !== locals.data.post.language.languageKey) {
 			if(locals.data.post.translation) {
 				req.params.post = locals.data.post.translation.slug;
-				langRouter.redirectToLocalisedRoute(req, res, next);
+				localeRouter.redirectToLocalisedRoute(req, res, next);
 				return;
 			} else {
 				//no translation
