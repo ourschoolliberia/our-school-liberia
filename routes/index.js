@@ -21,7 +21,6 @@
 var keystone = require('keystone');
 var _ = require('underscore');
 var middleware = require('./middleware');
-var nav = require('./nav');
 
 
 var localeRouter = require('./localeRouter');
