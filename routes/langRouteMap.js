@@ -24,18 +24,19 @@ module.exports = {
 		section: null,
 		route: '/'
 	},
-	// 'about.index': {
-	// 	controller: false,
-	// 	templatePefix: 'about',
-	// 	languages: {
-	// 		'en': {
-	// 			route: '/about',
-	// 		},
-	// 		'de': {
-	// 			route: '/etwa',
-	// 		},
-	// 	}
-	// },
+	'about.index': {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about',
+		languages: {
+			'en': {
+				route: '/about',
+			},
+			'de': {
+				route: '/etwa',
+			},
+		}
+	},
 	
 	'about.whatwedo' : {
 		section: 'about',
