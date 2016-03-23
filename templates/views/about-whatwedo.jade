@@ -1,10 +1,13 @@
-extends ../layouts/default
+extends ../layouts/mainheader
 
 block intro
-	.container
-		h1 Vhat Ve Do
-		
+	h3.visible-xs #{__('about.wherewework.title')}
+	h3.visible-sm #{__('about.wherewework.title')}
+	h3.visible-lg.visible-md #{__('about.wherewework.title')}
+
 block content
-	.container
-		.row: .col-sm-8.col-md-6
-			p Selected Languge is #{getLocale()}
+	.content-container.visible-xs.visible-sm
+		p #{__('about.wherewework.maincontent')}
+	.content-container.visible-md.visible-lg
+		p #{__('about.wherewework.maincontent')}
+

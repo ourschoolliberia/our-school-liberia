@@ -1,4 +1,6 @@
 {
+	"backto": "Back To",
+	"updates": "Updates",
 	"intro": {
 		"donatenow": "SPENDE JETZT",
 		"aboutourschool": "UNSERE SCHULE",
@@ -6,6 +8,10 @@
 		"readmore": "WEITERLESEN"
 	},
 	"about": {
+		"index": {
+			"title": "ABOUT OUR SCHOOL",
+			"maincontent": "Dies ist der Hauptinhalt"
+		},
 		"wherewework": {
 			"title": "wo wir arbeiten",
 			"maincontent": "Dies ist der Hauptinhalt"

@@ -8,9 +8,14 @@
 		"readmore": "READ MORE"
 	},
 	"about": {
+		"index": {
+			"title": "ABOUT OUR SCHOOL",
+			"maincontent": "Dies ist der Hauptinhalt"
+		},
 		"wherewework": {
 			"title": "Where We Work",
-			"maincontent": "This is the maincontent"
+			"maincontent": "This is the maincontent",
+			"index": "index"
 		}
 	},
 	"news": {
