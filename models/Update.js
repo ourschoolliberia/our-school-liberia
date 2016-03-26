@@ -1,14 +1,14 @@
 var keystone = require('keystone');
 var async = require('async');
 var Types = keystone.Field.Types;
-var TranslatableModel = require('../routes/translatableModel');
+var MultiLingualModel = require('../routes/multiLingualModel');
 
 /**
  * Update Model
  * ==========
  */
 
-var Update = TranslatableModel(new keystone.List('Update', {
+var Update = MultiLingualModel(new keystone.List('Update', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
 }));
