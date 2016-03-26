@@ -84,14 +84,14 @@ h1
 
 .donatenow
 	z-index: 3
-	&.visible-ld, &.visible-md
+	&.visible-lg
 		position: relative
 		background-color: #edbe36
-		width: 50%
+		width: 35%
 		left: 50%
-		margin-left: -25%
+		margin-left: -17.5%
 		text-align: center
-		padding: 30px 20px 30px 0px
+		padding: 20px 40px 20px 0px
 		top: 0%
 		margin-top: -123px
 		border: 6px solid #FFF
@@ -106,8 +106,32 @@ h1
 			background-size: 100% auto
 			width: 27.5px
 			height: 39.5px
-			top: 40px
-			right: 40px
+			top: 31px
+			right: 36px
+	&.visible-md
+		position: relative
+		background-color: #edbe36
+		width: 45%
+		left: 50%
+		margin-left: -22.5%
+		text-align: center
+		padding: 20px 40px 20px 0px
+		top: 0%
+		margin-top: -123px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 40px
+		font-family: "Open Sans"
+		margin-bottom: -70px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 31px
+			right: 36px
 	&.visible-sm
 		position: relative
 		background-color: #edbe36
@@ -179,6 +203,7 @@ h1
 	width: 100% 
 	background-color: #383ba5
 	z-index: 1
+	font-size: 18px
 	&.visible-xs, &.visible-sm
 		border-top: none
 		height: 470px
@@ -405,15 +430,16 @@ h3
 		font-size: 45px
 	&.visible-md, &.visible-lg
 		position: relative
-		margin-bottom: -20px
-		padding-right: 30px 
+		margin-bottom: 20px
+		padding-right: 30px
 		text-align: center
-		font-size: 45px
+		font-size: 60px
+		padding-top: 40px
 
 .content-container
 	width: 100%
 	background-color: #383ba5
-	height: 200px
+	height: auto
 	color: #fff
 	font-size: 20px
 	&.visible-xs, &.visible-sm
@@ -421,8 +447,32 @@ h3
 		padding: 80px 10px 0px 50px
 	&.visible-md, &.visible-lg
 		margin-top: 6px
-		padding: 90px 10px 0px 50px
+		padding: 110px 150px 70px 150px
+		text-align: center
 
 
+.content-container-alt
+	width: 100%
+	background-color: #fff
+	height: auto
+	color: #383ba5
+	font-size: 20px
+	&.visible-xs, &.visible-sm
+		margin-top: 0px
+		padding: 80px 10px 0px 50px
+	&.visible-md, &.visible-lg
+		margin-top: 6px
+		padding: 40px 150px 70px 150px
+		text-align: center
+		font-weight: 100
+
+p
+	margin: 20px 0 0 
+
+strong
+	text-transform: uppercase
+	font-size: 45px
+	font-weight: 900
+	line-height: 68px
 
 
