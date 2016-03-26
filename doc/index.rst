@@ -5,10 +5,6 @@ Our School Liberia
 Today
 =====
 
-- update model to include german and english inputs
-- create the static pages for the rest of the site
-
-
 
 
 

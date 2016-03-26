@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var async = require('async');
 var Types = keystone.Field.Types;
 
 /**
@@ -33,17 +34,45 @@ Update.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 
-Update.schema.pre('save', function (doc, next) {
-	console.log(doc.translation);
-	console.log('Remove any references to this Update as a translation to other Updates');
-	next();
+
+//remove all translation relationships to this post
+Update.schema.post('save', function (doc) {
+
+	keystone.list('Update').model.find({'translation': doc}).exec(function(err, result) {
+		console.log('translations', result)
+		async.each(result, function(post, done) {
+			
+			//only remove if necessary
+			if(!post._id.equals(doc.translation)) {
+				post.set('translation', null);
+				post.save();				
+			}
+			done();
+		}, function (err) {
+			console.log('done removing backrefs', err);
+		});
+	});
 })
 
-Update.schema.post('save', function (doc, next) {
-	console.log(doc.translation);
-	console.log('Linked translation Update back to this Update');
-})
+//link the relationship to the translation if set
+Update.schema.post('save', function (doc) {
+
+	if (!doc.translation)
+		return;
+
+	keystone.list('Update').model.findOne(doc.translation).exec(function(err, post) {
+		//only add reference/save if not set correctly
+		if(!post.translation || !post.translation.equals(doc.id)) {
+			post.set('translation', doc);
+			post.save();			
+		}
+	}, function (err) {
+		console.log('done creating backref', err);
+	});
+});
 
 
-Update.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+
+
+Update.defaultColumns = 'title, state|10%, author|20%, translation|20%, publishedDate|20%';
 Update.register();
