@@ -17,8 +17,27 @@
 		},
 		"wherewework": {
 			"title": "Where We Work",
-			"maincontent": "This is the maincontent",
-			"index": "index"
+			"maincontent": "This is the maincontent"
+		},
+		"whatwedo": {
+			"title": "What We Do",
+			"maincontent": "This is the maincontent"
+		},
+		"ourteam": {
+			"title": "Our Team",
+			"maincontent": "This is the maincontent"
+		},
+		"ourstudents": {
+			"title": "Our Students",
+			"maincontent": "This is the maincontent"
+		},
+		"supporters": {
+			"title": "Supporters",
+			"maincontent": "This is the maincontent"
+		},
+		"financials": {
+			"title": "Financials",
+			"maincontent": "This is the maincontent"
 		}
 	},
 	"news": {

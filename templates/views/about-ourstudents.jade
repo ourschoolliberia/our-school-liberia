@@ -1,0 +1,13 @@
+extends ../layouts/mainheader
+
+block intro
+	h3.visible-xs #{__('about.ourstudents.title')}
+	h3.visible-sm #{__('about.ourstudents.title')}
+	h3.visible-lg.visible-md #{__('about.ourstudents.title')}
+
+block content
+	.content-container.visible-xs.visible-sm
+		p #{__('about.ourstudents.maincontent')}
+	.content-container.visible-md.visible-lg
+		p #{__('about.ourstudents.maincontent')}
+

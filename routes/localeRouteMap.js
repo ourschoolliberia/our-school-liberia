@@ -98,6 +98,34 @@ module.exports = {
 		}
 	},
 
+	'about.supporters' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-supporters',
+		languages: {
+			'en': {
+				route: '/about/supporters',
+			},
+			'de': {
+				route: '/etwa/unterstutzer',
+			},
+		}
+	},	
+
+	'about.financials' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-financials',
+		languages: {
+			'en': {
+				route: '/about/financials',
+			},
+			'de': {
+				route: '/etwa/finanzen',
+			},
+		}
+	},	
+
 	/**
 	 * 	TIP:
 	 *	see how this one has a controller? if you look at it (routes/views/updates.js)
