@@ -32,7 +32,25 @@ var LocaleRouter = {
 		this.app.use(this.setLocaleFromQueryString.bind(this));
 		this.app.use(this.setNavigationForLocale.bind(this));
 
+		this.registerHelpers();
+
 		this.generateRoutes();
+	},
+
+	registerHelpers: function () {
+		var _this = this;
+		this.app.use(function (req, res, next) {
+			if(res.locals) {
+
+				//creates a route from its name and parameters in language specified
+				res.locals.buildLocaleUrl = function(routeName, params, method) {
+					var localeRouteName = req.i18n.getLocale() + '.' + routeName;
+					return req.app.namedRoutes.build(localeRouteName, params, method);
+					
+				}
+			}
+			next();
+		});
 	},
 
 	/**
