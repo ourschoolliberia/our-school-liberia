@@ -6054,7 +6054,8 @@ h1 {
   font-size: 18px; }
   .aboutnow-prev.visible-xs, .aboutnow-prev.visible-sm {
     border-top: none;
-    height: 470px;
+    height: auto;
+    padding-bottom: 50px;
     padding-top: 10px;
     top: 0px; }
   .aboutnow-prev.visible-md, .aboutnow-prev.visible-lg {
@@ -6096,23 +6097,23 @@ p.aboutnow-prev-p {
   position: relative;
   width: 50px;
   left: 0px;
-  top: -830px; }
+  top: -810px; }
 
 .home-icon.visible-lg.li, .home-icon.visible-md.li {
   position: relative;
-  top: -877px;
+  top: -857px;
   width: 45px;
   left: 56px; }
 
 .home-icon.visible-lg.vm, .home-icon.visible-md.vm {
   position: relative;
-  top: -922px;
+  top: -902px;
   width: 45px;
   left: 112px; }
 
 .home-icon.visible-lg.yt, .home-icon.visible-md.yt {
   position: relative;
-  top: -966px;
+  top: -946px;
   width: 45px;
   left: 167px;
   margin-bottom: -180px; }
@@ -6171,14 +6172,14 @@ p.aboutnow-prev-p {
   position: relative;
   width: 50px;
   left: 0px;
-  top: -166px; }
+  top: -263px; }
   .visible-lg.fb .icon, .visible-md.fb .icon {
     position: relative;
     width: 100%; }
 
 .visible-lg.li, .visible-md.li {
   position: relative;
-  top: -213px;
+  top: -310px;
   width: 45px;
   left: 56px; }
   .visible-lg.li .icon, .visible-md.li .icon {
@@ -6187,7 +6188,7 @@ p.aboutnow-prev-p {
 
 .visible-lg.vm, .visible-md.vm {
   position: relative;
-  top: -258px;
+  top: -355px;
   width: 45px;
   left: 112px; }
   .visible-lg.vm .icon, .visible-md.vm .icon {
@@ -6196,7 +6197,7 @@ p.aboutnow-prev-p {
 
 .visible-lg.yt, .visible-md.yt {
   position: relative;
-  top: -302px;
+  top: -399px;
   width: 45px;
   left: 167px; }
   .visible-lg.yt .icon, .visible-md.yt .icon {
@@ -6334,7 +6335,7 @@ h3 {
     font-weight: 100; }
 
 .visible-xs p, .visible-sm p {
-  margin: 20px 60px 0 0px; }
+  margin: 20px 0px 0 0px; }
 
 .visible-xs strong, .visible-sm strong {
   text-transform: uppercase;
