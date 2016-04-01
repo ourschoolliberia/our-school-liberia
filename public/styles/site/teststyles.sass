@@ -84,14 +84,14 @@ h1
 
 .donatenow
 	z-index: 3
-	&.visible-ld, &.visible-md
+	&.visible-lg
 		position: relative
 		background-color: #edbe36
-		width: 50%
+		width: 35%
 		left: 50%
-		margin-left: -25%
+		margin-left: -17.5%
 		text-align: center
-		padding: 30px 20px 30px 0px
+		padding: 20px 40px 20px 0px
 		top: 0%
 		margin-top: -123px
 		border: 6px solid #FFF
@@ -106,8 +106,32 @@ h1
 			background-size: 100% auto
 			width: 27.5px
 			height: 39.5px
-			top: 40px
-			right: 40px
+			top: 31px
+			right: 36px
+	&.visible-md
+		position: relative
+		background-color: #edbe36
+		width: 45%
+		left: 50%
+		margin-left: -22.5%
+		text-align: center
+		padding: 20px 40px 20px 0px
+		top: 0%
+		margin-top: -123px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 40px
+		font-family: "Open Sans"
+		margin-bottom: -70px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 31px
+			right: 36px
 	&.visible-sm
 		position: relative
 		background-color: #edbe36
@@ -179,6 +203,7 @@ h1
 	width: 100% 
 	background-color: #383ba5
 	z-index: 1
+	font-size: 18px
 	&.visible-xs, &.visible-sm
 		border-top: none
 		height: 470px
@@ -194,6 +219,10 @@ h2
 	color: #fff
 	font-weight: 600
 	margin-bottom: 40px
+	text-transform: uppercase
+	font-size: 45px
+	font-weight: 900
+	line-height: 48px
 
 p.aboutnow-prev-p
 	margin: 0 0 10px
@@ -282,75 +311,107 @@ p.aboutnow-prev-p
 			left: 137px
 			margin-bottom: -220px
 
-.icon
-	img
+.visible-lg, &.visible-md
+	&.fb
 		position: relative
-		width: 100%
-	&.visible-lg, &.visible-md
-		&.fb
+		width: 50px
+		left: 0px
+		top: -166px
+		.icon
 			position: relative
-			width: 50px
-			left: 0px
-			top: -166px
-		&.li
+			width: 100%
+	&.li
+		position: relative
+		top: -213px
+		width: 45px
+		left: 56px
+		.icon
 			position: relative
-			top: -213px
-			width: 45px
-			left: 56px
-		&.vm
+			width: 100%
+	&.vm
+		position: relative
+		top: -258px
+		width: 45px
+		left: 112px
+		.icon
 			position: relative
-			top: -258px
-			width: 45px
-			left: 112px
-		&.yt
+			width: 100%
+	&.yt
+		position: relative
+		top: -302px
+		width: 45px
+		left: 167px
+		.icon
 			position: relative
-			top: -302px
-			width: 45px
-			left: 167px
-	&.visible-sm
-		&.fb
+			width: 100%
+.visible-sm
+	&.fb
+		position: relative
+		width: 50px
+		left: 0px
+		top: -300px
+		.icon
 			position: relative
-			width: 50px
-			left: 0px
-			top: -300px
-		&.li
+			width: 100%
+	&.li
+		position: relative
+		top: -346px
+		width: 45px
+		left: 53px
+		.icon
 			position: relative
-			top: -346px
-			width: 45px
-			left: 53px
-		&.vm
+			width: 100%
+	&.vm
+		position: relative
+		top: -390px
+		width: 45px
+		left: 107px
+		.icon
 			position: relative
-			top: -390px
-			width: 45px
-			left: 107px
-		&.yt
+			width: 100%
+	&.yt
+		position: relative
+		top: -434px
+		width: 45px
+		left: 163px
+		margin-bottom: -260px
+		.icon
 			position: relative
-			top: -434px
-			width: 45px
-			left: 163px
-			margin-bottom: -260px
-	&.visible-xs
-		&.fb
+			width: 100%
+.visible-xs
+	&.fb
+		position: relative
+		width: 40px
+		left: 10px
+		top: -220px
+		.icon
 			position: relative
-			width: 40px
-			left: 10px
-			top: -220px
-		&.li
+			width: 100%
+	&.li
+		position: relative
+		top: -256px
+		width: 35px
+		left: 53px
+		.icon
 			position: relative
-			top: -256px
-			width: 35px
-			left: 53px
-		&.vm
+			width: 100%
+	&.vm
+		position: relative
+		top: -290px
+		width: 35px
+		left: 95px
+		.icon
 			position: relative
-			top: -290px
-			width: 35px
-			left: 95px
-		&.yt
+			width: 100%
+	&.yt
+		position: relative
+		top: -324px
+		width: 35px
+		left: 137px
+		margin-bottom: -250px
+		.icon
 			position: relative
-			top: -324px
-			width: 35px
-			left: 137px
-			margin-bottom: -250px
+			width: 100%
 
 h3
 	position: relative
@@ -373,23 +434,59 @@ h3
 		font-size: 45px
 	&.visible-md, &.visible-lg
 		position: relative
-		margin-bottom: -20px
-		padding-right: 30px 
+		margin-bottom: 20px
+		padding-right: 30px
 		text-align: center
-		font-size: 45px
+		font-size: 60px
+		padding-top: 40px
 
 .content-container
 	width: 100%
 	background-color: #383ba5
-	height: 200px
+	height: auto
 	color: #fff
+	font-size: 20px
+	&.visible-xs, &.visible-sm
+		margin-top: 0px
+		padding: 40px 10px 60px 50px
+	&.visible-md, &.visible-lg
+		margin-top: 6px
+		padding: 110px 150px 70px 150px
+		text-align: center
+
+
+.content-container-alt
+	width: 100%
+	background-color: #fff
+	height: auto
+	color: #383ba5
 	font-size: 20px
 	&.visible-xs, &.visible-sm
 		margin-top: 0px
 		padding: 80px 10px 0px 50px
 	&.visible-md, &.visible-lg
 		margin-top: 6px
-		padding: 90px 10px 0px 50px
+		padding: 40px 150px 70px 150px
+		text-align: center
+		font-weight: 100
+
+.visible-xs, .visible-sm
+	p 
+		margin: 20px 60px 0 0px
+	strong
+		text-transform: uppercase
+		font-size: 45px
+		font-weight: 900
+		line-height: 48px
+		
+.visible-md, .visible-lg
+	p
+		margin: 20px 0 0 
+	strong
+		text-transform: uppercase
+		font-size: 45px
+		font-weight: 900
+		line-height: 68px
 
 
 

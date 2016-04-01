@@ -29,7 +29,7 @@ module.exports = {
 		section: null,
 		route: '/'
 	},
-	'about.index': {
+	'about': {
 		section: 'about',
 		controller: false,
 		sharedTemplate: 'about',

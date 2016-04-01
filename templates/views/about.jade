@@ -1,44 +1,22 @@
-extends ../layouts/default
+extends ../layouts/mainheader
 
 block intro
-	.intro-container
-		.container
-			img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
-			img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
-			h3.visible-xs #{__('about.wherewework.title')}
-			h3.visible-sm #{__('about.wherewework.title')}
-			h3.visible-lg.visible-md #{__('about.wherewework.title')}
-			a(target="#" href="http://www.facebook.com")
-				img.icon.fb.visible-xs(src='/images/icons/fb.png')
-			a(target="#" href="http://www.linkedin.com")
-				img.icon.li.visible-xs(src='/images/icons/li.png')
-			a(target="#" href="http://www.vimeo.com")
-				img.icon.vm.visible-xs(src='/images/icons/vm.png')
-			a(target="#" href="http://www.youtube.com")
-				img.icon.yt.visible-xs(src='/images/icons/yt.png')
-			a(target="#" href="http://www.facebook.com")
-				img.icon.fb.visible-sm(src='/images/icons/fb.png')
-			a(target="#" href="http://www.linkedin.com")
-				img.icon.li.visible-sm(src='/images/icons/li.png')
-			a(target="#" href="http://www.vimeo.com")
-				img.icon.vm.visible-sm(src='/images/icons/vm.png')
-			a(target="#" href="http://www.youtube.com")
-				img.icon.yt.visible-sm(src='/images/icons/yt.png')
-			a(target="#" href="http://www.facebook.com")
-				img.icon.fb.visible-md.visible-lg(src='/images/icons/fb.png')
-			a(target="#" href="http://www.linkedin.com")
-				img.icon.li.visible-md.visible-lg(src='/images/icons/li.png')
-			a(target="#" href="http://www.vimeo.com")
-				img.icon.vm.visible-md.visible-lg(src='/images/icons/vm.png')
-			a(target="#" href="http://www.youtube.com")
-				img.icon.yt.visible-md.visible-lg(src='/images/icons/yt.png')
-			a(href="/donate").donatenow.visible-xs #{__('intro.donatenow')}
-			a(href="/donate").donatenow.visible-sm #{__('intro.donatenow')}
-			a(href="/donate").donatenow.visible-lg.visible-md #{__('intro.donatenow')}
+	h3.visible-xs #{__('about.index.title')}
+	h3.visible-sm #{__('about.index.title')}
+	h3.visible-lg.visible-md #{__('about.index.title')}
 
 block content
 	.content-container.visible-xs.visible-sm
-		p #{__('about.wherewework.maincontent')}
+		p
+		| <strong> #{__('about.index.maincontent')} </strong>
+	.content-container-alt.visible-xs.visible-sm
+		p #{__('about.index.p1')}
+		p #{__('about.index.p2')}
+		p #{__('about.index.p3')}
 	.content-container.visible-md.visible-lg
-		p #{__('about.wherewework.maincontent')}
-
+		p
+		| <strong> #{__('about.index.maincontent')} </strong>
+	.content-container-alt.visible-md.visible-lg
+		p #{__('about.index.p1')}
+		p #{__('about.index.p2')}
+		p #{__('about.index.p3')}
