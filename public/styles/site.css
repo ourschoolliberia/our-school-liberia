@@ -6335,7 +6335,8 @@ h3 {
     font-weight: 100; }
 
 .visible-xs p, .visible-sm p {
-  margin: 20px 0px 0 0px; }
+  margin: 20px 0px 0 0px;
+  font-size: 16px; }
 
 .visible-xs strong, .visible-sm strong {
   text-transform: uppercase;
@@ -6344,7 +6345,8 @@ h3 {
   line-height: 48px; }
 
 .visible-md p, .visible-lg p {
-  margin: 20px 0 0; }
+  margin: 20px 0 0;
+  font-size: 16px; }
 
 .visible-md strong, .visible-lg strong {
   text-transform: uppercase;

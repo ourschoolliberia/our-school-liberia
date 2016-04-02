@@ -1,0 +1,20 @@
+extends ../layouts/mainheader
+
+block intro
+	h3.visible-xs #{__('getinvolved.fundraise.title')}
+	h3.visible-sm #{__('getinvolved.fundraise.title')}
+	h3.visible-lg.visible-md #{__('getinvolved.fundraise.title')}
+
+block content
+	.content-container.visible-xs.visible-sm
+		p
+		| <strong> #{__('getinvolved.fundraise.maincontent')} </strong>
+		p #{__('getinvolved.fundraise.p1')}
+		p #{__('getinvolved.fundraise.p2')}
+		p #{__('getinvolved.fundraise.p3')}
+	.content-container.visible-md.visible-lg
+		p
+		| <strong> #{__('getinvolved.fundraise.maincontent')} </strong>
+		p #{__('getinvolved.fundraise.p1')}
+		p #{__('getinvolved.fundraise.p2')}
+		p #{__('getinvolved.fundraise.p3')}

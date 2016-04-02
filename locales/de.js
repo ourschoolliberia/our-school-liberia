@@ -1,6 +1,6 @@
 {
-	"backto": "Back To",
-	"updates": "Updates",
+	"backto": "backto",
+	"updates": "updates",
 	"intro": {
 		"donatenow": "SPENDE JETZT",
 		"aboutourschool": "UNSERE SCHULE",
@@ -10,7 +10,10 @@
 	"about": {
 		"index": {
 			"title": "ABOUT OUR SCHOOL",
-			"maincontent": "Dies ist der Hauptinhalt"
+			"maincontent": "Dies ist der Hauptinhalt",
+			"p1": "p1",
+			"p2": "p2",
+			"p3": "p3"
 		},
 		"wherewework": {
 			"title": "wo wir arbeiten",
@@ -24,7 +27,5 @@
 	},
 	"messages": {
 		"news-update-not-available": "Das Messegen ick no en deuche"
-	},
-	"backto": "backto",
-	"updates": "updates"
+	}
 }

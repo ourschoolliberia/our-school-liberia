@@ -47,5 +47,42 @@
 	},
 	"messages": {
 		"news-update-not-available": "This News Update is Not Available in the selected Language"
+	},
+	"getinvolved": {
+		"index": {
+			"title": "GET INVOLVED",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"fundraise": {
+			"title": "fundraise",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"subscribe": {
+			"title": "subscribe",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"volunteer": {
+			"title": "volunteer",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"events": {
+			"title": "events",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		}
 	}
 }
