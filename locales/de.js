@@ -10,7 +10,10 @@
 	"about": {
 		"index": {
 			"title": "ABOUT OUR SCHOOL",
-			"maincontent": "Dies ist der Hauptinhalt"
+			"maincontent": "Dies ist der Hauptinhalt",
+			"p1": "p1",
+			"p2": "p2",
+			"p3": "p3"
 		},
 		"wherewework": {
 			"title": "wo wir arbeiten",

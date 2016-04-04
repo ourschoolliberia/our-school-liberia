@@ -29,7 +29,7 @@ module.exports = {
 		section: null,
 		route: '/'
 	},
-	'about.index': {
+	'about': {
 		section: 'about',
 		controller: false,
 		sharedTemplate: 'about',
@@ -94,6 +94,99 @@ module.exports = {
 			},
 			'de': {
 				route: '/etwa/unser-studenten',
+			},
+		}
+	},
+
+	'about.supporters' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-supporters',
+		languages: {
+			'en': {
+				route: '/about/supporters',
+			},
+			'de': {
+				route: '/etwa/unterstutzer',
+			},
+		}
+	},	
+
+	'about.financials' : {
+		section: 'about',
+		controller: false,
+		sharedTemplate: 'about-financials',
+		languages: {
+			'en': {
+				route: '/about/financials',
+			},
+			'de': {
+				route: '/etwa/finanzen',
+			},
+		}
+	},	
+	'getinvolved': {
+		section: 'getinvolved',
+		controller: false,
+		sharedTemplate: 'get-involved',
+		languages: {
+			'en': {
+				route: '/get-involved',
+			},
+			'de': {
+				route: '/sich-einlassen',
+			},
+		}
+	},
+	'getinvolved.subscribe' : {
+		section: 'getinvolved',
+		controller: false,
+		sharedTemplate: 'get-involved-subscribe',
+		languages: {
+			'en': {
+				route: '/get-involved/subscribe',
+			},
+			'de': {
+				route: '/sich-einlassen/abonnieren',
+			},
+		}
+	},
+	'getinvolved.events' : {
+		section: 'getinvolved',
+		controller: false,
+		sharedTemplate: 'get-involved-events',
+		languages: {
+			'en': {
+				route: '/get-involved/events',
+			},
+			'de': {
+				route: '/sich-einlassen/veranstaltungen',
+			},
+		}
+	},
+	'getinvolved.fundraise' : {
+		section: 'getinvolved',
+		controller: false,
+		sharedTemplate: 'get-involved-fundraise',
+		languages: {
+			'en': {
+				route: '/get-involved/fundraise',
+			},
+			'de': {
+				route: '/sich-einlassen/fundraising',
+			},
+		}
+	},
+	'getinvolved.volunteer' : {
+		section: 'getinvolved',
+		controller: false,
+		sharedTemplate: 'get-involved-volunteer',
+		languages: {
+			'en': {
+				route: '/get-involved/volunteer',
+			},
+			'de': {
+				route: '/sich-einlassen/sich-freiwillig-melden',
 			},
 		}
 	},

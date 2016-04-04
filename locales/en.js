@@ -3,8 +3,8 @@
 	"updates": "Updates",
 	"intro": {
 		"donatenow": "DONATE NOW",
-		"aboutourschool": "ABOUT OUR SCHOOL",
-		"aboutourschoolprev": "Our school was founded in January 2006 in Monrovia, capital of Liberia. We have made it our goal to build a school for disadvantaged children, who lack financial resources. We want to get an education and provide an opportunity to these children despite this difficult situation...",
+		"aboutourschool": "Vision. A vision to reach children.",
+		"aboutourschoolprev": "Most children in Liberia face some pretty immense challenges in going to school, if they get that chance at all. We're working to change that. For almost a decade now we’ve invested in giving a small number of Liberian children from all walks of life an unparalleled opportunity...",
 		"readmore": "READ MORE"
 	},
 	"about": {
@@ -17,8 +17,27 @@
 		},
 		"wherewework": {
 			"title": "Where We Work",
-			"maincontent": "This is the maincontent",
-			"index": "index"
+			"maincontent": "This is the maincontent"
+		},
+		"whatwedo": {
+			"title": "What We Do",
+			"maincontent": "This is the maincontent"
+		},
+		"ourteam": {
+			"title": "Our Team",
+			"maincontent": "This is the maincontent"
+		},
+		"ourstudents": {
+			"title": "Our Students",
+			"maincontent": "This is the maincontent"
+		},
+		"supporters": {
+			"title": "Supporters",
+			"maincontent": "This is the maincontent"
+		},
+		"financials": {
+			"title": "Financials",
+			"maincontent": "This is the maincontent"
 		}
 	},
 	"news": {
@@ -28,5 +47,42 @@
 	},
 	"messages": {
 		"news-update-not-available": "This News Update is Not Available in the selected Language"
+	},
+	"getinvolved": {
+		"index": {
+			"title": "GET INVOLVED",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"fundraise": {
+			"title": "fundraise",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"subscribe": {
+			"title": "subscribe",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"volunteer": {
+			"title": "volunteer",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		},
+		"events": {
+			"title": "events",
+			"maincontent": "This is the maincontent",
+			"p1": "Paragraph 1",
+			"p2": "Paragraph 2",
+			"p3": "Paragraph 3"
+		}
 	}
 }
