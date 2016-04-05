@@ -7,16 +7,15 @@ var MultiLingualModel = require('../routes/multiLingualModel');
  * ==========
  */
 
-var Event = MultiLingualModel(new keystone.List('Event', {
+var Event = new MultiLingualModel('Event', {
 	map: { name: 'name' },
 	autokey: { path: 'slug', from: 'name', unique: true },
 	defaultSort: '-date'
-}));
+});
 
 Event.add({
 	name: { type: String, required: true, initial: true },
 	date: { type: Types.Datetime },
-	language: { type: Types.Relationship, ref: 'Language', many: false },
 	location: { type: Types.Location },
 	details: { type: Types.Html, wysiwyg: true, height: 150 },
 	gallery: { type: Types.Relationship, ref: 'Gallery', many: false }

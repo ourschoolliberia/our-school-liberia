@@ -16,7 +16,6 @@ var Update = MultiLingualModel(new keystone.List('Update', {
 Update.add({
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	language: { type: Types.Relationship, ref: 'Language', index: true, initial: 'en' },	
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.CloudinaryImage },
