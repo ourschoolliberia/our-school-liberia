@@ -18,7 +18,9 @@
 		"wherewework": {
 			"title": "wo wir arbeiten",
 			"maincontent": "Dies ist der Hauptinhalt"
-		}
+		},
+		"whatwedo.title": "whatwedo.title",
+		"whatwedo.maincontent": "whatwedo.maincontent"
 	},
 	"news": {
 		"updates": {

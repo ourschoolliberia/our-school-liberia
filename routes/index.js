@@ -23,8 +23,12 @@ var _ = require('underscore');
 var middleware = require('./middleware');
 
 
-var localeRouter = require('./localeRouter');
+var keystoneLocale = require('keystone-locale')(keystone);
 var importRoutes = keystone.importer(__dirname);
+
+var localeNavMap = require('./localeNavMap');
+var localeRouteMap = require('./localeRouteMap');
+
 
 // Import Route Controllers
 var routes = {
@@ -40,7 +44,11 @@ keystone.pre('render', middleware.flashMessages);
 exports = module.exports = function(app) {
 
 
-	localeRouter.init(app);
+	keystoneLocale.Router.init({
+		app: app,
+		localeNavMap: localeNavMap,
+		localeRouteMap: localeRouteMap
+	});
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

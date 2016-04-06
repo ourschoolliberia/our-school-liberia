@@ -1,14 +1,14 @@
 var keystone = require('keystone');
 var async = require('async');
 var Types = keystone.Field.Types;
-var MultiLingualModel = require('../routes/multiLingualModel');
-
+var localeRouter = require('keystone-locale');
+var LocaleModel = localeRouter(keystone).Model
 /**
  * Update Model
  * ==========
  */
 
-var Update = MultiLingualModel(new keystone.List('Update', {
+var Update = LocaleModel(new keystone.List('Update', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
 }));

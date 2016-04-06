@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var localeRouter = require('../localeRouter');
+var localeRouter = require('keystone-locale').Router;
 
 exports = module.exports = function(req, res) {
 	
@@ -8,7 +8,6 @@ exports = module.exports = function(req, res) {
 	
 	// Set locals
 	locals.section = 'posts';
-	locals.language = req.i18n.getLocale();
 	locals.filters = {
 		post: req.params.post
 	};
@@ -38,11 +37,10 @@ exports = module.exports = function(req, res) {
 	// TODO:Currently it's 1:1 but could be many to one quite easily 
 	//		and just pick the one that matches the current langauge
 	view.on('init', function (next) { 
-			
-		if(locals.language !== locals.data.post.language.languageKey) {
+		if(locals.data.post.language.languageKey !== req.i18n.getLocale()) {
 			if(locals.data.post.translation) {
 				req.params.post = locals.data.post.translation.slug;
-				localeRouter.redirectToLocalisedRoute(req, res, next);
+				res.localeRedirect(req, res, next);
 				return;
 			} else {
 				//no translation
