@@ -40,6 +40,13 @@
 			"maincontent": "This is the maincontent"
 		}
 	},
+	"donate": {
+		"title": "Make a donation",
+		"p1": "Paragraph 1",
+		"p2": "Paragraph 2",
+		"p3": "Paragraph 3",
+		"maincontent": "maincontent"
+	},
 	"news": {
 		"updates": {
 			"back-to-index": "Back to News Updates"

@@ -29,6 +29,19 @@ module.exports = {
 		section: null,
 		route: '/'
 	},
+	'donate': {
+		section: 'donate',
+		controller: false,
+		sharedTemplate: 'donate',
+		languages: {
+			'en': {
+				route: '/donate',
+			},
+			'de': {
+				route: '/spenden',
+			},
+		}
+	},
 	'about': {
 		section: 'about',
 		controller: false,
@@ -235,6 +248,19 @@ module.exports = {
 			'de': {
 				route: '/newsen/updaten/category/:category'
 			}
+		}
+	},
+	'gallery': {
+		section: 'gallery',
+		controller: false,
+		sharedTemplate: 'gallery',
+		languages: {
+			'en': {
+				route: '/gallery',
+			},
+			'de': {
+				route: '/fototelier',
+			},
 		}
 	},
 	'contact': {

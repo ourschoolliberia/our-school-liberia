@@ -6031,6 +6031,10 @@ h1 {
   background-color: #8fc1e5;
   background-image: -webkit-radial-gradient(#8fc1e5, #4682ad);
   background-image: radial-gradient(  #8fc1e5, #4682ad); }
+  .intro-container.visible-xs, .intro-container.visible-sm {
+    height: 220px; }
+  .intro-container.visible-md, .intro-container.visible-ld {
+    height: 330px; }
 
 .logo.visible-xs, .logo.visible-sm {
   width: 216px;
@@ -6340,7 +6344,7 @@ h3 {
 
 .visible-xs strong, .visible-sm strong {
   text-transform: uppercase;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 48px; }
 
