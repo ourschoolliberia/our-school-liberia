@@ -114,10 +114,12 @@ html
 						img.icon(src='/images/icons/vm.png')
 					a(target="#" class="yt visible-md visible-lg" href="http://www.youtube.com")
 						img.icon(src='/images/icons/yt.png')
-					a(href="/donate").donatenow.visible-xs #{__('intro.donatenow')}
-					a(href="/donate").donatenow.visible-sm #{__('intro.donatenow')}
-					a(href="/donate").donatenow.visible-md #{__('intro.donatenow')}
-					a(href="/donate").donatenow.visible-lg #{__('intro.donatenow')}
+
+					if section != 'donate'
+						a(href="/donate").donatenow.visible-xs #{__('intro.donatenow')}
+						a(href="/donate").donatenow.visible-sm #{__('intro.donatenow')}
+						a(href="/donate").donatenow.visible-md #{__('intro.donatenow')}
+						a(href="/donate").donatenow.visible-lg #{__('intro.donatenow')}
 
 			//- Flash messages allow you to display once-off status messages to users, e.g. form
 			//- validation errors, success messages, etc.

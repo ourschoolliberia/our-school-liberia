@@ -12,7 +12,7 @@ var localeRouteMap = require('./localeRouteMap');
 
 var LocaleRouter = {
 
-	init: function (app) {
+	init: function (app, options) {
 
 		this.app = app.bind(app);
 
@@ -32,7 +32,47 @@ var LocaleRouter = {
 		this.app.use(this.setLocaleFromQueryString.bind(this));
 		this.app.use(this.setNavigationForLocale.bind(this));
 
+		this.registerLanguageModel();
+		this.registerTemplateHelpers();
+
 		this.generateRoutes();
+	},
+
+	//TODO: possibly very crappy
+	registerLanguageModel: function () {
+
+		if (keystone.lists.Language)
+			return;
+
+		var Language = new keystone.List('Language', {
+			autokey: { from: 'languageKey', path: 'key', unique: true },
+			nocreate: true,
+			noedit: true
+		});
+
+		Language.add({
+			name: { type: String, required: true, initial: true },
+			languageKey: { type: String, required: true, unique: true, initial: true },
+		});
+
+		Language.defaultColumns = 'name, languageKey|20%, key';
+		Language.register();
+	},
+
+	registerTemplateHelpers: function () {
+		var _this = this;
+		this.app.use(function (req, res, next) {
+			if(res.locals) {
+
+				//creates a route from its name and parameters in language specified
+				res.locals.buildLocaleUrl = function(routeName, params, method) {
+					var localeRouteName = req.i18n.getLocale() + '.' + routeName;
+					return req.app.namedRoutes.build(localeRouteName, params, method);
+					
+				}
+			}
+			next();
+		});
 	},
 
 	/**
