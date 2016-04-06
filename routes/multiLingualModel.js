@@ -2,35 +2,38 @@ var keystone = require('keystone');
 var async = require('async');
 var Types = keystone.Field.Types;
 
-module.exports = function(model) {
 
-	// debugger;
+var MultiLingualModel = function() {
+	
+	var model;
+
+	if ('object' === typeof arguments[0] && arguments[0] instanceof keystone.List) {
+		model = arguments[0];
+	} else {
+		model = Object.create(keystone.List.prototype);
+		keystone.List.apply(model, arguments);
+	}
 
 	model.add({
+		language: { type: Types.Relationship, ref: 'Language', index: true, initial: 'en' },	
 		translation: {type: Types.Relationship, ref: model.key },
 	})
 
-	//remove all translation relationships to this post
-	model.schema.post('save', function (doc) {
+	//remove all translation relationships to this post on save or remove
+	model.schema.post('save', function(doc) {
+		removeTranslationReferences(doc);
+	});
 
-		keystone.list(model.key).model.find({'translation': doc}).exec(function(err, result) {
-			console.log('translations', result)
-			async.each(result, function(translationDoc, done) {
-				
-				//only remove if necessary
-				if(!translationDoc._id.equals(doc.translation)) {
-					translationDoc.set('translation', null);
-					translationDoc.save();				
-				}
-				done();
-			}, function (err) {
-				console.log('done removing backrefs', err);
-			});
-		});
-	})
+	model.schema.post('remove', function (doc) {
+		removeTranslationReferences(doc, !!'removing');
+	});
+
 
 	//link the relationship to the translation if set
-	model.schema.post('save', function (doc) {
+	model.schema.post('save', addTranslationBackReference);
+
+
+	function addTranslationBackReference(doc) {
 
 		if (!doc.translation)
 			return;
@@ -44,8 +47,27 @@ module.exports = function(model) {
 		}, function (err) {
 			console.log('done creating backref', err);
 		});
-	});
+	}
+
+	function removeTranslationReferences(doc, removing) {
+		var args = arguments
+		keystone.list(model.key).model.find({'translation': doc}).exec(function(err, result) {
+			console.log('translations', result)
+			async.each(result, function(translationDoc, done) {
+				
+				//only perform operation if necessary
+				if(removing || !translationDoc._id.equals(doc.translation)) {
+					translationDoc.set('translation', null);
+					translationDoc.save();				
+				}
+				done();
+			},function (err) {
+				console.log('done removing backrefs', err);
+			});
+		});
+	}
 
 	return model;
-
 }
+
+module.exports = MultiLingualModel;

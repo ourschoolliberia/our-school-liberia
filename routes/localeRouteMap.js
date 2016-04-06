@@ -125,6 +125,23 @@ module.exports = {
 			},
 		}
 	},	
+
+
+	'donate': {
+		method: 'all',
+		section: 'donate',
+		controller: routes.views.donate,
+		languages: {
+			'en': {
+				route: '/donate'
+			},
+			'de': {
+				route: '/spenden'
+			}
+		}
+	},
+
+
 	'getinvolved': {
 		section: 'getinvolved',
 		controller: false,

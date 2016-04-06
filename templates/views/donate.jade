@@ -1,0 +1,34 @@
+extends ../layouts/mainheader
+
+block intro
+	h3.visible-xs #{__('donate.index.title')}
+	h3.visible-sm #{__('donate.index.title')}
+	h3.visible-lg.visible-md #{__('donate.index.title')}
+
+block content
+	if donationReceived
+		p Thanks for your donation.
+	else
+		.row: .col-sm-8.col-md-6
+			form(method='post')
+				input(type='hidden', name='action', value='donate')
+				.form-group(class=validationErrors.name ? 'has-error' : null)
+					label Name
+					input(type='text', name='name.full', value=formData['name.full']).form-control
+				.form-group(class=validationErrors.email ? 'has-error' : null)
+					label Email
+					input(type='email', name='email', value=formData.email).form-control
+				.form-group
+					label Phone
+					input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
+				.form-group(class=validationErrors.donationAmount ? 'has-error' : null)
+					label What would you like to donate?
+					select(name='donationAmount').form-control
+						option(value='') (select one)
+						each amt in donationAmount
+							option(value=amt.value, selected=formData.donationAmount == amt.value)= '$' + amt.value
+				.form-group(class=validationErrors.message ? 'has-error' : null)
+					label Message
+					textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
+				.form-actions
+					button(type='submit').btn.btn-primary Send

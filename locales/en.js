@@ -84,5 +84,6 @@
 			"p2": "Paragraph 2",
 			"p3": "Paragraph 3"
 		}
-	}
+	},
+	"donate.index.title": "donate.index.title"
 }
