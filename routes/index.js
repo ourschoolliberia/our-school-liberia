@@ -21,11 +21,8 @@
 var keystone = require('keystone');
 var _ = require('underscore');
 var middleware = require('./middleware');
-
-
-var keystoneLocale = require('keystone-locale')(keystone);
 var importRoutes = keystone.importer(__dirname);
-
+var keystoneLocale = require('keystone-locale');
 var localeNavMap = require('./localeNavMap');
 var localeRouteMap = require('./localeRouteMap');
 
@@ -44,8 +41,9 @@ keystone.pre('render', middleware.flashMessages);
 exports = module.exports = function(app) {
 
 
-	keystoneLocale.Router.init({
+	keystoneLocale.initMiddleware({
 		app: app,
+		routes: routes,
 		localeNavMap: localeNavMap,
 		localeRouteMap: localeRouteMap
 	});

@@ -1,17 +1,16 @@
 var keystone = require('keystone');
 var async = require('async');
 var Types = keystone.Field.Types;
-var localeRouter = require('keystone-locale');
-var LocaleModel = localeRouter(keystone).Model
+
 /**
  * Update Model
  * ==========
  */
 
-var Update = LocaleModel(new keystone.List('Update', {
+var Update = keystone.LocaleList('Update', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
-}));
+});
 
 Update.add({
 	title: { type: String, required: true },

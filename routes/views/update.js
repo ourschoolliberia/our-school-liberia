@@ -22,7 +22,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Update').model.findOne({
 			state: 'published',
 			slug: locals.filters.post
-		}).populate('author categories language translation');
+		}).populate('author categories locale translation');
 		
 		q.exec(function(err, result) {
 			locals.data.post = result;
@@ -31,13 +31,13 @@ exports = module.exports = function(req, res) {
 	});
 
 
-	// if the post loaded is in another language, fetch the translation 
-	// for the current language
+	// if the post loaded is in another locale, fetch the translation 
+	// for the current locale
 	// 
 	// TODO:Currently it's 1:1 but could be many to one quite easily 
-	//		and just pick the one that matches the current langauge
+	//		and just pick the one that matches the current locale
 	view.on('init', function (next) { 
-		if(locals.data.post.language.languageKey !== req.i18n.getLocale()) {
+		if(locals.data.post.locale.key !== req.i18n.getLocale()) {
 			if(locals.data.post.translation) {
 				req.params.post = locals.data.post.translation.slug;
 				res.localeRedirect(req, res, next);

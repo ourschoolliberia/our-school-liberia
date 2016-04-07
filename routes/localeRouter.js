@@ -4,7 +4,6 @@ var i18n = require("i18n-2");
 var keystone = require('keystone');
 
 var Router = require('named-routes');
-var router = new Router();
 
 var localeNavMap = require('./localeNavMap');
 var localeRouteMap = require('./localeRouteMap');
@@ -12,7 +11,8 @@ var localeRouteMap = require('./localeRouteMap');
 
 var LocaleRouter = {
 
-	init: function (app, options) {
+	keystoneBind: function (keystone, app) {
+		var router = new Router();
 
 		this.app = app.bind(app);
 
@@ -28,6 +28,10 @@ var LocaleRouter = {
 		router.extendExpress(app);
 		router.registerAppHelpers(app);
 
+	
+	},
+
+	initMiddleware: function () {
 		this.app.use(this.setLocaleFromCookie.bind(this));
 		this.app.use(this.setLocaleFromQueryString.bind(this));
 		this.app.use(this.setNavigationForLocale.bind(this));
@@ -36,7 +40,7 @@ var LocaleRouter = {
 		this.registerTemplateHelpers();
 
 		this.generateRoutes();
-	},
+	}
 
 	//TODO: possibly very crappy
 	registerLanguageModel: function () {

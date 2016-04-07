@@ -7,6 +7,7 @@ var keystone = require('keystone');
 var i18n = require('i18n-2');
 var express = require('express');
 var app = express();
+var keystoneLocale = require('keystone-locale');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -32,8 +33,10 @@ keystone.init({
 	'cookie secret': 'XW)Kb1t54s_MnM@"*`8`_gulw/*.LW94s_C>{NkG@ixc<-!i"X)/ox]:nVAb6"gb',
 });
 
-// Load your project's Models
+//must initialise before importing models
+keystoneLocale.init(keystone);
 
+// Load your project's Models
 keystone.import('models');
 
 // Setup common locals for your templates. The following are required for the
