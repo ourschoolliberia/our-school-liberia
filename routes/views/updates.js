@@ -45,10 +45,11 @@ exports = module.exports = function(req, res) {
 
 
 	// Load the language filter (only show english if we're in en, etc)
+	// //TODO move this into keystone-multilingual somehow
 	view.on('init', (next) => {
-		var locale = req.i18n.getLocale();
-		keystone.list('Locale').model.findOne({ key: locale }).exec(function(err, result) {
-			locals.data.locale = result;
+		var language = req.i18n.getLocale();
+		keystone.list('Language').model.findOne({ key: language }).exec(function(err, result) {
+			locals.data.language = result;
 			next(err);
 		});
 			
@@ -86,8 +87,8 @@ exports = module.exports = function(req, res) {
 			q.where('categories').in([locals.data.category]);
 		}
 
-		if (locals.data.locale) {
-			q.where('language').in([locals.data.locale]);
+		if (locals.data.language) {
+			q.where('language').in([locals.data.language]);
 		}
 		
 		q.exec(function(err, results) {

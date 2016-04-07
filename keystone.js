@@ -7,14 +7,13 @@ var keystone = require('keystone');
 var i18n = require('i18n-2');
 var express = require('express');
 var app = express();
-var keystoneLocale = require('keystone-locale');
+var keystoneMultilingual = require('keystone-multilingual');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
 keystone.init({
-
 	'name': 'Our School Liberia',
 	'brand': 'Our School Liberia',
 	
@@ -34,7 +33,7 @@ keystone.init({
 });
 
 //must initialise before importing models
-keystoneLocale.init(keystone);
+keystoneMultilingual.init(keystone);
 
 // Load your project's Models
 keystone.import('models');
