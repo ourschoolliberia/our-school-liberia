@@ -1,4 +1,4 @@
-extends ../layouts/mainheader
+extends ../layouts/galleryheader
 
 block intro
 	h3.visible-xs #{__('about.ourteam.title')}
@@ -7,8 +7,13 @@ block intro
 
 block content
 	.content-container.visible-xs.visible-sm
-		p #{__('about.ourteam.maincontent')}
 	.content-container.visible-md.visible-lg
-		p #{__('about.ourteam.maincontent')}
+		div.ourstaff
+			div #{__('about.ourteam.nicolasutton')}
+				p #{__('about.ourteam.nicolasuttondesc')}
+			div content 
+			div content
+			div content
+			div content 
 
 

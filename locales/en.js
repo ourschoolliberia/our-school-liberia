@@ -67,7 +67,8 @@
 		},
 		"ourteam": {
 			"title": "Our Team",
-			"maincontent": "This is the maincontent"
+			"nicolasutton": "Nicola Sutton (Project Manager)",
+			"nicolasuttondesc": "Nicola joined the LREC team in 2011, having previously worked in administrative roles in both the public and non-profit sectors. Known as 'Sis Nikki' to the LREC students, Nicola holds a BA (Hon) from the University of Melbourne, a U21 Certificate in Global Issues, and a MSocSc (Distinction) in International Development from the Royal Melbourne Institute of Technology. Having grown up in Australia, she subsequently lived in Europe and travelled to parts of Asia and West Africa before moving to Liberia in 2012. As Project Manager she has overseen both the construction of a new three classroom building and the school's expansion from elementary to secondary level."
 		},
 		"ourstudents": {
 			"title": "Our Students",
