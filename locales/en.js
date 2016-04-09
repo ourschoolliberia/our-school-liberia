@@ -21,7 +21,26 @@
 		},
 		"whatwedo": {
 			"title": "What We Do",
-			"maincontent": "This is the maincontent"
+			"p1": "Most children in Liberia face some pretty immense challenges in going to school, if they get that chance at all.",
+			"p2": "We’re working to change that.",
+			"p3": "For almost a decade now, we’ve invested in giving a small number of Liberian children from all walks of life an unparalleled opportunity.",
+			"p4": "OUR MISSION",
+			"p5": "Our aim is to give Liberian students a solid educational foundation so that they can go on to become much needed leaders in their field.",
+			"p6": "Education is a human right with immense power to transform. On its foundation rest the cornerstones of freedom, democracy and sustainable human development.",
+			"p7": "Kofi Annan, former Secretary-General of the United Nations",
+			"p8": "WHY EDUCATION?",
+			"p9": "HELPS BREAK CYCLE OF POVERTY",
+			"p10": "Access to better jobs and higher incomes. Can't run a business without basic literacy and math skills.",
+			"p11": "CONTRIBUTES TO HEALTH OUTCOMES",
+			"p12": "Better informed about illnesses, hygiene and nutrition.",
+			"p13": "CONTRIBUTES TO SOCIAL RESPONSIBILITY",
+			"p14": "Awareness of the functions of government and democratic processes, human rights, environmental management",
+			"p15": "OUR PRIORITIES",
+			"li1": "Quality. Widely noted that too much emphasis has been placed on lifting enrolment figures, and not enough emphasis on learning outcomes.",
+			"li2": "Community.",
+			"li3": "Learning. On-going learning for students, staff and the organisation. Learn from failures.",
+			"li4": "Equality. Of access to education regardless of wealth, gender or religion.",
+			"li5": "Focus on the end-game. Long-term commitment, sustainability."
 		},
 		"ourteam": {
 			"title": "Our Team",
