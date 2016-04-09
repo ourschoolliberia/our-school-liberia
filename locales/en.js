@@ -92,5 +92,8 @@
 			"p3": "Paragraph 3"
 		}
 	},
-	"donate.index.title": "donate.index.title"
+	"gallery": {
+		"title": "gallery",
+		"maincontent": "maincontent"
+	}
 }
