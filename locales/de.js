@@ -29,5 +29,6 @@
 	},
 	"messages": {
 		"news-update-not-available": "Das Messegen ick no en deuche"
-	}
+	},
+	"donate.index.title": "donate.index.title"
 }
