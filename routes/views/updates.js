@@ -45,9 +45,10 @@ exports = module.exports = function(req, res) {
 
 
 	// Load the language filter (only show english if we're in en, etc)
+	// //TODO move this into keystone-multilingual somehow
 	view.on('init', (next) => {
-		var locale = req.i18n.getLocale();
-		keystone.list('Language').model.findOne({ key: locale }).exec(function(err, result) {
+		var language = req.i18n.getLocale();
+		keystone.list('Language').model.findOne({ key: language }).exec(function(err, result) {
 			locals.data.language = result;
 			next(err);
 		});

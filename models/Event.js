@@ -1,13 +1,13 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
-var MultiLingualModel = require('../routes/multiLingualModel');
+
 
 /**
  * Event Model
  * ==========
  */
 
-var Event = new MultiLingualModel('Event', {
+var Event = new keystone.TranslatableList('Event', {
 	map: { name: 'name' },
 	autokey: { path: 'slug', from: 'name', unique: true },
 	defaultSort: '-date'

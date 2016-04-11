@@ -20,7 +20,9 @@
 			"maincontent": "Dies ist der Hauptinhalt"
 		},
 		"ourteam.title": "ourteam.title",
-		"ourteam.maincontent": "ourteam.maincontent"
+		"ourteam.maincontent": "ourteam.maincontent",
+		"whatwedo.title": "whatwedo.title",
+		"whatwedo.maincontent": "whatwedo.maincontent"
 	},
 	"news": {
 		"updates": {
@@ -34,5 +36,6 @@
 	"getinvolved.index.maincontent": "getinvolved.index.maincontent",
 	"getinvolved.index.p1": "getinvolved.index.p1",
 	"getinvolved.index.p2": "getinvolved.index.p2",
-	"getinvolved.index.p3": "getinvolved.index.p3"
+	"getinvolved.index.p3": "getinvolved.index.p3",
+	"donate.index.title": "donate.index.title"
 }
