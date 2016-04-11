@@ -29,7 +29,6 @@
 	},
 	"messages": {
 		"news-update-not-available": "Das Messegen ick no en deuche"
-<<<<<<< HEAD
 	},
 	"getinvolved.index.title": "getinvolved.index.title",
 	"getinvolved.index.maincontent": "getinvolved.index.maincontent",
@@ -37,7 +36,3 @@
 	"getinvolved.index.p2": "getinvolved.index.p2",
 	"getinvolved.index.p3": "getinvolved.index.p3"
 }
-=======
-	}
-}
->>>>>>> origin/andreas-wip
