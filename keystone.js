@@ -4,9 +4,6 @@ require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone');
-var i18n = require('i18n-2');
-var express = require('express');
-var app = express();
 var keystoneMultilingual = require('keystone-multilingual');
 
 // Initialise Keystone with your project's configuration.
