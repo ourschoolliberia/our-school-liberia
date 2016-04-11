@@ -6383,3 +6383,6 @@ h5 {
   font-size: 45px;
   font-weight: 900;
   line-height: 68px; }
+
+.slick-slide {
+  padding: 0px 80px 0 20px; }
