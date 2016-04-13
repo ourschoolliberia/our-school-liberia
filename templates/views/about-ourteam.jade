@@ -1,4 +1,8 @@
-extends ../layouts/galleryheader
+extends ../layouts/mainheader
+
+block head 
+	link(href="/styles/slick-theme.css", rel="stylesheet")
+	link(href="/styles/slick.css", rel="stylesheet")
 
 block intro
 	h3.visible-xs #{__('about.ourteam.title')}
@@ -25,6 +29,17 @@ block content
 			div content 
 			div content
 			div content
-			div content 
+			div content
+	script(src='/js/slick.min.js')
 
-
+block extrascripts
+	- $('.ourstaff').slick({
+		infinite: true,
+		slidesToShow: 2,
+		slidesToScroll: 1
+	});
+	- $('.ourstaff-small').slick({ 
+		infinite: true,
+	 	slidesToShow: 1,
+		slidesToScroll: 1
+	});
