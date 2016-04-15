@@ -115,9 +115,6 @@ var demoTeamMember = {
 	bio: histerIpsum,
 };
 
-
-
-
 function lastNameIncrementor(obj, key) {
 	obj.name.last += ' ' + key;
 }
@@ -138,7 +135,7 @@ exports = module.exports = function(done) {
 		})),
 		async.times.bind(null, 20, iteratorFromPrototype('FinancialReport', {year: '2006-01-01'}, function incrementor (obj, key) {
 			obj.year.setFullYear(obj.year.getFullYear() + key);
-		})),
+		}))
 	], done);
 
 };
