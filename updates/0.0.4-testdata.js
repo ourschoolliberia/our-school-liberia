@@ -54,16 +54,6 @@ function createAdmin(admin, done) {
 }
 
 
-function createStudent(key, done) {
-	var newStudent = new Student.model(demoStudent);
-	//adjust name by adding index.. 
-	newStudent.name.last += ' ' + key;
-	newStudent.save(function(err) {
-		done(err);
-	});
-}
-
-
 function iteratorFromPrototype(modelName, proto, incrementor) {
 	return function(key, done) {
 		var Model = keystone.list(modelName);
@@ -79,6 +69,10 @@ function iteratorFromPrototype(modelName, proto, incrementor) {
 			done(err);
 		});
 	}
+}
+
+function lastNameIncrementor(obj, key) {
+	obj.name.last += ' ' + key;
 }
 
 var histerIpsum = 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters.';
@@ -115,9 +109,6 @@ var demoTeamMember = {
 	bio: histerIpsum,
 };
 
-function lastNameIncrementor(obj, key) {
-	obj.name.last += ' ' + key;
-}
 
 exports = module.exports = function(done) {
 	
