@@ -58,17 +58,39 @@ function iteratorFromPrototype(modelName, proto, incrementor) {
 	return function(key, done) {
 		var Model = keystone.list(modelName);
 		var obj = new Model.model(proto);
+
+		function doSave(objt) {
+			 objt.save(function(err) {
+				done(err);
+			});
+		}
+
 		if(incrementor) {
 			if (typeof incrementor === 'string') {
-				obj[incrementor] += ' ' + key;
+				incrementSomethin(obj, incrementor, key);
+				doSave(obj);
 			} else if (typeof incrementor == 'function') {
-				incrementor(obj, key);
+				var result = incrementor(obj, key);
+				if(result && result.then) {
+					//ok it's async
+					result.then(function(objt) {
+						doSave(objt)
+					});
+				} else {
+					doSave(obj);
+				}
 			}
+		} else {
+			doSave();
 		}
-		obj.save(function(err) {
-			done(err);
-		});
+
+	
 	}
+}
+
+
+function incrementSomethin(obj, somethin, key) {
+	obj[somethin] += ' ' + key;
 }
 
 function lastNameIncrementor(obj, key) {
@@ -76,7 +98,7 @@ function lastNameIncrementor(obj, key) {
 }
 
 var histerIpsum = 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters.';
-
+var germanIpsum = 'Ethische Schweinebauch Fotokabine vier loko , Brennerei aliquip ästhetische exercitation Blog Schreibmaschine grünen Saft Neutra Mops Banh mi. Pabst fingerstache nesciunt versuchen hart. Tempor truffaut igitt Keffijeh lumbersexual . Vorgefertigte Trust Fund asymmetrische Übergießverfahren . Meggings reprehenderit aute , Esse Schreibmaschine gastropub Nahrungsmittel-LKW in godard blauen Flasche umge Anim. Anim 1 Kickstarter , ullamco lo-fi 3 Wolfmond Banjo Bitters.';
 var demoStudent = { 
 	name: {first: 'John', last: 'Doe' },
 	image: {url: 'http://i.imgur.com/Rrnbdsym.jpg' },
@@ -109,6 +131,53 @@ var demoTeamMember = {
 	bio: histerIpsum,
 };
 
+var demoUpdate = {
+	title: "News Update",
+	state: "published",
+};
+
+
+var getLanguages = function(callback) {
+	var q = keystone.list('Language').model.find();
+	q.exec(function(err, results) {
+		callback(results);				
+	});
+};
+
+var getLangMemo = async.memoize(getLanguages);
+
+function updateIncrementor(obj, key) {
+	return new Promise(function(resolve, reject) {
+		
+		//few things to do here
+		async.waterfall([
+			
+			//fetch languages
+			function(callback) {
+				getLanguages(function (languages) {
+					callback(null, languages);
+				});
+			},
+
+			function (languages, callback) {
+
+				incrementSomethin(obj, 'title', key);
+				
+				//alternately assign available languages
+				obj.language = languages[key % languages.length];
+				obj.content.extended = obj.content.brief = obj.language.key === 'en' ? histerIpsum : germanIpsum;
+				callback(null, obj);
+			}
+
+		], function(err, objt) {
+			debugger;
+			resolve(objt);
+		});
+
+
+	});
+}
+
 
 exports = module.exports = function(done) {
 	
@@ -127,6 +196,8 @@ exports = module.exports = function(done) {
 		async.times.bind(null, 20, iteratorFromPrototype('FinancialReport', {year: '2006-01-01'}, function incrementor (obj, key) {
 			obj.year.setFullYear(obj.year.getFullYear() + key);
 		}))
+		,
+		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor))
 	], done);
 
 };
