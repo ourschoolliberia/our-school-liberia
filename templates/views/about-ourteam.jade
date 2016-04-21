@@ -30,16 +30,7 @@ block content
 			div content
 			div content
 			div content
-	script(src='/js/slick.min.js')
 
-block extrascripts
-	- $('.ourstaff').slick({
-		infinite: true,
-		slidesToShow: 2,
-		slidesToScroll: 1
-	});
-	- $('.ourstaff-small').slick({ 
-		infinite: true,
-	 	slidesToShow: 1,
-		slidesToScroll: 1
-	});
+block extendscripts
+	script(src='/js/slick.min.js')
+	script(src='/js/about-ourteam.js')

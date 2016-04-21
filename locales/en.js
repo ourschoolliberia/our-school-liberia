@@ -141,7 +141,8 @@
 			"qualifications2": "If you’re a qualified teacher, please outline the subjects and grade levels you are trained to teach.",
 			"more": "Is there anything else you'd like to tell us?",
 			"submit": "Submit",
-			"maincontent": "maincontent"
+			"maincontent": "maincontent",
+			"date": "date"
 		},
 		"events": {
 			"title": "events",

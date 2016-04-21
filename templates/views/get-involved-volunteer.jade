@@ -1,5 +1,8 @@
 extends ../layouts/mainheader
 
+block head 
+	link(href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css", rel="stylesheet")
+
 block intro
 	h3.visible-xs #{__('getinvolved.volunteer.title')}
 	h3.visible-sm #{__('getinvolved.volunteer.title')}
@@ -34,6 +37,17 @@ block content
 			div.input
 				span.label #{__('getinvolved.volunteer.firstname')}
 				input(type="text", name="firstname")
+			div.input
+				span.label #{__('getinvolved.volunteer.lastname')}
+				input(type="text", name="lastname")
+			div.input
+				span.label #{__('getinvolved.volunteer.date')}
+				input(type="text", name="datepicker", id="datepicker")
+			div.input
+				span.label #{__('getinvolved.volunteer.email')}
+				input(type="text", name="email")
+			div.actions
+				input(type="submit", value="add")
 		p #{__('getinvolved.volunteer.lastname')}
 		p #{__('getinvolved.volunteer.dob')}
 		p #{__('getinvolved.volunteer.email')}
@@ -43,3 +57,10 @@ block content
 		p #{__('getinvolved.volunteer.qualifications2')}
 		p #{__('getinvolved.volunteer.more')}
 		p #{__('getinvolved.volunteer.submit')}
+
+block extendscripts
+	script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
+	script(src='/js/get-involved-volunteer.js')
+
+
+
