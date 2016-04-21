@@ -6400,3 +6400,6 @@ h6 {
   color: #383ba5;
   width: 100%;
   text-align: center; }
+
+input, textarea {
+  color: #383ba5; }
