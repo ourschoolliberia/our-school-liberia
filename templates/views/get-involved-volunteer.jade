@@ -8,13 +8,38 @@ block intro
 block content
 	.content-container.visible-xs.visible-sm
 		p
-		| <strong> #{__('getinvolved.volunteer.maincontent')} </strong>
+		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
 		p #{__('getinvolved.volunteer.p1')}
 		p #{__('getinvolved.volunteer.p2')}
 		p #{__('getinvolved.volunteer.p3')}
+		form(name="volunteer", method="post")
+			div.input
+				span.label #{__('getinvolved.volunteer.firstname')}
+		p #{__('getinvolved.volunteer.lastname')}
+		p #{__('getinvolved.volunteer.dob')}
+		p #{__('getinvolved.volunteer.email')}
+		p #{__('getinvolved.volunteer.proposeddates')}
+		p #{__('getinvolved.volunteer.areasofinterest')}
+		p #{__('getinvolved.volunteer.qualifications1')}
+		p #{__('getinvolved.volunteer.qualifications2')}
+		p #{__('getinvolved.volunteer.more')}
+		p #{__('getinvolved.volunteer.submit')}
 	.content-container.visible-md.visible-lg
 		p
-		| <strong> #{__('getinvolved.volunteer.maincontent')} </strong>
+		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
 		p #{__('getinvolved.volunteer.p1')}
 		p #{__('getinvolved.volunteer.p2')}
 		p #{__('getinvolved.volunteer.p3')}
+		form(name="volunteer", method="post")
+			div.input
+				span.label #{__('getinvolved.volunteer.firstname')}
+				input(type="text", name="firstname")
+		p #{__('getinvolved.volunteer.lastname')}
+		p #{__('getinvolved.volunteer.dob')}
+		p #{__('getinvolved.volunteer.email')}
+		p #{__('getinvolved.volunteer.proposeddates')}
+		p #{__('getinvolved.volunteer.areasofinterest')}
+		p #{__('getinvolved.volunteer.qualifications1')}
+		p #{__('getinvolved.volunteer.qualifications2')}
+		p #{__('getinvolved.volunteer.more')}
+		p #{__('getinvolved.volunteer.submit')}

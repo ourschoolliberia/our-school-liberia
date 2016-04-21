@@ -127,10 +127,21 @@
 		},
 		"volunteer": {
 			"title": "volunteer",
-			"maincontent": "This is the maincontent",
-			"p1": "Paragraph 1",
-			"p2": "Paragraph 2",
-			"p3": "Paragraph 3"
+			"subtitle": "Come join us",
+			"p1": "Want to be part of what we do? Volunteering not only allows you to see our work first-hand, it also gives you a chance to be directly involved in building our students' futures.",
+			"p2": "We’re always excited to have new people join us, and our kids can't wait to meet you! We've had volunteers from a range of backgrounds, so no matter what you're good at, let us know and we'll do our best to find something that works for you and for us.",
+			"p3": "Register your interest",
+			"firstname": "First Name",
+			"lastname": "Last Name",
+			"dob": "Date of Birth",
+			"email": "Email",
+			"proposeddates": "Proposed Travel Dates",
+			"areasofinterest": "Areas of Interest",
+			"qualifications1": "Qualifications and experience",
+			"qualifications2": "If you’re a qualified teacher, please outline the subjects and grade levels you are trained to teach.",
+			"more": "Is there anything else you'd like to tell us?",
+			"submit": "Submit",
+			"maincontent": "maincontent"
 		},
 		"events": {
 			"title": "events",
