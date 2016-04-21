@@ -41,22 +41,31 @@ block content
 				span.label #{__('getinvolved.volunteer.lastname')}
 				input(type="text", name="lastname")
 			div.input
-				span.label #{__('getinvolved.volunteer.date')}
-				input(type="text", name="datepicker", id="datepicker")
+				span.label #{__('getinvolved.volunteer.dob')}
+				input(type="text", name="dob", id="dob")
+			div.input
+				span.label #{__('getinvolved.volunteer.proposedstartdate')}
+				input(type="text", name="proposedstartdate", id="proposedstartdate")
+			div.input
+				span.label #{__('getinvolved.volunteer.proposedenddate')}
+				input(type="text", name="proposedenddate", id="proposedenddate")
 			div.input
 				span.label #{__('getinvolved.volunteer.email')}
 				input(type="text", name="email")
+			div.input
+				span.label #{__('getinvolved.volunteer.areasofinterest')}
+				input(type="text", name="areasofinterest")
+			div.input
+				span.label #{__('getinvolved.volunteer.qualifications1')}
+				input(type="text", name="qualifications1")
+			div.input
+				span.label #{__('getinvolved.volunteer.qualifications2')}
+				textarea(type="text", name="qualifications2", cols="40", rows="5")
+			div.input
+				span.label #{__('getinvolved.volunteer.more')}
+				textarea(type="text", name="more", cols="40", rows="5")
 			div.actions
-				input(type="submit", value="add")
-		p #{__('getinvolved.volunteer.lastname')}
-		p #{__('getinvolved.volunteer.dob')}
-		p #{__('getinvolved.volunteer.email')}
-		p #{__('getinvolved.volunteer.proposeddates')}
-		p #{__('getinvolved.volunteer.areasofinterest')}
-		p #{__('getinvolved.volunteer.qualifications1')}
-		p #{__('getinvolved.volunteer.qualifications2')}
-		p #{__('getinvolved.volunteer.more')}
-		p #{__('getinvolved.volunteer.submit')}
+				input(type="submit", value="submit")
 
 block extendscripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')

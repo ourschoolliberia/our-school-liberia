@@ -135,14 +135,16 @@
 			"lastname": "Last Name",
 			"dob": "Date of Birth",
 			"email": "Email",
-			"proposeddates": "Proposed Travel Dates",
+			"proposedstartdate": "Proposed Start Date",
+			"proposedenddate": "Proposed End Date",
 			"areasofinterest": "Areas of Interest",
 			"qualifications1": "Qualifications and experience",
 			"qualifications2": "If you’re a qualified teacher, please outline the subjects and grade levels you are trained to teach.",
 			"more": "Is there anything else you'd like to tell us?",
 			"submit": "Submit",
 			"maincontent": "maincontent",
-			"date": "date"
+			"date": "date",
+			"proposeddates": "proposeddates"
 		},
 		"events": {
 			"title": "events",
