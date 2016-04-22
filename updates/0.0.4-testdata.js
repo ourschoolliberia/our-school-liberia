@@ -146,6 +146,9 @@ var getLanguages = function(callback) {
 
 var getLangMemo = async.memoize(getLanguages);
 
+var updateRefs = {};
+
+
 function updateIncrementor(obj, key) {
 	return new Promise(function(resolve, reject) {
 		
@@ -154,7 +157,7 @@ function updateIncrementor(obj, key) {
 			
 			//fetch languages
 			function(callback) {
-				getLanguages(function (languages) {
+				getLangMemo(function (languages) {
 					callback(null, languages);
 				});
 			},
@@ -166,6 +169,7 @@ function updateIncrementor(obj, key) {
 				//alternately assign available languages
 				obj.language = languages[key % languages.length];
 				obj.content.extended = obj.content.brief = obj.language.key === 'en' ? histerIpsum : germanIpsum;
+				updateRefs[obj.id] = {lang: obj.language.key};
 				callback(null, obj);
 			}
 
@@ -197,7 +201,12 @@ exports = module.exports = function(done) {
 			obj.year.setFullYear(obj.year.getFullYear() + key);
 		}))
 		,
-		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor))
+		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor)),
+
+		function(done) {
+			console.log(updateRefs);
+			done();
+		}
 	], done);
 
 };
