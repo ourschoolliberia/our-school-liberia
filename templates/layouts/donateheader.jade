@@ -85,7 +85,7 @@ html
 			//- Remember to include it in your templates when you override the intro and content blocks!
 
 			//- The Intro block appears above flash messages (used for temporary information display)
-			.intro-container
+			.intro-container.visible-xs.visible-sm
 				.container
 					img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
 					img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
@@ -114,12 +114,35 @@ html
 						img.icon(src='/images/icons/vm.png')
 					a(target="#" class="yt visible-md visible-lg" href="http://www.youtube.com")
 						img.icon(src='/images/icons/yt.png')
-
-					if section != 'donate'
-						a(href="/donate").donatenow.visible-xs #{__('intro.donatenow')}
-						a(href="/donate").donatenow.visible-sm #{__('intro.donatenow')}
-						a(href="/donate").donatenow.visible-md #{__('intro.donatenow')}
-						a(href="/donate").donatenow.visible-lg #{__('intro.donatenow')}
+			.intro-container.visible-md.visible-lg
+				.container
+					img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
+					img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
+					block intro
+					a(target="#" class="fb visible-xs" href="http://www.facebook.com")
+						img.icon(src='/images/icons/fb.png')
+					a(target="#" class="li visible-xs" href="http://www.linkedin.com")
+						img.icon(src='/images/icons/li.png')
+					a(target="#" class="vm visible-xs" href="http://www.vimeo.com")
+						img.icon(src='/images/icons/vm.png')
+					a(target="#" class="yt visible-xs" href="http://www.youtube.com")
+						img.icon(src='/images/icons/yt.png')
+					a(target="#" class="fb visible-sm" href="http://www.facebook.com")
+						img.icon(src='/images/icons/fb.png')
+					a(target="#" class="li visible-sm" href="http://www.linkedin.com")
+						img.icon(src='/images/icons/li.png')
+					a(target="#" class="vm visible-sm" href="http://www.vimeo.com")
+						img.icon(src='/images/icons/vm.png')
+					a(target="#" class="yt visible-sm" href="http://www.youtube.com")
+						img.icon(src='/images/icons/yt.png')
+					a(target="#" class="fb visible-md visible-lg" href="http://www.facebook.com")
+						img.icon(src='/images/icons/fb.png')
+					a(target="#" class="li visible-md visible-lg" href="http://www.linkedin.com")
+						img.icon(src='/images/icons/li.png')
+					a(target="#" class="vm visible-md visible-lg" href="http://www.vimeo.com")
+						img.icon(src='/images/icons/vm.png')
+					a(target="#" class="yt visible-md visible-lg" href="http://www.youtube.com")
+						img.icon(src='/images/icons/yt.png')
 
 			//- Flash messages allow you to display once-off status messages to users, e.g. form
 			//- validation errors, success messages, etc.
@@ -162,8 +185,3 @@ html
 				}, function() {
 					$(this).find('.dropdown-menu').stop(true, true).hide();
 				});
-
-		block extendscripts
-
-
-

@@ -6031,6 +6031,10 @@ h1 {
   background-color: #8fc1e5;
   background-image: -webkit-radial-gradient(#8fc1e5, #4682ad);
   background-image: radial-gradient(  #8fc1e5, #4682ad); }
+  .intro-container.visible-xs, .intro-container.visible-sm {
+    height: 220px; }
+  .intro-container.visible-md, .intro-container.visible-ld {
+    height: 330px; }
 
 .logo.visible-xs, .logo.visible-sm {
   width: 216px;
@@ -6055,16 +6059,14 @@ h1 {
   .aboutnow-prev.visible-xs, .aboutnow-prev.visible-sm {
     border-top: none;
     height: auto;
-    padding-bottom: 50px;
-    padding-top: 10px;
-    top: 0px; }
+    top: 0px;
+    padding: 90px 50px 60px 50px; }
   .aboutnow-prev.visible-md, .aboutnow-prev.visible-lg {
-    height: 400px;
-    border-top: 5px solid #fff; }
+    border-top: 5px solid #fff;
+    padding: 110px 150px 70px 150px; }
 
 h2 {
-  text-align: center;
-  margin-top: 110px;
+  text-align: left;
   color: #fff;
   font-weight: 600;
   margin-bottom: 40px;
@@ -6074,10 +6076,9 @@ h2 {
   line-height: 48px; }
 
 p.aboutnow-prev-p {
-  margin: 0 0 10px;
-  text-align: center;
-  color: #fff;
-  padding: 0 10%; }
+  margin-left: 0px !important;
+  text-align: left;
+  color: #fff; }
   p.aboutnow-prev-p a, p.aboutnow-prev-p a:active, p.aboutnow-prev-p a:hover, p.aboutnow-prev-p a:visited {
     color: #fff;
     text-decoration: underline; }
@@ -6305,6 +6306,32 @@ h3 {
     font-size: 60px;
     padding-top: 40px; }
 
+h4 {
+  position: relative;
+  left: 16px;
+  font-family: "Open Sans";
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-right: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: -20px;
+  font-size: 35px; }
+
+h5 {
+  position: relative;
+  left: 16px;
+  font-family: "Open Sans";
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-right: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: -20px;
+  font-size: 30px; }
+
 .content-container {
   width: 100%;
   background-color: #383ba5;
@@ -6313,11 +6340,11 @@ h3 {
   font-size: 20px; }
   .content-container.visible-xs, .content-container.visible-sm {
     margin-top: 0px;
-    padding: 40px 10px 60px 50px; }
+    padding: 70px 50px 60px 50px; }
   .content-container.visible-md, .content-container.visible-lg {
     margin-top: 6px;
     padding: 110px 150px 70px 150px;
-    text-align: center; }
+    text-align: left; }
 
 .content-container-alt {
   width: 100%;
@@ -6331,7 +6358,7 @@ h3 {
   .content-container-alt.visible-md, .content-container-alt.visible-lg {
     margin-top: 6px;
     padding: 40px 150px 70px 150px;
-    text-align: center;
+    text-align: left;
     font-weight: 100; }
 
 .visible-xs p, .visible-sm p {
@@ -6340,7 +6367,7 @@ h3 {
 
 .visible-xs strong, .visible-sm strong {
   text-transform: uppercase;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 48px; }
 
@@ -6353,3 +6380,26 @@ h3 {
   font-size: 45px;
   font-weight: 900;
   line-height: 68px; }
+
+.slick-slide {
+  padding: 0px 80px 0 20px; }
+
+h6 {
+  position: relative;
+  left: 16px;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-right: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: -20px;
+  font-size: 30px;
+  background-color: #fff;
+  padding: 30px;
+  color: #383ba5;
+  width: 100%;
+  text-align: center; }
+
+input, textarea {
+  color: #383ba5; }

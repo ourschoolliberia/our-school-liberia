@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+extends ../layouts/donateheader
+
+block intro
+	h3.visible-xs #{__('donate.title')}
+	h3.visible-sm #{__('donate.title')}
+	h3.visible-lg.visible-md #{__('donate.title')}
+
+block content
+	.content-container.visible-xs.visible-sm
+		p
+		| <strong> #{__('donate.maincontent')} </strong>
+		p #{__('donate.p1')}
+		p #{__('donate.p2')}
+		p #{__('donate.p3')}
+	.content-container.visible-md.visible-lg
+		p
+		| <strong> #{__('donate.maincontent')} </strong>
+		p #{__('donate.p1')}
+		p #{__('donate.p2')}
+		p #{__('donate.p3')}
+=======
 extends ../layouts/mainheader
 
 block intro
@@ -32,3 +54,4 @@ block content
 					textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
 				.form-actions
 					button(type='submit').btn.btn-primary Send
+>>>>>>> origin/andreas-wip

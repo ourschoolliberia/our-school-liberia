@@ -1,5 +1,9 @@
 extends ../layouts/mainheader
 
+block head 
+	link(href="/styles/slick-theme.css", rel="stylesheet")
+	link(href="/styles/slick.css", rel="stylesheet")
+
 block intro
 	h3.visible-xs #{__('about.ourteam.title')}
 	h3.visible-sm #{__('about.ourteam.title')}
@@ -7,8 +11,26 @@ block intro
 
 block content
 	.content-container.visible-xs.visible-sm
-		p #{__('about.ourteam.maincontent')}
+		div.ourstaff-small
+			div #{__('about.ourteam.nicolasutton')}
+				p #{__('about.ourteam.nicolasuttondesc')}
+			div #{__('about.ourteam.henrywolokolie')}
+				p #{__('about.ourteam.henrywolokoliedesc')}
+			div content 
+			div content
+			div content
+			div content 
 	.content-container.visible-md.visible-lg
-		p #{__('about.ourteam.maincontent')}
+		div.ourstaff
+			div #{__('about.ourteam.nicolasutton')}
+				p #{__('about.ourteam.nicolasuttondesc')}
+			div #{__('about.ourteam.henrywolokolie')}
+				p #{__('about.ourteam.henrywolokoliedesc')}
+			div content 
+			div content
+			div content
+			div content
 
-
+block extendscripts
+	script(src='/js/slick.min.js')
+	script(src='/js/about-ourteam.js')

@@ -19,6 +19,8 @@
 			"title": "wo wir arbeiten",
 			"maincontent": "Dies ist der Hauptinhalt"
 		},
+		"ourteam.title": "ourteam.title",
+		"ourteam.maincontent": "ourteam.maincontent",
 		"whatwedo.title": "whatwedo.title",
 		"whatwedo.maincontent": "whatwedo.maincontent"
 	},
@@ -30,5 +32,15 @@
 	"messages": {
 		"news-update-not-available": "Das Messegen ick no en deuche"
 	},
-	"donate.index.title": "donate.index.title"
+	"getinvolved.index.title": "getinvolved.index.title",
+	"getinvolved.index.maincontent": "getinvolved.index.maincontent",
+	"getinvolved.index.p1": "getinvolved.index.p1",
+	"getinvolved.index.p2": "getinvolved.index.p2",
+	"getinvolved.index.p3": "getinvolved.index.p3",
+	"donate.index.title": "donate.index.title",
+	"getinvolved.volunteer.title": "getinvolved.volunteer.title",
+	"getinvolved.volunteer.maincontent": "getinvolved.volunteer.maincontent",
+	"getinvolved.volunteer.p1": "getinvolved.volunteer.p1",
+	"getinvolved.volunteer.p2": "getinvolved.volunteer.p2",
+	"getinvolved.volunteer.p3": "getinvolved.volunteer.p3"
 }
