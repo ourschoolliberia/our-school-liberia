@@ -6355,11 +6355,41 @@ h5 {
   .content-container-alt.visible-xs, .content-container-alt.visible-sm {
     margin-top: 0px;
     padding: 70px 50px 60px 50px; }
+    .content-container-alt.visible-xs input, .content-container-alt.visible-xs textarea, .content-container-alt.visible-sm input, .content-container-alt.visible-sm textarea {
+      color: #383ba5;
+      border-radius: 32px;
+      box-shadow: none;
+      width: 95%;
+      padding: 10px 0px 10px 20px;
+      margin: 10px 0 10px 0px;
+      border: 1px solid; }
+    .content-container-alt.visible-xs .label, .content-container-alt.visible-sm .label {
+      color: #383ba5;
+      padding: .2em 0em 0em; }
+    .content-container-alt.visible-xs button, .content-container-alt.visible-xs html input[type="button"], .content-container-alt.visible-xs input[type="reset"], .content-container-alt.visible-xs input[type="submit"], .content-container-alt.visible-sm button, .content-container-alt.visible-sm html input[type="button"], .content-container-alt.visible-sm input[type="reset"], .content-container-alt.visible-sm input[type="submit"] {
+      color: #fff;
+      background-color: #383ba5;
+      padding: 10px 0 10px 0; }
   .content-container-alt.visible-md, .content-container-alt.visible-lg {
     margin-top: 6px;
     padding: 40px 150px 70px 150px;
     text-align: left;
     font-weight: 100; }
+    .content-container-alt.visible-md input, .content-container-alt.visible-md textarea, .content-container-alt.visible-lg input, .content-container-alt.visible-lg textarea {
+      color: #383ba5;
+      border-radius: 32px;
+      box-shadow: none;
+      width: 60%;
+      padding: 10px 0px 10px 20px;
+      margin: 10px 0 10px 0px;
+      border: 1px solid; }
+    .content-container-alt.visible-md .label, .content-container-alt.visible-lg .label {
+      color: #383ba5;
+      padding: .2em 0em 0em; }
+    .content-container-alt.visible-md button, .content-container-alt.visible-md html input[type="button"], .content-container-alt.visible-md input[type="reset"], .content-container-alt.visible-md input[type="submit"], .content-container-alt.visible-lg button, .content-container-alt.visible-lg html input[type="button"], .content-container-alt.visible-lg input[type="reset"], .content-container-alt.visible-lg input[type="submit"] {
+      color: #fff;
+      background-color: #383ba5;
+      padding: 10px 0 10px 0; }
 
 .visible-xs p, .visible-sm p {
   margin: 20px 0px 0 0px;
@@ -6444,21 +6474,3 @@ h5 {
 
 .slick-slide {
   padding: 0px 80px 0 20px; }
-
-input, textarea {
-  color: #383ba5;
-  border-radius: 32px;
-  box-shadow: none;
-  width: 60%;
-  padding: 5px 0px 5px 10px;
-  margin: 10px 0 10px 0px;
-  border: 1px solid; }
-
-.label {
-  color: #383ba5;
-  padding: .2em 0em 0em; }
-
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
-  color: #fff;
-  background-color: #383ba5;
-  padding: 10px 0 10px 0; }
