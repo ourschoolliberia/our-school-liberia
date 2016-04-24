@@ -120,10 +120,12 @@
 		},
 		"subscribe": {
 			"title": "subscribe",
-			"maincontent": "This is the maincontent",
-			"p1": "Paragraph 1",
-			"p2": "Paragraph 2",
-			"p3": "Paragraph 3"
+			"subtitle": "Subscribe to our newsletter",
+			"p1": "Want regular updates straight to your email?",
+			"firstname": "First Name",
+			"lastname": "Last Name",
+			"email": "Email",
+			"language": "Language Preference"
 		},
 		"volunteer": {
 			"title": "volunteer",
