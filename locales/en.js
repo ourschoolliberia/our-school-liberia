@@ -97,6 +97,7 @@
 	},
 	"news": {
 		"updates": {
+			"title": "updates",
 			"back-to-index": "Back to News Updates"
 		}
 	},
@@ -156,7 +157,8 @@
 			"p1": "Paragraph 1",
 			"p2": "Paragraph 2",
 			"p3": "Paragraph 3"
-		}
+		},
+		"updates.title": "updates.title"
 	},
 	"gallery": {
 		"title": "gallery",
