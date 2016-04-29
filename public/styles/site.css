@@ -6074,6 +6074,10 @@ h2 {
   font-size: 45px;
   font-weight: 900;
   line-height: 48px; }
+  h2 a {
+    color: #fff; }
+  h2 a:hover {
+    color: #fff; }
 
 p.aboutnow-prev-p {
   margin-left: 0px !important;
@@ -6477,3 +6481,19 @@ h5 {
 
 .text-muted {
   color: #ddd; }
+
+h8 {
+  position: relative;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  color: #ddd;
+  width: 100%;
+  text-align: center;
+  line-height: 3;
+  top: -20px; }
+  h8 a {
+    color: #ddd; }
+  h8 a:hover {
+    color: #ddd; }

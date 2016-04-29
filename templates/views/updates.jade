@@ -12,20 +12,6 @@ mixin allPostsLink(text)
 
 mixin post(post)
 	.content-container.visible-md.visible-lg
-		if filters.category && !data.category
-			h3.text-muted Invalid Category.
-		else
-			if data.posts.results.length
-				if data.posts.totalPages > 1
-					h4.text-weight-normal Showing 
-						strong #{data.posts.first}
-						|  to 
-						strong #{data.posts.last}
-						|  of 
-						strong #{data.posts.total}
-						|  posts.
-				else
-					h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 		.post(data-ks-editable=editable(user, { list: 'Update', id: post.id }))
 			h2: +postLink(post, post.title)
 			p.lead.text-muted Posted 
