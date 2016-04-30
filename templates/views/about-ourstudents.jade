@@ -5,9 +5,28 @@ block intro
 	h3.visible-sm #{__('about.ourstudents.title')}
 	h3.visible-lg.visible-md #{__('about.ourstudents.title')}
 
-block content
-	.content-container.visible-xs.visible-sm
-		p #{__('about.ourstudents.maincontent')}
-	.content-container.visible-md.visible-lg
-		p #{__('about.ourstudents.maincontent')}
+//- block content
+//-     .content-container.visible-xs.visible-sm
+//-         p #{__('about.ourstudents.maincontent')}
+//-     .content-container.visible-md.visible-lg
+//-         p #{__('about.ourstudents.maincontent')}
 
+
+mixin studentDiv (student)
+	.student
+		h3 #{student.name.first} #{student.name.last}
+
+		if student.image
+			.col-sm-4.col-md-4: img(src=student._.image.fit(100,100)).img-rounded
+		
+		p #{student.bio}
+
+
+block content
+	.content-container.visible-md.visible-lg
+		.container
+			if students.length
+				each student in students
+					+studentDiv(student)
+			else
+				h3.text-muted There are no students yet.
