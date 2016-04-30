@@ -22,11 +22,31 @@
 		"ourteam.title": "ourteam.title",
 		"ourteam.maincontent": "ourteam.maincontent",
 		"whatwedo.title": "whatwedo.title",
-		"whatwedo.maincontent": "whatwedo.maincontent"
+		"whatwedo.maincontent": "whatwedo.maincontent",
+		"whatwedo.p1": "whatwedo.p1",
+		"whatwedo.p2": "whatwedo.p2",
+		"whatwedo.p3": "whatwedo.p3",
+		"whatwedo.p4": "whatwedo.p4",
+		"whatwedo.p5": "whatwedo.p5",
+		"whatwedo.p6": "whatwedo.p6",
+		"whatwedo.p7": "whatwedo.p7",
+		"whatwedo.p8": "whatwedo.p8",
+		"whatwedo.p9": "whatwedo.p9",
+		"whatwedo.p10": "whatwedo.p10",
+		"whatwedo.p11": "whatwedo.p11",
+		"whatwedo.p12": "whatwedo.p12",
+		"whatwedo.p13": "whatwedo.p13",
+		"whatwedo.p14": "whatwedo.p14",
+		"whatwedo.p15": "whatwedo.p15",
+		"whatwedo.li1": "whatwedo.li1",
+		"whatwedo.li2": "whatwedo.li2",
+		"whatwedo.li3": "whatwedo.li3",
+		"whatwedo.li4": "whatwedo.li4"
 	},
 	"news": {
 		"updates": {
-			"back": "Back to News Updates"
+			"back": "Back to News Updates",
+			"title": "title"
 		}
 	},
 	"messages": {
