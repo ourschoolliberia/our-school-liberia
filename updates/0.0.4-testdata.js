@@ -71,17 +71,41 @@ function lastNameIncrementor(obj, key) {
 
 var histerIpsum = 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters.';
 var germanIpsum = 'Ethische Schweinebauch Fotokabine vier loko , Brennerei aliquip ästhetische exercitation Blog Schreibmaschine grünen Saft Neutra Mops Banh mi. Pabst fingerstache nesciunt versuchen hart. Tempor truffaut igitt Keffijeh lumbersexual . Vorgefertigte Trust Fund asymmetrische Übergießverfahren . Meggings reprehenderit aute , Esse Schreibmaschine gastropub Nahrungsmittel-LKW in godard blauen Flasche umge Anim. Anim 1 Kickstarter , ullamco lo-fi 3 Wolfmond Banjo Bitters.';
+var stupidKid = { 
+	"public_id" : "qdawavjusopgp0kw0d9v", 
+	"version" : 1461999841, 
+	"signature" : "78bcd9bc65087da71a16aea532d5fff33ea6e835", 
+	"width" : 236, 
+	"height" : 320, 
+	"format" : "jpg", 
+	"resource_type" : "image", 
+	"url" : "http://res.cloudinary.com/our-school-liberia/image/upload/v1461999841/qdawavjusopgp0kw0d9v.jpg", 
+	"secure_url" : "https://res.cloudinary.com/our-school-liberia/image/upload/v1461999841/qdawavjusopgp0kw0d9v.jpg" 
+};
+
+var stupidGuy = {
+	"public_id" : "lnx8d5fn4gtmeuzvoloe",
+	"version" : 1461999996,
+	"signature" : "b76b2997994fe528537c61ee1b76828378fd5930",
+	"width" : 222,
+	"height" : 320,
+	"format" : "jpg",
+	"resource_type" : "image",
+	"url" : "http://res.cloudinary.com/our-school-liberia/image/upload/v1461999996/lnx8d5fn4gtmeuzvoloe.jpg",
+	"secure_url" : "https://res.cloudinary.com/our-school-liberia/image/upload/v1461999996/lnx8d5fn4gtmeuzvoloe.jpg"
+};
+
+var logo = { "public_id" : "iquksneybiscgdi4lpi1", "version" : 1462000117, "signature" : "3aeef82d13a20cfe37f40eb6a6a33dcd61004cd2", "width" : 170, "height" : 62, "format" : "png", "resource_type" : "image", "url" : "http://res.cloudinary.com/our-school-liberia/image/upload/v1462000117/iquksneybiscgdi4lpi1.png", "secure_url" : "https://res.cloudinary.com/our-school-liberia/image/upload/v1462000117/iquksneybiscgdi4lpi1.png" };
+
 var demoStudent = { 
 	name: {first: 'John', last: 'Doe' },
-	image: {url: 'http://i.imgur.com/Rrnbdsym.jpg' },
+	image: stupidKid,
 	bio: histerIpsum 
 };
 
 var demoCompany = {
 	companyName:'BigMobile',
-	logo: {
-		url: 'http://i.imgur.com/jzUQQ6k.png'
-	},
+	logo: logo,
 	url: 'http://bigmobile.com'
 };
 
@@ -99,7 +123,7 @@ var demoTeamMember = {
 	name:{ first: 'Team', last: 'Member' },
 	type: 'board',
 	role: 'blah',
-	image: { url: 'http://i.imgur.com/enjZvBJm.jpg' },
+	image: stupidGuy,
 	bio: histerIpsum,
 };
 
