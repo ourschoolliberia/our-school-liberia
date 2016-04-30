@@ -1,34 +1,7 @@
-// exports.create = {
-// 	User: [
-// 	],
-// 	Student: [
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' },
-// 		{ 'name.first': 'John', 'name.last': 'Doe', image: 'http://i.imgur.com/Rrnbdsym.jpg', bio: 'Ethical pork belly photo booth four loko, distillery aliquip aesthetic exercitation blog typewriter green juice neutra pug banh mi. Pabst fingerstache nesciunt try-hard. Tempor truffaut ugh keffiyeh lumbersexual. Readymade trust fund asymmetrical pour-over. Meggings reprehenderit aute, esse typewriter gastropub food truck in godard blue bottle vice anim. Anim +1 kickstarter, ullamco lo-fi 3 wolf moon banjo bitters chicharrones mustache mollit raw denim poutine. Sapiente accusamus pariatur, chambray cold-pressed meditation heirloom assumenda anim selfies laborum austin.' }
-// 	]
-
-// };
-
-
 var keystone = require('keystone'),
 	async = require('async'),
 	User = keystone.list('User')
 ;
-	
-
 
 var admins = [
 	{ 
@@ -61,6 +34,7 @@ function iteratorFromPrototype(modelName, proto, incrementor) {
 
 		function doSave(objt) {
 			 objt.save(function(err) {
+			 	console.log(modelName);
 				done(err);
 			});
 		}
@@ -83,8 +57,6 @@ function iteratorFromPrototype(modelName, proto, incrementor) {
 		} else {
 			doSave();
 		}
-
-	
 	}
 }
 
@@ -146,8 +118,31 @@ var getLanguages = function(callback) {
 
 var getLangMemo = async.memoize(getLanguages);
 
-var updateRefs = {};
+var updateRefs = [];
 
+function getLang(lang) {
+	return updateRefs.filter(function(ref) {
+		return ref.lang === lang;
+	});
+}
+
+var linkEnToDe = function(ref, done) {
+	console.log(ref);
+	console.log(done);
+	var id = ref.id
+	var update = getLang('de')[id];
+
+	var q = keystone.list('Update').model.findOne({
+		id: id
+	});
+
+	q.exec(function(err, result) {
+		result.translation = update;
+		result.save(function() {
+			done();
+		});
+	});
+}
 
 function updateIncrementor(obj, key) {
 	return new Promise(function(resolve, reject) {
@@ -169,12 +164,11 @@ function updateIncrementor(obj, key) {
 				//alternately assign available languages
 				obj.language = languages[key % languages.length];
 				obj.content.extended = obj.content.brief = obj.language.key === 'en' ? histerIpsum : germanIpsum;
-				updateRefs[obj.id] = {lang: obj.language.key};
+				updateRefs.push({lang: obj.language.key, id: obj.id});
 				callback(null, obj);
 			}
 
 		], function(err, objt) {
-			debugger;
 			resolve(objt);
 		});
 
@@ -202,6 +196,7 @@ exports = module.exports = function(done) {
 		}))
 		,
 		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor)),
+		// async.forEach(getLang('en'), linkEnToDe),
 
 		function(done) {
 			console.log(updateRefs);
