@@ -7,7 +7,7 @@
     "dotenv": "^1.1.0",
     "invariant": "^2.2.0",
     "keystone": "^0.3.16",
-    "keystone-multilingual": "git@github.com:dannyshaw/keystone-multilingual.git",
+    "keystone-multilingual": "https://github.com/dannyshaw/keystone-multilingual.git",
     "node-sass": "^3.3.2",
     "node-sass-middleware": "^0.9.8",
     "underscore": "^1.8.3"
