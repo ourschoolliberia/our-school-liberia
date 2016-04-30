@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../layouts/mainheader
 
 mixin postLink(post, text)
 	+buildRoute('news.updates:post', {post: post.slug}, text)(attributes)
@@ -33,53 +33,55 @@ mixin post(post)
 			p.read-more: +postLink(post, 'Read more...')
 
 block intro
-	.container
-		h1= data.category ? data.category.name : 'News Updates'
+	h3.visible-xs #{__('news.updates.title')}
+	h3.visible-sm #{__('news.updates.title')}
+	h3.visible-lg.visible-md #{__('news.updates.title')}
 
 block content
-	.container: .row
-		.col-sm-8.col-md-9
-			if filters.category && !data.category
-				h3.text-muted Invalid Category.
-			else
-				if data.posts.results.length
-					if data.posts.totalPages > 1
-						h4.text-weight-normal Showing 
-							strong #{data.posts.first}
-							|  to 
-							strong #{data.posts.last}
-							|  of 
-							strong #{data.posts.total}
-							|  posts.
-					else
-						h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
-					.updates
-						each post in data.posts.results
-							+post(post)
-					
-					if data.posts.totalPages > 1
-						ul.pagination
-							if data.posts.previous
-								li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
-							else
-								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-							each p, i in data.posts.pages
-								li(class=data.posts.currentPage == p ? 'active' : null)
-									a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
-							if data.posts.next
-								li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
-							else
-								li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+	.content-container.visible-md.visible-lg
+		.container: .row
+			.col-sm-8.col-md-9
+				if filters.category && !data.category
+					h3.text-muted Invalid Category.
 				else
-					if data.category
-						h3.text-muted There are no posts in the category #{data.category.name}.
+					if data.posts.results.length
+						if data.posts.totalPages > 1
+							h4.text-weight-normal Showing 
+								strong #{data.posts.first}
+								|  to 
+								strong #{data.posts.last}
+								|  of 
+								strong #{data.posts.total}
+								|  posts.
+						else
+							h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+						.updates
+							each post in data.posts.results
+								+post(post)
+						
+						if data.posts.totalPages > 1
+							ul.pagination
+								if data.posts.previous
+									li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
+								else
+									li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+								each p, i in data.posts.pages
+									li(class=data.posts.currentPage == p ? 'active' : null)
+										a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
+								if data.posts.next
+									li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
+								else
+									li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
 					else
-						h3.text-muted There are no posts yet.
-		
-		if data.categories.length
-			.col-sm-4.col-md-3
-				h2 Categories
-				.list-group(style='margin-top: 70px;')
-					+allPostsLink('All Categories ')(class=(!data.category ? 'active' : false).list-group-item)
-					each cat in data.categories
-						+catLink(cat.key, cat.name + ' ')(class=(data.category && data.category.id == cat.id ? 'active' : false).list-group-item) 
+						if data.category
+							h3.text-muted There are no posts in the category #{data.category.name}.
+						else
+							h3.text-muted There are no posts yet.
+			
+			if data.categories.length
+				.col-sm-4.col-md-3
+					h2 Categories
+					.list-group(style='margin-top: 70px;')
+						+allPostsLink('All Categories ')(class=(!data.category ? 'active' : false).list-group-item)
+						each cat in data.categories
+							+catLink(cat.key, cat.name + ' ')(class=(data.category && data.category.id == cat.id ? 'active' : false).list-group-item) 

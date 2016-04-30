@@ -97,6 +97,7 @@
 	},
 	"news": {
 		"updates": {
+			"title": "updates",
 			"back-to-index": "Back to News Updates"
 		}
 	},
@@ -120,10 +121,12 @@
 		},
 		"subscribe": {
 			"title": "subscribe",
-			"maincontent": "This is the maincontent",
-			"p1": "Paragraph 1",
-			"p2": "Paragraph 2",
-			"p3": "Paragraph 3"
+			"subtitle": "Subscribe to our newsletter",
+			"p1": "Want regular updates straight to your email?",
+			"firstname": "First Name",
+			"lastname": "Last Name",
+			"email": "Email",
+			"language": "Language Preference"
 		},
 		"volunteer": {
 			"title": "volunteer",
@@ -140,6 +143,8 @@
 			"areasofinterest": "Areas of Interest",
 			"qualifications1": "Qualifications and experience",
 			"qualifications2": "If you’re a qualified teacher, please outline the subjects and grade levels you are trained to teach.",
+			"qualifications2pt1": "If you’re a qualified teacher, please outline",
+			"qualifications2pt2": "the subjects and grades you're trained in.",
 			"more": "Is there anything else you'd like to tell us?",
 			"submit": "Submit",
 			"maincontent": "maincontent",
@@ -152,7 +157,8 @@
 			"p1": "Paragraph 1",
 			"p2": "Paragraph 2",
 			"p3": "Paragraph 3"
-		}
+		},
+		"updates.title": "updates.title"
 	},
 	"gallery": {
 		"title": "gallery",
