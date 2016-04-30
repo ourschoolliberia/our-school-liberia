@@ -14,55 +14,100 @@ block content
 		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
 		p #{__('getinvolved.volunteer.p1')}
 		p #{__('getinvolved.volunteer.p2')}
-		p #{__('getinvolved.volunteer.p3')}
+	.content-container-alt.visible-xs.visible-sm
+		h7 #{__('getinvolved.volunteer.p3')}
 		form(name="volunteer", method="post")
 			div.input
 				span.label #{__('getinvolved.volunteer.firstname')}
-		p #{__('getinvolved.volunteer.lastname')}
-		p #{__('getinvolved.volunteer.dob')}
-		p #{__('getinvolved.volunteer.email')}
-		p #{__('getinvolved.volunteer.proposeddates')}
-		p #{__('getinvolved.volunteer.areasofinterest')}
-		p #{__('getinvolved.volunteer.qualifications1')}
-		p #{__('getinvolved.volunteer.qualifications2')}
-		p #{__('getinvolved.volunteer.more')}
-		p #{__('getinvolved.volunteer.submit')}
+				| <br>
+				input(type="text", name="firstname")
+			div.input
+				span.label #{__('getinvolved.volunteer.lastname')}
+				| <br>
+				input(type="text", name="lastname")
+			div.input
+				span.label #{__('getinvolved.volunteer.dob')}
+				| <br>
+				input(type="text", name="dob", id="dob")
+			div.input
+				span.label #{__('getinvolved.volunteer.proposedstartdate')}
+				| <br>
+				input(type="text", name="proposedstartdate", id="proposedstartdate")
+			div.input
+				span.label #{__('getinvolved.volunteer.proposedenddate')}
+				| <br>
+				input(type="text", name="proposedenddate", id="proposedenddate")
+			div.input
+				span.label #{__('getinvolved.volunteer.email')}
+				| <br>
+				input(type="text", name="email")
+			div.input
+				span.label #{__('getinvolved.volunteer.areasofinterest')}
+				| <br>
+				input(type="text", name="areasofinterest")
+			div.input
+				span.label #{__('getinvolved.volunteer.qualifications1')}
+				| <br>
+				input(type="text", name="qualifications1")
+			div.input
+				span.label #{__('getinvolved.volunteer.qualifications2pt1')}
+				| <br>
+				span.label #{__('getinvolved.volunteer.qualifications2pt2')}
+				| <br>
+				textarea(type="text", name="qualifications2", cols="40", rows="5")
+			div.input
+				span.label #{__('getinvolved.volunteer.more')}
+				| <br>
+				textarea(type="text", name="more", cols="40", rows="5")
+			div.actions
+				input(type="submit", value="submit")
 	.content-container.visible-md.visible-lg
 		p
 		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
 		p #{__('getinvolved.volunteer.p1')}
 		p #{__('getinvolved.volunteer.p2')}
-		p #{__('getinvolved.volunteer.p3')}
+	.content-container-alt.visible-md.visible-lg
+		h7 #{__('getinvolved.volunteer.p3')}
 		form(name="volunteer", method="post")
 			div.input
 				span.label #{__('getinvolved.volunteer.firstname')}
+				| <br>
 				input(type="text", name="firstname")
 			div.input
 				span.label #{__('getinvolved.volunteer.lastname')}
+				| <br>
 				input(type="text", name="lastname")
 			div.input
 				span.label #{__('getinvolved.volunteer.dob')}
+				| <br>
 				input(type="text", name="dob", id="dob")
 			div.input
 				span.label #{__('getinvolved.volunteer.proposedstartdate')}
+				| <br>
 				input(type="text", name="proposedstartdate", id="proposedstartdate")
 			div.input
 				span.label #{__('getinvolved.volunteer.proposedenddate')}
+				| <br>
 				input(type="text", name="proposedenddate", id="proposedenddate")
 			div.input
 				span.label #{__('getinvolved.volunteer.email')}
+				| <br>
 				input(type="text", name="email")
 			div.input
 				span.label #{__('getinvolved.volunteer.areasofinterest')}
+				| <br>
 				input(type="text", name="areasofinterest")
 			div.input
 				span.label #{__('getinvolved.volunteer.qualifications1')}
+				| <br>
 				input(type="text", name="qualifications1")
 			div.input
 				span.label #{__('getinvolved.volunteer.qualifications2')}
+				| <br>
 				textarea(type="text", name="qualifications2", cols="40", rows="5")
 			div.input
 				span.label #{__('getinvolved.volunteer.more')}
+				| <br>
 				textarea(type="text", name="more", cols="40", rows="5")
 			div.actions
 				input(type="submit", value="submit")
