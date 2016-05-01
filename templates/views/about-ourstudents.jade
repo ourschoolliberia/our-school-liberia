@@ -12,21 +12,44 @@ block intro
 //-         p #{__('about.ourstudents.maincontent')}
 
 
-mixin studentDiv (student)
-	.student
-		h3 #{student.name.first} #{student.name.last}
+extends ../layouts/mainheader
 
-		if student.image
-			.col-sm-4.col-md-4: img(src=student._.image.fit(100,100)).img-rounded
-		
-		p #{student.bio}
+block head 
+	link(href="/styles/slick-theme.css", rel="stylesheet")
+	link(href="/styles/slick.css", rel="stylesheet")
+
+block intro
+	h3.visible-xs #{__('about.ourteam.title')}
+	h3.visible-sm #{__('about.ourteam.title')}
+	h3.visible-lg.visible-md #{__('about.ourteam.title')}
+
+mixin studentDiv (student)
+	div
+		.student
+			h3 #{student.name.first} #{student.name.last}
+
+			if student.image
+				.col-sm-4.col-md-4: img(src=student._.image.fit(100,100)).img-rounded
+			
+			p #{student.bio}
 
 
 block content
-	.content-container.visible-md.visible-lg
-		.container
+	.content-container.visible-xs.visible-sm
+		div.ourstudents-small
 			if students.length
 				each student in students
 					+studentDiv(student)
 			else
 				h3.text-muted There are no students yet.
+	.content-container.visible-md.visible-lg
+		div.ourstudents
+			if students.length
+				each student in students
+					+studentDiv(student)
+			else
+				h3.text-muted There are no students yet.
+
+block extendscripts
+	script(src='/js/slick.min.js')
+	script(src='/js/about-ourstudents.js')

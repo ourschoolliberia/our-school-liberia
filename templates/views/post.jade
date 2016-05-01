@@ -27,7 +27,28 @@ block content
 									|  
 						if data.post.author
 							| by #{data.post.author.name.first}
+				.content-container.visible-xs.visible-sm
+					h8: a(href="#{buildLanguageUrl('news.updates')}") &larr; #{__('backto')} #{__('updates')}
+					h6= data.post.title
+					h8 Posted 
+						if data.post.publishedDate
+							| on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
+						if data.post.categories && data.post.categories.length
+							| in 
+							each cat, cat_i in data.post.categories
+								a(href='/news/updates/category/' + cat.key)= cat.name
+								if cat_i < data.post.categories.length - 1
+									| , 
+								else
+									|  
+						if data.post.author
+							| by #{data.post.author.name.first}
 				.content-container-alt.visible-md.visible-lg
+					.post
+						if data.post.image.exists
+							.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
+						!= data.post.content.full
+				.content-container-alt.visible-xs.visible-sm
 					.post
 						if data.post.image.exists
 							.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
