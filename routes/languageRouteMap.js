@@ -99,8 +99,7 @@ module.exports = {
 
 	'about.ourstudents' : {
 		section: 'about',
-		controller: false,
-		sharedTemplate: 'about-ourstudents',
+		controller: routes.views.students,
 		languages: {
 			'en': {
 				route: '/about/our-students',

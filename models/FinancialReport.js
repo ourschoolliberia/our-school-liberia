@@ -8,11 +8,13 @@ var Types = keystone.Field.Types;
 
 var FinancialReport = new keystone.List('FinancialReport', {
 	map: { name: 'year' },
-	autokey: { path: 'slug', from: 'year', unique: true }
+	autokey: { path: 'slug', from: 'year', unique: true },
+	format: 'YYYY',
+	defaultSort: '-year'
 });
 
 FinancialReport.add({
-	year: { type: Types.Name, required: true, default: '', initial: true },
+	year: { type: Types.Date, required: true, default: '', initial: true },
 	// report: { 
 	// 	type: Types.S3File,
 	// 	s3path: 'data/financialreports',
@@ -23,5 +25,5 @@ FinancialReport.add({
 	// },
 });
 
-FinancialReport.defaultColumns = 'name, type|20%, role|20%, image|20%';
+FinancialReport.defaultColumns = 'year';
 FinancialReport.register();
