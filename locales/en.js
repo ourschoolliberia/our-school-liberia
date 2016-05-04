@@ -67,13 +67,11 @@
 		},
 		"ourteam": {
 			"title": "Our Team",
-			"nicolasutton": "Nicola Sutton (Project Manager)",
-			"nicolasuttondesc": "Nicola joined the LREC team in 2011, having previously worked in administrative roles in both the public and non-profit sectors. Known as 'Sis Nikki' to the LREC students, Nicola holds a BA (Hon) from the University of Melbourne, a U21 Certificate in Global Issues, and a MSocSc (Distinction) in International Development from the Royal Melbourne Institute of Technology. Having grown up in Australia, she subsequently lived in Europe and travelled to parts of Asia and West Africa before moving to Liberia in 2012. As Project Manager she has overseen both the construction of a new three classroom building and the school's expansion from elementary to secondary level.",
-			"henrywolokolie": "Henry Wolokolie (Principal)",
-			"henrywolokoliedesc": "Henry has been Principal at LREC since 2012, but has been a member of our staff since 2009 when he joined us as Registrar. He holds a Diploma in Business Administration from Don Bosco Polytechnic and is currently completing a Bachelor’s Degree in Psychology. Henry has previously worked for organisations as diverse as Liberia National Petroleum Company (LNPC), Don Bosco, German Technical Cooperation (GTZ) and Visions in Action. He also Acting President of the Liberia Consumer Protection Association, successfully advocating for consumer rights across a variety of issues. Henry thoroughly enjoys working with youth, and has two teenage boys of his own, both of whom attend our school.",
-			"levisgayetoeque": "Lewis Gaye-Toeque (Vice-Principal)",
-			"levisgayetoequedesc": "Toeque joined LREC in 2008 as a third grade teacher, moving progressively to the fourth, fifth and sixth grades as our school grew. He is a graduate of the LICOSESS Teacher Training College in Monrovia where he obtained an Associate’s Degree in School Administration. In 2009 he was appointed head of our Sports Department, and has since served in various capacities including Dean of Students, Disciplinary Committee Chair and founder of our Workers’ Welfare Association. In 2012 he was selected as a member of our Education Team and became jointly responsible for fostering an ongoing learning culture within our teaching staff.",
-			"levisgayetoequedesc2": "He has previously worked as a Trauma Counsellor for Combat Stress Liberia, Director of the MURLINBRA Adult Literacy Program, and Assistant Examiner for the West African Examinations Council (WAEC), as well as having held a variety of teaching positions at other schools throughout the Paynesville district. In 2015, owing to his extensive experience counselling students, he was appointed Vice-Principal of LREC. When he’s not teaching he enjoys reading, listening to gospel music and amateur photography."
+			"maincontent": "This is the maincontent",
+			"nicolasutton": "nicolasutton",
+			"nicolasuttondesc": "nicolasuttondesc",
+			"henrywolokolie": "henrywolokolie",
+			"henrywolokoliedesc": "henrywolokoliedesc"
 		},
 		"ourstudents": {
 			"title": "Our Students",

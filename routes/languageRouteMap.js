@@ -85,7 +85,7 @@ module.exports = {
 
 	'about.ourteam' : {
 		section: 'about',
-		controller: false,
+		controller: routes.views.teammembers,
 		sharedTemplate: 'about-ourteam',
 		languages: {
 			'en': {

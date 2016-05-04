@@ -6477,7 +6477,8 @@ h5 {
   line-height: 3; }
 
 .slick-slide {
-  padding: 0px 80px 0 20px; }
+  padding: 0px 80px 0 20px;
+  outline: none; }
 
 .text-muted {
   color: #ddd; }

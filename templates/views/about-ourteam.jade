@@ -9,27 +9,32 @@ block intro
 	h3.visible-sm #{__('about.ourteam.title')}
 	h3.visible-lg.visible-md #{__('about.ourteam.title')}
 
+mixin teammemberDiv (teammember)
+	div
+		.teammember
+			h3 #{teammember.name.first} #{teammember.name.last}
+
+			if teammember.image
+				.col-sm-4.col-md-4: img(src=teammember._.image.fit(100,100)).img-rounded
+			
+			p #{teammember.bio}
+
+
 block content
 	.content-container.visible-xs.visible-sm
-		div.ourstaff-small
-			div #{__('about.ourteam.nicolasutton')}
-				p #{__('about.ourteam.nicolasuttondesc')}
-			div #{__('about.ourteam.henrywolokolie')}
-				p #{__('about.ourteam.henrywolokoliedesc')}
-			div content 
-			div content
-			div content
-			div content 
+		div.ourteam-small
+			if teammembers.length
+				each teammember in teammembers
+					+teammemberDiv(teammember)
+			else
+				h3.text-muted There are no teammembers yet.
 	.content-container.visible-md.visible-lg
-		div.ourstaff
-			div #{__('about.ourteam.nicolasutton')}
-				p #{__('about.ourteam.nicolasuttondesc')}
-			div #{__('about.ourteam.henrywolokolie')}
-				p #{__('about.ourteam.henrywolokoliedesc')}
-			div content 
-			div content
-			div content
-			div content
+		div.ourteam
+			if teammembers.length
+				each teammember in teammembers
+					+teammemberDiv(teammember)
+			else
+				h3.text-muted There are no teammembers yet.
 
 block extendscripts
 	script(src='/js/slick.min.js')

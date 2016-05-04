@@ -1,10 +1,10 @@
 $( document ).ready(function() {
-	$('.ourstaff').slick({
+	$('.ourteam').slick({
 		infinite: true,
 		slidesToShow: 2,
 		slidesToScroll: 1
 	});
-	$('.ourstaff-small').slick({ 
+	$('.ourteam-small').slick({ 
 		infinite: true,
 	 	slidesToShow: 1,
 		slidesToScroll: 1
