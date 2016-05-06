@@ -15,14 +15,15 @@ var FinancialReport = new keystone.List('FinancialReport', {
 
 FinancialReport.add({
 	year: { type: Types.Date, required: true, default: '', initial: true },
-	// report: { 
-	// 	type: Types.S3File,
-	// 	s3path: 'data/financialreports',
-	// 	// allowedTypes: ['pdf'],
-	// 	// filename: function(item, filename) {
-	// 	// 	return 'test.pdf';
-	// 	// }
-	// },
+	report: { 
+		type: Types.S3File,
+		s3path: 'data/financialreports',
+		allowedTypes: ['application/pdf'],
+		filename: function(item, filename) {
+			debugger;
+			return 'financial-report-' + item._.year.format('YYYY') + '.pdf';
+		}
+	},
 });
 
 FinancialReport.defaultColumns = 'year';

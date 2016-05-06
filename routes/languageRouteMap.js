@@ -32,7 +32,7 @@ module.exports = {
 	'donate': {
 		section: 'donate',
 		controller: false,
-		sharedTemplate: 'donate',
+		templatePrefix: 'donate',
 		languages: {
 			'en': {
 				route: '/donate',
@@ -137,21 +137,6 @@ module.exports = {
 			},
 		}
 	},	
-
-
-	'donate': {
-		method: 'all',
-		section: 'donate',
-		controller: routes.views.donate,
-		languages: {
-			'en': {
-				route: '/donate'
-			},
-			'de': {
-				route: '/spenden'
-			}
-		}
-	},
 
 
 	'getinvolved': {

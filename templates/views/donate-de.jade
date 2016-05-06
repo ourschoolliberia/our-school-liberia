@@ -1,0 +1,26 @@
+extends ../layouts/donateheader
+
+mixin donateButton ()
+	.donatebutton.
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="CKXVNEXS2XQ64">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/CH/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal." style="border: 0px none ; padding: 0px; width: 80px; height: 21px;"/>
+		</form>
+	
+
+block intro
+	h3.visible-xs #{__('donate.title')}
+	h3.visible-sm #{__('donate.title')}
+	h3.visible-lg.visible-md #{__('donate.title')}
+
+block content
+	.content-container.visible-xs.visible-sm
+		p
+		| <strong> #{__('donate.maincontent')} </strong>
+		+donateButton()
+
+	.content-container.visible-md.visible-lg
+		p
+		| <strong> #{__('donate.maincontent')} </strong>
+		+donateButton()

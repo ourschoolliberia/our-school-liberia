@@ -62,5 +62,7 @@
 	"getinvolved.volunteer.maincontent": "getinvolved.volunteer.maincontent",
 	"getinvolved.volunteer.p1": "getinvolved.volunteer.p1",
 	"getinvolved.volunteer.p2": "getinvolved.volunteer.p2",
-	"getinvolved.volunteer.p3": "getinvolved.volunteer.p3"
+	"getinvolved.volunteer.p3": "getinvolved.volunteer.p3",
+	"donate.title": "donate.title",
+	"donate.maincontent": "donate.maincontent"
 }
