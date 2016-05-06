@@ -1,9 +1,9 @@
 $( document ).ready(function() {
-	$("#dob").datepicker({
+	$(".dob").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		yearRange: '1950:2016'		
 	});
-	$("#proposedstartdate").datepicker();
-	$("#proposedenddate").datepicker();
+	$(".proposedstartdate").datepicker();
+	$(".proposedenddate").datepicker();
 });
