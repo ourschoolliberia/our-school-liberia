@@ -64,5 +64,17 @@
 	"getinvolved.volunteer.p2": "getinvolved.volunteer.p2",
 	"getinvolved.volunteer.p3": "getinvolved.volunteer.p3",
 	"donate.title": "donate.title",
-	"donate.maincontent": "donate.maincontent"
+	"donate.maincontent": "donate.maincontent",
+	"getinvolved.volunteer.subtitle": "getinvolved.volunteer.subtitle",
+	"getinvolved.volunteer.firstname": "getinvolved.volunteer.firstname",
+	"getinvolved.volunteer.lastname": "getinvolved.volunteer.lastname",
+	"getinvolved.volunteer.dob": "getinvolved.volunteer.dob",
+	"getinvolved.volunteer.proposedstartdate": "getinvolved.volunteer.proposedstartdate",
+	"getinvolved.volunteer.proposedenddate": "getinvolved.volunteer.proposedenddate",
+	"getinvolved.volunteer.email": "getinvolved.volunteer.email",
+	"getinvolved.volunteer.areasofinterest": "getinvolved.volunteer.areasofinterest",
+	"getinvolved.volunteer.qualifications1": "getinvolved.volunteer.qualifications1",
+	"getinvolved.volunteer.qualifications2pt1": "getinvolved.volunteer.qualifications2pt1",
+	"getinvolved.volunteer.qualifications2pt2": "getinvolved.volunteer.qualifications2pt2",
+	"getinvolved.volunteer.more": "getinvolved.volunteer.more"
 }

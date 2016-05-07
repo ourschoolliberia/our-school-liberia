@@ -192,9 +192,9 @@ module.exports = {
 		}
 	},
 	'getinvolved.volunteer' : {
+		method: 'all',
 		section: 'getinvolved',
-		controller: false,
-		sharedTemplate: 'get-involved-volunteer',
+		controller: routes.views.volunteer,
 		languages: {
 			'en': {
 				route: '/get-involved/volunteer',

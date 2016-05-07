@@ -1,120 +1,102 @@
 extends ../layouts/mainheader
 
 block head 
-	link(href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css", rel="stylesheet")
+	link(href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css", rel="stylesheet")
 
 block intro
 	h3.visible-xs #{__('getinvolved.volunteer.title')}
 	h3.visible-sm #{__('getinvolved.volunteer.title')}
 	h3.visible-lg.visible-md #{__('getinvolved.volunteer.title')}
 
+mixin volunteerIntro() 
+	p
+	| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
+	p #{__('getinvolved.volunteer.p1')}
+	p #{__('getinvolved.volunteer.p2')}
+
+mixin volunteerForm()
+	h7 #{__('getinvolved.volunteer.p3')}
+	form(name="volunteer", method="post")
+		input(type='hidden', name='action', value='volunteer')
+		div.input
+			span.label #{__('getinvolved.volunteer.firstname')}
+			input(type="text", name="name.first" value=formData['name.first'])
+		div.input
+			span.label #{__('getinvolved.volunteer.lastname')}
+			input(type="text", name="name.last" value=formData['name.last'])
+		div.input
+			span.label #{__('getinvolved.volunteer.dob')}
+			input.dob(type="text", name="dob", value=formData['dob'])
+		div.input
+			span.label #{__('getinvolved.volunteer.proposedstartdate')}
+			input.datepicker(type="text", name="proposedStartDate", value=formData['proposedStartDate'])
+		div.input
+			span.label #{__('getinvolved.volunteer.proposedenddate')}
+			input.datepicker(type="text", name="proposedEndDate", value=formData['proposedEndDate'])
+		div.input
+			span.label #{__('getinvolved.volunteer.email')}
+			input(type="text", name="email")
+		div.input
+			span.label #{__('getinvolved.volunteer.areasofinterest')}
+			input(type="text", name="areasOfInterest", value=formData['areasOfInterest'])
+		div.input
+			span.label #{__('getinvolved.volunteer.qualifications1')}
+			input(type="text", name="qualifications", value=formData['qualifications'])
+		div.input
+			span.label #{__('getinvolved.volunteer.qualifications2pt1')}
+			span.label #{__('getinvolved.volunteer.qualifications2pt2')}
+			textarea(type="text", name="teacherQualifications", value=formData['teacherQualifications'], cols="40", rows="5")
+		div.input
+			span.label #{__('getinvolved.volunteer.more')}
+			textarea(type="text", name="more", value=formData['more'] cols="40", rows="5")
+		div.actions
+			input(type="submit", value="submit")
+
+mixin formSubmitted() 
+	p Thankyou for registering your interest		
+
+
 block content
-	.content-container.visible-xs.visible-sm
-		p
-		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
-		p #{__('getinvolved.volunteer.p1')}
-		p #{__('getinvolved.volunteer.p2')}
-	.content-container-alt.visible-xs.visible-sm
-		h7 #{__('getinvolved.volunteer.p3')}
-		form(name="volunteer", method="post")
-			div.input
-				span.label #{__('getinvolved.volunteer.firstname')}
-				| <br>
-				input(type="text", name="firstname")
-			div.input
-				span.label #{__('getinvolved.volunteer.lastname')}
-				| <br>
-				input(type="text", name="lastname")
-			div.input
-				span.label #{__('getinvolved.volunteer.dob')}
-				| <br>
-				input(type="text", name="dob", id="dob")
-			div.input
-				span.label #{__('getinvolved.volunteer.proposedstartdate')}
-				| <br>
-				input(type="text", name="proposedstartdate", id="proposedstartdate")
-			div.input
-				span.label #{__('getinvolved.volunteer.proposedenddate')}
-				| <br>
-				input(type="text", name="proposedenddate", id="proposedenddate")
-			div.input
-				span.label #{__('getinvolved.volunteer.email')}
-				| <br>
-				input(type="text", name="email")
-			div.input
-				span.label #{__('getinvolved.volunteer.areasofinterest')}
-				| <br>
-				input(type="text", name="areasofinterest")
-			div.input
-				span.label #{__('getinvolved.volunteer.qualifications1')}
-				| <br>
-				input(type="text", name="qualifications1")
-			div.input
-				span.label #{__('getinvolved.volunteer.qualifications2pt1')}
-				| <br>
-				span.label #{__('getinvolved.volunteer.qualifications2pt2')}
-				| <br>
-				textarea(type="text", name="qualifications2", cols="40", rows="5")
-			div.input
-				span.label #{__('getinvolved.volunteer.more')}
-				| <br>
-				textarea(type="text", name="more", cols="40", rows="5")
-			div.actions
-				input(type="submit", value="submit")
-	.content-container.visible-md.visible-lg
-		p
-		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
-		p #{__('getinvolved.volunteer.p1')}
-		p #{__('getinvolved.volunteer.p2')}
-	.content-container-alt.visible-md.visible-lg
-		h7 #{__('getinvolved.volunteer.p3')}
-		form(name="volunteer", method="post")
-			div.input
-				span.label #{__('getinvolved.volunteer.firstname')}
-				| <br>
-				input(type="text", name="firstname")
-			div.input
-				span.label #{__('getinvolved.volunteer.lastname')}
-				| <br>
-				input(type="text", name="lastname")
-			div.input
-				span.label #{__('getinvolved.volunteer.dob')}
-				| <br>
-				input.dob(type="text", name="dob", id="dob")
-			div.input
-				span.label #{__('getinvolved.volunteer.proposedstartdate')}
-				| <br>
-				input.proposedstartdate(type="text", name="proposedstartdate", id="proposedstartdate")
-			div.input
-				span.label #{__('getinvolved.volunteer.proposedenddate')}
-				| <br>
-				input.proposedenddate(type="text", name="proposedenddate", id="proposedenddate")
-			div.input
-				span.label #{__('getinvolved.volunteer.email')}
-				| <br>
-				input(type="text", name="email")
-			div.input
-				span.label #{__('getinvolved.volunteer.areasofinterest')}
-				| <br>
-				input(type="text", name="areasofinterest")
-			div.input
-				span.label #{__('getinvolved.volunteer.qualifications1')}
-				| <br>
-				input(type="text", name="qualifications1")
-			div.input
-				span.label #{__('getinvolved.volunteer.qualifications2')}
-				| <br>
-				textarea(type="text", name="qualifications2", cols="40", rows="5")
-			div.input
-				span.label #{__('getinvolved.volunteer.more')}
-				| <br>
-				textarea(type="text", name="more", cols="40", rows="5")
-			div.actions
-				input(type="submit", value="submit")
+	if formSubmitted
+		+formSubmitted()
+	else
+		//- DS: just an idea to remove the '| <br>'? Is there a reason it's needed I'm not thinking of?
+		style.
+			div.input span.label { 
+				display: block;
+				text-align: left;
+			}
+		.content-container.visible-xs.visible-sm
+			+volunteerIntro()
+		.content-container-alt.visible-xs.visible-sm
+			+volunteerForm()
+		.content-container.visible-md.visible-lg
+			+volunteerIntro()
+		.content-container-alt.visible-md.visible-lg
+			+volunteerForm()
+
 
 block extendscripts
-	script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
-	script(src='/js/get-involved-volunteer.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js')
+	
+	
+	//- DS: switched it to bootstrap-datepicker (cos bootstrap), 
+	//-		here we conditionally load the german language so the date picker is in the right language too :)
+	-var locale = getLocale()
+	if locale === 'de'
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.de.min.js')
+
+	script.
+		$( document ).ready(function() {
+			$(".dob").datepicker({
+				language: '#{locale}',
+				yearRange: '1950:2016'		
+			});
+			$(".datepicker").datepicker({
+				language: '#{locale}'
+			});
+
+		});
 
 
 
