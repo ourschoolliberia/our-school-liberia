@@ -11,12 +11,14 @@ var VolunteerSubmission = new keystone.List('VolunteerSubmission', {
 	noedit: true
 });
 
+var dateParseFormat = 'DD/MM/YYYY';
+
 VolunteerSubmission.add({
 	name: { type: Types.Name, required: true },
 	email: { type: Types.Email, required: true },
-	dob: { type: Types.Date, required: true },
-	proposedStartDate: { type: Types.Date, required: true },
-	proposedEndDate: { type: Types.Date, required: true },
+	dob: { type: Types.Date, required: true, parseFormat: dateParseFormat },
+	proposedStartDate: { type: Types.Date, required: true, parseFormat: dateParseFormat },
+	proposedEndDate: { type: Types.Date, required: true, parseFormat: dateParseFormat },
 	email: { type: Types.Email, required: true },
 	areasOfInterest: { type: String, required: true },
 	qualifications: { type: String },
