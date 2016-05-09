@@ -8,9 +8,7 @@ var sass = require('gulp-sass');
 
 
 var paths = {
-	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
-
-,
+	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
 	'style': {
 		all: './public/styles/**/*.scss',
 		output: './public/styles/'
@@ -31,25 +29,25 @@ gulp.task('watch:lint', function () {
 });
 
 
-gulp.task('watch:sass', function () {
-	gulp.watch(paths.style.all, ['sass']);
-});
+// gulp.task('watch:sass', function () {
+// 	gulp.watch(paths.style.all, ['sass']);
+// });
 
-gulp.task('sass', function(){
-	gulp.src(paths.style.all)
-		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest(paths.style.output));
-});
+// gulp.task('sass', function(){
+// 	gulp.src(paths.style.all)
+// 		.pipe(sass().on('error', sass.logError))
+// 		.pipe(gulp.dest(paths.style.output));
+// });
 
-'use strict';
+// 'use strict';
  
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+// var gulp = require('gulp');
+// var sass = require('gulp-sass');
  
 gulp.task('sass', function () {
   return gulp.src('./sass/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./public/styles'));
 });
  
 gulp.task('sass:watch', function () {
@@ -59,9 +57,7 @@ gulp.task('sass:watch', function () {
 
 gulp.task('runKeystone', shell.task('node keystone.js'));
 gulp.task('watch', [
-
-  'watch:sass',
-
+  'sass:watch',
   'watch:lint'
 ]);
 

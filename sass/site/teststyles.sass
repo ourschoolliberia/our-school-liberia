@@ -7,6 +7,37 @@
 $a-tags: 'a, a:active, a:hover, a:visited'
 $a-tags-hover: 'a:active, a:hover'
 
+
+@mixin respond-to($media) 
+	@if $media == xs 
+		@media only screen and (max-width: $screen-xs-max) 
+			@content 
+	
+	@if $media == xs-sm 
+		@media only screen and (max-width: $screen-sm-max)
+			@content 
+
+	@else if $media == sm 
+		@media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+			@content 
+
+
+	@else if $media == md-lg 
+		@media only screen and (min-width: $screen-md-min)
+			@content
+
+	@else if $media == md 
+			@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max)  
+				@content
+
+	@else if $media == lg 
+		@media only screen and (min-width: $screen-lg-min)  
+			@content; 
+	
+
+
+
+
 body
 	font-family: "Open Sans"
 	width: 100%
@@ -14,7 +45,7 @@ body
 
 .container
 	z-index: 2
-	.visible-xs
+	@include respond-to(xs)
 		top: -50px
 
 .navbar-default
@@ -50,12 +81,13 @@ body
 		margin-left: -170px
 		top: 10px
 		padding-bottom: 30px
-	&.visible-xs
+	@include respond-to(xs) 
 		width: 60%
 		margin-top: 10px
 		left: 50%
 		margin-left: -30%
 		position: relative
+	
 
 
 h1
@@ -66,97 +98,30 @@ h1
 	font-size: 4em
 	text-align: center
 	color: #fff
-	&.visible-lg
+	@include respond-to(lg) 
 		top: 250px
 		font-size: 5em
-	&.visible-md
+	
+	@include respond-to(md) 
 		font-size: 5em
 		top: 30px
-	&.visible-sm
+	
+	@include respond-to(sm) 
 		top: 35px
-	&.visible-xs
+	
+	@include respond-to(xs) 
 		font-size: 3.5em
 		margin-top: -80%
 		margin-bottom: 80%
+	
 
 .navbar-toggle
 	margin-top: -32px
 
 .donatenow
 	z-index: 3
-	&.visible-lg
-		position: relative
-		background-color: #edbe36
-		width: 35%
-		left: 50%
-		margin-left: -17.5%
-		text-align: center
-		padding: 20px 40px 20px 0px
-		top: 0%
-		margin-top: -123px
-		border: 6px solid #FFF
-		color: #fff
-		font-size: 40px
-		font-family: "Open Sans"
-		margin-bottom: -70px
-		&::after 
-			content: ""
-			position: absolute
-			background-image: url("../images/arrow@2x.png")
-			background-size: 100% auto
-			width: 27.5px
-			height: 39.5px
-			top: 31px
-			right: 36px
-	&.visible-md
-		position: relative
-		background-color: #edbe36
-		width: 45%
-		left: 50%
-		margin-left: -22.5%
-		text-align: center
-		padding: 20px 40px 20px 0px
-		top: 0%
-		margin-top: -123px
-		border: 6px solid #FFF
-		color: #fff
-		font-size: 40px
-		font-family: "Open Sans"
-		margin-bottom: -70px
-		&::after 
-			content: ""
-			position: absolute
-			background-image: url("../images/arrow@2x.png")
-			background-size: 100% auto
-			width: 27.5px
-			height: 39.5px
-			top: 31px
-			right: 36px
-	&.visible-sm
-		position: relative
-		background-color: #edbe36
-		width: 60%
-		left: 50%
-		margin-left: -30%
-		text-align: center
-		padding: 30px 20px 30px 0px
-		top: 0%
-		margin-top: -113px
-		border: 6px solid #FFF
-		color: #fff
-		font-size: 40px
-		font-family: "Open Sans"
-		margin-bottom: -57px
-		&::after 
-			content: ""
-			position: absolute
-			background-image: url("../images/arrow@2x.png")
-			background-size: 100% auto
-			width: 27.5px
-			height: 39.5px
-			top: 40px
-			right: 40px
-	&.visible-xs
+	
+	@include respond-to(xs) 
 		position: relative
 		background-color: #edbe36
 		width: 120%
@@ -180,27 +145,107 @@ h1
 			top: 40px
 			right: 10%
 
+	@include respond-to(sm) 
+		position: relative
+		background-color: #edbe36
+		width: 60%
+		left: 50%
+		margin-left: -30%
+		text-align: center
+		padding: 30px 20px 30px 0px
+		top: 0%
+		margin-top: -113px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 40px
+		font-family: "Open Sans"
+		margin-bottom: -57px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 40px
+			right: 40px
+	
+	@include respond-to(md) 
+		position: relative
+		background-color: #edbe36
+		width: 45%
+		left: 50%
+		margin-left: -22.5%
+		text-align: center
+		padding: 20px 40px 20px 0px
+		top: 0%
+		margin-top: -123px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 40px
+		font-family: "Open Sans"
+		margin-bottom: -70px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 31px
+			right: 36px
+
+	@include respond-to(lg) 
+		position: relative
+		background-color: #edbe36
+		width: 35%
+		left: 50%
+		margin-left: -17.5%
+		text-align: center
+		padding: 20px 40px 20px 0px
+		top: 0%
+		margin-top: -123px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 40px
+		font-family: "Open Sans"
+		margin-bottom: -70px
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 31px
+			right: 36px
+	
+
 
 .intro-container
 	@include radial-gradient(#8fc1e5, #4682ad)
-	&.visible-xs, &.visible-sm
+	@include respond-to(xs-sm) 
 		height: 220px
-	&.visible-md, &.visible-ld
+	
+	@include respond-to(md-lg) 
 		height: 330px
+	
 
 .logo
-	&.visible-xs, &.visible-sm
+	@include respond-to(xs-sm) 
 		width: 216px
 		left: 50%
 		margin-left: -108px
 		position: relative
 		margin-top: -10px
-	&.visible-md, &.visible-ld
+	
+	@include respond-to(md-lg) 
 		width: 266px
 		left: 50%
 		margin-left: -133px
 		position: relative
 		margin-top: -30px
+	
 
 .aboutnow-prev
 	position: relative
@@ -208,14 +253,16 @@ h1
 	background-color: #383ba5
 	z-index: 1
 	font-size: 18px
-	&.visible-xs, &.visible-sm
+	@include respond-to(xs-sm) 
 		border-top: none
 		height: auto
 		top: 0px
 		padding: 90px 50px 60px 50px
-	&.visible-md, &.visible-lg
+	
+	@include respond-to(md-lg) 
 		border-top: 5px solid #fff
 		padding: 110px 150px 70px 150px
+	
 
 h2
 	text-align: left
@@ -248,78 +295,77 @@ p.aboutnow-prev-p
 	margin-left: 6px
 
 .home-icon
-	img
-		position: relative
-		width: 100%
-	&.visible-lg, &.visible-md
-		&.fb
+	&.fb
+		@include respond-to(lg-md) 
 			position: relative
 			width: 50px
 			left: 0px
 			top: -810px
-		&.li
+		@include respond-to(sm) 
+			position: relative
+			width: 50px
+			left: 0px
+			top: -830px
+		@include respond-to(xs) 
+			position: relative
+			width: 40px
+			left: 10px
+			top: -190px
+		
+	&.li
+		@include respond-to(lg-md) 
 			position: relative
 			top: -857px
 			width: 45px
 			left: 56px
-		&.vm
+		@include respond-to(sm) 
+			position: relative
+			top: -876px
+			width: 45px
+			left: 53px
+		@include respond-to(xs) 
+			position: relative
+			top: -226px
+			width: 35px
+			left: 53px
+	&.vm
+		@include respond-to(lg-md) 
 			position: relative
 			top: -902px
 			width: 45px
 			left: 112px
-		&.yt
+		@include respond-to(sm) 
+			position: relative
+			top: -920px
+			width: 45px
+			left: 107px
+		@include respond-to(xs) 
+			position: relative
+			top: -260px
+			width: 35px
+			left: 95px
+	&.yt
+		@include respond-to(lg-md) 
 			position: relative
 			top: -946px
 			width: 45px
 			left: 167px
 			margin-bottom: -180px
-	&.visible-sm
-		&.fb
-			position: relative
-			width: 50px
-			left: 0px
-			top: -830px
-		&.li
-			position: relative
-			top: -876px
-			width: 45px
-			left: 53px
-		&.vm
-			position: relative
-			top: -920px
-			width: 45px
-			left: 107px
-		&.yt
+		@include respond-to(sm) 
 			position: relative
 			top: -964px
 			width: 45px
 			left: 163px
 			margin-bottom: -193px
-	&.visible-xs
-		&.fb
-			position: relative
-			width: 40px
-			left: 10px
-			top: -190px
-		&.li
-			position: relative
-			top: -226px
-			width: 35px
-			left: 53px
-		&.vm
-			position: relative
-			top: -260px
-			width: 35px
-			left: 95px
-		&.yt
+		@include respond-to(xs) 
 			position: relative
 			top: -294px
 			width: 35px
 			left: 137px
 			margin-bottom: -220px
-
-.visible-lg, &.visible-md
-	&.fb
+	
+.fb
+	@include respond-to(lg-md) 
 		position: relative
 		width: 50px
 		left: 0px
@@ -327,32 +373,8 @@ p.aboutnow-prev-p
 		.icon
 			position: relative
 			width: 100%
-	&.li
-		position: relative
-		top: -310px
-		width: 45px
-		left: 56px
-		.icon
-			position: relative
-			width: 100%
-	&.vm
-		position: relative
-		top: -355px
-		width: 45px
-		left: 112px
-		.icon
-			position: relative
-			width: 100%
-	&.yt
-		position: relative
-		top: -399px
-		width: 45px
-		left: 167px
-		.icon
-			position: relative
-			width: 100%
-.visible-sm
-	&.fb
+	@include respond-to(sm) 
+
 		position: relative
 		width: 50px
 		left: 0px
@@ -360,7 +382,24 @@ p.aboutnow-prev-p
 		.icon
 			position: relative
 			width: 100%
-	&.li
+	@include respond-to(xs) 
+		position: relative
+		width: 40px
+		left: 10px
+		top: -220px
+		.icon
+			position: relative
+			width: 100%
+.li
+	@include respond-to(lg-md) 
+		position: relative
+		top: -310px
+		width: 45px
+		left: 56px
+		.icon
+			position: relative
+			width: 100%
+	@include respond-to(sm) 
 		position: relative
 		top: -346px
 		width: 45px
@@ -368,7 +407,24 @@ p.aboutnow-prev-p
 		.icon
 			position: relative
 			width: 100%
-	&.vm
+	@include respond-to(xs) 
+		position: relative
+		top: -256px
+		width: 35px
+		left: 53px
+		.icon
+			position: relative
+			width: 100%
+.vm
+	@include respond-to(lg-md) 
+		position: relative
+		top: -355px
+		width: 45px
+		left: 112px
+		.icon
+			position: relative
+			width: 100%
+	@include respond-to(sm) 
 		position: relative
 		top: -390px
 		width: 45px
@@ -376,7 +432,24 @@ p.aboutnow-prev-p
 		.icon
 			position: relative
 			width: 100%
-	&.yt
+	@include respond-to(xs) 
+		position: relative
+		top: -290px
+		width: 35px
+		left: 95px
+		.icon
+			position: relative
+			width: 100%
+.yt
+	@include respond-to(lg-md) 
+		position: relative
+		top: -399px
+		width: 45px
+		left: 167px
+		.icon
+			position: relative
+			width: 100%
+	@include respond-to(sm) 
 		position: relative
 		top: -434px
 		width: 45px
@@ -385,32 +458,7 @@ p.aboutnow-prev-p
 		.icon
 			position: relative
 			width: 100%
-.visible-xs
-	&.fb
-		position: relative
-		width: 40px
-		left: 10px
-		top: -220px
-		.icon
-			position: relative
-			width: 100%
-	&.li
-		position: relative
-		top: -256px
-		width: 35px
-		left: 53px
-		.icon
-			position: relative
-			width: 100%
-	&.vm
-		position: relative
-		top: -290px
-		width: 35px
-		left: 95px
-		.icon
-			position: relative
-			width: 100%
-	&.yt
+	@include respond-to(xs) 
 		position: relative
 		top: -324px
 		width: 35px
@@ -428,24 +476,27 @@ h3
 	text-transform: uppercase
 	font-weight: bold
 	padding-right: 20px
-	&.visible-xs
+	@include respond-to(xs) 
 		font-size: 30px
 		margin-bottom: 130px
 		padding-right: 20px
 		top: 0px !important
-	&.visible-sm
+	
+	@include respond-to(sm) 
 		margin-bottom: 130px
 		padding-right: 20px
 		top: 0px !important
 		text-align: center
 		font-size: 45px
-	&.visible-md, &.visible-lg
+	
+	@include respond-to(md-lg) 
 		position: relative
 		margin-bottom: 20px
 		padding-right: 30px
 		text-align: center
 		font-size: 60px
 		padding-top: 40px
+	
 
 h4
 	position: relative
@@ -480,13 +531,15 @@ h5
 	height: auto
 	color: #fff
 	font-size: 20px
-	&.visible-xs, &.visible-sm
+	@include respond-to(xs-sm) 
 		margin-top: 0px
 		padding: 70px 50px 60px 50px
-	&.visible-md, &.visible-lg
+	
+	@include respond-to(md-lg) 
 		margin-top: 6px
 		padding: 110px 150px 70px 150px
 		text-align: left
+	
 
 .content-container-alt
 	width: 100%
@@ -494,7 +547,7 @@ h5
 	height: auto
 	color: #383ba5
 	font-size: 20px
-	&.visible-xs, &.visible-sm
+	@include respond-to(xs-sm) 
 		margin-top: 0px
 		padding: 70px 50px 60px 50px
 		input, textarea
@@ -512,7 +565,8 @@ h5
 			color: #fff
 			background-color: #383ba5
 			padding: 10px 0 10px 0
-	&.visible-md, &.visible-lg
+	
+	@include respond-to(md-lg) 
 		margin-top: 6px
 		padding: 40px 150px 70px 150px
 		text-align: left
@@ -532,8 +586,9 @@ h5
 			color: #fff
 			background-color: #383ba5
 			padding: 10px 0 10px 0
+	
 
-.visible-xs, .visible-sm
+@include respond-to(xs-sm) 
 	p 
 		margin: 20px 0px 0 0px
 		font-size: 16px
@@ -571,8 +626,8 @@ h5
 		right: 0px
 		margin-right: 20px
 		top: -30px
-		
-.visible-md, .visible-lg
+
+@include respond-to(md-lg) 
 	p
 		margin: 20px 0 0 
 		font-size: 16px
