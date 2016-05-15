@@ -7,15 +7,31 @@
 $a-tags: 'a, a:active, a:hover, a:visited'
 $a-tags-hover: 'a:active, a:hover'
 
+@mixin respond-to($breakpoint)
+	@if $breakpoint == "xs"
+		@media (min-width: 321px) and (max-width: 766px)
+			@content
+
+	@else if $breakpoint == "sm"
+		@media (min-width: 767px) and (max-width: 991px)
+			@content
+
+	@else if $breakpoint == "md"
+		@media (min-width: 992px) and (max-width: 1199px)
+			@content
+
+	@else if $breakpoint == "lg"
+		@media (min-width: 1200px)
+			@content
+
 body
 	font-family: "Open Sans"
 	width: 100%
 	overflow-x: hidden
 
 .container
-	z-index: 2
-	.visible-xs
-		top: -50px
+	z-index: 2		
+	top: -50px
 
 .navbar-default
 	background-color: #fff
@@ -43,20 +59,32 @@ body
 	margin-top: 10px
 	left: 50%
 	margin-left: -25%
-	position: relative
-	@media screen and (min-width: 1024px)
+	position: absolute
+	z-index: 5
+	@include respond-to("lg")
+		max-width: 310px
+		left: 50%
+		margin-left: -155px
+		top: 260px
+		padding-bottom: 30px
+	@include respond-to("md")
+		max-width: 310px
+		left: 50%
+		margin-left: -155px
+		top: 260px
+		padding-bottom: 30px
+	@include respond-to("sm")
 		max-width: 340px
 		left: 50%
 		margin-left: -170px
 		top: 10px
 		padding-bottom: 30px
-	&.visible-xs
+	@include respond-to("xs")
 		width: 60%
 		margin-top: 10px
 		left: 50%
 		margin-left: -30%
 		position: relative
-
 
 h1
 	position: relative
@@ -66,39 +94,39 @@ h1
 	font-size: 4em
 	text-align: center
 	color: #fff
-	&.visible-lg
+	@include respond-to("lg")
 		top: 250px
 		font-size: 5em
-	&.visible-md
+	@include respond-to("md")
 		font-size: 5em
 		top: 30px
-	&.visible-sm
+	@include respond-to("sm")
 		top: 35px
-	&.visible-xs
+	@include respond-to("xs")
 		font-size: 3.5em
 		margin-top: -80%
 		margin-bottom: 80%
+	
 
 .navbar-toggle
 	margin-top: -32px
 
 .donatenow
-	z-index: 3
-	&.visible-lg
+	z-index: 4
+	@include respond-to("xs")
 		position: relative
 		background-color: #edbe36
-		width: 35%
+		width: 120%
 		left: 50%
-		margin-left: -17.5%
+		margin-left: -60%
 		text-align: center
-		padding: 20px 40px 20px 0px
+		padding: 30px 20px 30px 0px
 		top: 0%
-		margin-top: -123px
+		margin-top: -163px
 		border: 6px solid #FFF
 		color: #fff
 		font-size: 40px
 		font-family: "Open Sans"
-		margin-bottom: -70px
 		&::after 
 			content: ""
 			position: absolute
@@ -106,33 +134,9 @@ h1
 			background-size: 100% auto
 			width: 27.5px
 			height: 39.5px
-			top: 31px
-			right: 36px
-	&.visible-md
-		position: relative
-		background-color: #edbe36
-		width: 45%
-		left: 50%
-		margin-left: -22.5%
-		text-align: center
-		padding: 20px 40px 20px 0px
-		top: 0%
-		margin-top: -123px
-		border: 6px solid #FFF
-		color: #fff
-		font-size: 40px
-		font-family: "Open Sans"
-		margin-bottom: -70px
-		&::after 
-			content: ""
-			position: absolute
-			background-image: url("../images/arrow@2x.png")
-			background-size: 100% auto
-			width: 27.5px
-			height: 39.5px
-			top: 31px
-			right: 36px
-	&.visible-sm
+			top: 40px
+			right: 10%	
+	@include respond-to("sm")
 		position: relative
 		background-color: #edbe36
 		width: 60%
@@ -156,20 +160,17 @@ h1
 			height: 39.5px
 			top: 40px
 			right: 40px
-	&.visible-xs
+	@include respond-to("md")
 		position: relative
 		background-color: #edbe36
-		width: 120%
-		left: 50%
-		margin-left: -60%
-		text-align: center
-		padding: 30px 20px 30px 0px
-		top: 0%
-		margin-top: -163px
+		padding: 20px 90px 20px 40px
 		border: 6px solid #FFF
 		color: #fff
 		font-size: 40px
 		font-family: "Open Sans"
+		left: 50%
+		margin-left: -205px
+		top: -25px
 		&::after 
 			content: ""
 			position: absolute
@@ -177,30 +178,67 @@ h1
 			background-size: 100% auto
 			width: 27.5px
 			height: 39.5px
-			top: 40px
-			right: 10%
+			top: 31px
+			right: 36px
+	@include respond-to("lg") 
+		position: relative
+		background-color: #edbe36
+		padding: 20px 90px 20px 40px
+		border: 6px solid #FFF
+		color: #fff
+		font-size: 40px
+		font-family: "Open Sans"
+		left: 50%
+		margin-left: -205px
+		top: -25px
+		#{$a-tags}
+			color: #fff !important
+			opacity: 0.6 !important
+			text-decoration: none !important
+		&::after 
+			content: ""
+			position: absolute
+			background-image: url("../images/arrow@2x.png")
+			background-size: 100% auto
+			width: 27.5px
+			height: 39.5px
+			top: 31px
+			right: 36px
 
 
 .intro-container
 	@include radial-gradient(#8fc1e5, #4682ad)
-	&.visible-xs, &.visible-sm
+	@include respond-to("xs")
 		height: 220px
-	&.visible-md, &.visible-ld
-		height: 330px
+	@include respond-to("sm")
+		height: 220px
+	@include respond-to("md")
+		height: 620px
+	@include respond-to("lg")
+		height: 750px	
 
 .logo
-	&.visible-xs, &.visible-sm
+	position: absolute
+	@include respond-to("xs")
 		width: 216px
 		left: 50%
 		margin-left: -108px
-		position: relative
 		margin-top: -10px
-	&.visible-md, &.visible-ld
+	@include respond-to("sm")
+		width: 216px
+		left: 50%
+		margin-left: -108px
+		margin-top: -10px
+	@include respond-to("md")
 		width: 266px
 		left: 50%
 		margin-left: -133px
-		position: relative
 		margin-top: -30px
+	@include respond-to("lg")
+		width: 210px
+		left: 50%
+		margin-left: -105px
+		margin-top: -16px
 
 .aboutnow-prev
 	position: relative
@@ -208,14 +246,23 @@ h1
 	background-color: #383ba5
 	z-index: 1
 	font-size: 18px
-	&.visible-xs, &.visible-sm
+	margin-top: -60px
+	@include respond-to("xs") 
 		border-top: none
 		height: auto
 		top: 0px
 		padding: 90px 50px 60px 50px
-	&.visible-md, &.visible-lg
+	@include respond-to("sm") 
+		border-top: none
+		height: auto
+		top: 0px
+		padding: 90px 50px 60px 50px
+	@include respond-to("md")
 		border-top: 5px solid #fff
 		padding: 110px 150px 70px 150px
+	@include respond-to("lg")
+		border-top: 5px solid #fff
+		padding: 110px 150px 70px 150px	
 
 h2
 	text-align: left
@@ -248,174 +295,115 @@ p.aboutnow-prev-p
 	margin-left: 6px
 
 .home-icon
-	img
-		position: relative
-		width: 100%
-	&.visible-lg, &.visible-md
-		&.fb
+	position: relative
+	width: 50px
+	height: 50px
+	&.fb
+		@include respond-to("lg")
+			left: 0px
+			top: -70px
+		@include respond-to("md")
 			position: relative
 			width: 50px
 			left: 0px
 			top: -810px
-		&.li
+		@include respond-to("sm")
+			position: relative
+			width: 50px
+			left: 0px
+			top: -830px
+		@include respond-to("xs")
+			position: relative
+			width: 40px
+			left: 10px
+			top: -190px
+	&.li
+		@include respond-to("lg")
+			left: 5px
+			top: -69px
+		@include respond-to("md")
 			position: relative
 			top: -857px
 			width: 45px
 			left: 56px
-		&.vm
+		@include respond-to("sm")
+			position: relative
+			top: -876px
+			width: 45px
+			left: 53px
+		@include respond-to("xs")
+			position: relative
+			top: -226px
+			width: 35px
+			left: 53px
+	&.vm
+		@include respond-to("lg")
+			left: 19px
+			top: -70px
+		@include respond-to("md")
 			position: relative
 			top: -902px
 			width: 45px
 			left: 112px
-		&.yt
+		@include respond-to("sm") 
+			position: relative
+			top: -920px
+			width: 45px
+			left: 107px
+		@include respond-to("xs") 
+			position: relative
+			top: -260px
+			width: 35px
+			left: 95px
+	&.yt
+		@include respond-to("lg") 
+			left: 30px
+			top: -67px
+		@include respond-to("md") 
 			position: relative
 			top: -946px
 			width: 45px
 			left: 167px
 			margin-bottom: -180px
-	&.visible-sm
-		&.fb
-			position: relative
-			width: 50px
-			left: 0px
-			top: -830px
-		&.li
-			position: relative
-			top: -876px
-			width: 45px
-			left: 53px
-		&.vm
-			position: relative
-			top: -920px
-			width: 45px
-			left: 107px
-		&.yt
+		@include respond-to("sm") 
 			position: relative
 			top: -964px
 			width: 45px
 			left: 163px
 			margin-bottom: -193px
-	&.visible-xs
-		&.fb
-			position: relative
-			width: 40px
-			left: 10px
-			top: -190px
-		&.li
-			position: relative
-			top: -226px
-			width: 35px
-			left: 53px
-		&.vm
-			position: relative
-			top: -260px
-			width: 35px
-			left: 95px
-		&.yt
+		@include respond-to("xs") 
 			position: relative
 			top: -294px
 			width: 35px
 			left: 137px
 			margin-bottom: -220px
-
-.visible-lg, &.visible-md
-	&.fb
+	
+.fb img, .li img, .yt img, .vm img
+	@include respond-to("lg") 
 		position: relative
 		width: 50px
 		left: 0px
-		top: -263px
 		.icon
 			position: relative
 			width: 100%
-	&.li
-		position: relative
-		top: -310px
-		width: 45px
-		left: 56px
-		.icon
-			position: relative
-			width: 100%
-	&.vm
-		position: relative
-		top: -355px
-		width: 45px
-		left: 112px
-		.icon
-			position: relative
-			width: 100%
-	&.yt
-		position: relative
-		top: -399px
-		width: 45px
-		left: 167px
-		.icon
-			position: relative
-			width: 100%
-.visible-sm
-	&.fb
+	@include respond-to("md") 
 		position: relative
 		width: 50px
 		left: 0px
-		top: -300px
 		.icon
 			position: relative
 			width: 100%
-	&.li
+	@include respond-to("sm") 
 		position: relative
-		top: -346px
-		width: 45px
-		left: 53px
+		width: 50px
+		left: 0px
 		.icon
 			position: relative
 			width: 100%
-	&.vm
-		position: relative
-		top: -390px
-		width: 45px
-		left: 107px
-		.icon
-			position: relative
-			width: 100%
-	&.yt
-		position: relative
-		top: -434px
-		width: 45px
-		left: 163px
-		margin-bottom: -260px
-		.icon
-			position: relative
-			width: 100%
-.visible-xs
-	&.fb
+	@include respond-to("xs") 
 		position: relative
 		width: 40px
 		left: 10px
-		top: -220px
-		.icon
-			position: relative
-			width: 100%
-	&.li
-		position: relative
-		top: -256px
-		width: 35px
-		left: 53px
-		.icon
-			position: relative
-			width: 100%
-	&.vm
-		position: relative
-		top: -290px
-		width: 35px
-		left: 95px
-		.icon
-			position: relative
-			width: 100%
-	&.yt
-		position: relative
-		top: -324px
-		width: 35px
-		left: 137px
-		margin-bottom: -250px
 		.icon
 			position: relative
 			width: 100%
@@ -428,24 +416,31 @@ h3
 	text-transform: uppercase
 	font-weight: bold
 	padding-right: 20px
-	&.visible-xs
-		font-size: 30px
-		margin-bottom: 130px
-		padding-right: 20px
-		top: 0px !important
-	&.visible-sm
-		margin-bottom: 130px
-		padding-right: 20px
-		top: 0px !important
-		text-align: center
-		font-size: 45px
-	&.visible-md, &.visible-lg
+	@include respond-to("lg") 
 		position: relative
 		margin-bottom: 20px
 		padding-right: 30px
 		text-align: center
 		font-size: 60px
 		padding-top: 40px
+	@include respond-to("md") 
+		position: relative
+		margin-bottom: 20px
+		padding-right: 30px
+		text-align: center
+		font-size: 60px
+		padding-top: 40px
+	@include respond-to("sm") 
+		margin-bottom: 130px
+		padding-right: 20px
+		top: 0px !important
+		text-align: center
+		font-size: 45px
+	@include respond-to("xs") 
+		font-size: 30px
+		margin-bottom: 130px
+		padding-right: 20px
+		top: 0px !important
 
 h4
 	position: relative
@@ -480,13 +475,20 @@ h5
 	height: auto
 	color: #fff
 	font-size: 20px
-	&.visible-xs, &.visible-sm
-		margin-top: 0px
-		padding: 70px 50px 60px 50px
-	&.visible-md, &.visible-lg
+	@include respond-to("lg") 
 		margin-top: 6px
 		padding: 110px 150px 70px 150px
 		text-align: left
+	@include respond-to("md") 
+		margin-top: 6px
+		padding: 110px 150px 70px 150px
+		text-align: left
+	@include respond-to("sm") 
+		margin-top: 0px
+		padding: 70px 50px 60px 50px	
+	@include respond-to("xs") 
+		margin-top: 0px
+		padding: 70px 50px 60px 50px
 
 .content-container-alt
 	width: 100%
@@ -494,7 +496,7 @@ h5
 	height: auto
 	color: #383ba5
 	font-size: 20px
-	&.visible-xs, &.visible-sm
+	@include respond-to("xs") 
 		margin-top: 0px
 		padding: 70px 50px 60px 50px
 		input, textarea
@@ -512,7 +514,25 @@ h5
 			color: #fff
 			background-color: #383ba5
 			padding: 10px 0 10px 0
-	&.visible-md, &.visible-lg
+	@include respond-to("sm") 
+		margin-top: 0px
+		padding: 70px 50px 60px 50px
+		input, textarea
+			color: #383ba5
+			border-radius: 32px
+			box-shadow: none
+			width: 95%
+			padding: 10px 0px 10px 20px
+			margin: 10px 0 10px 0px
+			border: 1px solid
+		.label
+			color: #383ba5
+			padding: .2em 0em 0em
+		button, html input[type="button"], input[type="reset"], input[type="submit"]
+			color: #fff
+			background-color: #383ba5
+			padding: 10px 0 10px 0	
+	@include respond-to("lg") 
 		margin-top: 6px
 		padding: 40px 150px 70px 150px
 		text-align: left
@@ -532,8 +552,29 @@ h5
 			color: #fff
 			background-color: #383ba5
 			padding: 10px 0 10px 0
+	@include respond-to("md") 
+		margin-top: 6px
+		padding: 40px 150px 70px 150px
+		text-align: left
+		font-weight: 100
+		input, textarea
+			color: #383ba5
+			border-radius: 32px
+			box-shadow: none
+			width: 60%
+			padding: 10px 0px 10px 20px
+			margin: 10px 0 10px 0px
+			border: 1px solid
+		.label
+			color: #383ba5
+			padding: .2em 0em 0em
+		button, html input[type="button"], input[type="reset"], input[type="submit"]
+			color: #fff
+			background-color: #383ba5
+			padding: 10px 0 10px 0
+	
 
-.visible-xs, .visible-sm
+@include respond-to("xs") 
 	p 
 		margin: 20px 0px 0 0px
 		font-size: 16px
@@ -556,7 +597,6 @@ h5
 		width: 100%
 		text-align: left
 		margin-top: -20px
-
 	h7
 		position: relative
 		font-family: "Open Sans"
@@ -571,8 +611,46 @@ h5
 		right: 0px
 		margin-right: 20px
 		top: -30px
-		
-.visible-md, .visible-lg
+
+@include respond-to("xs") 
+	p 
+		margin: 20px 0px 0 0px
+		font-size: 16px
+	strong
+		text-transform: uppercase
+		font-size: 40px
+		font-weight: 900
+		line-height: 48px
+	h6
+		position: relative
+		left: 16px
+		font-family: "Open Sans"
+		text-transform: uppercase
+		font-weight: bold
+		padding-right: 0px
+		margin-bottom: 20px
+		margin-left: -20px
+		font-size: 40px
+		background-color: #383ba5
+		width: 100%
+		text-align: left
+		margin-top: -20px
+	h7
+		position: relative
+		font-family: "Open Sans"
+		text-transform: uppercase
+		font-weight: bold
+		font-size: 40px
+		background-color: #fff
+		color: #383ba5
+		width: 100%
+		text-align: left
+		line-height: 50px
+		right: 0px
+		margin-right: 20px
+		top: -30px
+
+@include respond-to("lg") 
 	p
 		margin: 20px 0 0 
 		font-size: 16px
@@ -595,7 +673,45 @@ h5
 		width: 100%
 		text-align: left
 		margin-top: -20px
+	h7
+		position: relative
+		left: 16px
+		font-family: "Open Sans"
+		text-transform: uppercase
+		font-weight: bold
+		padding-right: 0px
+		font-size: 40px
+		margin-left: -20px
+		background-color: #fff
+		color: #383ba5
+		width: 100%
+		text-align: center
+		top: 10px
+		line-height: 3
 
+@include respond-to("md") 
+	p
+		margin: 20px 0 0 
+		font-size: 16px
+	strong
+		text-transform: uppercase
+		font-size: 45px
+		font-weight: 900
+		line-height: 68px
+	h6
+		position: relative
+		left: 16px
+		font-family: "Open Sans"
+		text-transform: uppercase
+		font-weight: bold
+		padding-right: 0px
+		margin-bottom: 20px
+		margin-left: -20px
+		font-size: 40px
+		background-color: #383ba5
+		width: 100%
+		text-align: left
+		margin-top: -20px
 	h7
 		position: relative
 		left: 16px

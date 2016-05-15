@@ -16,7 +16,9 @@ mixin teammemberDiv (teammember)
 
 			if teammember.image
 				.col-sm-4.col-md-4: img(src=teammember._.image.fit(100,100)).img-rounded
-			
+
+			p #{teammember.type}
+			p #{teammember.role}
 			p #{teammember.bio}
 
 
