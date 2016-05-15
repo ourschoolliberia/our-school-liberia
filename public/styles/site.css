@@ -5893,32 +5893,31 @@ body {
   z-index: 5; }
   @media (min-width: 1200px) {
     .heroimage {
-      max-width: 310px;
+      max-width: 330px;
       left: 50%;
-      margin-left: -155px;
+      margin-left: -165px;
       top: 260px;
       padding-bottom: 30px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .heroimage {
-      max-width: 310px;
+      max-width: 330px;
       left: 50%;
-      margin-left: -155px;
+      margin-left: -165px;
       top: 260px;
       padding-bottom: 30px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .heroimage {
       max-width: 340px;
       left: 50%;
-      margin-left: -170px;
-      top: 10px;
-      padding-bottom: 30px; } }
+      top: 310px;
+      width: 35%;
+      margin-left: -17.5%; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .heroimage {
-      width: 60%;
-      margin-top: 10px;
+      width: 290px;
+      top: 110px;
       left: 50%;
-      margin-left: -30%;
-      position: relative; } }
+      margin-left: -145px; } }
 
 h1 {
   position: relative;
@@ -5948,6 +5947,14 @@ h1 {
 .navbar-toggle {
   margin-top: -32px; }
 
+a:active, a:visited {
+  color: #fff;
+  text-decoration: none; }
+
+a:hover, a:focus {
+  color: #fff;
+  text-decoration: none; }
+
 .donatenow {
   z-index: 4; }
   @media (min-width: 321px) and (max-width: 766px) {
@@ -5965,6 +5972,9 @@ h1 {
       color: #fff;
       font-size: 40px;
       font-family: "Open Sans"; }
+      .donatenow a:hover, .donatenow a:focus {
+        color: #fff;
+        text-decoration: none; }
       .donatenow::after {
         content: "";
         position: absolute;
@@ -5980,16 +5990,19 @@ h1 {
       background-color: #edbe36;
       width: 60%;
       left: 50%;
-      margin-left: -30%;
+      margin-left: -450px;
       text-align: center;
-      padding: 30px 20px 30px 0px;
-      top: 0%;
+      padding: 30px 310px 30px 300px;
+      top: -30px;
       margin-top: -113px;
       border: 6px solid #FFF;
       color: #fff;
       font-size: 40px;
       font-family: "Open Sans";
       margin-bottom: -57px; }
+      .donatenow a:hover, .donatenow a:focus {
+        color: #fff;
+        text-decoration: none; }
       .donatenow::after {
         content: "";
         position: absolute;
@@ -6011,6 +6024,9 @@ h1 {
       left: 50%;
       margin-left: -205px;
       top: -25px; }
+      .donatenow a:hover, .donatenow a:focus {
+        color: #fff;
+        text-decoration: none; }
       .donatenow::after {
         content: "";
         position: absolute;
@@ -6024,18 +6040,17 @@ h1 {
     .donatenow {
       position: relative;
       background-color: #edbe36;
-      padding: 20px 90px 20px 40px;
+      padding: 20px 120px 20px 70px;
       border: 6px solid #FFF;
       color: #fff;
       font-size: 40px;
       font-family: "Open Sans";
       left: 50%;
-      margin-left: -205px;
+      margin-left: -235px;
       top: -25px; }
-      .donatenow a, .donatenow a:active, .donatenow a:hover, .donatenow a:visited {
-        color: #fff !important;
-        opacity: 0.6 !important;
-        text-decoration: none !important; }
+      .donatenow a:hover, .donatenow a:focus {
+        color: #fff;
+        text-decoration: none; }
       .donatenow::after {
         content: "";
         position: absolute;
@@ -6047,21 +6062,22 @@ h1 {
         right: 36px; } }
 
 .intro-container {
+  width: 100%;
   background-color: #8fc1e5;
   background-image: -webkit-radial-gradient(#8fc1e5, #4682ad);
   background-image: radial-gradient(  #8fc1e5, #4682ad); }
   @media (min-width: 321px) and (max-width: 766px) {
     .intro-container {
-      height: 220px; } }
+      height: 650px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .intro-container {
-      height: 220px; } }
+      height: 780px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .intro-container {
-      height: 620px; } }
+      height: 760px; } }
   @media (min-width: 1200px) {
     .intro-container {
-      height: 750px; } }
+      height: 800px; } }
 
 .logo {
   position: absolute; }
@@ -6154,94 +6170,83 @@ p.aboutnow-prev-p {
   @media (min-width: 1200px) {
     .home-icon.fb {
       left: 0px;
-      top: -70px; } }
+      top: -60px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .home-icon.fb {
-      position: relative;
-      width: 50px;
       left: 0px;
-      top: -810px; } }
+      top: -60px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .home-icon.fb {
-      position: relative;
-      width: 50px;
       left: 0px;
-      top: -830px; } }
+      top: -30px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .home-icon.fb {
       position: relative;
       width: 40px;
       left: 10px;
       top: -190px; } }
-  @media (min-width: 1200px) {
-    .home-icon.li {
-      left: 5px;
-      top: -69px; } }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .home-icon.li {
-      position: relative;
-      top: -857px;
-      width: 45px;
-      left: 56px; } }
-  @media (min-width: 767px) and (max-width: 991px) {
-    .home-icon.li {
-      position: relative;
-      top: -876px;
-      width: 45px;
-      left: 53px; } }
-  @media (min-width: 321px) and (max-width: 766px) {
-    .home-icon.li {
-      position: relative;
-      top: -226px;
-      width: 35px;
-      left: 53px; } }
-  @media (min-width: 1200px) {
-    .home-icon.vm {
-      left: 19px;
-      top: -70px; } }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .home-icon.vm {
-      position: relative;
-      top: -902px;
-      width: 45px;
-      left: 112px; } }
-  @media (min-width: 767px) and (max-width: 991px) {
-    .home-icon.vm {
-      position: relative;
-      top: -920px;
-      width: 45px;
-      left: 107px; } }
-  @media (min-width: 321px) and (max-width: 766px) {
-    .home-icon.vm {
-      position: relative;
-      top: -260px;
-      width: 35px;
-      left: 95px; } }
-  @media (min-width: 1200px) {
-    .home-icon.yt {
-      left: 30px;
-      top: -67px; } }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .home-icon.yt {
-      position: relative;
-      top: -946px;
-      width: 45px;
-      left: 167px;
-      margin-bottom: -180px; } }
-  @media (min-width: 767px) and (max-width: 991px) {
-    .home-icon.yt {
-      position: relative;
-      top: -964px;
-      width: 45px;
-      left: 163px;
-      margin-bottom: -193px; } }
-  @media (min-width: 321px) and (max-width: 766px) {
-    .home-icon.yt {
-      position: relative;
-      top: -294px;
-      width: 35px;
-      left: 137px;
-      margin-bottom: -220px; } }
+  .home-icon.li {
+    padding: 2px; }
+    @media (min-width: 1200px) {
+      .home-icon.li {
+        left: 5px;
+        top: -60px; } }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .home-icon.li {
+        left: 5px;
+        top: -60px; } }
+    @media (min-width: 767px) and (max-width: 991px) {
+      .home-icon.li {
+        top: -31px;
+        left: 5px; } }
+    @media (min-width: 321px) and (max-width: 766px) {
+      .home-icon.li {
+        position: relative;
+        top: -226px;
+        width: 35px;
+        left: 53px; } }
+  .home-icon.vm {
+    padding: 2px; }
+    @media (min-width: 1200px) {
+      .home-icon.vm {
+        left: 9px;
+        top: -60px; } }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .home-icon.vm {
+        left: 9px;
+        top: -60px; } }
+    @media (min-width: 767px) and (max-width: 991px) {
+      .home-icon.vm {
+        left: 10px;
+        top: -30px; } }
+    @media (min-width: 321px) and (max-width: 766px) {
+      .home-icon.vm {
+        position: relative;
+        top: -260px;
+        width: 35px;
+        left: 95px; } }
+  .home-icon.yt {
+    padding: 2px; }
+    @media (min-width: 1200px) {
+      .home-icon.yt {
+        left: 14px;
+        top: -59px; } }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .home-icon.yt {
+        left: 14px;
+        top: -59px; } }
+    @media (min-width: 767px) and (max-width: 991px) {
+      .home-icon.yt {
+        top: -30px;
+        width: 45px;
+        left: 15px; } }
+    @media (min-width: 321px) and (max-width: 766px) {
+      .home-icon.yt {
+        position: relative;
+        top: -294px;
+        width: 35px;
+        left: 137px;
+        margin-bottom: -220px; } }
 
 @media (min-width: 1200px) {
   .fb img, .li img, .yt img, .vm img {

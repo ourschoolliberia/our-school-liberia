@@ -62,29 +62,28 @@ body
 	position: absolute
 	z-index: 5
 	@include respond-to("lg")
-		max-width: 310px
+		max-width: 330px
 		left: 50%
-		margin-left: -155px
+		margin-left: -165px
 		top: 260px
 		padding-bottom: 30px
 	@include respond-to("md")
-		max-width: 310px
+		max-width: 330px
 		left: 50%
-		margin-left: -155px
+		margin-left: -165px
 		top: 260px
 		padding-bottom: 30px
 	@include respond-to("sm")
 		max-width: 340px
 		left: 50%
-		margin-left: -170px
-		top: 10px
-		padding-bottom: 30px
+		top: 310px
+		width: 35%
+		margin-left: -17.5%
 	@include respond-to("xs")
-		width: 60%
-		margin-top: 10px
+		width: 290px
+		top: 110px
 		left: 50%
-		margin-left: -30%
-		position: relative
+		margin-left: -145px
 
 h1
 	position: relative
@@ -111,6 +110,13 @@ h1
 .navbar-toggle
 	margin-top: -32px
 
+a:active, a:visited
+	color: #fff
+	text-decoration: none
+a:hover, a:focus
+	color: #fff
+	text-decoration: none
+
 .donatenow
 	z-index: 4
 	@include respond-to("xs")
@@ -127,6 +133,9 @@ h1
 		color: #fff
 		font-size: 40px
 		font-family: "Open Sans"
+		a:hover, a:focus
+			color: #fff
+			text-decoration: none
 		&::after 
 			content: ""
 			position: absolute
@@ -141,16 +150,19 @@ h1
 		background-color: #edbe36
 		width: 60%
 		left: 50%
-		margin-left: -30%
+		margin-left: -450px
 		text-align: center
-		padding: 30px 20px 30px 0px
-		top: 0%
+		padding: 30px 310px 30px 300px
+		top: -30px
 		margin-top: -113px
 		border: 6px solid #FFF
 		color: #fff
 		font-size: 40px
 		font-family: "Open Sans"
 		margin-bottom: -57px
+		a:hover, a:focus
+			color: #fff
+			text-decoration: none
 		&::after 
 			content: ""
 			position: absolute
@@ -171,6 +183,9 @@ h1
 		left: 50%
 		margin-left: -205px
 		top: -25px
+		a:hover, a:focus
+			color: #fff
+			text-decoration: none
 		&::after 
 			content: ""
 			position: absolute
@@ -183,18 +198,17 @@ h1
 	@include respond-to("lg") 
 		position: relative
 		background-color: #edbe36
-		padding: 20px 90px 20px 40px
+		padding: 20px 120px 20px 70px
 		border: 6px solid #FFF
 		color: #fff
 		font-size: 40px
 		font-family: "Open Sans"
 		left: 50%
-		margin-left: -205px
+		margin-left: -235px
 		top: -25px
-		#{$a-tags}
-			color: #fff !important
-			opacity: 0.6 !important
-			text-decoration: none !important
+		a:hover, a:focus
+			color: #fff
+			text-decoration: none
 		&::after 
 			content: ""
 			position: absolute
@@ -207,15 +221,16 @@ h1
 
 
 .intro-container
+	width: 100%
 	@include radial-gradient(#8fc1e5, #4682ad)
 	@include respond-to("xs")
-		height: 220px
+		height: 650px
 	@include respond-to("sm")
-		height: 220px
+		height: 780px
 	@include respond-to("md")
-		height: 620px
+		height: 760px
 	@include respond-to("lg")
-		height: 750px	
+		height: 800px	
 
 .logo
 	position: absolute
@@ -301,76 +316,62 @@ p.aboutnow-prev-p
 	&.fb
 		@include respond-to("lg")
 			left: 0px
-			top: -70px
+			top: -60px
 		@include respond-to("md")
-			position: relative
-			width: 50px
 			left: 0px
-			top: -810px
+			top: -60px
 		@include respond-to("sm")
-			position: relative
-			width: 50px
-			left: 0px
-			top: -830px
+			left: 0px;
+			top: -30px
 		@include respond-to("xs")
 			position: relative
 			width: 40px
 			left: 10px
 			top: -190px
 	&.li
+		padding: 2px
 		@include respond-to("lg")
 			left: 5px
-			top: -69px
+			top: -60px
 		@include respond-to("md")
-			position: relative
-			top: -857px
-			width: 45px
-			left: 56px
+			left: 5px
+			top: -60px
 		@include respond-to("sm")
-			position: relative
-			top: -876px
-			width: 45px
-			left: 53px
+			top: -31px
+			left: 5px
 		@include respond-to("xs")
 			position: relative
 			top: -226px
 			width: 35px
 			left: 53px
 	&.vm
+		padding: 2px
 		@include respond-to("lg")
-			left: 19px
-			top: -70px
+			left: 9px
+			top: -60px
 		@include respond-to("md")
-			position: relative
-			top: -902px
-			width: 45px
-			left: 112px
+			left: 9px
+			top: -60px
 		@include respond-to("sm") 
-			position: relative
-			top: -920px
-			width: 45px
-			left: 107px
+			left: 10px
+			top: -30px
 		@include respond-to("xs") 
 			position: relative
 			top: -260px
 			width: 35px
 			left: 95px
 	&.yt
+		padding: 2px
 		@include respond-to("lg") 
-			left: 30px
-			top: -67px
+			left: 14px
+			top: -59px
 		@include respond-to("md") 
-			position: relative
-			top: -946px
-			width: 45px
-			left: 167px
-			margin-bottom: -180px
+			left: 14px
+			top: -59px
 		@include respond-to("sm") 
-			position: relative
-			top: -964px
+			top: -30px
 			width: 45px
-			left: 163px
-			margin-bottom: -193px
+			left: 15px
 		@include respond-to("xs") 
 			position: relative
 			top: -294px
