@@ -1,18 +1,10 @@
 extends ../layouts/mainheader
 
 block intro
-	h3.visible-xs #{__('getinvolved.events.title')}
-	h3.visible-sm #{__('getinvolved.events.title')}
-	h3.visible-lg.visible-md #{__('getinvolved.events.title')}
+	h3 #{__('getinvolved.events.title')}
 
 block content
-	.content-container.visible-xs.visible-sm
-		p
-		| <strong> #{__('getinvolved.events.maincontent')} </strong>
-		p #{__('getinvolved.events.p1')}
-		p #{__('getinvolved.events.p2')}
-		p #{__('getinvolved.events.p3')}
-	.content-container.visible-md.visible-lg
+	.content-container
 		p
 		| <strong> #{__('getinvolved.events.maincontent')} </strong>
 		p #{__('getinvolved.events.p1')}

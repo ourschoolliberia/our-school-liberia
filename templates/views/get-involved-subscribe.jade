@@ -4,15 +4,13 @@ block head
 	link(href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css", rel="stylesheet")
 
 block intro
-	h3.visible-xs #{__('getinvolved.subscribe.title')}
-	h3.visible-sm #{__('getinvolved.subscribe.title')}
-	h3.visible-lg.visible-md #{__('getinvolved.subscribe.title')}
+	h3 #{__('getinvolved.subscribe.title')}
 
 block content
-	.content-container.visible-md.visible-lg
+	.content-container
 		p
 		| <strong> #{__('getinvolved.subscribe.subtitle')} </strong>
-	.content-container-alt.visible-md.visible-lg
+	.content-container-alt
 		h7 #{__('getinvolved.subscribe.p1')}
 		form(name="volunteer", method="post")
 			div.input

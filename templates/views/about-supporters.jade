@@ -1,13 +1,11 @@
 extends ../layouts/mainheader
 
 block intro
-	h3.visible-xs #{__('about.supporters.title')}
-	h3.visible-sm #{__('about.supporters.title')}
-	h3.visible-lg.visible-md #{__('about.supporters.title')}
+	h3 #{__('about.supporters.title')}
 
 block content
-	.content-container.visible-xs.visible-sm
+	.content-container
 		p #{__('about.supporters.maincontent')}
-	.content-container.visible-md.visible-lg
+	.content-container
 		p #{__('about.supporters.maincontent')}
 

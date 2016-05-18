@@ -1,13 +1,9 @@
 extends ../layouts/mainheader
 
 block intro
-	h3.visible-xs #{__('about.financials.title')}
-	h3.visible-sm #{__('about.financials.title')}
-	h3.visible-lg.visible-md #{__('about.financials.title')}
+	h3 #{__('about.financials.title')}
 
 block content
-	.content-container.visible-xs.visible-sm
-		p #{__('about.financials.maincontent')}
-	.content-container.visible-md.visible-lg
+	.content-container
 		p #{__('about.financials.maincontent')}
 

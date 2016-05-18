@@ -4,9 +4,7 @@ block head
 	link(href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css", rel="stylesheet")
 
 block intro
-	h3.visible-xs #{__('getinvolved.volunteer.title')}
-	h3.visible-sm #{__('getinvolved.volunteer.title')}
-	h3.visible-lg.visible-md #{__('getinvolved.volunteer.title')}
+	h3 #{__('getinvolved.volunteer.title')}
 
 mixin volunteerIntro() 
 	p
@@ -66,14 +64,8 @@ block content
 				display: block;
 				text-align: left;
 			}
-		.content-container.visible-xs.visible-sm
+		.content-container
 			+volunteerIntro()
-		.content-container-alt.visible-xs.visible-sm
-			+volunteerForm()
-		.content-container.visible-md.visible-lg
-			+volunteerIntro()
-		.content-container-alt.visible-md.visible-lg
-			+volunteerForm()
 
 
 block extendscripts

@@ -458,18 +458,18 @@ h5
 	color: #fff
 	font-size: 20px
 	@include respond-to("lg") 
-		margin-top: 6px
+		margin-top: -50px
 		padding: 110px 150px 70px 150px
 		text-align: left
 	@include respond-to("md") 
-		margin-top: 6px
+		margin-top: -50px
 		padding: 110px 150px 70px 150px
 		text-align: left
 	@include respond-to("sm") 
-		margin-top: 0px
+		margin-top: -50px
 		padding: 70px 50px 60px 50px	
 	@include respond-to("xs") 
-		margin-top: 0px
+		margin-top: -50px
 		padding: 70px 50px 60px 50px
 
 .content-container-alt
@@ -499,6 +499,7 @@ h5
 	@include respond-to("sm") 
 		margin-top: 0px
 		padding: 70px 50px 60px 50px
+		margin-bottom: 40px
 		input, textarea
 			color: #383ba5
 			border-radius: 32px
@@ -516,7 +517,7 @@ h5
 			padding: 10px 0 10px 0	
 	@include respond-to("lg") 
 		margin-top: 6px
-		padding: 40px 150px 70px 150px
+		padding: 0px 150px 100px 150px
 		text-align: left
 		font-weight: 100
 		input, textarea
@@ -536,7 +537,7 @@ h5
 			padding: 10px 0 10px 0
 	@include respond-to("md") 
 		margin-top: 6px
-		padding: 40px 150px 70px 150px
+		padding: 0px 150px 100px 150px
 		text-align: left
 		font-weight: 100
 		input, textarea
@@ -594,7 +595,7 @@ h5
 		margin-right: 20px
 		top: -30px
 
-@include respond-to("xs") 
+@include respond-to("sm") 
 	p 
 		margin: 20px 0px 0 0px
 		font-size: 16px
@@ -612,10 +613,10 @@ h5
 		padding-right: 0px
 		margin-bottom: 20px
 		margin-left: -20px
-		font-size: 40px
 		background-color: #383ba5
 		width: 100%
 		text-align: left
+		font-size: 40px !important
 		margin-top: -20px
 	h7
 		position: relative
@@ -655,6 +656,7 @@ h5
 		width: 100%
 		text-align: left
 		margin-top: -20px
+		font-size: 40px !important
 	h7
 		position: relative
 		left: 16px
@@ -681,6 +683,7 @@ h5
 		font-weight: 900
 		line-height: 68px
 	h6
+		font-size: 40px
 		position: relative
 		left: 16px
 		font-family: "Open Sans"
@@ -689,7 +692,7 @@ h5
 		padding-right: 0px
 		margin-bottom: 20px
 		margin-left: -20px
-		font-size: 40px
+		font-size: 40px !important
 		background-color: #383ba5
 		width: 100%
 		text-align: left

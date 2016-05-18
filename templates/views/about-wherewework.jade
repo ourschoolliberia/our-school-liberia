@@ -1,50 +1,19 @@
 extends ../layouts/mainheader
 
 block intro
-	h3.visible-xs #{__('about.wherewework.title')}
-	h3.visible-sm #{__('about.wherewework.title')}
-	h3.visible-lg.visible-md #{__('about.wherewework.title')}
+	h3 #{__('about.wherewework.title')}
 
 block content
-	.content-container.visible-xs.visible-sm
+	.content-container
 		.line #{__('about.wherewework.p1')}
-	.content-container-alt.visible-xs.visible-sm
+	.content-container-alt
 		h7 #{__('about.wherewework.p2')}
 		.line #{__('about.wherewework.p3')} 
-	.content-container.visible-xs.visible-sm
+	.content-container
 		h6 #{__('about.wherewework.p4')}
 		.line #{__('about.wherewework.p5')}
 		.line #{__('about.wherewework.p6')}
-	.content-container-alt.visible-xs.visible-sm
-		h7 #{__('about.wherewework.p7')}
-		ul
-			li #{__('about.wherewework.p8')}
-			li #{__('about.wherewework.p9')}
-			li #{__('about.wherewework.p10')}
-			li #{__('about.wherewework.p11')}
-			li #{__('about.wherewework.p12')}
-			li #{__('about.wherewework.p13')}
-			li #{__('about.wherewework.p14')}
-			li #{__('about.wherewework.p15')}
-			li #{__('about.wherewework.p16')}
-			li #{__('about.wherewework.p17')}
-			li #{__('about.wherewework.p18')}
-			li #{__('about.wherewework.p19')}
-			li #{__('about.wherewework.p20')}
-			li #{__('about.wherewework.p21')}
-			li #{__('about.wherewework.p22')}
-			li #{__('about.wherewework.p23')}
-		h5 #{__('about.wherewework.p24')}
-	.content-container.visible-md.visible-lg
-		.line #{__('about.wherewework.p1')}
-	.content-container-alt.visible-md.visible-lg
-		h7 #{__('about.wherewework.p2')}
-		.line #{__('about.wherewework.p3')} 
-	.content-container.visible-md.visible-lg
-		h6 #{__('about.wherewework.p4')}
-		.line #{__('about.wherewework.p5')}
-		.line #{__('about.wherewework.p6')}
-	.content-container-alt.visible-md.visible-lg
+	.content-container-alt
 		h7 #{__('about.wherewework.p7')}
 		ul
 			li #{__('about.wherewework.p8')}

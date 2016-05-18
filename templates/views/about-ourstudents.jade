@@ -5,9 +5,7 @@ block head
 	link(href="/styles/slick.css", rel="stylesheet")
 
 block intro
-	h3.visible-xs #{__('about.ourstudents.title')}
-	h3.visible-sm #{__('about.ourstudents.title')}
-	h3.visible-lg.visible-md #{__('about.ourstudents.title')}
+	h3 #{__('about.ourstudents.title')}
 
 mixin studentDiv (student)
 	div
@@ -21,15 +19,8 @@ mixin studentDiv (student)
 
 
 block content
-	.content-container.visible-xs.visible-sm
+	.content-container
 		div.ourstudents-small
-			if students.length
-				each student in students
-					+studentDiv(student)
-			else
-				h3.text-muted There are no students yet.
-	.content-container.visible-md.visible-lg
-		div.ourstudents
 			if students.length
 				each student in students
 					+studentDiv(student)

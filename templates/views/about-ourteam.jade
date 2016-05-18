@@ -5,9 +5,7 @@ block head
 	link(href="/styles/slick.css", rel="stylesheet")
 
 block intro
-	h3.visible-xs #{__('about.ourteam.title')}
-	h3.visible-sm #{__('about.ourteam.title')}
-	h3.visible-lg.visible-md #{__('about.ourteam.title')}
+	h3 #{__('about.ourteam.title')}
 
 mixin teammemberDiv (teammember)
 	div
@@ -23,14 +21,14 @@ mixin teammemberDiv (teammember)
 
 
 block content
-	.content-container.visible-xs.visible-sm
+	.content-container
 		div.ourteam-small
 			if teammembers.length
 				each teammember in teammembers
 					+teammemberDiv(teammember)
 			else
 				h3.text-muted There are no teammembers yet.
-	.content-container.visible-md.visible-lg
+	.content-container
 		div.ourteam
 			if teammembers.length
 				each teammember in teammembers
