@@ -5890,7 +5890,7 @@ body {
   left: 50%;
   margin-left: -25%;
   position: absolute;
-  z-index: 5; }
+  z-index: 4; }
   @media (min-width: 1200px) {
     .heroimage {
       max-width: 330px;
@@ -5915,7 +5915,7 @@ body {
   @media (min-width: 321px) and (max-width: 766px) {
     .heroimage {
       width: 290px;
-      top: 110px;
+      top: 250px;
       left: 50%;
       margin-left: -145px; } }
 
@@ -5961,45 +5961,14 @@ a:hover, a:focus {
     .donatenow {
       position: relative;
       background-color: #edbe36;
-      width: 120%;
-      left: 50%;
-      margin-left: -60%;
-      text-align: center;
-      padding: 30px 20px 30px 0px;
-      top: 0%;
-      margin-top: -163px;
-      border: 6px solid #FFF;
-      color: #fff;
-      font-size: 40px;
-      font-family: "Open Sans"; }
-      .donatenow a:hover, .donatenow a:focus {
-        color: #fff;
-        text-decoration: none; }
-      .donatenow::after {
-        content: "";
-        position: absolute;
-        background-image: url("../images/arrow@2x.png");
-        background-size: 100% auto;
-        width: 27.5px;
-        height: 39.5px;
-        top: 40px;
-        right: 10%; } }
-  @media (min-width: 767px) and (max-width: 991px) {
-    .donatenow {
-      position: relative;
-      background-color: #edbe36;
-      width: 60%;
-      left: 50%;
-      margin-left: -450px;
-      text-align: center;
-      padding: 30px 310px 30px 300px;
-      top: -30px;
-      margin-top: -113px;
+      padding: 20px 90px 20px 40px;
       border: 6px solid #FFF;
       color: #fff;
       font-size: 40px;
       font-family: "Open Sans";
-      margin-bottom: -57px; }
+      left: 50%;
+      margin-left: -205px;
+      top: -25px; }
       .donatenow a:hover, .donatenow a:focus {
         color: #fff;
         text-decoration: none; }
@@ -6010,8 +5979,32 @@ a:hover, a:focus {
         background-size: 100% auto;
         width: 27.5px;
         height: 39.5px;
-        top: 40px;
-        right: 40px; } }
+        top: 31px;
+        right: 36px; } }
+  @media (min-width: 767px) and (max-width: 991px) {
+    .donatenow {
+      position: relative;
+      background-color: #edbe36;
+      padding: 20px 90px 20px 40px;
+      border: 6px solid #FFF;
+      color: #fff;
+      font-size: 40px;
+      font-family: "Open Sans";
+      left: 50%;
+      margin-left: -205px;
+      top: -25px; }
+      .donatenow a:hover, .donatenow a:focus {
+        color: #fff;
+        text-decoration: none; }
+      .donatenow::after {
+        content: "";
+        position: absolute;
+        background-image: url("../images/arrow@2x.png");
+        background-size: 100% auto;
+        width: 27.5px;
+        height: 39.5px;
+        top: 31px;
+        right: 36px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .donatenow {
       position: relative;
@@ -6177,14 +6170,12 @@ p.aboutnow-prev-p {
       top: -60px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .home-icon.fb {
-      left: 0px;
-      top: -30px; } }
+      left: -23px;
+      top: -20px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .home-icon.fb {
-      position: relative;
-      width: 40px;
-      left: 10px;
-      top: -190px; } }
+      left: 0px;
+      top: -30px; } }
   .home-icon.li {
     padding: 2px; }
     @media (min-width: 1200px) {
@@ -6197,56 +6188,44 @@ p.aboutnow-prev-p {
         top: -60px; } }
     @media (min-width: 767px) and (max-width: 991px) {
       .home-icon.li {
-        top: -31px;
-        left: 5px; } }
+        top: -20px;
+        left: -20px; } }
     @media (min-width: 321px) and (max-width: 766px) {
       .home-icon.li {
-        position: relative;
-        top: -226px;
-        width: 35px;
-        left: 53px; } }
-  .home-icon.vm {
-    padding: 2px; }
-    @media (min-width: 1200px) {
-      .home-icon.vm {
-        left: 9px;
-        top: -60px; } }
-    @media (min-width: 992px) and (max-width: 1199px) {
-      .home-icon.vm {
-        left: 9px;
-        top: -60px; } }
-    @media (min-width: 767px) and (max-width: 991px) {
-      .home-icon.vm {
-        left: 10px;
-        top: -30px; } }
-    @media (min-width: 321px) and (max-width: 766px) {
-      .home-icon.vm {
-        position: relative;
-        top: -260px;
-        width: 35px;
-        left: 95px; } }
-  .home-icon.yt {
-    padding: 2px; }
-    @media (min-width: 1200px) {
-      .home-icon.yt {
-        left: 14px;
-        top: -59px; } }
-    @media (min-width: 992px) and (max-width: 1199px) {
-      .home-icon.yt {
-        left: 14px;
-        top: -59px; } }
-    @media (min-width: 767px) and (max-width: 991px) {
-      .home-icon.yt {
-        top: -30px;
-        width: 45px;
-        left: 15px; } }
-    @media (min-width: 321px) and (max-width: 766px) {
-      .home-icon.yt {
-        position: relative;
-        top: -294px;
-        width: 35px;
-        left: 137px;
-        margin-bottom: -220px; } }
+        top: 15px;
+        left: -43px; } }
+  @media (min-width: 1200px) {
+    .home-icon.vm {
+      left: 9px;
+      top: -60px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .home-icon.vm {
+      left: 9px;
+      top: -60px; } }
+  @media (min-width: 767px) and (max-width: 991px) {
+    .home-icon.vm {
+      top: -20px;
+      left: -15px; } }
+  @media (min-width: 321px) and (max-width: 766px) {
+    .home-icon.vm {
+      top: 62px;
+      left: -85px; } }
+  @media (min-width: 1200px) {
+    .home-icon.yt {
+      left: 14px;
+      top: -59px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .home-icon.yt {
+      left: 14px;
+      top: -59px; } }
+  @media (min-width: 767px) and (max-width: 991px) {
+    .home-icon.yt {
+      top: -20px;
+      left: -5px; } }
+  @media (min-width: 321px) and (max-width: 766px) {
+    .home-icon.yt {
+      top: 110px;
+      left: -125px; } }
 
 @media (min-width: 1200px) {
   .fb img, .li img, .yt img, .vm img {
