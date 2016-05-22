@@ -1,41 +1,33 @@
 extends ../layouts/mainheader
 
-block head 
-	link(href="/styles/slick-theme.css", rel="stylesheet")
-	link(href="/styles/slick.css", rel="stylesheet")
-
 block intro
 	h3 #{__('about.ourteam.title')}
 
-mixin teammemberDiv (teammember)
-	div
-		.teammember
-			h3 #{teammember.name.first} #{teammember.name.last}
+mixin teammemberBoardDiv (teammember)
+	if teammember.role === "board"
+		if teammember.image			
+			a(href=teammember._.image.fit(200,200) title=teammember.type)
+				img(src=teammember._.image.fit(200,200))
 
-			if teammember.image
-				.col-sm-4.col-md-4: img(src=teammember._.image.fit(100,100)).img-rounded
+	//- p #{teammember.type}
+	//- p #{teammember.role}
+	//- p #{teammember.bio}
 
-			p #{teammember.type}
-			p #{teammember.role}
-			p #{teammember.bio}
+	//- if teammember.image
+		//	img(src=teammember._.image.fit(100,100))
+	//- h3 #{teammember.name.first} #{teammember.name.last}
+
 
 
 block content
 	.content-container
-		div.ourteam-small
+		.gallery 
 			if teammembers.length
 				each teammember in teammembers
-					+teammemberDiv(teammember)
+					+teammemberBoardDiv(teammember)
 			else
-				h3.text-muted There are no teammembers yet.
-	.content-container
-		div.ourteam
-			if teammembers.length
-				each teammember in teammembers
-					+teammemberDiv(teammember)
-			else
-				h3.text-muted There are no teammembers yet.
+				h3.text-muted There are no Board Members yet.
 
 block extendscripts
-	script(src='/js/slick.min.js')
+	script(src='/js/jquery.poptrox.min.js')
 	script(src='/js/about-ourteam.js')

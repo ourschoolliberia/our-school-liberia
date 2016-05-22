@@ -6618,3 +6618,6 @@ h8 {
     color: #ddd; }
   h8 a:hover {
     color: #ddd; }
+
+.team-member-container {
+  display: flex; }
