@@ -6102,7 +6102,7 @@ a:hover, a:focus {
 .aboutnow-prev {
   position: relative;
   width: 100%;
-  background-color: #383ba5;
+  background-color: #002f50;
   z-index: 1;
   font-size: 18px;
   margin-top: -60px; }
@@ -6329,7 +6329,7 @@ h5 {
 
 .content-container {
   width: 100%;
-  background-color: #383ba5;
+  background-color: #002f50;
   height: auto;
   color: #fff;
   font-size: 20px; }
@@ -6356,14 +6356,14 @@ h5 {
   width: 100%;
   background-color: #fff;
   height: auto;
-  color: #383ba5;
+  color: #002f50;
   font-size: 20px; }
   @media (min-width: 321px) and (max-width: 766px) {
     .content-container-alt {
       margin-top: 0px;
       padding: 70px 50px 60px 50px; }
       .content-container-alt input, .content-container-alt textarea {
-        color: #383ba5;
+        color: #002f50;
         border-radius: 32px;
         box-shadow: none;
         width: 95%;
@@ -6371,11 +6371,11 @@ h5 {
         margin: 10px 0 10px 0px;
         border: 1px solid; }
       .content-container-alt .label {
-        color: #383ba5;
+        color: #002f50;
         padding: .2em 0em 0em; }
       .content-container-alt button, .content-container-alt html input[type="button"], .content-container-alt input[type="reset"], .content-container-alt input[type="submit"] {
         color: #fff;
-        background-color: #383ba5;
+        background-color: #002f50;
         padding: 10px 0 10px 0; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .content-container-alt {
@@ -6383,7 +6383,7 @@ h5 {
       padding: 70px 50px 60px 50px;
       margin-bottom: 40px; }
       .content-container-alt input, .content-container-alt textarea {
-        color: #383ba5;
+        color: #002f50;
         border-radius: 32px;
         box-shadow: none;
         width: 95%;
@@ -6391,11 +6391,11 @@ h5 {
         margin: 10px 0 10px 0px;
         border: 1px solid; }
       .content-container-alt .label {
-        color: #383ba5;
+        color: #002f50;
         padding: .2em 0em 0em; }
       .content-container-alt button, .content-container-alt html input[type="button"], .content-container-alt input[type="reset"], .content-container-alt input[type="submit"] {
         color: #fff;
-        background-color: #383ba5;
+        background-color: #002f50;
         padding: 10px 0 10px 0; } }
   @media (min-width: 1200px) {
     .content-container-alt {
@@ -6404,7 +6404,7 @@ h5 {
       text-align: left;
       font-weight: 100; }
       .content-container-alt input, .content-container-alt textarea {
-        color: #383ba5;
+        color: #002f50;
         border-radius: 32px;
         box-shadow: none;
         width: 60%;
@@ -6412,11 +6412,11 @@ h5 {
         margin: 10px 0 10px 0px;
         border: 1px solid; }
       .content-container-alt .label {
-        color: #383ba5;
+        color: #002f50;
         padding: .2em 0em 0em; }
       .content-container-alt button, .content-container-alt html input[type="button"], .content-container-alt input[type="reset"], .content-container-alt input[type="submit"] {
         color: #fff;
-        background-color: #383ba5;
+        background-color: #002f50;
         padding: 10px 0 10px 0; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .content-container-alt {
@@ -6425,7 +6425,7 @@ h5 {
       text-align: left;
       font-weight: 100; }
       .content-container-alt input, .content-container-alt textarea {
-        color: #383ba5;
+        color: #002f50;
         border-radius: 32px;
         box-shadow: none;
         width: 60%;
@@ -6433,11 +6433,11 @@ h5 {
         margin: 10px 0 10px 0px;
         border: 1px solid; }
       .content-container-alt .label {
-        color: #383ba5;
+        color: #002f50;
         padding: .2em 0em 0em; }
       .content-container-alt button, .content-container-alt html input[type="button"], .content-container-alt input[type="reset"], .content-container-alt input[type="submit"] {
         color: #fff;
-        background-color: #383ba5;
+        background-color: #002f50;
         padding: 10px 0 10px 0; } }
 
 @media (min-width: 321px) and (max-width: 766px) {
@@ -6459,7 +6459,7 @@ h5 {
     margin-bottom: 20px;
     margin-left: -20px;
     font-size: 40px;
-    background-color: #383ba5;
+    background-color: #002f50;
     width: 100%;
     text-align: left;
     margin-top: -20px; }
@@ -6470,7 +6470,7 @@ h5 {
     font-weight: bold;
     font-size: 40px;
     background-color: #fff;
-    color: #383ba5;
+    color: #002f50;
     width: 100%;
     text-align: left;
     line-height: 50px;
@@ -6496,7 +6496,7 @@ h5 {
     padding-right: 0px;
     margin-bottom: 20px;
     margin-left: -20px;
-    background-color: #383ba5;
+    background-color: #002f50;
     width: 100%;
     text-align: left;
     font-size: 40px !important;
@@ -6508,7 +6508,7 @@ h5 {
     font-weight: bold;
     font-size: 40px;
     background-color: #fff;
-    color: #383ba5;
+    color: #002f50;
     width: 100%;
     text-align: left;
     line-height: 50px;
@@ -6535,7 +6535,7 @@ h5 {
     margin-bottom: 20px;
     margin-left: -20px;
     font-size: 40px;
-    background-color: #383ba5;
+    background-color: #002f50;
     width: 100%;
     text-align: left;
     margin-top: -20px;
@@ -6550,7 +6550,7 @@ h5 {
     font-size: 40px;
     margin-left: -20px;
     background-color: #fff;
-    color: #383ba5;
+    color: #002f50;
     width: 100%;
     text-align: center;
     top: 10px;
@@ -6576,7 +6576,7 @@ h5 {
     margin-bottom: 20px;
     margin-left: -20px;
     font-size: 40px !important;
-    background-color: #383ba5;
+    background-color: #002f50;
     width: 100%;
     text-align: left;
     margin-top: -20px; }
@@ -6590,7 +6590,7 @@ h5 {
     font-size: 40px;
     margin-left: -20px;
     background-color: #fff;
-    color: #383ba5;
+    color: #002f50;
     width: 100%;
     text-align: center;
     top: 10px;
@@ -6619,5 +6619,38 @@ h8 {
   h8 a:hover {
     color: #ddd; }
 
+section {
+  font-weight: 500; }
+
+h9 {
+  font-weight: 900;
+  font-size: 18px; }
+
 .team-member-container {
   display: flex; }
+
+.caption {
+  height: 290px !important;
+  line-height: 20px !important;
+  display: block !important;
+  padding: 20px !important; }
+
+@media (min-width: 321px) and (max-width: 766px) {
+  .poptrox-popup {
+    width: 80% !important;
+    height: 80% !important; } }
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .poptrox-popup {
+    width: 80% !important;
+    height: 80% !important; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .poptrox-popup {
+    width: 80% !important;
+    height: 50% !important; } }
+
+@media (min-width: 1200px) {
+  .poptrox-popup {
+    width: 80% !important;
+    height: 50% !important; } }

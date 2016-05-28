@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 	$('.gallery').poptrox({
-		usePopupCaption: true
+		preload: true,
+		usePopupCaption: true,
+		caption: { selector: "section", remove: true }
 	});
 });

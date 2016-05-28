@@ -6,27 +6,46 @@ block intro
 mixin teammemberBoardDiv (teammember)
 	if teammember.role === "board"
 		if teammember.image			
-			a(href=teammember._.image.fit(200,200) title=teammember.type)
+			a(href=teammember._.image.fit(200,200))
+				span.imagethumb
+					img(src=teammember._.image.fit(200,200))
+					span.imagecaption #{teammember.name.first} #{teammember.name.last}
+				section
+					h9 #{teammember.name.first} #{teammember.name.last} -
+					br
+					#{teammember.type} #{teammember.bio}
+
+mixin teammemberStaffDiv (teammember)
+	if teammember.role === "staff"
+		if teammember.image			
+			a(href=teammember._.image.fit(200,200))
 				img(src=teammember._.image.fit(200,200))
-
-	//- p #{teammember.type}
-	//- p #{teammember.role}
-	//- p #{teammember.bio}
-
-	//- if teammember.image
-		//	img(src=teammember._.image.fit(100,100))
-	//- h3 #{teammember.name.first} #{teammember.name.last}
-
-
+				section
+					h9 #{teammember.name.first} #{teammember.name.last} -
+					br
+					#{teammember.type} #{teammember.bio}
 
 block content
 	.content-container
-		.gallery 
+		.gallery
+			h6 Board Members
+			br
 			if teammembers.length
 				each teammember in teammembers
 					+teammemberBoardDiv(teammember)
 			else
 				h3.text-muted There are no Board Members yet.
+			br
+			br
+			br
+			h6 Staff Members
+			br
+			if teammembers.length
+				each teammember in teammembers
+					+teammemberStaffDiv(teammember)
+			else
+				h3.text-muted There are no Staff Members yet.
+
 
 block extendscripts
 	script(src='/js/jquery.poptrox.min.js')
