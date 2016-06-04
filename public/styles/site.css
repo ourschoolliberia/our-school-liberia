@@ -6156,75 +6156,87 @@ p.aboutnow-prev-p {
   margin-left: 6px; }
 
 .home-icon {
-  position: relative;
+  position: absolute;
   width: 50px;
   height: 50px; }
   @media (min-width: 1200px) {
     .home-icon.fb {
-      left: 0px;
-      top: -60px; } }
+      left: 10%;
+      top: 170px;
+      margin-left: 0; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .home-icon.fb {
-      left: 0px;
-      top: -60px; } }
+      left: 10%;
+      top: 170px;
+      margin-left: 0; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .home-icon.fb {
-      left: -23px;
-      top: -20px; } }
+      left: 5%;
+      top: 210px;
+      margin-left: 0; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .home-icon.fb {
       left: 0px;
-      top: -30px; } }
+      top: 150px; } }
   .home-icon.li {
     padding: 2px; }
     @media (min-width: 1200px) {
       .home-icon.li {
-        left: 5px;
-        top: -60px; } }
+        left: 10%;
+        top: 168px;
+        margin-left: 55px; } }
     @media (min-width: 992px) and (max-width: 1199px) {
       .home-icon.li {
-        left: 5px;
-        top: -60px; } }
+        left: 10%;
+        top: 168px;
+        margin-left: 55px; } }
     @media (min-width: 767px) and (max-width: 991px) {
       .home-icon.li {
-        top: -20px;
-        left: -20px; } }
+        left: 5%;
+        top: 210px;
+        margin-left: 55px; } }
     @media (min-width: 321px) and (max-width: 766px) {
       .home-icon.li {
-        top: 15px;
-        left: -43px; } }
+        top: 194px;
+        left: -2px; } }
   @media (min-width: 1200px) {
     .home-icon.vm {
-      left: 9px;
-      top: -60px; } }
+      left: 10%;
+      top: 170px;
+      margin-left: 115px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .home-icon.vm {
-      left: 9px;
-      top: -60px; } }
+      left: 10%;
+      top: 170px;
+      margin-left: 115px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .home-icon.vm {
-      top: -20px;
-      left: -15px; } }
+      left: 5%;
+      top: 210px;
+      margin-left: 115px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .home-icon.vm {
-      top: 62px;
-      left: -85px; } }
+      top: 244px;
+      left: 0px; } }
   @media (min-width: 1200px) {
     .home-icon.yt {
-      left: 14px;
-      top: -59px; } }
+      left: 10%;
+      top: 170px;
+      margin-left: 175px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .home-icon.yt {
-      left: 14px;
-      top: -59px; } }
+      left: 10%;
+      top: 170px;
+      margin-left: 175px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .home-icon.yt {
-      top: -20px;
-      left: -5px; } }
+      left: 5%;
+      top: 210px;
+      margin-left: 175px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .home-icon.yt {
-      top: 110px;
-      left: -125px; } }
+      top: 292px;
+      left: 0px; } }
 
 @media (min-width: 1200px) {
   .fb img, .li img, .yt img, .vm img {
