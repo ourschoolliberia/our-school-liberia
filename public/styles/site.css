@@ -6107,28 +6107,23 @@ a:hover, a:focus {
   background-color: #002f50;
   z-index: 1;
   font-size: 18px;
-  margin-top: -60px; }
+  margin-top: -60px;
+  border-top: 6px solid #fff; }
   @media (min-width: 321px) and (max-width: 766px) {
     .aboutnow-prev {
-      border-top: none;
       height: auto;
       top: 0px;
-      padding: 90px 50px 60px 50px;
-      border-top: 5px solid #fff; } }
+      padding: 90px 50px 60px 50px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .aboutnow-prev {
-      border-top: none;
       height: auto;
       top: 0px;
-      padding: 90px 50px 60px 50px;
-      border-top: 5px solid #fff; } }
+      padding: 90px 50px 60px 50px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .aboutnow-prev {
-      border-top: 5px solid #fff;
       padding: 110px 150px 70px 150px; } }
   @media (min-width: 1200px) {
     .aboutnow-prev {
-      border-top: 5px solid #fff;
       padding: 110px 150px 70px 150px; } }
 
 h2 {
@@ -6348,24 +6343,25 @@ h5 {
   background-color: #002f50;
   height: auto;
   color: #fff;
-  font-size: 20px; }
+  font-size: 20px;
+  border-top: 6px solid #fff; }
   @media (min-width: 1200px) {
     .content-container {
-      margin-top: -50px;
+      margin-top: -57px;
       padding: 110px 150px 70px 150px;
       text-align: left; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .content-container {
-      margin-top: -50px;
+      margin-top: -57px;
       padding: 110px 150px 70px 150px;
       text-align: left; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .content-container {
-      margin-top: -50px;
+      margin-top: -57px;
       padding: 70px 50px 60px 50px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .content-container {
-      margin-top: -50px;
+      margin-top: -57px;
       padding: 70px 50px 60px 50px; } }
 
 .content-container-alt {
