@@ -5921,28 +5921,27 @@ body {
 
 h1 {
   position: relative;
-  margin-top: -60%;
   margin-bottom: 60%;
   font-weight: 600;
-  font-size: 4em;
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  z-index: 20; }
   @media (min-width: 1200px) {
     h1 {
-      top: 250px;
+      top: 320px;
       font-size: 5em; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     h1 {
       font-size: 5em;
-      top: 30px; } }
+      top: 310px; } }
   @media (min-width: 767px) and (max-width: 991px) {
     h1 {
-      top: 35px; } }
+      font-size: 4em;
+      top: 340px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     h1 {
-      font-size: 3.5em;
-      margin-top: -80%;
-      margin-bottom: 80%; } }
+      font-size: 4em;
+      top: 280px; } }
 
 .navbar-toggle {
   margin-top: -32px; }

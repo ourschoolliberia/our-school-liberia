@@ -87,26 +87,24 @@ body
 
 h1
 	position: relative
-	margin-top: -60%
 	margin-bottom: 60%
 	font-weight: 600
-	font-size: 4em
 	text-align: center
 	color: #fff
+	z-index: 20
 	@include respond-to("lg")
-		top: 250px
+		top: 320px
 		font-size: 5em
 	@include respond-to("md")
 		font-size: 5em
-		top: 30px
+		top: 310px
 	@include respond-to("sm")
-		top: 35px
+		font-size: 4em
+		top: 340px
 	@include respond-to("xs")
-		font-size: 3.5em
-		margin-top: -80%
-		margin-bottom: 80%
+		font-size: 4em
+		top: 280px
 	
-
 .navbar-toggle
 	margin-top: -32px
 

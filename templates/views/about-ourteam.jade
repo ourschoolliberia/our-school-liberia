@@ -7,9 +7,7 @@ mixin teammemberBoardDiv (teammember)
 	if teammember.role === "board"
 		if teammember.image			
 			a(href=teammember._.image.fit(200,200))
-				span.imagethumb
-					img(src=teammember._.image.fit(200,200))
-					span.imagecaption #{teammember.name.first} #{teammember.name.last}
+				img(src=teammember._.image.fit(200,200))
 				section
 					h9 #{teammember.name.first} #{teammember.name.last} -
 					br
