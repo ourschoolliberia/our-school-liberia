@@ -5960,13 +5960,13 @@ a:hover, a:focus {
     .donatenow {
       position: relative;
       background-color: #edbe36;
-      padding: 20px 250px 20px 200px;
+      padding: 20px 280px 20px 230px;
       border: 6px solid #FFF;
       color: #fff;
       font-size: 40px;
       font-family: "Open Sans";
       left: 50%;
-      margin-left: -365px;
+      margin-left: -395px;
       top: -25px; }
       .donatenow a:hover, .donatenow a:focus {
         color: #fff;
@@ -6559,7 +6559,7 @@ h5 {
     text-transform: uppercase;
     font-weight: bold;
     padding-right: 0px;
-    font-size: 40px;
+    font-size: 35px;
     margin-left: -20px;
     background-color: #fff;
     color: #002f50;
@@ -6686,3 +6686,36 @@ h9 {
 
 .paypalbutton:hover {
   background-color: #3498DB; }
+
+.supporters {
+  position: relative;
+  left: 50%;
+  background-repeat: no-repeat; }
+  @media (min-width: 1200px) {
+    .supporters {
+      background-image: url("../../images/supporters-lg.png");
+      width: 1024px;
+      margin-left: -512px;
+      height: 627px;
+      margin-top: 80px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .supporters {
+      background-image: url("../../images/supporters-md.png");
+      width: 767px;
+      margin-left: -383.5px;
+      height: 1024px;
+      margin-top: 0px; } }
+  @media (min-width: 767px) and (max-width: 991px) {
+    .supporters {
+      background-image: url("../../images/supporters-sm.png");
+      width: 300px;
+      margin-left: -150px;
+      height: 1048px;
+      margin-top: 0px; } }
+  @media (min-width: 321px) and (max-width: 766px) {
+    .supporters {
+      background-image: url("../../images/supporters-sm.png");
+      width: 300px;
+      margin-left: -150px;
+      height: 1048px;
+      margin-top: 0px; } }
