@@ -3,34 +3,23 @@ extends ../layouts/mainheader
 block intro
 	h3 #{__('about.ourteam.title')}
 
-mixin teammemberBoardDiv (teammember)
-	if teammember.role === "board"
-		if teammember.image			
-			a(href=teammember._.image.fit(200,200))
-				img(src=teammember._.image.fit(200,200))
-				section
-					h9 #{teammember.name.first} #{teammember.name.last} -
-					br
-					#{teammember.type} #{teammember.bio}
-
-mixin teammemberStaffDiv (teammember)
-	if teammember.role === "staff"
-		if teammember.image			
-			a(href=teammember._.image.fit(200,200))
-				img(src=teammember._.image.fit(200,200))
-				section
-					h9 #{teammember.name.first} #{teammember.name.last} -
-					br
-					#{teammember.type} #{teammember.bio}
+mixin teammember (teammember)
+	if teammember.image
+		a(href=teammember._.image.fit(200,200))
+			img(src=teammember._.image.fit(200,200))
+			section
+				h9 #{teammember.name.first} #{teammember.name.last} -
+				br
+				#{teammember.type} #{teammember.bio}
 
 block content
 	.content-container
 		.gallery
 			h6 Board Members
 			br
-			if teammembers.length
-				each teammember in teammembers
-					+teammemberBoardDiv(teammember)
+			if boardmembers.length
+				each boardmember in boardmembers
+					+teammember(boardmember)
 			else
 				h3.text-muted There are no Board Members yet.
 			br
@@ -38,9 +27,9 @@ block content
 			br
 			h6 Staff Members
 			br
-			if teammembers.length
-				each teammember in teammembers
-					+teammemberStaffDiv(teammember)
+			if staffmembers.length
+				each staffmember in staffmembers
+					+teammember(staffmember)
 			else
 				h3.text-muted There are no Staff Members yet.
 
