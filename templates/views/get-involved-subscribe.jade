@@ -8,10 +8,13 @@ block intro
 
 block content
 	.content-container
+		br
 		h6 Subscribe to our newsletter
 	.content-container-alt
+		p
+		br
 		h7 #{__('getinvolved.subscribe.p1')}
-		form(name="volunteer", method="post")
+		form(class="volunteer" name="volunteer", method="post")
 			div.input
 				span.label #{__('getinvolved.subscribe.firstname')}
 				| <br>
