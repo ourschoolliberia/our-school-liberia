@@ -5960,13 +5960,13 @@ a:hover, a:focus {
     .donatenow {
       position: relative;
       background-color: #edbe36;
-      padding: 20px 250px 20px 200px;
+      padding: 20px 280px 20px 230px;
       border: 6px solid #FFF;
       color: #fff;
       font-size: 40px;
       font-family: "Open Sans";
       left: 50%;
-      margin-left: -365px;
+      margin-left: -395px;
       top: -25px; }
       .donatenow a:hover, .donatenow a:focus {
         color: #fff;
@@ -6353,7 +6353,7 @@ h5 {
   @media (min-width: 992px) and (max-width: 1199px) {
     .content-container {
       margin-top: -57px;
-      padding: 110px 150px 70px 150px;
+      padding: 80px 150px 70px 150px;
       text-align: left; } }
   @media (min-width: 767px) and (max-width: 991px) {
     .content-container {
@@ -6433,7 +6433,7 @@ h5 {
   @media (min-width: 992px) and (max-width: 1199px) {
     .content-container-alt {
       margin-top: 6px;
-      padding: 0px 150px 100px 150px;
+      padding: 30px 150px 100px 150px;
       text-align: left;
       font-weight: 100; }
       .content-container-alt input, .content-container-alt textarea {
@@ -6559,7 +6559,7 @@ h5 {
     text-transform: uppercase;
     font-weight: bold;
     padding-right: 0px;
-    font-size: 40px;
+    font-size: 35px;
     margin-left: -20px;
     background-color: #fff;
     color: #002f50;
@@ -6578,35 +6578,30 @@ h5 {
     font-weight: 900;
     line-height: 68px; }
   h6 {
-    font-size: 40px;
     position: relative;
-    left: 16px;
     font-family: "Open Sans";
     text-transform: uppercase;
     font-weight: bold;
     padding-right: 0px;
-    margin-bottom: 20px;
-    margin-left: -20px;
-    font-size: 40px !important;
+    font-size: 40px;
     background-color: #002f50;
+    color: #fff;
     width: 100%;
-    text-align: left;
-    margin-top: -20px; }
+    text-align: center;
+    line-height: 43px;
+    text-align: left; }
   h7 {
     position: relative;
-    left: 16px;
     font-family: "Open Sans";
     text-transform: uppercase;
     font-weight: bold;
     padding-right: 0px;
     font-size: 40px;
-    margin-left: -20px;
     background-color: #fff;
     color: #002f50;
     width: 100%;
     text-align: center;
-    top: 10px;
-    line-height: 3; } }
+    line-height: 43px; } }
 
 .slick-slide {
   padding: 0px 80px 0 20px;
@@ -6686,3 +6681,40 @@ h9 {
 
 .paypalbutton:hover {
   background-color: #3498DB; }
+
+.supporters {
+  position: relative;
+  left: 50%;
+  background-repeat: no-repeat; }
+  @media (min-width: 1200px) {
+    .supporters {
+      background-image: url("../../images/supporters-lg.png");
+      width: 1024px;
+      margin-left: -512px;
+      height: 627px;
+      margin-top: 80px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .supporters {
+      background-image: url("../../images/supporters-md.png");
+      width: 767px;
+      margin-left: -383.5px;
+      height: 1024px;
+      margin-top: 0px; } }
+  @media (min-width: 767px) and (max-width: 991px) {
+    .supporters {
+      background-image: url("../../images/supporters-sm.png");
+      width: 300px;
+      margin-left: -150px;
+      height: 1048px;
+      margin-top: 0px; } }
+  @media (min-width: 321px) and (max-width: 766px) {
+    .supporters {
+      background-image: url("../../images/supporters-sm.png");
+      width: 300px;
+      margin-left: -150px;
+      height: 1048px;
+      margin-top: 0px; } }
+
+.volunteer {
+  position: relative;
+  top: 60px; }
