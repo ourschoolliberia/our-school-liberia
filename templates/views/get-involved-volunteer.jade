@@ -1,12 +1,12 @@
 extends ../layouts/mainheader
 
-block head 
+block head
 	link(href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css", rel="stylesheet")
 
 block intro
 	h3 #{__('getinvolved.volunteer.title')}
 
-mixin volunteerIntro() 
+mixin volunteerIntro()
 	p
 	| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
 	p #{__('getinvolved.volunteer.p1')}
@@ -50,8 +50,8 @@ mixin volunteerForm()
 		div.actions
 			input(type="submit", value="submit")
 
-mixin formSubmitted() 
-	p Thankyou for registering your interest        
+mixin formSubmitted()
+	p Thankyou for registering your interest
 
 
 block content
@@ -60,20 +60,21 @@ block content
 	else
 		//- DS: just an idea to remove the '| <br>'? Is there a reason it's needed I'm not thinking of?
 		style.
-			div.input span.label { 
+			div.input span.label {
 				display: block;
 				text-align: left;
 			}
-		.content-container
+		.content-container-alt
 			+volunteerIntro()
+			+volunteerForm()
 
 
 block extendscripts
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js')
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.en-GB.min.js')
-	
-	
-	//- DS: switched it to bootstrap-datepicker (cos bootstrap), 
+
+
+	//- DS: switched it to bootstrap-datepicker (cos bootstrap),
 	//-     here we conditionally load the german language so the date picker is in the right language too :)
 	-var locale = getLocale()
 	if locale === 'de'
@@ -87,11 +88,8 @@ block extendscripts
 		}
 		$( document ).ready(function() {
 			$(".dob").datepicker($.extend(defaultDateOptions, {
-				yearRange: '1950:2016' 
+				yearRange: '1950:2016'
 			}));
 			$(".datepicker").datepicker(defaultDateOptions);
 
 		});
-
-
-

@@ -39,29 +39,29 @@ VolunteerSubmission.schema.post('save', function() {
 });
 
 VolunteerSubmission.schema.methods.sendNotificationEmail = function(callback) {
-	
+
 	if ('function' !== typeof callback) {
 		callback = function() {};
 	}
-	
-	var enquiry = this;
-	
+
+	var submission = this;
+
 	keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
-		
+
 		if (err) return callback(err);
-		
+
 		new keystone.Email('volunteer-notification').send({
 			to: admins,
 			from: {
 				name: 'Our School Liberia',
-				email: 'github@dannyshaw.io'
+				email: 'code@dannyshaw.io'
 			},
 			subject: 'New Volunteer Submission for Our School Liberia',
-			enquiry: enquiry
+			submission: submission
 		}, callback);
-		
+
 	});
-	
+
 };
 
 VolunteerSubmission.defaultSort = '-createdAt';

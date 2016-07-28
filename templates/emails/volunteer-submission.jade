@@ -1,0 +1,40 @@
+extends /layouts/default
+
+block body-contents
+	h1 Hi *|first_name|*,
+	p.text-larger A volunteer just expressed interest:
+	if submission.name.full || submission.email
+		p.text-larger From
+			if submission.name.full
+				| <strong>#{submission.name.full}</strong>
+			if submission.name.full && submission.email
+				|  (
+			if submission.email
+				| <a href="mailto:#{submission.email}">#{submission.email}</a>
+			if submission.name.full && submission.email
+				| )
+	if submission.dob
+		p.text-larger DOB: #{submission.dob}
+	if submission.proposedStartDate
+		p.text-larger Start Date: #{submission.proposedStartDate.format()}
+	if submission.proposedEndDate
+		p.text-larger End Data: #{submission.proposedEndDate.format()}					
+	if submission.areasOfInterest
+		.text-larger !{submission.areasOfInterest.html}
+		
+		//- dob: { type: Types.Date, required: true, parseFormat: dateParseFormat },
+		//- proposedStartDate: { type: Types.Date, required: true, parseFormat: dateParseFormat },
+		//- proposedEndDate: { type: Types.Date, required: true, parseFormat: dateParseFormat },
+		//- email: { type: Types.Email, required: true },
+		//- areasOfInterest: { type: String, required: true },
+		//- qualifications: { type: String },
+		//- teacherQualifications: { type: Types.Textarea },
+		//- more: { type: Types.Textarea },
+		//- createdAt: { type: Date, default: Date.now }
+		
+		
+		
+		
+	p.text-muted Sent #{submission._.createdAt.format()}
+	p &nbsp;
+	+button({ url: '/keystone/volunteer-submissions/' + submission.id, label: 'Open Keystone' })
