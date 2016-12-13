@@ -140,55 +140,44 @@ var getLanguages = function(callback) {
 	});
 };
 
-var getLangMemo = async.memoize(getLanguages);
+var languages;
 
 var updateRefs = [];
 
-function getLang(lang) {
-	return updateRefs.filter(function(ref) {
-		return ref.lang === lang;
-	});
-}
-
-var linkEnToDe = function(ref, done) {
-	console.log(ref);
-	console.log(done);
-	var id = ref.id
-	var update = getLang('de')[id];
-
-	var q = keystone.list('Update').model.findOne({
-		id: id
-	});
-
-	q.exec(function(err, result) {
-		result.translation = update;
-		result.save(function() {
-			done();
+var linkEnToDe = function(update, index, arr) {
+	if (update.lang = 'en' && index + 1 < arr.length) {
+		var nextUpdate = arr[index + 1];
+		console.log(update.id);
+		var q = keystone.list('Update').model.findOne({
+			id: update.id
 		});
-	});
+		q.exec(function(err, result) {
+			console.log(err);
+			console.log(result);
+			result.translation = nextUpdate.id;
+			result.save(function() {
+				done();
+			});
+		});
+	}
 }
 
 function updateIncrementor(obj, key) {
+	
 	return new Promise(function(resolve, reject) {
 		
 		//few things to do here
 		async.waterfall([
 			
-			//fetch languages
-			function(callback) {
-				getLangMemo(function (languages) {
-					callback(null, languages);
-				});
-			},
 
-			function (languages, callback) {
+			function (callback) {
 
 				incrementSomethin(obj, 'title', key);
 				
 				//alternately assign available languages
 				obj.language = languages[key % languages.length];
 				obj.content.extended = obj.content.brief = obj.language.key === 'en' ? histerIpsum : germanIpsum;
-				updateRefs.push({lang: obj.language.key, id: obj.id});
+				updateRefs.push({lang: obj.language, id: obj.id});
 				callback(null, obj);
 			}
 
@@ -204,6 +193,12 @@ function updateIncrementor(obj, key) {
 exports = module.exports = function(done) {
 	
 	async.series([
+		function(callback) {
+			getLanguages(function (langs) {
+				 languages = langs;
+				 callback();
+			});
+		},
 		async.times.bind(null, 20, iteratorFromPrototype('SupporterCompany', demoCompany, 'companyName')),
 		async.times.bind(null, 20, iteratorFromPrototype('Student', demoStudent, lastNameIncrementor)),
 		async.times.bind(null, 20, iteratorFromPrototype('SupporterIndividual', demoIndividual, lastNameIncrementor)),
@@ -220,10 +215,9 @@ exports = module.exports = function(done) {
 		}))
 		,
 		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor)),
-		// async.forEach(getLang('en'), linkEnToDe),
-
+		
 		function(done) {
-			console.log(updateRefs);
+			updateRefs.forEach(linkEnToDe);
 			done();
 		}
 	], done);
