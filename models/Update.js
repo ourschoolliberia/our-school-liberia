@@ -35,5 +35,5 @@ Update.schema.virtual('content.full').get(function() {
 
 
 
-Update.defaultColumns = 'title, state|10%, author|20%, translation|20%, publishedDate|20%';
+Update.defaultColumns = 'title, state|10%, author|20%, language, translation|20%, publishedDate|20%';
 Update.register();

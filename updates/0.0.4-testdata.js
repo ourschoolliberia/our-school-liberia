@@ -152,12 +152,15 @@ var linkEnToDe = function(update, index, arr) {
 			id: update.id
 		});
 		q.exec(function(err, result) {
-			console.log(err);
-			console.log(result);
-			result.translation = nextUpdate.id;
-			result.save(function() {
-				done();
-			});
+			console.log('error', err);
+			console.log('result', result);
+			// if (!result) {
+			// 	return
+			// }
+			// result.translation = nextUpdate.id;
+			// result.save(function() {
+			// 	done();
+			// });
 		});
 	}
 }
@@ -216,10 +219,10 @@ exports = module.exports = function(done) {
 		,
 		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor)),
 		
-		function(done) {
-			updateRefs.forEach(linkEnToDe);
-			done();
-		}
+		// function(done) {
+		// 	updateRefs.forEach(linkEnToDe);
+		// 	done();
+		// }
 	], done);
 
 };
