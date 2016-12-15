@@ -45,7 +45,7 @@ module.exports = {
 	'about': {
 		section: 'about',
 		controller: false,
-		sharedTemplate: 'about',
+		templatePrefix: 'about',
 		languages: {
 			'en': {
 				route: '/about',
@@ -59,7 +59,8 @@ module.exports = {
 	'about.whatwedo' : {
 		section: 'about',
 		controller: false,
-		sharedTemplate: 'about-whatwedo',
+		templatePrefix: 'about-whatwedo',
+		// sharedTemplate: 'about-whatwedo',
 		languages: {
 			'en': {
 				route: '/about/what-we-do',
@@ -72,7 +73,7 @@ module.exports = {
 	'about.wherewework' : {
 		section: 'about',
 		controller: false,
-		sharedTemplate: 'about-wherewework',
+		templatePrefix: 'about-wherewework',
 		languages: {
 			'en': {
 				route: '/about/where-we-work',
