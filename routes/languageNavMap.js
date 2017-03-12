@@ -35,11 +35,6 @@ module.exports = {
 					"key": "etwa-unterstutzer",
 					"href": "/etwa/unterstutzer"
 				},
-				"financials": {
-					"label": "Finanz",
-					"key": "etwa-finanz",
-					"href": "/etwa/finanz"
-				}
 			}
 		},
 		"donate": {
@@ -56,11 +51,6 @@ module.exports = {
 					"label": "Abonnieren",
 					"key": "sicheinlassen-abonnieren",
 					"href": "/sich-einlassen/subscribe"
-				},
-				"events": {
-					"label": "Veranstaltungen",
-					"key": "sicheinlassen-veranstaltungen",
-					"href": "/sich-einlassen/events"
 				},
 				"fundraise": {
 					"label": "Fundraising",
@@ -80,27 +70,27 @@ module.exports = {
 			"href": "/news",
 			"children": {
 				"updates": {
-					"label": "Updates",
+					"label": "Updaten",
 					"key": "news-updates",
 					"href": "/newsen/updaten"
 				},
 				"press": {
-					"label": "Press",
+					"label": "Pressen",
 					"key": "news-press",
 					"href": "/newsen/pressen"
 				},
 				"videos": {
-					"label": "Videos",
+					"label": "Videosen",
 					"key": "news-videos",
 					"href": "/newsen/videosen"
 				}
 			}
 		},
-		"gallery": {
-			"label": "Fotoatelier",
-			"key": "fotoatelier",
-			"href": "/fotoatelier"
-		},
+		// "gallery": {
+		// 	"label": "Fotoatelier",
+		// 	"key": "fotoatelier",
+		// 	"href": "/fotoatelier"
+		// },
 		"contact": {
 			"label": "Kontakt",
 			"key": "kontakt",
@@ -145,11 +135,6 @@ module.exports = {
 					"key": "about-supporters",
 					"href": "/about/supporters"
 				},
-				"financials": {
-					"label": "Financials",
-					"key": "about-financials",
-					"href": "/about/financials"
-				}
 			}
 		},
 		"donate": {
@@ -166,11 +151,6 @@ module.exports = {
 					"label": "Subscribe",
 					"key": "getinvolved-subscribe",
 					"href": "/get-involved/subscribe"
-				},
-				"events": {
-					"label": "Events",
-					"key": "getinvolved-events",
-					"href": "/get-involved/events"
 				},
 				"fundraise": {
 					"label": "Fundraise",
@@ -206,11 +186,11 @@ module.exports = {
 				}
 			}
 		},
-		"gallery": {
-			"label": "Gallery",
-			"key": "gallery",
-			"href": "/gallery"
-		},
+		// "gallery": {
+		// 	"label": "Gallery",
+		// 	"key": "gallery",
+		// 	"href": "/gallery"
+		// },
 		"contact": {
 			"label": "Contact",
 			"key": "contact",

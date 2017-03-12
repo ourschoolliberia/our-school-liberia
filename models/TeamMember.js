@@ -14,7 +14,7 @@ var TeamMember = new keystone.List('TeamMember', {
 
 TeamMember.add({
 	name: { type: Types.Name, required: true, default: '', initial: true },
-	type: { type: Types.Select, options: 'board, staff', default: 'staff', index: true, initial: true },
+	type: { type: Types.Select, options: 'staff', default: 'staff', index: true, initial: false },
 	role: { type: String, intital: true },
 	image: { type: Types.CloudinaryImage },
 	bio: { type: Types.Textarea, height: 150 },

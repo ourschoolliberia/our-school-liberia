@@ -121,7 +121,7 @@ var demoPressRelease = {
 
 var demoTeamMember = {
 	name:{ first: 'Team', last: 'Member' },
-	type: 'board',
+	type: 'staff',
 	role: 'blah',
 	image: stupidGuy,
 	bio: histerIpsum,
@@ -209,9 +209,8 @@ exports = module.exports = function(done) {
 			obj.title += ' ' + key;
 			obj.dateReleased.setDate(key+1 % 30);
 		})),
-		async.times.bind(null, 20, iteratorFromPrototype('TeamMember', demoTeamMember, function incrementor (obj, key) {
+		async.times.bind(null, 10, iteratorFromPrototype('TeamMember', demoTeamMember, function incrementor (obj, key) {
 			lastNameIncrementor(obj, key);
-			obj.role = key % 2 ? 'board' : 'staff';
 		})),
 		async.times.bind(null, 20, iteratorFromPrototype('FinancialReport', {year: '2006-01-01'}, function incrementor (obj, key) {
 			obj.year.setFullYear(obj.year.getFullYear() + key);

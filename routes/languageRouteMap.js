@@ -124,22 +124,6 @@ module.exports = {
 			},
 		}
 	},	
-
-	'about.financials' : {
-		section: 'about',
-		controller: false,
-		sharedTemplate: 'about-financials',
-		languages: {
-			'en': {
-				route: '/about/financials',
-			},
-			'de': {
-				route: '/etwa/finanzen',
-			},
-		}
-	},	
-
-
 	'getinvolved': {
 		section: 'getinvolved',
 		controller: false,
@@ -163,19 +147,6 @@ module.exports = {
 			},
 			'de': {
 				route: '/sich-einlassen/abonnieren',
-			},
-		}
-	},
-	'getinvolved.events' : {
-		section: 'getinvolved',
-		controller: false,
-		sharedTemplate: 'get-involved-events',
-		languages: {
-			'en': {
-				route: '/get-involved/events',
-			},
-			'de': {
-				route: '/sich-einlassen/veranstaltungen',
 			},
 		}
 	},
@@ -252,19 +223,19 @@ module.exports = {
 			}
 		}
 	},
-	'gallery': {
-		section: 'gallery',
-		controller: false,
-		sharedTemplate: 'gallery',
-		languages: {
-			'en': {
-				route: '/gallery',
-			},
-			'de': {
-				route: '/fototelier',
-			},
-		}
-	},
+	// 'gallery': {
+	// 	section: 'gallery',
+	// 	controller: false,
+	// 	sharedTemplate: 'gallery',
+	// 	languages: {
+	// 		'en': {
+	// 			route: '/gallery',
+	// 		},
+	// 		'de': {
+	// 			route: '/fototelier',
+	// 		},
+	// 	}
+	// },
 	'contact': {
 		controller: routes.views.contact,
 		section: 'contact',

@@ -39,8 +39,7 @@ keystone.pre('render', middleware.flashMessages);
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-
-
+	debugger;
 	keystoneMultilingual.initMiddleware({
 		app: app,
 		routes: routes,
