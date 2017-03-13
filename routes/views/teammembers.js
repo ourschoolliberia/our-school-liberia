@@ -6,7 +6,6 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'about';
 
 	// Load the staff and board members in to two lists
 	view.query('staffmembers', keystone.list('TeamMember').model.find({

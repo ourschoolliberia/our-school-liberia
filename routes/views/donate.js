@@ -7,7 +7,6 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 	
 	// Set locals
-	locals.section = 'donate';
 	locals.hideDonate = true;
 	locals.donationAmount = Donation.fields.donationAmount.ops;
 	locals.formData = req.body || {};

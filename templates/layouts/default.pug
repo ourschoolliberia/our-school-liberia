@@ -53,10 +53,8 @@ html
 					.collapse.navbar-collapse
 						ul.nav.navbar-nav.navbar-left
 							each link, routeName in navLinks
-								- console.log(link)
-								- console.log(routeName)
 								if link.children
-									li(class='dropdown' class=(section == routeName && 'active')): a(href=link.href)= link.label 
+									li(class='dropdown' data-test=(section) class=(section == routeName && 'active')): a(href=link.href)= link.label 
 										span.caret
 										ul.dropdown-menu
 											each sublink, sublinkRouteName in link.children
