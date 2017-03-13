@@ -26,11 +26,9 @@ module.exports = {
 
 	'home': {
 		controller: routes.views.index,
-		section: null,
 		route: '/'
 	},
 	'donate': {
-		section: 'donate',
 		controller: false,
 		templatePrefix: 'donate',
 		languages: {
@@ -43,7 +41,6 @@ module.exports = {
 		}
 	},
 	'about': {
-		section: 'about',
 		controller: false,
 		templatePrefix: 'about',
 		languages: {
@@ -57,7 +54,6 @@ module.exports = {
 	},
 	
 	'about.whatwedo' : {
-		section: 'about',
 		controller: false,
 		templatePrefix: 'about-whatwedo',
 		// sharedTemplate: 'about-whatwedo',
@@ -71,7 +67,6 @@ module.exports = {
 		}
 	},
 	'about.wherewework' : {
-		section: 'about',
 		controller: false,
 		templatePrefix: 'about-wherewework',
 		languages: {
@@ -85,7 +80,6 @@ module.exports = {
 	},
 
 	'about.ourteam' : {
-		section: 'about',
 		controller: routes.views.teammembers,
 		sharedTemplate: 'about-ourteam',
 		languages: {
@@ -99,7 +93,6 @@ module.exports = {
 	},
 
 	'about.ourstudents' : {
-		section: 'about',
 		controller: routes.views.students,
 		languages: {
 			'en': {
@@ -112,7 +105,6 @@ module.exports = {
 	},
 
 	'about.supporters' : {
-		section: 'about',
 		controller: false,
 		sharedTemplate: 'about-supporters',
 		languages: {
@@ -125,7 +117,6 @@ module.exports = {
 		}
 	},	
 	'getinvolved': {
-		section: 'getinvolved',
 		controller: false,
 		sharedTemplate: 'get-involved',
 		languages: {
@@ -138,7 +129,6 @@ module.exports = {
 		}
 	},
 	'getinvolved.subscribe' : {
-		section: 'getinvolved',
 		controller: false,
 		sharedTemplate: 'get-involved-subscribe',
 		languages: {
@@ -151,7 +141,6 @@ module.exports = {
 		}
 	},
 	'getinvolved.fundraise' : {
-		section: 'getinvolved',
 		controller: false,
 		sharedTemplate: 'get-involved-fundraise',
 		languages: {
@@ -165,7 +154,6 @@ module.exports = {
 	},
 	'getinvolved.volunteer' : {
 		method: 'all',
-		section: 'getinvolved',
 		controller: routes.views.volunteer,
 		languages: {
 			'en': {
@@ -188,7 +176,6 @@ module.exports = {
 	 *	template name here, it is manually loaded from within the controller.
 	 */
 	'news.updates': {
-		section: 'news',
 		controller: routes.views.updates,
 		languages: {
 			'en': {
@@ -200,7 +187,6 @@ module.exports = {
 		}
 	},
 	'news.updates:post': {
-		section: 'news',
 		controller: routes.views.update,
 		languages: {
 			'en': {
@@ -212,7 +198,6 @@ module.exports = {
 		}
 	},
 	'news.updates.category:category': {
-		section: 'news',
 		controller: routes.views.updates,
 		languages: {
 			'en': {
@@ -224,7 +209,6 @@ module.exports = {
 		}
 	},
 	// 'gallery': {
-	// 	section: 'gallery',
 	// 	controller: false,
 	// 	sharedTemplate: 'gallery',
 	// 	languages: {
@@ -238,7 +222,6 @@ module.exports = {
 	// },
 	'contact': {
 		controller: routes.views.contact,
-		section: 'contact',
 		route: '/contact',
 		method: 'all'
 	},

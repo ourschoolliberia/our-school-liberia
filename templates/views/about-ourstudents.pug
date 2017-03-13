@@ -1,6 +1,6 @@
 extends ../layouts/mainheader
 
-block intro
+block pagetitle
 	h3 #{__('about.ourstudents.title')}
 
 mixin studentsDiv (student)
@@ -25,4 +25,4 @@ block content
 
 block extendscripts
 	script(src='/js/jquery.poptrox.min.js')
-	script(src='/js/about-ourstudents.js')
+	script(src='/js/init-gallery.js')

@@ -30,7 +30,7 @@ body
 	overflow-x: hidden
 
 .container
-	z-index: 2		
+	z-index: 2
 	top: -50px
 
 .navbar-default
@@ -104,7 +104,7 @@ h1
 	@include respond-to("xs")
 		font-size: 4em
 		top: 280px
-	
+
 .navbar-toggle
 	margin-top: -32px
 
@@ -131,7 +131,7 @@ a:hover, a:focus
 		a:hover, a:focus
 			color: #fff
 			text-decoration: none
-		&::after 
+		&::after
 			content: ""
 			position: absolute
 			background-image: url("../images/arrow@2x.png")
@@ -155,7 +155,7 @@ a:hover, a:focus
 		a:hover, a:focus
 			color: #fff
 			text-decoration: none
-		&::after 
+		&::after
 			content: ""
 			position: absolute
 			background-image: url("../images/arrow@2x.png")
@@ -179,7 +179,7 @@ a:hover, a:focus
 		a:hover, a:focus
 			color: #fff
 			text-decoration: none
-		&::after 
+		&::after
 			content: ""
 			position: absolute
 			background-image: url("../images/arrow@2x.png")
@@ -188,7 +188,7 @@ a:hover, a:focus
 			height: 39.5px
 			top: 31px
 			right: 36px
-	@include respond-to("lg") 
+	@include respond-to("lg")
 		position: relative
 		background-color: #edbe36
 		padding: 20px 120px 20px 70px
@@ -203,7 +203,7 @@ a:hover, a:focus
 		a:hover, a:focus
 			color: #fff
 			text-decoration: none
-		&::after 
+		&::after
 			content: ""
 			position: absolute
 			background-image: url("../images/arrow@2x.png")
@@ -214,7 +214,7 @@ a:hover, a:focus
 			right: 36px
 
 
-.intro-container
+.header-container
 	width: 100%
 	@include radial-gradient(#8fc1e5, #4682ad)
 	@include respond-to("xs")
@@ -224,7 +224,7 @@ a:hover, a:focus
 	@include respond-to("md")
 		height: 760px
 	@include respond-to("lg")
-		height: 800px	
+		height: 800px
 
 .logo
 	position: absolute
@@ -251,13 +251,13 @@ a:hover, a:focus
 
 .aboutnow-prev
 	position: relative
-	width: 100% 
+	width: 100%
 	background-color: #002f50
 	z-index: 1
 	font-size: 18px
 	margin-top: -60px
 	border-top: 6px solid #fff
-	@include respond-to("xs") 
+	@include respond-to("xs")
 		height: auto
 		top: 0px
 		padding: 90px 50px 60px 50px
@@ -268,7 +268,7 @@ a:hover, a:focus
 	@include respond-to("md")
 		padding: 110px 150px 70px 150px
 	@include respond-to("lg")
-		padding: 110px 150px 70px 150px	
+		padding: 110px 150px 70px 150px
 
 h2
 	text-align: left
@@ -346,53 +346,53 @@ p.aboutnow-prev-p
 			left: 10%
 			top: 210px
 			margin-left: 115px
-		@include respond-to("sm") 
+		@include respond-to("sm")
 			left: 5%
 			top: 210px
 			margin-left: 115px
-		@include respond-to("xs") 
+		@include respond-to("xs")
 			top: 244px
 			left: 0px
 	&.yt
-		@include respond-to("lg") 
+		@include respond-to("lg")
 			left: 10%
 			top: 170px
 			margin-left: 175px
-		@include respond-to("md") 
+		@include respond-to("md")
 			left: 10%
 			top: 210px
 			margin-left: 175px
-		@include respond-to("sm") 
+		@include respond-to("sm")
 			left: 5%
 			top: 210px
 			margin-left: 175px
-		@include respond-to("xs") 
+		@include respond-to("xs")
 			top: 292px
 			left: 0px
-	
+
 .fb img, .li img, .yt img, .vm img
-	@include respond-to("lg") 
+	@include respond-to("lg")
 		position: relative
 		width: 50px
 		left: 0px
 		.icon
 			position: relative
 			width: 100%
-	@include respond-to("md") 
+	@include respond-to("md")
 		position: relative
 		width: 50px
 		left: 0px
 		.icon
 			position: relative
 			width: 100%
-	@include respond-to("sm") 
+	@include respond-to("sm")
 		position: relative
 		width: 50px
 		left: 0px
 		.icon
 			position: relative
 			width: 100%
-	@include respond-to("xs") 
+	@include respond-to("xs")
 		position: relative
 		width: 40px
 		left: 10px
@@ -408,27 +408,27 @@ h3
 	text-transform: uppercase
 	font-weight: bold
 	padding-right: 20px
-	@include respond-to("lg") 
+	@include respond-to("lg")
 		position: relative
 		margin-bottom: 20px
 		padding-right: 30px
 		text-align: center
 		font-size: 60px
 		padding-top: 40px
-	@include respond-to("md") 
+	@include respond-to("md")
 		position: relative
 		margin-bottom: 20px
 		padding-right: 30px
 		text-align: center
 		font-size: 60px
 		padding-top: 40px
-	@include respond-to("sm") 
+	@include respond-to("sm")
 		margin-bottom: 130px
 		padding-right: 20px
 		top: 0px !important
 		text-align: center
 		font-size: 45px
-	@include respond-to("xs") 
+	@include respond-to("xs")
 		font-size: 30px
 		margin-bottom: 130px
 		padding-right: 20px
@@ -468,18 +468,18 @@ h5
 	color: #fff
 	font-size: 20px
 	border-top: 6px solid #fff
-	@include respond-to("lg") 
+	@include respond-to("lg")
 		margin-top: -57px
 		padding: 110px 150px 70px 150px
 		text-align: left
-	@include respond-to("md") 
+	@include respond-to("md")
 		margin-top: -57px
 		padding: 80px 150px 70px 150px
 		text-align: left
-	@include respond-to("sm") 
+	@include respond-to("sm")
 		margin-top: -57px
-		padding: 70px 50px 60px 50px	
-	@include respond-to("xs") 
+		padding: 70px 50px 60px 50px
+	@include respond-to("xs")
 		margin-top: -57px
 		padding: 70px 50px 60px 50px
 
@@ -489,7 +489,7 @@ h5
 	height: auto
 	color: #002f50
 	font-size: 20px
-	@include respond-to("xs") 
+	@include respond-to("xs")
 		margin-top: 0px
 		padding: 70px 50px 60px 50px
 		input, textarea
@@ -507,7 +507,7 @@ h5
 			color: #fff
 			background-color: #002f50
 			padding: 10px 0 10px 0
-	@include respond-to("sm") 
+	@include respond-to("sm")
 		margin-top: 0px
 		padding: 70px 50px 60px 50px
 		margin-bottom: 40px
@@ -525,8 +525,8 @@ h5
 		button, html input[type="button"], input[type="reset"], input[type="submit"]
 			color: #fff
 			background-color: #002f50
-			padding: 10px 0 10px 0	
-	@include respond-to("lg") 
+			padding: 10px 0 10px 0
+	@include respond-to("lg")
 		margin-top: 6px
 		padding: 0px 150px 100px 150px
 		text-align: left
@@ -546,7 +546,7 @@ h5
 			color: #fff
 			background-color: #002f50
 			padding: 10px 0 10px 0
-	@include respond-to("md") 
+	@include respond-to("md")
 		margin-top: 6px
 		padding: 30px 150px 100px 150px
 		text-align: left
@@ -566,10 +566,10 @@ h5
 			color: #fff
 			background-color: #002f50
 			padding: 10px 0 10px 0
-	
 
-@include respond-to("xs") 
-	p 
+
+@include respond-to("xs")
+	p
 		margin: 20px 0px 0 0px
 		font-size: 16px
 	strong
@@ -606,8 +606,8 @@ h5
 		margin-right: 20px
 		top: -30px
 
-@include respond-to("sm") 
-	p 
+@include respond-to("sm")
+	p
 		margin: 20px 0px 0 0px
 		font-size: 16px
 	strong
@@ -644,9 +644,9 @@ h5
 		margin-right: 20px
 		top: -30px
 
-@include respond-to("lg") 
+@include respond-to("lg")
 	p
-		margin: 20px 0 0 
+		margin: 20px 0 0
 		font-size: 16px
 	strong
 		text-transform: uppercase
@@ -684,9 +684,9 @@ h5
 		top: 10px
 		line-height: 3
 
-@include respond-to("md") 
+@include respond-to("md")
 	p
-		margin: 20px 0 0 
+		margin: 20px 0 0
 		font-size: 16px
 	strong
 		text-transform: uppercase
@@ -722,7 +722,7 @@ h5
 .slick-slide
 	padding: 0px 80px 0 20px
 	outline: none
-	
+
 .text-muted
 	color: #ddd
 
@@ -747,7 +747,7 @@ section
 
 h9
 	font-weight: 900
-	font-size: 18px 
+	font-size: 18px
 
 .team-member-container
 	display: flex
@@ -759,16 +759,16 @@ h9
 	padding: 20px !important
 
 .poptrox-popup
-	@include respond-to("xs") 
+	@include respond-to("xs")
 		width: 80% !important
 		height: 80% !important
-	@include respond-to("sm") 
+	@include respond-to("sm")
 		width: 80% !important
 		height: 80% !important
-	@include respond-to("md") 
+	@include respond-to("md")
 		width: 80% !important
 		height: 50% !important
-	@include respond-to("lg") 
+	@include respond-to("lg")
 		width: 80% !important
 		height: 50% !important
 
@@ -794,29 +794,29 @@ h9
 
 .supporters
 	position: relative
-	left: 50% 
+	left: 50%
 	background-repeat: no-repeat
-	@include respond-to("lg") 
+	@include respond-to("lg")
 		background-image: url("../../images/supporters-lg.png")
-		width: 1024px 
+		width: 1024px
 		margin-left: -512px
 		height: 627px
 		margin-top: 80px
-	@include respond-to("md") 
+	@include respond-to("md")
 		background-image: url("../../images/supporters-md.png")
-		width: 767px 
+		width: 767px
 		margin-left: -383.5px
 		height: 1024px
 		margin-top: 0px
-	@include respond-to("sm") 
+	@include respond-to("sm")
 		background-image: url("../../images/supporters-sm.png")
-		width: 300px 
+		width: 300px
 		margin-left: -150px
 		height: 1048px
 		margin-top: 0px
-	@include respond-to("xs") 
+	@include respond-to("xs")
 		background-image: url("../../images/supporters-sm.png")
-		width: 300px 
+		width: 300px
 		margin-left: -150px
 		height: 1048px
 		margin-top: 0px

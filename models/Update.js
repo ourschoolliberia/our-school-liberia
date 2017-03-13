@@ -7,7 +7,8 @@ var Types = keystone.Field.Types;
  * ==========
  */
 
-var Update = keystone.TranslatableList('Update', {
+var Update = keystone.List('Update', {
+	multilingual: true,
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
 });

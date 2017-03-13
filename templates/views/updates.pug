@@ -14,17 +14,17 @@ mixin post(post)
 	.content-container
 		.post(data-ks-editable=editable(user, { list: 'Update', id: post.id }))
 			h2: +postLink(post, post.title)
-			p.lead.text-muted Posted 
+			p.lead.text-muted Posted
 				if post.publishedDate
-					| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
+					| on #{post._.publishedDate.format('MMMM Do, YYYY')}
 				if post.categories && post.categories.length
-					| in 
+					| in
 					each cat, i in post.categories
 						a(href=url(getLocale() + '.news.updates.category:category', {category: cat.key}))= cat.name
 						if i < post.categories.length - 1
-							| , 
+							| ,
 						else
-							|  
+							|
 				if post.author
 					| by #{post.author.name.first}
 			if post.image.exists
@@ -33,7 +33,7 @@ mixin post(post)
 			if post.content.extended
 				p.read-more: +postLink(post, 'Read more...')
 
-block intro
+block pagetitle
 	h3 #{__('news.updates.title')}
 
 block content
@@ -43,7 +43,7 @@ block content
 			.updates
 				each post in data.posts.results
 					+post(post)
-			
+
 			if data.posts.totalPages > 1
 				ul.pagination
 					if data.posts.previous
@@ -62,11 +62,11 @@ block content
 				h3.text-muted There are no posts in the category #{data.category.name}.
 			else
 				h3.text-muted There are no posts yet.
-	
+
 	if data.categories.length
 		.col-sm-4.col-md-3
 			h2 Categories
 			.list-group(style='margin-top: 70px;')
 				+allPostsLink('All Categories ')(class=(!data.category ? 'active' : false).list-group-item)
 				each cat in data.categories
-					+catLink(cat.key, cat.name + ' ')(class=(data.category && data.category.id == cat.id ? 'active' : false).list-group-item) 
+					+catLink(cat.key, cat.name + ' ')(class=(data.category && data.category.id == cat.id ? 'active' : false).list-group-item)

@@ -6056,22 +6056,22 @@ a:hover, a:focus {
         top: 31px;
         right: 36px; } }
 
-.intro-container {
+.header-container {
   width: 100%;
   background-color: #8fc1e5;
   background-image: -webkit-radial-gradient(#8fc1e5, #4682ad);
   background-image: radial-gradient(  #8fc1e5, #4682ad); }
   @media (min-width: 321px) and (max-width: 766px) {
-    .intro-container {
+    .header-container {
       height: 650px; } }
   @media (min-width: 767px) and (max-width: 991px) {
-    .intro-container {
+    .header-container {
       height: 780px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
-    .intro-container {
+    .header-container {
       height: 760px; } }
   @media (min-width: 1200px) {
-    .intro-container {
+    .header-container {
       height: 800px; } }
 
 .logo {

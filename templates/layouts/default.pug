@@ -17,7 +17,7 @@ html
 		link(href="/styles/site.css", rel="stylesheet")
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
-		if user && user.canAccessKeystone
+		if user && user.isAdmin
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
 		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -52,30 +52,31 @@ html
 							span.icon-bar
 					.collapse.navbar-collapse
 						ul.nav.navbar-nav.navbar-left
-							each link in navLinks
+							each link, routeName in navLinks
+								- console.log(link)
+								- console.log(routeName)
 								if link.children
-									li(class='dropdown'): a(href=link.href)= link.label 
+									li(class='dropdown' class=(section == routeName && 'active')): a(href=link.href)= link.label 
 										span.caret
 										ul.dropdown-menu
-											each sublink in link.children
-												li(class=(section == sublink.key ? 'active' : null)): a(href=sublink.href)= sublink.label
+											each sublink, sublinkRouteName in link.children
+												li(class=(sublinkRouteName === subSection ? 'active' : null)): a(href=sublink.href)= sublink.label
 								else
-									li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+									li(class=(section == routeName && 'active')): a(href=link.href)= link.label
 
 								
 						ul.nav.navbar-nav.navbar-right
-							li: a(href='?language=en') En
+							li(class=(locale == 'en' ? 'active' : null)): a(href='?language=en') En
 							li(role="separator", class="divider")
-							li: a(href='?language=de') De
-
+							li(class=(locale == 'de' ? 'active' : null)): a(href='?language=de') De
 
 						ul.nav.navbar-nav.navbar-right
 							if user
-								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
-								li: a(href='/keystone/signout') Sign Out
+								if user.isAdmin
+									li: a(href='/admin') Admin
+								li: a(href='/admin/signout') Logout
 							else
-								li: a(href='/keystone/signin') Sign In
+								li: a(href='/admin/signin') Admin
 
 		//- BODY
 		#body
@@ -85,7 +86,8 @@ html
 			//- Remember to include it in your templates when you override the intro and content blocks!
 
 			//- The Intro block appears above flash messages (used for temporary information display)
-			block intro
+			block header
+			block pagetitle
 
 			//- Flash messages allow you to display once-off status messages to users, e.g. form
 			//- validation errors, success messages, etc.
@@ -115,12 +117,11 @@ html
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone
-		if user && user.canAccessKeystone
+		if user && user.isAdmin
 			script(src='/keystone/js/content/editor.js')
 
-		//- Add scripts that are globally required by your site here.
 
-		//- Include template-specific javascript files by extending the js block
+		//- Add scripts that are globally required by your site here.
 		block js
 			script.
 				$('ul.nav li.dropdown').hover(function() {
@@ -128,3 +129,6 @@ html
 				}, function() {
 					$(this).find('.dropdown-menu').stop(true, true).hide();
 				});
+
+		//- Include template-specific javascript files by implementing the extendscripts block
+		block extendscripts

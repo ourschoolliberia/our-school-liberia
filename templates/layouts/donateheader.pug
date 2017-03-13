@@ -18,7 +18,7 @@ html
 		link(href="/styles/site.css", rel="stylesheet")
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
-		if user && user.canAccessKeystone
+		if user && user.isAdmin
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
 		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -72,8 +72,8 @@ html
 
 						ul.nav.navbar-nav.navbar-right
 							if user
-								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
+								if user.isAdmin
+									li: a(href='/keystone') Admin
 								li: a(href='/keystone/signout') Sign Out
 							else
 								li: a(href='/keystone/signin') Sign In
@@ -86,7 +86,7 @@ html
 			//- Remember to include it in your templates when you override the intro and content blocks!
 
 			//- The Intro block appears above flash messages (used for temporary information display)
-			.intro-container.visible-xs.visible-sm
+			.header-container.visible-xs.visible-sm
 				.container
 					img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
 					img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
@@ -115,7 +115,7 @@ html
 						img.icon(src='/images/icons/vm.png')
 					a(target="#" class="yt visible-md visible-lg" href="http://www.youtube.com")
 						img.icon(src='/images/icons/yt.png')
-			.intro-container.visible-md.visible-lg
+			.header-container.visible-md.visible-lg
 				.container
 					img.logo.visible-xs.visible-sm(src='/images/logo@2x.png')
 					img.logo.visible-md.visible-lg(src='/images/logo@2x.png')
@@ -165,7 +165,7 @@ html
 		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 		//- you can upgrade to 2.1.4 (also bundled) for better performance.
-		script(src='/js/jquery/jquery-1.11.3.min.js')
+		script(src='/js/jquery/jquery-2.1.4.min.js')
 
 		//- Customise which Bootstrap javascript files are served by including
 		//- them specifically here, instead of bootstrap-3.3.5.min.js
@@ -173,7 +173,7 @@ html
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone
-		if user && user.canAccessKeystone
+		if user && user.isAdmin
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.
