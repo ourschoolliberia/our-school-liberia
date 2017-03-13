@@ -16,9 +16,11 @@ keystone.init({
 	
 	'sass': 'public',
 	'static': 'public',
+	'admin path': 'admin',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'pug',
+	'signin logo': '/images/logo@2x.jpg',
 	
 	'emails': 'templates/emails',
 	
@@ -69,26 +71,7 @@ keystone.set('email locals', {
 	}
 });
 
-// Setup replacement rules for emails, to automate the handling of differences
-// between development a production.
-
-// Be sure to update this rule to include your site's actual domain, and add
-// other rules your email templates require.
-
-// keystone.set('email rules', [{
-// 	find: '/images/',
-// 	replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/images/' : 'http://localhost:3000/images/'
-// }, {
-// 	find: '/keystone/',
-// 	replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/keystone/' : 'http://localhost:3000/keystone/'
-// }]);
-
-// Load your project's email test routes
-
-// keystone.set('email tests', require('./routes/emails'));
-
 // Configure the navigation bar in Keystone's Admin UI
-
 keystone.set('nav', {
 	'news': [
 		'updates', 
@@ -98,14 +81,13 @@ keystone.set('nav', {
 		'galleries',
 	],
 	'get-involved': [
-		'events'
+
 	],
 	'about': [
 		'students',
 		'team-members',
 		'supporter-individuals',
 		'supporter-companies',
-		'financial-reports',
 	],
 	'enquiries': 'enquiries',
 	'users': 'users'
