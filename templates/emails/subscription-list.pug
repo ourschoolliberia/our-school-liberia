@@ -1,0 +1,20 @@
+extends default
+
+block content
+	h1 Hi *|first_name|*,
+	p.text-larger A volunteer just expressed interest:
+	if subscriber.name.full || subscriber.email
+		p.text-larger From
+			if subscriber.name.full
+				| <strong>#{subscriber.name.full}</strong>
+			if subscriber.name.full && subscriber.email
+				|  (
+			if subscriber.email
+				| <a href="mailto:#{subscriber.email}">#{subscriber.email}</a>
+			if subscriber.name.full && subscriber.email
+				| )
+		p.text-larger Preferred Language: #{subscriber.language}
+	
+	p.text-muted Sent #{subscriber._.createdAt.format()}
+	p &nbsp;
+	+button({ url: '/admin/subscribers/' + subscriber.id, label: 'Open In Admin' })

@@ -15,6 +15,7 @@
     "dotenv": "^1.1.0",
     "invariant": "^2.2.0",
     "keystone": "^4.0.0-beta.4",
+    "keystone-email": "^1.0.5",
     "keystone-multilingual": "^0.1.0",
     "keystone-storage-adapter-s3": "^1.1.1",
     "node-sass": "^3.3.2",

@@ -129,7 +129,8 @@ module.exports = {
 		}
 	},
 	'getinvolved.subscribe' : {
-		controller: false,
+		method: 'all',
+		controller: routes.views.subscribe,
 		sharedTemplate: 'get-involved-subscribe',
 		languages: {
 			'en': {

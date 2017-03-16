@@ -76,5 +76,13 @@
 	"getinvolved.volunteer.qualifications1": "getinvolved.volunteer.qualifications1",
 	"getinvolved.volunteer.qualifications2pt1": "getinvolved.volunteer.qualifications2pt1",
 	"getinvolved.volunteer.qualifications2pt2": "getinvolved.volunteer.qualifications2pt2",
-	"getinvolved.volunteer.more": "getinvolved.volunteer.more"
+	"getinvolved.volunteer.more": "getinvolved.volunteer.more",
+	"getinvolved.subscribe.title": "getinvolved.subscribe.title",
+	"getinvolved.subscribe.subtitle": "getinvolved.subscribe.subtitle",
+	"getinvolved.subscribe.p1": "getinvolved.subscribe.p1",
+	"getinvolved.subscribe.p2": "getinvolved.subscribe.p2",
+	"getinvolved.subscribe.firstname": "getinvolved.subscribe.firstname",
+	"getinvolved.subscribe.lastname": "getinvolved.subscribe.lastname",
+	"getinvolved.subscribe.email": "getinvolved.subscribe.email",
+	"getinvolved.subscribe.language": "getinvolved.subscribe.language"
 }

@@ -67,7 +67,9 @@
 			"firstname": "First Name",
 			"lastname": "Last Name",
 			"email": "Email",
-			"language": "Language Preference"
+			"language": "Language Preference",
+			"p2": "p2",
+			"preferredLanguage": "preferredLanguage"
 		},
 		"volunteer": {
 			"title": "volunteer",

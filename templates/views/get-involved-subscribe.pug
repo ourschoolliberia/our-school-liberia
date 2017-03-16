@@ -6,7 +6,14 @@ block head
 block pagetitle
 	h3 #{__('getinvolved.subscribe.title')}
 
-block content
+mixin subscribeIntro()
+	div
+		p
+		| <strong> #{__('getinvolved.subscribe.subtitle')} </strong>
+		p #{__('getinvolved.subscribe.p1')}
+		p #{__('getinvolved.subscribe.p2')}
+
+mixin subscribeForm()
 	.content-container
 		br
 		h6 Subscribe to our newsletter
@@ -14,27 +21,46 @@ block content
 		p
 		br
 		h7 #{__('getinvolved.subscribe.p1')}
-		form(class="volunteer" name="volunteer", method="post")
+		form(class="subscribe" name="subscribe", method="post")
+			input(type='hidden', name='action', value='subscribe')
 			div.input
 				span.label #{__('getinvolved.subscribe.firstname')}
-				| <br>
-				input(type="text", name="firstname")
+				input(type="text", name="name.first" value=formData['name.first'])
 			div.input
 				span.label #{__('getinvolved.subscribe.lastname')}
-				| <br>
-				input(type="text", name="lastname")
+				input(type="text", name="name.last" value=formData['name.last'])
 			div.input
 				span.label #{__('getinvolved.subscribe.email')}
-				| <br>
-				input(type="text", name="email")
+				input(type="text", name="email" value=formData['email'])
 			div.input
-				span.label #{__('getinvolved.subscribe.language')}
-				| <br>
-				input(type="text", name="language")
+				span.label #{__('getinvolved.subscribe.preferredLanguage')}
+				select(name="preferredLanguage")
+					each language in languages
+						option(value=(language.value), selected=(formData['preferredLanguage'] === language.value))= language.label
 			div.actions
 				input(type="submit", value="submit")
 
+mixin formSubmitted()
+	div
+		p Thankyou for subscribing to our newsletter
+
+
+block content
+	if formSubmitted
+		+formSubmitted()
+	else
+		//- DS: just an idea to remove the '| <br>'? Is there a reason it's needed I'm not thinking of?
+		style.
+			div.input span.label {
+				display: block;
+				text-align: left;
+			}
+		.content-container-alt
+			+subscribeIntro()
+			+subscribeForm()
+
+
 block extendscripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
-	script(src='/js/get-involved-volunteer.js')
+	script(src='/js/form-tweaks.js')
 

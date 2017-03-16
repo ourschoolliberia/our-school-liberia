@@ -1,0 +1,33 @@
+include ../mixins/utils
+
+doctype html
+html
+
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title= title || 'Our School Liberia'
+		block css
+		//- Add any other template-specific HEAD tags by extending the head block
+		block head
+
+	//- HTML BODY
+	body
+		//- HEADER
+		#header: .container
+		//- BODY
+		#body
+
+			//- The content block should contain the body of your template's content
+			block content
+
+
+		//- FOOTER
+		.container: #footer
+
+			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
+			p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+
+		//- Include template-specific javascript files by implementing the extendscripts block
+		block extendscripts
