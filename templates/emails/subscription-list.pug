@@ -1,10 +1,9 @@
 extends default
 
 block content
-	h1 Hi *|first_name|*,
-	p.text-larger A volunteer just expressed interest:
+	p.text-larger  #{subscriber.name.full} just subscribed:
 	if subscriber.name.full || subscriber.email
-		p.text-larger From
+		p.text-larger
 			if subscriber.name.full
 				| <strong>#{subscriber.name.full}</strong>
 			if subscriber.name.full && subscriber.email
@@ -13,8 +12,8 @@ block content
 				| <a href="mailto:#{subscriber.email}">#{subscriber.email}</a>
 			if subscriber.name.full && subscriber.email
 				| )
-		p.text-larger Preferred Language: #{subscriber.language}
+		p.text-larger Preferred Language: #{subscriber.preferredLanguage.name}
 	
 	p.text-muted Sent #{subscriber._.createdAt.format()}
 	p &nbsp;
-	+button({ url: '/admin/subscribers/' + subscriber.id, label: 'Open In Admin' })
+	+button({ url: 'http://localhost:3000/admin/subscribers/' + subscriber.id, label: 'Open In Admin' })

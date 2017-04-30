@@ -92,7 +92,8 @@
 			"submit": "Submit",
 			"maincontent": "maincontent",
 			"date": "date",
-			"proposeddates": "proposeddates"
+			"proposeddates": "proposeddates",
+			"subscribe": "subscribe"
 		},
 		"events": {
 			"title": "events",
