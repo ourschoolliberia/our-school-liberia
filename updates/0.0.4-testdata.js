@@ -212,10 +212,6 @@ exports = module.exports = function(done) {
 		async.times.bind(null, 10, iteratorFromPrototype('TeamMember', demoTeamMember, function incrementor (obj, key) {
 			lastNameIncrementor(obj, key);
 		})),
-		async.times.bind(null, 20, iteratorFromPrototype('FinancialReport', {year: '2006-01-01'}, function incrementor (obj, key) {
-			obj.year.setFullYear(obj.year.getFullYear() + key);
-		}))
-		,
 		async.times.bind(null, 20, iteratorFromPrototype('Update', demoUpdate, updateIncrementor)),
 		
 		// function(done) {
