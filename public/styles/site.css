@@ -5903,10 +5903,10 @@ body {
   z-index: 4; }
   @media (min-width: 1400px) {
     .heroimage {
-      max-width: 330px;
+      max-width: 240px;
       left: 50%;
-      margin-left: -165px;
-      top: 130px;
+      margin-left: -120px;
+      top: 120px;
       padding-bottom: 30px; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
     .heroimage {
@@ -5945,7 +5945,7 @@ h1 {
   z-index: 20; }
   @media (min-width: 1400px) {
     h1 {
-      top: 320px;
+      top: 260px;
       font-size: 5em; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
     h1 {
@@ -6126,7 +6126,7 @@ a:hover, a:focus {
       height: 540px; } }
   @media (min-width: 1400px) {
     .header-container {
-      height: 730px; } }
+      height: 610px; } }
 
 .logo {
   position: absolute; }
@@ -6187,7 +6187,7 @@ a:hover, a:focus {
       padding: 80px 150px 70px 150px; } }
   @media (min-width: 1400px) {
     .aboutnow-prev {
-      padding: 110px 150px 70px 150px; } }
+      padding: 80px 150px 70px 150px; } }
 
 h2 {
   text-align: left;
