@@ -5864,7 +5864,8 @@ body {
   top: 0px;
   height: 100%;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 .container-header {
   z-index: 3;
@@ -6222,7 +6223,7 @@ p.aboutnow-prev-p {
   height: 50px; }
   @media (min-width: 1400px) {
     .home-icon.fb {
-      left: 0%;
+      left: 50px;
       top: 50px;
       margin-left: 0; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
@@ -6248,7 +6249,7 @@ p.aboutnow-prev-p {
     padding: 2px; }
     @media (min-width: 1400px) {
       .home-icon.li {
-        left: 0%;
+        left: 50px;
         top: 50px;
         margin-left: 55px; } }
     @media (min-width: 1200px) and (max-width: 1399px) {
@@ -6272,7 +6273,7 @@ p.aboutnow-prev-p {
         left: 10px; } }
   @media (min-width: 1400px) {
     .home-icon.vm {
-      left: 0%;
+      left: 50px;
       top: 50px;
       margin-left: 115px; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
@@ -6296,7 +6297,7 @@ p.aboutnow-prev-p {
       left: 10px; } }
   @media (min-width: 1400px) {
     .home-icon.yt {
-      left: 0%;
+      left: 50px;
       top: 50px;
       margin-left: 175px; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
