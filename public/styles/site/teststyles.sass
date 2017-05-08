@@ -343,6 +343,19 @@ h2
 	a:hover
 		color: #fff
 
+h7
+	text-align: left
+	color: #002f50
+	font-weight: 600
+	text-transform: uppercase
+	font-size: 35px
+	font-weight: 900
+	line-height: 38px
+	a
+		color: #002f50
+	a:hover
+		color: #002f50
+
 
 p.aboutnow-prev-p
 	margin-left: 0px !important
@@ -551,266 +564,70 @@ h5
 
 
 .content-container
+	position: relative
 	width: 100%
 	background-color: #002f50
-	height: auto
-	color: #fff
-	font-size: 20px
+	z-index: 1
+	font-size: 18px
+	margin-top: -60px
 	border-top: 6px solid #fff
-	@include respond-to("exlg")
-		margin-top: -57px
-		padding: 110px 150px 70px 150px
-		text-align: left
-	@include respond-to("lg")
-		margin-top: -57px
-		padding: 110px 150px 70px 150px
-		text-align: left
-	@include respond-to("md")
-		margin-top: -57px
-		padding: 80px 150px 70px 150px
-		text-align: left
-	@include respond-to("sm")
-		margin-top: -57px
-		padding: 70px 50px 60px 50px
+	color: #fff
 	@include respond-to("xs")
-		margin-top: -57px
-		padding: 70px 50px 60px 50px
+		height: auto
+		top: 20px
+		padding: 90px 50px 60px 30px
+	@include respond-to("sm")
+		height: auto
+		top: 0px
+		padding: 90px 50px 60px 50px
+	@include respond-to("md")
+		padding: 110px 150px 70px 150px
+	@include respond-to("lg")
+		padding: 80px 150px 70px 150px
+	@include respond-to("exlg")
+		padding: 80px 150px 70px 150px
+	&.secondary
+		@include respond-to("xs")
+			height: auto
+			top: 20px
+			padding: 20px 50px 60px 30px
+		@include respond-to("sm")
+			height: auto
+			top: 0px
+			padding: 20px 50px 60px 50px
+		@include respond-to("md")
+			padding: 20px 150px 70px 150px
+		@include respond-to("lg")
+			padding: 20px 150px 70px 150px
+		@include respond-to("exlg")
+			padding: 20px 150px 70px 150px
+
+
 
 .content-container-alt
+	position: relative
 	width: 100%
 	background-color: #fff
-	height: auto
+	z-index: 1
+	font-size: 18px
+	margin-top: -60px
+	border-top: 6px solid #fff
 	color: #002f50
-	font-size: 20px
 	@include respond-to("xs")
-		margin-top: 0px
-		padding: 70px 50px 60px 50px
-		input, textarea
-			color: #002f50
-			border-radius: 32px
-			box-shadow: none
-			width: 95%
-			padding: 10px 0px 10px 20px
-			margin: 10px 0 10px 0px
-			border: 1px solid
-		.label
-			color: #002f50
-			padding: .2em 0em 0em
-		button, html input[type="button"], input[type="reset"], input[type="submit"]
-			color: #fff
-			background-color: #002f50
-			padding: 10px 0 10px 0
+		height: auto
+		top: 20px
+		padding: 40px 50px 60px 30px
 	@include respond-to("sm")
-		margin-top: 0px
-		padding: 70px 50px 60px 50px
-		margin-bottom: 40px
-		input, textarea
-			color: #002f50
-			border-radius: 32px
-			box-shadow: none
-			width: 95%
-			padding: 10px 0px 10px 20px
-			margin: 10px 0 10px 0px
-			border: 1px solid
-		.label
-			color: #002f50
-			padding: .2em 0em 0em
-		button, html input[type="button"], input[type="reset"], input[type="submit"]
-			color: #fff
-			background-color: #002f50
-			padding: 10px 0 10px 0
-	@include respond-to("lg")
-		margin-top: 6px
-		padding: 0px 150px 100px 150px
-		text-align: left
-		font-weight: 100
-		input, textarea
-			color: #002f50
-			border-radius: 32px
-			box-shadow: none
-			width: 60%
-			padding: 10px 0px 10px 20px
-			margin: 10px 0 10px 0px
-			border: 1px solid
-		.label
-			color: #002f50
-			padding: .2em 0em 0em
-		button, html input[type="button"], input[type="reset"], input[type="submit"]
-			color: #fff
-			background-color: #002f50
-			padding: 10px 0 10px 0
+		height: auto
+		top: 0px
+		padding: 40px 50px 60px 50px
 	@include respond-to("md")
-		margin-top: 6px
-		padding: 30px 150px 100px 150px
-		text-align: left
-		font-weight: 100
-		input, textarea
-			color: #002f50
-			border-radius: 32px
-			box-shadow: none
-			width: 60%
-			padding: 10px 0px 10px 20px
-			margin: 10px 0 10px 0px
-			border: 1px solid
-		.label
-			color: #002f50
-			padding: .2em 0em 0em
-		button, html input[type="button"], input[type="reset"], input[type="submit"]
-			color: #fff
-			background-color: #002f50
-			padding: 10px 0 10px 0
+		padding: 40px 150px 70px 150px
+	@include respond-to("lg")
+		padding: 40px 150px 70px 150px
+	@include respond-to("exlg")
+		padding: 40px 150px 70px 150px
 
-
-@include respond-to("xs")
-	p
-		margin: 20px 0px 0 0px
-		font-size: 16px
-	strong
-		text-transform: uppercase
-		font-size: 40px
-		font-weight: 900
-		line-height: 48px
-	h6
-		position: relative
-		left: 16px
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		padding-right: 0px
-		margin-bottom: 20px
-		margin-left: -20px
-		font-size: 40px
-		background-color: #002f50
-		width: 100%
-		text-align: left
-		margin-top: 20px
-	h7
-		position: relative
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		font-size: 40px
-		background-color: #fff
-		color: #002f50
-		width: 100%
-		text-align: left
-		line-height: 50px
-		right: 0px
-		margin-right: 20px
-		top: -30px
-
-@include respond-to("sm")
-	p
-		margin: 20px 0px 0 0px
-		font-size: 16px
-	strong
-		text-transform: uppercase
-		font-size: 40px
-		font-weight: 900
-		line-height: 48px
-	h6
-		position: relative
-		left: 16px
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		padding-right: 0px
-		margin-bottom: 20px
-		margin-left: -20px
-		background-color: #002f50
-		width: 100%
-		text-align: left
-		font-size: 40px !important
-		margin-top: 20px
-	h7
-		position: relative
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		font-size: 40px
-		background-color: #fff
-		color: #002f50
-		width: 100%
-		text-align: left
-		line-height: 50px
-		right: 0px
-		margin-right: 20px
-		top: -30px
-
-@include respond-to("lg")
-	p
-		margin: 20px 0 0
-		font-size: 16px
-	strong
-		text-transform: uppercase
-		font-size: 45px
-		font-weight: 900
-		line-height: 68px
-	h6
-		position: relative
-		left: 16px
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		padding-right: 0px
-		margin-bottom: 20px
-		margin-left: -20px
-		font-size: 40px
-		background-color: #002f50
-		width: 100%
-		text-align: left
-		margin-top: -20px
-		font-size: 40px !important
-	h7
-		position: relative
-		left: 16px
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		padding-right: 0px
-		font-size: 35px
-		margin-left: -20px
-		background-color: #fff
-		color: #002f50
-		width: 100%
-		text-align: center
-		top: 10px
-		line-height: 3
-
-@include respond-to("md")
-	p
-		margin: 20px 0 0
-		font-size: 16px
-	strong
-		text-transform: uppercase
-		font-size: 45px
-		font-weight: 900
-		line-height: 68px
-	h6
-		position: relative
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		padding-right: 0px
-		font-size: 40px
-		background-color: #002f50
-		color: #fff
-		width: 100%
-		text-align: center
-		line-height: 43px
-		text-align: left
-	h7
-		position: relative
-		font-family: "Open Sans"
-		text-transform: uppercase
-		font-weight: bold
-		padding-right: 0px
-		font-size: 40px
-		background-color: #fff
-		color: #002f50
-		width: 100%
-		text-align: center
-		line-height: 43px
 
 .slick-slide
 	padding: 0px 80px 0 20px
@@ -926,3 +743,6 @@ h9
 .volunteer
 	position: relative
 	top: 60px
+
+.line
+	padding-bottom: 30px
