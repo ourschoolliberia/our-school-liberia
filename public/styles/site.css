@@ -6194,9 +6194,9 @@ h2 {
   color: #fff;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 35px;
+  font-size: 50px;
   font-weight: 900;
-  line-height: 38px; }
+  line-height: 70px; }
   h2 a {
     color: #fff; }
   h2 a:hover {
@@ -6204,16 +6204,16 @@ h2 {
 
 h7 {
   text-align: left;
-  color: #002f50;
+  color: #fff;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 35px;
+  font-size: 50px;
   font-weight: 900;
-  line-height: 38px; }
+  line-height: 70px; }
   h7 a {
-    color: #002f50; }
+    color: #fff; }
   h7 a:hover {
-    color: #002f50; }
+    color: #fff; }
 
 p.aboutnow-prev-p {
   margin-left: 0px !important;
@@ -6457,7 +6457,6 @@ h5 {
   z-index: 1;
   font-size: 18px;
   margin-top: -60px;
-  border-top: 6px solid #fff;
   color: #fff; }
   @media (min-width: 321px) and (max-width: 766px) {
     .content-container {
@@ -6474,10 +6473,10 @@ h5 {
       padding: 110px 150px 70px 150px; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
     .content-container {
-      padding: 80px 150px 70px 150px; } }
+      padding: 80px 180px 140px 150px; } }
   @media (min-width: 1400px) {
     .content-container {
-      padding: 80px 150px 70px 150px; } }
+      padding: 80px 280px 130px 150px; } }
   @media (min-width: 321px) and (max-width: 766px) {
     .content-container.secondary {
       height: auto;
@@ -6493,39 +6492,12 @@ h5 {
       padding: 20px 150px 70px 150px; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
     .content-container.secondary {
-      padding: 20px 150px 70px 150px; } }
+      padding: 110px 180px 155px 150px; } }
   @media (min-width: 1400px) {
     .content-container.secondary {
-      padding: 20px 150px 70px 150px; } }
-
-.content-container-alt {
-  position: relative;
-  width: 100%;
-  background-color: #fff;
-  z-index: 1;
-  font-size: 18px;
-  margin-top: -60px;
-  border-top: 6px solid #fff;
-  color: #002f50; }
-  @media (min-width: 321px) and (max-width: 766px) {
-    .content-container-alt {
-      height: auto;
-      top: 20px;
-      padding: 40px 50px 60px 30px; } }
-  @media (min-width: 767px) and (max-width: 991px) {
-    .content-container-alt {
-      height: auto;
-      top: 0px;
-      padding: 40px 50px 60px 50px; } }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .content-container-alt {
-      padding: 40px 150px 70px 150px; } }
-  @media (min-width: 1200px) and (max-width: 1399px) {
-    .content-container-alt {
-      padding: 40px 150px 70px 150px; } }
-  @media (min-width: 1400px) {
-    .content-container-alt {
-      padding: 40px 150px 70px 150px; } }
+      padding: 120px 280px 180px 150px; } }
+  .content-container.alt {
+    background-color: #004677; }
 
 .slick-slide {
   padding: 0px 80px 0 20px;
@@ -6656,4 +6628,5 @@ h9 {
   top: 60px; }
 
 .line {
-  padding-bottom: 30px; }
+  padding-bottom: 25px;
+  font-size: 25px; }
