@@ -6,10 +6,12 @@
 
 $a-tags: 'a, a:active, a:hover, a:visited'
 $a-tags-hover: 'a:active, a:hover'
+$graph-1: #fff;
+$graph-2: #ddd;
 
 @mixin respond-to($breakpoint)
 	@if $breakpoint == "xs"
-		@media (min-width: 321px) and (max-width: 766px)
+		@media (min-width: 319px) and (max-width: 766px)
 			@content
 
 	@else if $breakpoint == "sm"
@@ -342,6 +344,9 @@ h2
 		color: #fff
 	a:hover
 		color: #fff
+	@include respond-to("xs")
+		font-size: 35px
+		line-height: 35px
 
 h7
 	text-align: left
@@ -355,7 +360,9 @@ h7
 		color: #fff
 	a:hover
 		color: #fff
-
+	@include respond-to("xs")
+		font-size: 35px
+		line-height: 35px
 
 p.aboutnow-prev-p
 	margin-left: 0px !important
@@ -575,7 +582,7 @@ h5
 	@include respond-to("xs")
 		height: auto
 		top: 20px
-		padding: 90px 50px 60px 30px
+		padding: 90px 50px 90px 30px
 	@include respond-to("sm")
 		height: auto
 		top: 0px
@@ -590,11 +597,11 @@ h5
 		@include respond-to("xs")
 			height: auto
 			top: 20px
-			padding: 20px 50px 60px 30px
+			padding: 20px 50px 90px 30px
 		@include respond-to("sm")
 			height: auto
 			top: 0px
-			padding: 20px 50px 60px 50px
+			padding: 60px 50px 110px 50px
 		@include respond-to("md")
 			padding: 20px 150px 70px 150px
 		@include respond-to("lg")
@@ -603,6 +610,20 @@ h5
 			padding: 120px 280px 180px 150px
 	&.alt
 		background-color: #004677
+		@include respond-to("xs")
+			height: auto
+			top: 20px
+			padding: 20px 50px 90px 30px
+		@include respond-to("sm")
+			height: auto
+			top: 0px
+			padding: 60px 50px 110px 50px
+		@include respond-to("md")
+			padding: 20px 150px 70px 150px
+		@include respond-to("lg")
+			padding: 110px 180px 155px 150px
+		@include respond-to("exlg")
+			padding: 120px 280px 180px 150px
 
 .slick-slide
 	padding: 0px 80px 0 20px
@@ -721,4 +742,19 @@ h9
 
 .line
 	padding-bottom: 25px
-	font-size: 25px
+	font-size: 16px
+
+.map
+	position: relative
+	width: 100%
+	max-width: 550px
+	margin: auto
+	display: block
+	padding-top: 50px
+
+.graph
+	max-width: 400px
+	margin: auto
+	display: block
+	padding-top: 20px
+	width: 100%
