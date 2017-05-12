@@ -5,14 +5,14 @@ block content
 	.content-container
 		h2 Contact Us
 		if enquirySubmitted
-			h3 Thanks for getting in touch.
+			.line Thanks for getting in touch.
 		else
 			.row: .col-sm-12.col-md-12
 				form(method='post')
 					input(type='hidden', name='action', value='contact')
 					.form-group(class=validationErrors.name ? 'has-error' : null)
 						label Name
-						input(type='text', name='name.full', value=formData['name.full']).form-control
+						input(type='text', name='name', value=formData['name']).form-control
 					.form-group(class=validationErrors.email ? 'has-error' : null)
 						label Email
 						input(type='email', name='email', value=formData.email).form-control

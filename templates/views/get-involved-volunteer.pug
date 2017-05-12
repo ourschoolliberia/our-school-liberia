@@ -3,76 +3,77 @@ extends ../layouts/mainheader
 block head
 	link(href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css", rel="stylesheet")
 
-block pagetitle
-	h3 #{__('getinvolved.volunteer.title')}
-
-mixin volunteerIntro()
-	div
-		p
-		| <strong> #{__('getinvolved.volunteer.subtitle')} </strong>
-		p #{__('getinvolved.volunteer.p1')}
-		p #{__('getinvolved.volunteer.p2')}
-
-mixin volunteerForm()
-	div
-		h7 #{__('getinvolved.volunteer.p3')}
-		form(name="volunteer", method="post")
-			input(type='hidden', name='action', value='volunteer')
-			div.input
-				span.label #{__('getinvolved.volunteer.firstname')}
-				input(type="text", name="name.first" value=formData['name.first'])
-			div.input
-				span.label #{__('getinvolved.volunteer.lastname')}
-				input(type="text", name="name.last" value=formData['name.last'])
-			div.input
-				span.label #{__('getinvolved.volunteer.dob')}
-				input.dob(type="text", name="dob", value=formData['dob'])
-			div.input
-				span.label #{__('getinvolved.volunteer.proposedstartdate')}
-				input.datepicker(type="text", name="proposedStartDate", value=formData['proposedStartDate'])
-			div.input
-				span.label #{__('getinvolved.volunteer.proposedenddate')}
-				input.datepicker(type="text", name="proposedEndDate", value=formData['proposedEndDate'])
-			div.input
-				span.label #{__('getinvolved.volunteer.email')}
-				input(type="text", name="email", value=formData['email'])
-			div.input
-				span.label #{__('getinvolved.volunteer.areasofinterest')}
-				input(type="text", name="areasOfInterest", value=formData['areasOfInterest'])
-			div.input
-				span.label #{__('getinvolved.volunteer.qualifications1')}
-				input(type="text", name="qualifications", value=formData['qualifications'])
-			div.input
-				span.label #{__('getinvolved.volunteer.qualifications2pt1')}
-				span.label #{__('getinvolved.volunteer.qualifications2pt2')}
-				textarea(type="text", name="teacherQualifications", cols="40", rows="5") #{formData['teacherQualifications']}
-			div.input
-				span.label #{__('getinvolved.volunteer.more')}
-				textarea(type="text", name="more", cols="40", rows="5") #{formData['more']}
-			div.input
-				span.label #{__('getinvolved.volunteer.subscribe')}
-				input(type="checkbox", value="subsribe" checked)
-			div.actions
-				input(type="submit", value="submit")
-
-mixin formSubmitted()
-	div
-		p Thankyou for registering your interest
-
-
 block content
-	if formSubmitted
-		+formSubmitted()
-	else
-		//- DS: just an idea to remove the '| <br>'? Is there a reason it's needed I'm not thinking of?
-		style.
-			div.input span.label {
-				display: block;
-				text-align: left;
-			}
-		.content-container-alt
-			+volunteerIntro()
-			+volunteerForm()
+
+	.content-container
+		h2 Volunteer
+
+		mixin volunteerIntro()
+			div
+				.line <strong> Come join us </strong>
+				.line Want to be part of what we do? Volunteering not only allows you to see our work first-hand, it also gives you a chance to be directly involved in building our students' futures.
+				.line We’re always excited to have new people join us, and our kids can't wait to meet you! We've had volunteers from a range of backgrounds, so no matter what you're good at, let us know and we'll do our best to find something that works for you and for us.
+
+		mixin volunteerForm()
+			div
+				.line Register your interest
+				form(name="volunteer", method="post")
+					input(type='hidden', name='action', value='volunteer')
+					div.input
+						span.label #{__('getinvolved.volunteer.firstname')}
+						input(type="text", name="name.first" value=formData['name.first'])
+					div.input
+						span.label #{__('getinvolved.volunteer.lastname')}
+						input(type="text", name="name.last" value=formData['name.last'])
+					div.input
+						span.label #{__('getinvolved.volunteer.dob')}
+						input.dob(type="text", name="dob", value=formData['dob'])
+					div.input
+						span.label #{__('getinvolved.volunteer.proposedstartdate')}
+						input.datepicker(type="text", name="proposedStartDate", value=formData['proposedStartDate'])
+					div.input
+						span.label #{__('getinvolved.volunteer.proposedenddate')}
+						input.datepicker(type="text", name="proposedEndDate", value=formData['proposedEndDate'])
+					div.input
+						span.label #{__('getinvolved.volunteer.email')}
+						input(type="text", name="email", value=formData['email'])
+					div.input
+						span.label #{__('getinvolved.volunteer.areasofinterest')}
+						input(type="text", name="areasOfInterest", value=formData['areasOfInterest'])
+					div.input
+						span.label #{__('getinvolved.volunteer.qualifications1')}
+						input(type="text", name="qualifications", value=formData['qualifications'])
+					div.input
+						span.label #{__('getinvolved.volunteer.qualifications2pt1')}
+						span.label #{__('getinvolved.volunteer.qualifications2pt2')}
+						textarea(type="text", name="teacherQualifications", cols="40", rows="5") #{formData['teacherQualifications']}
+					div.input
+						span.label #{__('getinvolved.volunteer.more')}
+						textarea(type="text", name="more", cols="40", rows="5") #{formData['more']}
+					div.input
+						span.label #{__('getinvolved.volunteer.subscribe')}
+						input(type="checkbox", value="subsribe" checked)
+					div.actions
+						input(type="submit", value="submit")
+
+		mixin formSubmitted()
+			div
+				p Thankyou for registering your interest
+
+
+		block content
+			if formSubmitted
+				+formSubmitted()
+			else
+				//- DS: just an idea to remove the '| <br>'? Is there a reason it's needed I'm not thinking of?
+				style.
+					div.input span.label {
+						display: block;
+						text-align: left;
+					}
+				.content-container-alt
+					+volunteerIntro()
+					+volunteerForm()
 
 
 block extendscripts
