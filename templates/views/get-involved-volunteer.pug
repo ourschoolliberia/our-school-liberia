@@ -3,58 +3,58 @@ extends ../layouts/mainheader
 block head
 	link(href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css", rel="stylesheet")
 
+
 block content
 
 	.content-container
 		h2 Volunteer
 
 		mixin volunteerIntro()
-			div
-				.line <strong> Come join us </strong>
-				.line Want to be part of what we do? Volunteering not only allows you to see our work first-hand, it also gives you a chance to be directly involved in building our students' futures.
-				.line We’re always excited to have new people join us, and our kids can't wait to meet you! We've had volunteers from a range of backgrounds, so no matter what you're good at, let us know and we'll do our best to find something that works for you and for us.
+			.line <strong> Come join us </strong>
+			.line Want to be part of what we do? Volunteering not only allows you to see our work first-hand, it also gives you a chance to be directly involved in building our students' futures.
+			.line We’re always excited to have new people join us, and our kids can't wait to meet you! We've had volunteers from a range of backgrounds, so no matter what you're good at, let us know and we'll do our best to find something that works for you and for us.
 
 		mixin volunteerForm()
-			div
-				.line Register your interest
+			.line <strong> Register your interest </strong>
+			.row: .col-sm-12.col-md-12
 				form(name="volunteer", method="post")
 					input(type='hidden', name='action', value='volunteer')
-					div.input
-						span.label #{__('getinvolved.volunteer.firstname')}
-						input(type="text", name="name.first" value=formData['name.first'])
-					div.input
-						span.label #{__('getinvolved.volunteer.lastname')}
-						input(type="text", name="name.last" value=formData['name.last'])
-					div.input
-						span.label #{__('getinvolved.volunteer.dob')}
-						input.dob(type="text", name="dob", value=formData['dob'])
-					div.input
-						span.label #{__('getinvolved.volunteer.proposedstartdate')}
-						input.datepicker(type="text", name="proposedStartDate", value=formData['proposedStartDate'])
-					div.input
-						span.label #{__('getinvolved.volunteer.proposedenddate')}
-						input.datepicker(type="text", name="proposedEndDate", value=formData['proposedEndDate'])
-					div.input
-						span.label #{__('getinvolved.volunteer.email')}
-						input(type="text", name="email", value=formData['email'])
-					div.input
-						span.label #{__('getinvolved.volunteer.areasofinterest')}
-						input(type="text", name="areasOfInterest", value=formData['areasOfInterest'])
-					div.input
-						span.label #{__('getinvolved.volunteer.qualifications1')}
-						input(type="text", name="qualifications", value=formData['qualifications'])
-					div.input
-						span.label #{__('getinvolved.volunteer.qualifications2pt1')}
+					.form-group
+						span.label First Name
+						input(type="text", name="name.first" value=formData['name.first']).form-control 
+					.form-group
+						span.label Last Name
+						input(type="text", name="name.last" value=formData['name.last']).form-control 
+					.form-group
+						span.label Date of Birth
+						input.dob(type="text", name="dob", value=formData['dob']).form-control
+					.form-group
+						span.label Proposed Start Date
+						input.datepicker(type="text", name="proposedStartDate", value=formData['proposedStartDate']).form-control
+					.form-group
+						span.label Proposed End Date
+						input.datepicker(type="text", name="proposedEndDate", value=formData['proposedEndDate']).form-control
+					.form-group
+						span.label E-mail
+						input(type="text", name="email", value=formData['email']).form-control
+					.form-group
+						span.label Areas of Interest
+						input(type="text", name="areasOfInterest", value=formData['areasOfInterest']).form-control
+					.form-group
+						span.label Qualifications and Experience
+						input(type="text", name="qualifications", value=formData['qualifications']).form-control
+					.form-group
+						span.label If you’re a qualified teacher, please outlinethe subjects and grades you're trained in.
 						span.label #{__('getinvolved.volunteer.qualifications2pt2')}
-						textarea(type="text", name="teacherQualifications", cols="40", rows="5") #{formData['teacherQualifications']}
-					div.input
-						span.label #{__('getinvolved.volunteer.more')}
-						textarea(type="text", name="more", cols="40", rows="5") #{formData['more']}
-					div.input
-						span.label #{__('getinvolved.volunteer.subscribe')}
+						textarea(type="text", name="teacherQualifications", cols="40", rows="5").form-control #{formData['teacherQualifications']}
+					.form-group
+						span.label Is there anything else you'd like to tell us?
+						textarea(type="text", name="more", cols="40", rows="5").form-control #{formData['more']}
+					.form-group
+						span.label Would you like to subscribe to our mailing list?
 						input(type="checkbox", value="subsribe" checked)
 					div.actions
-						input(type="submit", value="submit")
+						input(type="submit", value="submit").btn.btn-primary
 
 		mixin formSubmitted()
 			div
