@@ -5,18 +5,18 @@ block pagetitle
 
 mixin studentsDiv (student)
 	if student.image			
-		a(href=student._.image.fit(200,200))
-			img(src=student._.image.fit(200,200))
-			section
-				h9 #{student.name.first} #{student.name.last} -
-				br
-				#{student.type} #{student.bio}
+		div.card
+			a(href=student._.image.fit(200,200))
+				img(src=student._.image.fit(200,200))
+				section
+					h9 #{student.name.first} #{student.name.last} -
+					br
+					#{student.type} #{student.bio}
 
 block content
 	.content-container
-		h6 Our Students
+		h2 Our Students
 		.gallery
-			br
 			if students.length
 				each student in students
 					+studentsDiv(student)

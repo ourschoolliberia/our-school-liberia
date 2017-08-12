@@ -40,7 +40,8 @@
 		"updates": {
 			"title": "updates",
 			"back-to-index": "Back to News Updates"
-		}
+		},
+		"videos.title": "videos.title"
 	},
 	"messages": {
 		"news-update-not-available": "This News Update is Not Available in the selected Language"

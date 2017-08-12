@@ -9,11 +9,11 @@ exports = module.exports = function(req, res) {
 
 	// Load the staff and board members in to two lists
 	view.query(
-        'teamMembers',
-        keystone.list('TeamMember').model.find()
+        'videos',
+        keystone.list('Video').model.find()
     );
 
 	// Render the view
-	view.render('about-ourteam');
+	view.render('videos');
 
 };

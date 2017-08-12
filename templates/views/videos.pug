@@ -1,0 +1,28 @@
+extends ../layouts/mainheader
+
+block pagetitle
+	h3 #{__('news.videos.title')}
+
+mixin renderVideo (video)
+	if video.details
+		script
+			| var details = !{JSON.stringify(video.details)};
+			| console.log(details)
+		div.card
+			h9 #{video.details.title}
+			a(href=video.details.url)
+				img(src=video.details.thumbnailUrl)
+				section
+					br
+					#{video.details.providerName}
+
+block content
+	.content-container
+		h2 Videos
+		.videos
+			if videos.length
+				each video in videos
+					+renderVideo(video)
+			else
+				h3.text-muted There are no Videos posted yet.
+

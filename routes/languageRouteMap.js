@@ -209,6 +209,17 @@ module.exports = {
 			}
 		}
 	},
+    'news.videos' : {
+        controller: routes.views.videos,
+        languages: {
+            'en': {
+                route: '/news/videos/',
+            },
+            'de': {
+                route: '/newsen/videos/',
+            },
+        }
+    },
 	// 'gallery': {
 	// 	controller: false,
 	// 	sharedTemplate: 'gallery',

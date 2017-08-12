@@ -67,7 +67,7 @@ module.exports = {
 		"news": {
 			"label": "Nachrichten",
 			"key": "news",
-			"href": "/news",
+			"href": "/newsen/updaten",
 			"children": {
 				"updates": {
 					"label": "Updaten",
@@ -167,7 +167,7 @@ module.exports = {
 		"news": {
 			"label": "News",
 			"key": "news",
-			"href": "/news",
+			"href": "/news/updates",
 			"children": {
 				"updates": {
 					"label": "Updates",

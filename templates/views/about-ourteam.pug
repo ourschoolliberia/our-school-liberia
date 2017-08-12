@@ -3,33 +3,23 @@ extends ../layouts/mainheader
 block pagetitle
 	h3 #{__('about.ourteam.title')}
 
-mixin teammember (teammember)
-	if teammember.image
-		a(href=teammember._.image.fit(200,200))
-			img(src=teammember._.image.fit(200,200))
-			section
-				h9 #{teammember.name.first} #{teammember.name.last} -
-				br
-				#{teammember.type} #{teammember.bio}
+mixin renderTeamMember (teamMember)
+	if teamMember.image
+		div.card
+			a(href=teamMember._.image.fit(200,200))
+				img(src=teamMember._.image.fit(200,200))
+				section
+					h9 #{teamMember.name.first} #{teamMember.name.last} -
+					br
+					#{teamMember.type} #{teamMember.bio}
 
 block content
 	.content-container
+		h2 Staff Members
 		.gallery
-			h6 Board Members
-			br
-			if boardmembers.length
-				each boardmember in boardmembers
-					+teammember(boardmember)
-			else
-				h3.text-muted There are no Board Members yet.
-			br
-			br
-			br
-			h6 Staff Members
-			br
-			if staffmembers.length
-				each staffmember in staffmembers
-					+teammember(staffmember)
+			if teamMembers.length
+				each teamMember in teamMembers
+					+renderTeamMember(teamMember)
 			else
 				h3.text-muted There are no Staff Members yet.
 
