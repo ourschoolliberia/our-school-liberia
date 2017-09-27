@@ -1,0 +1,49 @@
+var keystone = require('keystone');
+
+exports = module.exports = function(req, res) {
+	
+	var view = new keystone.View(req, res);
+	var locals = res.locals;
+	
+	// Set locals
+	locals.filters = {
+		pressReleaseSlug: req.params.pressrelease
+	};
+	locals.data = {
+		pressreleases: []
+	};
+	
+		
+	// // Load the current pressrelease
+	view.on('init', function(next) {
+			
+		var q = keystone.list('Update').model.findOne({
+			state: 'published',
+			slug: locals.filters.pressReleaseSlug
+		});
+		
+		q.exec(function(err, result) {
+			locals.data.pressrelease = result;
+			next();
+		});
+	});
+
+
+	// Load other pressreleases
+	view.on('init', function(next) {
+		
+		var q = keystone.list('PressRelease').model.find()
+            .limit('4')
+        ;
+		console.log('loding other pressreleases');
+		q.exec(function(err, results) {
+			locals.data.pressreleases = results;
+			next(err);
+		});
+		
+	});
+	
+	// Render the view
+	view.render('pressrelease');
+	
+};

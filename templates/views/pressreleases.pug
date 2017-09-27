@@ -1,0 +1,25 @@
+extends ../layouts/mainheader
+
+block pagetitle
+	h3 #{__('pressreleases.title')}
+
+mixin renderPressRelease (pressRelease)
+	tr.pressrelease
+		td #{pressRelease._.dateReleased.format()} 
+		td
+			a(href=pressRelease.source) #{pressRelease.title} 
+
+block content
+	.content-container
+		h2 Press Releases
+		.pressreleases
+			if pressReleases.length
+				table
+					thead
+						th Date Released
+						th Article
+					tbody
+						each pressRelease in pressReleases
+							+renderPressRelease(pressRelease)
+			else
+				h3.text-muted There are no Press Releases yet.

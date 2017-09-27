@@ -108,5 +108,6 @@
 	"gallery": {
 		"title": "gallery",
 		"maincontent": "maincontent"
-	}
+	},
+	"pressreleases.title": "pressreleases.title"
 }

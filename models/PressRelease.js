@@ -15,7 +15,7 @@ var PressRelease = new keystone.List('PressRelease', {
 PressRelease.add({
 	title: { type: String },
 	source: { type: Types.Url },
-	dateReleased: { type: Types.Date },
+	dateReleased: { type: Types.Date, format: 'dddd DD MMM YY' },
 
 });
 

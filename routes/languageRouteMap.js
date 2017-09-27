@@ -220,6 +220,17 @@ module.exports = {
             },
         }
     },
+    'news.pressreleases' : {
+        controller: routes.views.pressreleases,
+        languages: {
+            en: {
+                route: '/news/press'
+            },
+            de: {
+                route: '/newsen/pressen'
+            }
+        }
+    },
 	// 'gallery': {
 	// 	controller: false,
 	// 	sharedTemplate: 'gallery',
