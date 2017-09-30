@@ -12,11 +12,9 @@ var SupporterCompany = new keystone.List('SupporterCompany', {
 });
 
 SupporterCompany.add({
-
 	companyName: { type: String, required: false, initial: true },
 	logo: { type: Types.CloudinaryImage, required: false },
 	url:  { type: Types.Url, required: false },
-	
 });
 
 SupporterCompany.defaultColumns = 'companyName, url, logo';
