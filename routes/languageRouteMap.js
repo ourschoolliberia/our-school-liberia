@@ -140,18 +140,6 @@ module.exports = {
             },
         }
     },
-    'getinvolved.fundraise' : {
-        controller: false,
-        sharedTemplate: 'get-involved-fundraise',
-        languages: {
-            'en': {
-                route: '/get-involved/fundraise',
-            },
-            'de': {
-                route: '/sich-einlassen/fundraising',
-            },
-        }
-    },
     'getinvolved.volunteer' : {
         method: 'all',
         controller: routes.views.volunteer,
