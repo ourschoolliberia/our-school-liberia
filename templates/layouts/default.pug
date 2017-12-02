@@ -11,7 +11,7 @@ html
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
 		title= title || 'Our School Liberia'
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(rel="shortcut icon", href="/images/logo@2x.png", type="image/x-icon")
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
 		link(href="/styles/site.css", rel="stylesheet")
@@ -37,7 +37,7 @@ html
 	body
 
 		//- HEADER
-		#header: .container-header
+		nav.navbar.navbar-default.navbar-fixed-top
 
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
@@ -54,7 +54,7 @@ html
 						ul.nav.navbar-nav.navbar-left
 							each link, routeName in navLinks
 								if link.children
-									li(class='dropdown' data-test=(section) class=(section == routeName && 'active')): a(href=link.href)= link.label 
+									li(class='dropdown' data-test=(section) class=(section == routeName && 'active')): a(href=link.href)= link.label
 										span.caret
 										ul.dropdown-menu
 											each sublink, sublinkRouteName in link.children
@@ -62,7 +62,7 @@ html
 								else
 									li(class=(section == routeName && 'active')): a(href=link.href)= link.label
 
-								
+
 						ul.nav.navbar-nav.navbar-right
 							li(class=(locale == 'en' ? 'active' : null)): a(href='?language=en') En
 							li(role="separator", class="divider")
