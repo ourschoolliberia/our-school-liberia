@@ -56,6 +56,8 @@ body
 		text-transform: uppercase
 		margin-top: 0px
 		margin-bottom: 8px
+		@include respond-to("xs")
+			background-color: #fff0
 
 .navbar-nav > li > a
 		letter-spacing: 0px
@@ -64,6 +66,9 @@ body
 		background: #fff
 		color: #2d6895
 		font-weight: bold
+
+.navbar-collapse
+		background-color: #fff
 
 .dropdown-menu
 		padding: 10px 0
@@ -85,9 +90,9 @@ body
 				top: 120px
 				padding-bottom: 30px
 		@include respond-to("lg")
-				max-width: 330px
+				max-width: 230px
 				left: 50%
-				margin-left: -165px
+				margin-left: -120px
 				top: 120px
 				padding-bottom: 30px
 		@include respond-to("md")
@@ -133,6 +138,11 @@ h1
 
 .navbar-toggle
 		margin-top: 8px
+		background-color: #fff
+		margin-top: 8px
+		position: fixed
+		z-index: 400
+		margin-left: 91%
 
 a:active, a:visited
 		color: #fff
@@ -268,6 +278,14 @@ a:hover, a:focus
 						top: 31px
 						right: 36px
 
+.donationOptions
+	max-width: 65%
+	@include respond-to("xs")
+		max-width: 100%
+.directpayment
+	max-width: 35%
+	@include respond-to("xs")
+		max-width: 100%
 
 .header-container
 		width: 100%

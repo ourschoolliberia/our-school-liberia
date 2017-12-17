@@ -40,7 +40,8 @@ module.exports = {
         "donate": {
             "label": "Spenden",
             "key": "spenden",
-            "href": "https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172"
+            //"href": "https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172"
+            "href": "/donate"
         },
         "getinvolved": {
             "label": "Sich Einlassen",
@@ -135,7 +136,8 @@ module.exports = {
         "donate": {
             "label": "Donate",
             "key": "donate",
-            "href": "https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172"
+            //"href": "https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172"
+            "href": "/donate"
         },
         "getinvolved": {
             "label": "Get Involved",
@@ -189,4 +191,3 @@ module.exports = {
 
     }
 };
-

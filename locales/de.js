@@ -84,5 +84,6 @@
 	"getinvolved.subscribe.firstname": "getinvolved.subscribe.firstname",
 	"getinvolved.subscribe.lastname": "getinvolved.subscribe.lastname",
 	"getinvolved.subscribe.email": "getinvolved.subscribe.email",
-	"getinvolved.subscribe.language": "getinvolved.subscribe.language"
+	"getinvolved.subscribe.language": "getinvolved.subscribe.language",
+	"languageRouter.routeNotAvailable": "languageRouter.routeNotAvailable"
 }

@@ -5881,6 +5881,9 @@ body {
   text-transform: uppercase;
   margin-top: 0px;
   margin-bottom: 8px; }
+  @media (min-width: 319px) and (max-width: 766px) {
+    .navbar-default {
+      background-color: #fff0; } }
 
 .navbar-nav > li > a {
   letter-spacing: 0px; }
@@ -5889,6 +5892,9 @@ body {
   background: #fff;
   color: #2d6895;
   font-weight: bold; }
+
+.navbar-collapse {
+  background-color: #fff; }
 
 .dropdown-menu {
   padding: 10px 0;
@@ -5912,9 +5918,9 @@ body {
       padding-bottom: 30px; } }
   @media (min-width: 1200px) and (max-width: 1399px) {
     .heroimage {
-      max-width: 330px;
+      max-width: 230px;
       left: 50%;
-      margin-left: -165px;
+      margin-left: -120px;
       top: 120px;
       padding-bottom: 30px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
@@ -5967,7 +5973,12 @@ h1 {
       top: 250px; } }
 
 .navbar-toggle {
-  margin-top: 8px; }
+  margin-top: 8px;
+  background-color: #fff;
+  margin-top: 8px;
+  position: fixed;
+  z-index: 400;
+  margin-left: 91%; }
 
 a:active, a:visited {
   color: #fff;
@@ -6108,6 +6119,18 @@ a:hover, a:focus {
         height: 39.5px;
         top: 31px;
         right: 36px; } }
+
+.donationOptions {
+  max-width: 65%; }
+  @media (min-width: 319px) and (max-width: 766px) {
+    .donationOptions {
+      max-width: 100%; } }
+
+.directpayment {
+  max-width: 35%; }
+  @media (min-width: 319px) and (max-width: 766px) {
+    .directpayment {
+      max-width: 100%; } }
 
 .header-container {
   width: 100%;
@@ -6340,7 +6363,7 @@ p.aboutnow-prev-p {
       margin-left: 115px; } }
   @media (min-width: 319px) and (max-width: 766px) {
     .home-icon.yt {
-      top: 185px;
+      top: 135px;
       left: 10px; } }
 
 @media (min-width: 1400px) {
