@@ -47,7 +47,7 @@ module.exports = {
     },
     'donate.success': {
         controller: routes.views.donate,
-        method: 'all',
+        method: 'get',
         languages: {
             'en': {
               route: '/donate/success'
@@ -59,7 +59,7 @@ module.exports = {
     },
     'donate.cancel': {
         controller: routes.views.donate,
-        method: 'all',
+        method: 'get',
         languages: {
             'en': {
               route: '/donate/cancel'

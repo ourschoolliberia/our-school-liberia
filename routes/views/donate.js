@@ -10,12 +10,16 @@ var config = {
 		"mode": "sandbox", //sandbox or live
     // "host" : "api.sandbox.paypal.com",
     // "port" : "",
-    "client_id" : "ATa2OklO_gXCaV_RwJ_NpKlSOkegl2gG9JWAIJdj17NUBe9H5v8JZ7ZQRb00SYdT17VBbdXy9J_pV5Bf",  // your paypal application client id
-    "client_secret" : "EOk-VLq_nhGCsKILSiDLkGEVOvEz4Y4yDQiX1T7eYQXhg0kGOq85Ywmi2SjA6ak4M89x2TLQTx2vWUQS" // your paypal application secret id
+    "client_id" : "ATa2OklO_gXCaV_RwJ_NpKlSOkegl2gG9JWAIJdj17NUBe9H5v8JZ7ZQRb00SYdT17VBbdXy9J_pV5Bf",  // dev (meyer) paypal application client id
+    "client_secret" : "EOk-VLq_nhGCsKILSiDLkGEVOvEz4Y4yDQiX1T7eYQXhg0kGOq85Ywmi2SjA6ak4M89x2TLQTx2vWUQS" // dev (meyer) paypal application secret id
+// Test accounts used for testing paypal payment:
+// donator@our-school-liberia.com pw: 12345678
+// business@our-school-liberia.com pw: 12345678
+// see sandbox.paypal.com (login)
+//
   }
 }
 paypal.configure(config.api);
-
 
 exports = module.exports = function(req, res) {
 
@@ -34,44 +38,79 @@ exports = module.exports = function(req, res) {
 		keystone.list('Donation').model.find()
 	);
 
+  // if payment successfull
+	view.on('init', function (next) {
 
-// if payment successfull
-  view.on('get', { action: 'success' }, function(next) {
-    console.log('payment successfull');
-    const payerId = req.query.PayerID;
-    const paymentId = req.query.paymentId;
+	// 	var q = Post.model.findOne({
+	// 		state: 'published',
+	// 		key: locals.filters.post,
+	// 	}).populate('author categories');
+  //
+	// 	q.exec(function (err, result) {
+	// 		locals.post = result;
+	// 		next(err);
+	// 	});
+  //
+	// });
 
-    const execute_payment_json = {
-      "payer_id": payerId,
-      "transactions": [{
-          "amount": {
-              "currency": "USD",
-              "total": parseInt(req.body.donationAmount) // "25.00"
-          }
-      }]
-    };
+    var match = req.url.match(/(success|cancel)/);
 
-    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
-      if (error) {
-          console.log(error.response);
-          throw error;
-      } else {
-          console.log(JSON.stringify(payment));
-          res.send('Success');
-      }
-  });
-  });
+    if (match && match[1]=='success') {
+      const payerId = req.query.PayerID;
+      const paymentId = req.query.paymentId;
 
-// If payment not successfull
-  view.on('get', { action: 'cancel' }, function(next){
-    console.log('payment unsuccessfull');
-    res.send('Cancelled');
+      keystone.list('SupporterIndividual').model.findOne({ key : req.query.paymentId }).exec(function (err, user) {
+  			if (user) {
+  				console.log('user found: '+user.name+' donation amount: '+user.donationAmount); 
+          // user.paymentCompleted='true';
+          //
+          // user.save(function(err) {
+          //   console.console.log('donator updated...');
+          // });
+
+
+          // finalize payment on paypal
+          const execute_payment_json = {
+            "payer_id": payerId,
+            "transactions": [{
+                "amount": {
+                    "currency": "USD",
+                    "total": user.donationAmount // parseInt(req.body.donationAmount) // "25.00"
+                }
+            }]
+          };
+          paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+            if (error) {
+                console.log(error.response);
+                throw error;
+            } else {
+                console.log(JSON.stringify(payment));
+                // res.send('Success');
+                // TODO: display message : Thanks for payment
+            }
+          });
+
+  			} else {
+        console.log('An internal error occured please contact the system administrator to verify your payment');
+        next(err);
+        }
+  		});
+
+
+    next();
+
+  } else if (match && match[1]=='cancel'){
+      console.log('payment not successfull');
+        // Here you can redirect to default locale if you want
+      next();
+    } else {next();}
   });
 
 
 	// On POST requests, add the Donation item to the database
 	view.on('post', { action: 'donate' }, function(next) {
 
+  console.log('processing payment');
 		// start paypal payment
 		var payment_json = {
       "intent": "sale",
@@ -107,7 +146,29 @@ exports = module.exports = function(req, res) {
     } else {
         for(let i = 0;i < payment.links.length;i++){
           if(payment.links[i].rel === 'approval_url'){
-            console.log('payment ::: redirectUrl: '+payment.links[i].href);
+
+            // register supporter in DB
+            var newSupporter = new SupporterIndividual.model({
+              key: payment.id,
+            });
+              updater = newSupporter.getUpdateHandler(req);
+
+            updater.process(req.body, {
+              flashErrors: true,
+              fields: 'name, email, donationAmount',
+              errorMessage: 'There was a problem submitting your enquiry:'
+
+
+            }, function(err) {
+              if (err) {
+                locals.validationErrors = err.errors;
+              } else {
+                locals.donationReceived = true;
+              }
+              // next(); // Mea: next also removed from params.
+            });
+
+            // redirect to Paypal
             res.redirect(payment.links[i].href);
           }
         }
@@ -136,26 +197,6 @@ exports = module.exports = function(req, res) {
 
 		//end payment
 
-    // register supporter in DB
-		var newSupporter = new SupporterIndividual.model(),
-			updater = newSupporter.getUpdateHandler(req);
-
-      console.log('payment :: new supporter is being added');
-
-		updater.process(req.body, {
-			flashErrors: true,
-			fields: 'name, email, donationAmount',
-			errorMessage: 'There was a problem submitting your enquiry:'
-
-
-		}, function(err) {
-			if (err) {
-				locals.validationErrors = err.errors;
-			} else {
-				locals.donationReceived = true;
-			}
-			// next(); // Mea: next also removed from params.
-		});
 
 	});
 
