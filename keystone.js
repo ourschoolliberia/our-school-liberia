@@ -13,7 +13,8 @@ var keystoneMultilingual = require('keystone-multilingual');
 keystone.init({
 	'name': 'Our School Liberia',
 	'brand': 'Our School Liberia',
-	
+
+	'cloudinary config': 'cloudinary://481254751923985:ssfcj_xXJYTIZIYsGuSDO9toKDw@dcqclezhf',
 	'sass': 'public',
 	'static': 'public',
 	'admin path': 'admin',
@@ -21,9 +22,9 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'pug',
 	'signin logo': '/images/logo@2x.jpg',
-	
+
 	'emails': 'templates/emails',
-	
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -74,10 +75,10 @@ keystone.set('email locals', {
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	'news': [
-		'updates', 
-		'videos', 
-		'press-releases', 
-		'categories', 
+		'updates',
+		'videos',
+		'press-releases',
+		'categories',
 		'galleries',
 	],
 	'get-involved': [

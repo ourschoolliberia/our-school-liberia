@@ -53,22 +53,15 @@ exports = module.exports = function(req, res) {
   //
 	// });
 
-    var match = req.url.match(/(success|cancel)/);
+    // var match = req.url.match(/(success|cancel)/);
 
-    if (match && match[1]=='success') {
+    if (req.query.outcome=='success') {   // old: match && match[1]==
       const payerId = req.query.PayerID;
       const paymentId = req.query.paymentId;
 
       keystone.list('SupporterIndividual').model.findOne({ key : req.query.paymentId }).exec(function (err, user) {
-  			if (user) {
-  				console.log('user found: '+user.name+' donation amount: '+user.donationAmount); 
-          // user.paymentCompleted='true';
-          //
-          // user.save(function(err) {
-          //   console.console.log('donator updated...');
-          // });
-
-
+        if (user) {
+          console.log('user found: '+user.name+' donation amount: '+user.donationAmount);
           // finalize payment on paypal
           const execute_payment_json = {
             "payer_id": payerId,
@@ -81,34 +74,39 @@ exports = module.exports = function(req, res) {
           };
           paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
             if (error) {
-                console.log(error.response);
-                throw error;
+              req.flash('warning', 'An internal error occured. Please contact the system administrator to verify your payment');
+              console.log(error.response);
+              // throw error;
             } else {
-                console.log(JSON.stringify(payment));
-                // res.send('Success');
-                // TODO: display message : Thanks for payment
-            }
+                // console.log(JSON.stringify(payment));
+
+                // update supporter individual
+                  user.paymentCompleted='true';
+                  user.save(function(err) {
+                    // console.log('donator updated...');
+                    req.flash('success', 'Payment complete. Thank you for your donation!');
+                    next();
+                  });
+              }
+            });
+          }else{
+            req.flash('warning', 'An internal error occured. Please contact the system administrator to verify your payment');
+            next();
+          }
           });
 
-  			} else {
-        console.log('An internal error occured please contact the system administrator to verify your payment');
-        next(err);
-        }
-  		});
 
-
-    next();
-
-  } else if (match && match[1]=='cancel'){
-      console.log('payment not successfull');
-        // Here you can redirect to default locale if you want
+  } else if (req.query.outcome=='cancel'){
+      req.flash('warning', 'An internal error occured please contact the system administrator to verify your payment');
       next();
-    } else {next();}
+  } else {
+    next();
+  }
   });
 
 
 	// On POST requests, add the Donation item to the database
-	view.on('post', { action: 'donate' }, function(next) {
+	view.on('post', { action: 'pay' }, function(next) {
 
   console.log('processing payment');
 		// start paypal payment
@@ -118,8 +116,8 @@ exports = module.exports = function(req, res) {
         "payment_method": "paypal"
     },
     "redirect_urls": {
-        "return_url": "http://localhost:3000/donate/success",
-        "cancel_url": "http://localhost:3000/donate/cancel"
+        "return_url": "http://localhost:3000/donate?outcome=success",
+        "cancel_url": "http://localhost:3000/donate?outcome=cancel"
     },
     "transactions": [{
         "item_list": {
@@ -174,28 +172,6 @@ exports = module.exports = function(req, res) {
         }
     }
   });
-
-		// paypal.payment.create(payment, function (error, payment) {
-		// if (error) {
-		//  console.log(error);
-		// } else {
-		//  if(payment.payer.payment_method === 'paypal') {
-		// 	 console.log("payment id: "+payment.id);
-		// 	 req.paymentId = payment.id;
-		// 	 var redirectUrl;
-		// 	 console.log(payment);
-		// 	 for(var i=0; i < payment.links.length; i++) {
-		// 		 var link = payment.links[i];
-		// 		 if (link.method === 'REDIRECT') {
-		// 			 redirectUrl = link.href;
-		// 		 }
-		// 	 }
-		// 	 res.redirect(redirectUrl);
-		//  }
-		// }
-		// });
-
-		//end payment
 
 
 	});

@@ -45,30 +45,6 @@ module.exports = {
             },
         }
     },
-    'donate.success': {
-        controller: routes.views.donate,
-        method: 'get',
-        languages: {
-            'en': {
-              route: '/donate/success'
-            },
-            'de': {
-              route: '/donate/success'
-            },
-        }
-    },
-    'donate.cancel': {
-        controller: routes.views.donate,
-        method: 'get',
-        languages: {
-            'en': {
-              route: '/donate/cancel'
-            },
-            'de': {
-              route: '/donate/cancel'
-            },
-        }
-    },
     'about': {
         controller: false,
         templatePrefix: 'about',

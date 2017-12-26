@@ -16,7 +16,7 @@ var dateParseFormat = 'DD/MM/YYYY';
 
 SupporterIndividual.add({
 	name: { type: String, required: true },
-	key: { type: Types.Key },
+	key: { type: Types.Key, noedit: true },
 	email: { type: Types.Email },
 	image: { type: Types.CloudinaryImage },
 	message: { type: Types.Markdown},
@@ -24,6 +24,18 @@ SupporterIndividual.add({
 	paymentCompleted: { type: Boolean},
 	donatedOn: { type: Date },
 	published: {type: Boolean}
+	});
+
+// Automatically set the date of donation when payment has been processsed
+	SupporterIndividual.schema.methods.isPaymentCompleted = function() {
+	    return this.state == true;
+	}
+
+	SupporterIndividual.schema.pre('save', function(next) {
+	    if (this.isModified('paymentCompleted') && this.isPaymentCompleted() && !this.donatedOn) {
+	        this.donatedOn = new Date();
+	    }
+	    next();
 	});
 
 SupporterIndividual.defaultColumns = 'name, email, donationAmount, paymentCompleted, published';
