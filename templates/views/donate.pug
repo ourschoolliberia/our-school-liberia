@@ -1,40 +1,43 @@
 extends ../layouts/donateheader
 
-
-mixin donateButton ()
-	.donatebutton.
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick" />
-			<input type="hidden" name="hosted_button_id" value="2ZX8YPSZQR7N6" />
-			<input type="submit" value="Donate Now" name="submit" title="PayPal - The safer, easier way to pay online!" class="paypalbutton">
-		</form>
-
 mixin renderDonation (donateOption)
 	if donateOption.image
-		div.card
-			a(href=donateOption._.image.fit(100,100))
-				img(src=donateOption._.image.fit(100,100))
+		div.donation_card
+			a(href=donateOption._.image.fit(300,300))
+				img.donation_image(src=donateOption._.image.fit(200,200))
+				h9.donation_image #{donateOption.title} : #{donateOption.donationAmount} $
 				section
-					h9 #{donateOption.title} #{donateOption.donationAmount} -
+					h9.donation_image #{donateOption.title} : #{donateOption.donationAmount} $
 					br
-					#{donateOption.message}
-
+					div.donation_image #{donateOption.message}
+					form(method="post", action="donate", target="_top")
+						input(type='hidden', name='action', value='pay')
+						input(class= 'form-control', type='hidden', name='donationAmount', value='#{donateOption.donationAmount}')
+						input(class="form-control", type="text", name="name", placeholder="Your name" required="true")
+						input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
+						input(type="submit", value="Donate Now", name="submit", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
+					a(href="/contact/#payment-op") other means of payment
 
 
 block content
-	.content-container
-		h6 enter your amount
-		.donationOptions
+	.content-container.donations_wrapper
+		.gallery.donationOptions.donations_wrapper
 			if donateOptions.length
 				each donateOption in donateOptions
 					+renderDonation(donateOption)
 			else
 				h3.text-muted There are no options for donation yet
+
 		.directpayment
-			<form method="post" action="donate" target="_top">
+			h9 enter your own amount
+			form(method="post", action="donate", target="_top")
 				input(type='hidden', name='action', value='pay')
-				<input class="form-control" type="number" name="donationAmount" placeholder="Amount in USD" min=5 required="true"/>
-				<input class="form-control" type="text" name="name" placeholder="Your name" required="true">
-				<input class="form-control" type="email" name="email" placeholder="E-mail (optional)">
-				<input type="submit" value="Donate Now" name="submit" title="PayPal - The safer, easier way to pay online!" class="paypalbutton">
-			</form>
+				input(class="form-control", type="number", name="donationAmount", placeholder="Amount in USD" min=5 required="true")
+				input(class="form-control", type="text", name="name", placeholder="Your name", required="true")
+				input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
+				input(type="image", name="submit", alt="" title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
+			a(href="/contact/#payment-op") other means of payment
+
+block extendscripts
+	script(src='/js/jquery.poptrox.min.js')
+	script(src='/js/init-gallery.js')

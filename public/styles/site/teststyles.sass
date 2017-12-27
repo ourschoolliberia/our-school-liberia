@@ -6,8 +6,8 @@
 
 $a-tags: 'a, a:active, a:hover, a:visited'
 $a-tags-hover: 'a:active, a:hover'
-$graph-1: #fff;
-$graph-2: #ddd;
+$graph-1: #fff
+$graph-2: #ddd
 
 @mixin respond-to($breakpoint)
 		@if $breakpoint == "xs"
@@ -142,13 +142,13 @@ h1
 		margin-top: 8px
 		position: fixed
 		z-index: 400
-		margin-left: 91%
+		margin-left: 89%
 
 a:active, a:visited
 		color: #fff
 		text-decoration: none
 a:hover, a:focus
-		color: #fff
+		color: #878976
 		text-decoration: none
 
 .alert
@@ -280,6 +280,22 @@ a:hover, a:focus
 						height: 39.5px
 						top: 31px
 						right: 36px
+
+.donation_card
+	width: 220px
+	border: 1px solid #ad7e01
+	box-shadow: 1px 1px 3px #fcf7ea
+	height: 188px
+	margin: 10px
+	background-color: #ffc600
+
+.donation_image
+	margin: 10px
+
+.donations_wrapper
+	display: flex
+	flex-wrap: wrap
+	margin-top: 5px !important
 
 .donationOptions
 	max-width: 65%
@@ -722,51 +738,48 @@ h9
 
 
 .paypalbutton
-		text-transform: uppercase
-		background-color: #2980B9
-		border: 4px solid #fff
-		display: inline-block
-		font-family: inherit
-		padding: 12px 24px
-		font-weight: bold
-		box-shadow: none
-		font-size: 1.5em
-		color: #fff
-		width: auto
+	background-image: url(/images/icons/payment_methodes.png)
+	display: inline-block
+	width: 200px
+	background-size: 100%
+	background-position: 0px -16px
+	height: 55px
 
-.paypalbutton:hover
-		background-color: #3498DB
+.bankDetails
+	font-size: 18px
 
+.bigskip-header
+	margin-top: 100px
 
 .supporters
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
+	padding: 0
+	margin: 0
+	list-style: none
+	display: -webkit-box
+	display: -moz-box
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex
 
-	-webkit-flex-flow: row wrap;
-	justify-content: space-around;
+	-webkit-flex-flow: row wrap
+	justify-content: space-around
 
 .supporter-company
-	width: 200px;
-	height: 100px;
-	margin: 20px 10px;
-	text-align: center;
-	justify-content: center;
+	width: 200px
+	height: 100px
+	margin: 20px 10px
+	text-align: center
+	justify-content: center
 
 	section
-		margin-top: 5px;
+		margin-top: 5px
 
 .supporter-individual
-	width: 200px;
-	line-height: 20px;
-	display: inline-block;
-	list-style: none;
-	font-size: 30px;
+	width: 200px
+	line-height: 20px
+	display: inline-block
+	list-style: none
+	font-size: 30px
 
 .supporters-old
 		position: relative
@@ -844,3 +857,4 @@ h9
 
 .form-control
 		height: 45px
+		margin: 10px 0 10px 0

@@ -18,7 +18,7 @@ Donation.add({
 		5, 10, 20, 50, 100, 300, 500, 1000
 	] },
 	image: { type: Types.CloudinaryImage },
-	message: { type: Types.Markdown},
+	message: { type: Types.Textarea, height: 150 },
 	// createdAt: { type: Date, default: Date.now }
 });
 
