@@ -1,7 +1,7 @@
 extends ../layouts/mainheader
 
 mixin postLink(post, text)
-	+buildRoute('news.updates:post', {post: post.slug}, text)(attributes)
+	+buildRouteToId('news.updates:post', {post: post.slug}, 'container-post', text)(attributes)
 
 mixin catLink(cat, text)
 	+buildRoute('news.updates.category:category', {category: cat}, text)(attributes)
@@ -9,11 +9,11 @@ mixin catLink(cat, text)
 mixin allPostsLink(text)
 	+buildRoute('news.updates', {}, text)(attributes)
 
-
 mixin post(post)
-	.content-container
+	- toggle=!toggle
+	.content-container(class=(!toggle ? 'secondary' : 'alt'))
 		.post(data-ks-editable=editable(user, { list: 'Update', id: post.id }))
-			h2: +postLink(post, post.title)
+			h2(id=post.slug): +postLink(post, post.title)
 			p.lead.text-muted Posted
 				if post.publishedDate
 					| on #{post._.publishedDate.format('MMMM Do, YYYY')}
@@ -33,14 +33,12 @@ mixin post(post)
 			if post.content.extended
 				p.read-more: +postLink(post, 'Read more...')
 
-block pagetitle
-	h3 #{__('news.updates.title')}
-
 block content
 	if filters.category && !data.category
 	else
 		if data.posts.results.length
 			.updates
+			- var toggle=true
 				each post in data.posts.results
 					+post(post)
 

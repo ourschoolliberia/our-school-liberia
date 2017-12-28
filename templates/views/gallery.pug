@@ -1,9 +1,6 @@
 extends ../layouts/default
 
-block pagetitle
-	.container
-		h1 Gallery
-	
+
 block content
 	.container
 		if galleries.length
@@ -11,7 +8,7 @@ block content
 				h2= gallery.name
 					if gallery.publishedDate
 						.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
-				
+
 				.row.gallery-images
 					if gallery.heroImage.exists
 						.col-sm-4.col-md-4.gallery-image: img(src=gallery._.heroImage.limit(680,680)).img-rounded

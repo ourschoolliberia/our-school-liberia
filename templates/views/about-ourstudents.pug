@@ -1,10 +1,7 @@
 extends ../layouts/mainheader
 
-block pagetitle
-	h3 #{__('about.ourstudents.title')}
-
 mixin studentsDiv (student)
-	if student.image			
+	if student.image
 		div.card
 			a(href=student._.image.fit(200,200))
 				img(src=student._.image.fit(200,200))
