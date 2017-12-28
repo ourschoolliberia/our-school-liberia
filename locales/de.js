@@ -49,6 +49,9 @@
 			"title": "Title"
 		}
 	},
+	"contact":{
+		"othmeansofpayment":"Andere Zahlungsmittel"
+	},
 	"messages": {
 		"news-update-not-available": "Keine Nachrichten verfügbar"
 	},
