@@ -77,6 +77,7 @@ exports = module.exports = function(req, res) {
               req.flash('warning', 'An internal error occured. Please contact the system administrator to verify your payment');
               console.log(error.response);
               // throw error;
+              next();
             } else {
                 // console.log(JSON.stringify(payment));
 
@@ -108,7 +109,7 @@ exports = module.exports = function(req, res) {
 	// On POST requests, add the Donation item to the database
 	view.on('post', { action: 'pay' }, function(next) {
 
-  console.log('processing payment');
+  console.log('processing payment for donation of: '+parseInt(req.body.donationAmount)+' from: '+req.body.name);
 		// start paypal payment
 		var payment_json = {
       "intent": "sale",
@@ -133,14 +134,16 @@ exports = module.exports = function(req, res) {
             "currency": "USD",
             "total": parseInt(req.body.donationAmount) // "25.00"
         },
-        "description": "Donation to LREC Duazon Liberia"
+        "description": "Donation to LREC Duazon, Liberia"
       }]
 		};
 
     paypal.payment.create(payment_json, function (error, payment) {
     if (error) {
         console.log('payment ::: error');
-        throw error;
+        req.flash('warning', 'An internal error occured. Please contact the system administrator to verify your payment');
+        next();
+        // throw error;
     } else {
         for(let i = 0;i < payment.links.length;i++){
           if(payment.links[i].rel === 'approval_url'){

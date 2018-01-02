@@ -10,13 +10,12 @@ mixin renderDonation (donateOption)
 					h9.donation_image #{donateOption.title} : #{donateOption.donationAmount} $
 					br
 					div.donation_image #{donateOption.message}
-					form(method="post", action="donate", target="_top")
-						input(type='hidden', name='action', value='pay')
-						input(class= 'form-control', type='hidden', name='donationAmount', value='#{donateOption.donationAmount}')
-						input(class="form-control", type="text", name="name", placeholder="Your name", required="true")
-						input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
-						input(type="submit", value="Donate Now", name="submit", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
-					a(href="/contact/#payment-op") #{__('contact.othmeansofpayment')}
+						form(method="post", action="donate", target="_top")
+							input(type='hidden', name='action', value='pay')
+							input(class= 'form-control', type='hidden', name='donationAmount', value=donateOption.donationAmount)
+							input(class="form-control", type="text", name="name", placeholder="Your name", required="true")
+							input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
+							input(type="submit", name="submit", value="", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
 
 
 block content
@@ -36,8 +35,8 @@ block content
 				input(class="form-control", type="text", name="name", placeholder="Your name", required="true")
 				input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
 				input(type="image", name="submit", alt="", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
-			a(href="/contact/#payment-op") other means of payment
+			a(href="/contact/#payment-op") #{__('contact.othmeansofpayment')}
 
 block extendscripts
 	script(src='/js/jquery.poptrox.min.js')
-	script(src='/js/init-gallery.js')
+	script(src='/js/init-donationOptions.js')

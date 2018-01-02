@@ -6608,35 +6608,42 @@ h9 {
   display: flex; }
 
 .caption {
-  height: 290px !important;
   line-height: 20px !important;
   display: block !important;
   padding: 20px !important; }
 
+.closer {
+  right: 0px !important; }
+
 @media (min-width: 319px) and (max-width: 766px) {
   .poptrox-popup {
     width: 80% !important;
-    height: 80% !important; } }
+    height: 80% !important;
+    overflow-x: hidden; } }
 
 @media (min-width: 767px) and (max-width: 991px) {
   .poptrox-popup {
     width: 80% !important;
-    height: 80% !important; } }
+    height: 80% !important;
+    overflow-x: hidden; } }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .poptrox-popup {
     width: 80% !important;
-    height: 50% !important; } }
+    height: 70% !important;
+    overflow-x: hidden; } }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .poptrox-popup {
     width: 80% !important;
-    height: 50% !important; } }
+    height: 60% !important;
+    overflow-x: hidden; } }
 
 @media (min-width: 1400px) {
   .poptrox-popup {
     width: 80% !important;
-    height: 50% !important; } }
+    height: 60% !important;
+    overflow-x: hidden; } }
 
 .card {
   width: 350px;
@@ -6655,6 +6662,8 @@ h9 {
 
 .paypalbutton {
   background-image: url(/images/icons/payment_methodes.png);
+  background-color: transparent;
+  border: none;
   display: inline-block;
   width: 200px;
   background-size: 100%;
