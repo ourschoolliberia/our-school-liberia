@@ -1,4 +1,4 @@
- mon# our-school-liberia
+# our-school-liberia
 
 Under Development
 
