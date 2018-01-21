@@ -10,8 +10,8 @@ var config = {
 		"mode": "sandbox", //sandbox or live
     // "host" : "api.sandbox.paypal.com",
     // "port" : "",
-    "client_id" : "ATa2OklO_gXCaV_RwJ_NpKlSOkegl2gG9JWAIJdj17NUBe9H5v8JZ7ZQRb00SYdT17VBbdXy9J_pV5Bf",  // dev (meyer) paypal application client id
-    "client_secret" : "EOk-VLq_nhGCsKILSiDLkGEVOvEz4Y4yDQiX1T7eYQXhg0kGOq85Ywmi2SjA6ak4M89x2TLQTx2vWUQS" // dev (meyer) paypal application secret id
+    "client_id" : process.env.Paypal_Client_ID,
+    "client_secret" : process.env.Paypal_Secret
 // Test accounts used for testing paypal payment:
 // donator@our-school-liberia.com pw: 12345678
 // business@our-school-liberia.com pw: 12345678
@@ -117,8 +117,8 @@ exports = module.exports = function(req, res) {
         "payment_method": "paypal"
     },
     "redirect_urls": {
-        "return_url": "http://localhost:3000/donate?outcome=success",
-        "cancel_url": "http://localhost:3000/donate?outcome=cancel"
+        "return_url": process.env.Site_URL+"/donate?outcome=success",
+        "cancel_url": process.env.Site_URL+"/donate?outcome=cancel"
     },
     "transactions": [{
         "item_list": {

@@ -14,7 +14,7 @@ keystone.init({
 	'name': 'Our School Liberia',
 	'brand': 'Our School Liberia',
 
-	'cloudinary config': 'cloudinary://481254751923985:ssfcj_xXJYTIZIYsGuSDO9toKDw@dcqclezhf',
+	'cloudinary config': process.env.CLOUDINARY_URL,
 	'sass': 'public',
 	'static': 'public',
 	'admin path': 'admin',

@@ -18,7 +18,6 @@ SupporterIndividual.add({
 	name: { type: String, required: true },
 	key: { type: Types.Key, noedit: true },
 	email: { type: Types.Email },
-	image: { type: Types.CloudinaryImage },
 	message: { type: Types.Markdown},
 	donationAmount: {type:Number},
 	paymentCompleted: { type: Boolean},
