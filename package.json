@@ -12,7 +12,7 @@
     {
       "name": "Andreas Meyer",
       "email": "andreas.meyer@example.xx"
-    } 
+    }
   ],
   "dependencies": {
     "async": "^1.5.0",
@@ -27,7 +27,8 @@
     "pug": "^2.0.0-beta11",
     "react": "^15.4.1",
     "underscore": "^1.8.3",
-    "paypal-rest-sdk": "^1.6.0"
+    "paypal-rest-sdk": "^1.6.0",
+    "aws-sdk": "*"
   },
   "devDependencies": {
     "gulp": "^3.7.0",

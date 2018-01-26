@@ -6,7 +6,8 @@ var Types = keystone.Field.Types;
  * =============
  */
 
-var Donation = new keystone.List('Donation', {
+var Donation = new keystone.List('DonationOptions', {
+	label: 'Donation options',
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true },
 	sortable: true

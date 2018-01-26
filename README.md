@@ -8,7 +8,7 @@ Multilingual Website for Our School in Liberia (A school in Liberia).
 Using Keystonejs (https://github.com/keystonejs/keystone)
 
 
-## Installation 
+## Installation
 
 * Clone
 * install node (i'm on 5.6)
@@ -36,6 +36,23 @@ Static pages can either specify a 'templatePrefix' to have seperate templates pe
 So far, dynamic pages share a controller across languages.  
 
 
+#### Environment set up (.env)
+1. Create Cloudinary account
+2. Create paypal business account and app
+3. Create Amazon account and S3 Bucket
+
+4. Create .env file with the following content
+CLOUDINARY_URL=cloudinary://<your full url>
+EMBEDLY_API_KEY=...
+Paypal_Client_ID=<your id>
+Paypal_Secret=<your secret id>
+Site_URL=http://localhost:3000 <return URL for paypal payments>
+S3_BUCKET=<AWS S3 bucket name for file upload>
+S3_KEY=<your key>
+S3_SECRET=<your secret key>
+S3_Region=<region cannot be Frankfurt !! ap-northeast-1 worked>
+
+
 #### Navigation
 
 A separate file (routes/langNavMap.js), details the navigation structure for each available language.
@@ -50,5 +67,3 @@ A separate file (routes/langNavMap.js), details the navigation structure for eac
 
 * linking language versions together in keystone
 * Notification that content is not available in alternate language? Flash message?
-
-

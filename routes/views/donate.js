@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var Donation = keystone.list('Donation');
+var Donation = keystone.list('DonationOptions');
 var SupporterIndividual= keystone.list('SupporterIndividual');
 
 // paypal configuration set to test interface created by Andreas
@@ -35,7 +35,7 @@ exports = module.exports = function(req, res) {
 
 	view.query(
 		'donateOptions',
-		keystone.list('Donation').model.find()
+		keystone.list('DonationOptions').model.find()
 	);
 
   // if payment successfull
@@ -123,7 +123,7 @@ exports = module.exports = function(req, res) {
     "transactions": [{
         "item_list": {
             "items": [{
-                "name": "Test donation",
+                "name": "Supporters donation",
                 "sku": "001",
                 "price": parseInt(req.body.donationAmount), // "25.00",
                 "currency": "USD",
