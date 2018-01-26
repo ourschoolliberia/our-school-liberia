@@ -34,6 +34,10 @@ module.exports = {
                     "label": "Unterstützer",
                     "key": "etwa-unterstutzer",
                     "href": "/etwa/unterstutzer"
+                },"financials": {
+                    "label": "Jahresberichte",
+                    "key": "etwa-financials",
+                    "href": "/etwa/jahresberichte"
                 },
             }
         },
@@ -130,6 +134,10 @@ module.exports = {
                     "label": "Supporters",
                     "key": "about-supporters",
                     "href": "/about/supporters"
+                },"financials": {
+                    "label": "Annual reports",
+                    "key": "about-financials",
+                    "href": "/etwa/annualreports"
                 },
             }
         },

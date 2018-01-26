@@ -16,6 +16,9 @@ html
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
 		link(href="/styles/site.css", rel="stylesheet")
 
+		//- Style sheet for advanced icons (e.g. file icon on download page)
+		link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
+
 		//- This file provides the default styling for the KeystoneJS Content Editor
 		if user && user.isAdmin
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")

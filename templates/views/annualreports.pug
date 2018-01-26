@@ -1,0 +1,23 @@
+extends ../layouts/mainheader
+
+mixin renderAnnualReports (annualReport)
+	tr.annualReportsList
+		td
+			i(class=(annualReport.file.mimetype.indexOf("pdf") > -1)?"fa fa-file-pdf-o":"fa fa-file-o")
+				a(href=annualReport.file.url) #{annualReport.title}
+		td #{annualReport._.dateReleased.format()}
+
+block content
+	.content-container
+		h2 Annual Reports
+		.annualreports
+			if annualreports.length
+				table
+					thead
+						th Article
+						th Date Released
+					tbody
+						each annualReport in annualreports
+							+renderAnnualReports(annualReport)
+			else
+				h3.text-muted There are no Reports released yet.
