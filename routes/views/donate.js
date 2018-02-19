@@ -12,10 +12,6 @@ var config = {
     // "port" : "",
     "client_id" : process.env.Paypal_Client_ID,
     "client_secret" : process.env.Paypal_Secret
-// Test accounts used for testing paypal payment:
-// donator@our-school-liberia.com pw: 12345678
-// business@our-school-liberia.com pw: 12345678
-// see sandbox.paypal.com (login)
 //
   }
 }
