@@ -33,10 +33,6 @@ var AnnualReport = new keystone.List('AnnualReport', {
   		secret: process.env.S3_SECRET, // required; defaults to process.env.S3_SECRET
   		bucket: process.env.S3_BUCKET, // required; defaults to process.env.S3_BUCKET
   	  region: process.env.S3_REGION, // optional; defaults to process.env.S3_REGION, or if that's not specified, us-east-1
-		 // key: 'AKIAJX5DCK42IHWLYY3Q', // pers account: 'AKIAIUPWGLIDAQ3FTFIQ', // IAM account: 'AKIAJX5DCK42IHWLYY3Q', // required; defaults to process.env.S3_KEY
-     // secret: '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', // pers account: 'nt0PRydNnLMzDpDPyWsLCZlPcP27X9eaJOD6fAAR', // IAM account: '5DVj+4aY7xSyMVpHzvqLprDxZFhHL6a0ybPVqu9o', // required; defaults to process.env.S3_SECRET
-     // bucket: 'our-school-liberia1', // required; defaults to process.env.S3_BUCKET
-     // path: '/Annual_Reports',
      headers: {
        'x-amz-acl': 'public-read', // add default headers; see below for details
      },
