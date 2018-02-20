@@ -42,7 +42,7 @@ Subscriber.schema.methods.sendNotificationEmail = function(callback) {
         throw new Error(err);
       }
       notifications.sendSubscriptionNotification(subscriber, callback);
-    })
+    });
 };
 
 Subscriber.defaultSort = '-createdAt';

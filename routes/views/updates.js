@@ -2,102 +2,107 @@ var keystone = require('keystone');
 var async = require('async');
 
 exports = module.exports = function(req, res) {
+  var view = new keystone.View(req, res);
+  var locals = res.locals;
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+  // Init locals
+  locals.filters = {
+    category: req.params.category,
+  };
+  locals.data = {
+    posts: [],
+    categories: [],
+  };
 
-	// Init locals
-	locals.filters = {
-		category: req.params.category
-	};
-	locals.data = {
-		posts: [],
-		categories: []
-	};
+  // Load all categories
+  view.on('init', function(next) {
+    keystone
+      .list('Category')
+      .model.find()
+      .sort('name')
+      .exec(function(err, results) {
+        if (err || !results.length) {
+          return next(err);
+        }
 
-	// Load all categories
-	view.on('init', function(next) {
+        locals.data.categories = results;
 
-		keystone.list('Category').model.find().sort('name').exec(function(err, results) {
+        // Load the counts for each category
+        async.each(
+          locals.data.categories,
+          function(category, next) {
+            keystone
+              .list('Update')
+              .model.count()
+              .where('categories')
+              .in([category.id])
+              .exec(function(err, count) {
+                category.postCount = count;
+                next(err);
+              });
+          },
+          function(err) {
+            next(err);
+          }
+        );
+      });
+  });
 
-			if (err || !results.length) {
-				return next(err);
-			}
+  // Load the language filter (only show english if we're in en, etc)
+  // //TODO move this into keystone-multilingual somehow
+  view.on('init', next => {
+    var language = req.i18n.getLocale();
+    keystone
+      .list('Language')
+      .model.findOne({ key: language })
+      .exec(function(err, result) {
+        locals.data.language = result;
+        next(err);
+      });
+  });
 
-			locals.data.categories = results;
+  // Load the current category filter
+  view.on('init', function(next) {
+    if (req.params.category) {
+      keystone
+        .list('Category')
+        .model.findOne({ key: locals.filters.category })
+        .exec(function(err, result) {
+          locals.data.category = result;
+          next(err);
+        });
+    } else {
+      next();
+    }
+  });
 
-			// Load the counts for each category
-			async.each(locals.data.categories, function(category, next) {
+  // Load the posts according to filters
+  view.on('init', function(next) {
+    var q = keystone
+      .list('Update')
+      .paginate({
+        page: req.query.page || 1,
+        perPage: 10,
+        maxPages: 10,
+      })
+      .where('state', 'published')
+      .sort('-publishedDate')
+      .populate('author categories');
 
-				keystone.list('Update').model.count().where('categories').in([category.id]).exec(function(err, count) {
-					category.postCount = count;
-					next(err);
-				});
+    if (locals.data.category) {
+      q.where('categories').in([locals.data.category]);
+    }
 
-			}, function(err) {
-				next(err);
-			});
+    if (locals.data.language) {
+      q.where('language').in([locals.data.language]);
+    }
 
-		});
+    q.exec(function(err, results) {
+      locals.data.posts = results;
+      next(err);
+    });
+  });
 
-	});
-
-
-	// Load the language filter (only show english if we're in en, etc)
-	// //TODO move this into keystone-multilingual somehow
-	view.on('init', (next) => {
-		var language = req.i18n.getLocale();
-		keystone.list('Language').model.findOne({ key: language }).exec(function(err, result) {
-			locals.data.language = result;
-			next(err);
-		});
-
-	});
-
-
-
-	// Load the current category filter
-	view.on('init', function(next) {
-
-		if (req.params.category) {
-			keystone.list('Category').model.findOne({ key: locals.filters.category }).exec(function(err, result) {
-				locals.data.category = result;
-				next(err);
-			});
-		} else {
-			next();
-		}
-
-	});
-
-	// Load the posts according to filters
-	view.on('init', function(next) {
-
-		var q = keystone.list('Update').paginate({
-				page: req.query.page || 1,
-				perPage: 10,
-				maxPages: 10
-			})
-			.where('state', 'published')
-			.sort('-publishedDate')
-			.populate('author categories');
-
-		if (locals.data.category) {
-			q.where('categories').in([locals.data.category]);
-		}
-
-		if (locals.data.language) {
-			q.where('language').in([locals.data.language]);
-		}
-
-		q.exec(function(err, results) {
-			locals.data.posts = results;
-			next(err);
-		});
-
-	});
-
-	// Render the view (string points to template under template/views/)
-	view.render('updates');
-
+  // Render the view (string points to template under template/views/)
+  view.render('updates');
 };
