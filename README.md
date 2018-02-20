@@ -1,4 +1,4 @@
- mon# our-school-liberia
+# our-school-liberia
 
 Under Development
 
@@ -11,9 +11,32 @@ Using Keystonejs (https://github.com/keystonejs/keystone)
 ## Installation
 
 * Clone
-* install node (i'm on 5.6)
+* install node (i'm on 6.11.4 using nvm)
 * install mongodb
+* create `.env` file (see below)
 * run node keystone.js
+
+
+### Environment File `.env` 
+
+You should create a file in the root directory called `.env`.
+This file should never be committed to source control.
+
+The following environment variables are used for various sections of the site
+they are not all referenced in the code but the keystone package uses some.
+```
+NODE_ENV=development
+CLOUDINARY_URL=
+S3_BUCKET=
+S3_KEY=
+S3_SECRET=
+S3_REGION=
+GOOGLE_SERVER_KEY=
+GOOGLE_BROWSER_KEY=
+EMBEDLY_API_KEY=
+MAILGUN_KEY=
+MAILGUN_DOMAIN=
+```
 
 
 ### Notes on language use
@@ -29,7 +52,7 @@ Controllers will be responsible for doing appropriate lookups on any parameters 
 
 #### Templates
 
-Pages can either be static (rendered jade template only), or dynamic (controller specified), this only implied by use of a controller or templates configuration.
+Pages can either be static (rendered pug template only), or dynamic (controller specified), this only implied by use of a controller or templates configuration.
 
 Static pages can either specify a 'templatePrefix' to have seperate templates per language (template files suffixed '-en', or '-de', etc), or a 'sharedTemplate'. All templates have access to i18n functions which do lookups on translations listed in /locales/en.js etc, most useful for the shared templates.
 
@@ -58,12 +81,3 @@ S3_Region=<region cannot be Frankfurt !! ap-northeast-1 worked>
 A separate file (routes/langNavMap.js), details the navigation structure for each available language.
 
 
-### Assumptions to be tested
-
-* Navigation need not be parallel.
-
-
-### Todo
-
-* linking language versions together in keystone
-* Notification that content is not available in alternate language? Flash message?
