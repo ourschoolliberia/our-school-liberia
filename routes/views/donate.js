@@ -165,8 +165,7 @@ exports = module.exports = function(req, res) {
             var newSupporter = new SupporterIndividual.model({
               key: payment.id,
             });
-            updater = newSupporter.getUpdateHandler(req);
-
+            var updater = newSupporter.getUpdateHandler(req);
             updater.process(
               req.body,
               {
