@@ -10,7 +10,7 @@ var routes = {
 /**
  * Langages can either share a route or specify explicit route paths.
  *
- * The key is the name of the route, not the path. it is used to lookup 
+ * The key is the name of the route, not the path. it is used to lookup
  * respective routes for alternate languages.
  *
  * If the controller is set to false, it is assumed to be a static page
@@ -19,7 +19,7 @@ var routes = {
  * Templates are either specified as a sharedTemplate (the name of a template view)
  * or as a templatePrefix, which will have -en -de appended on and expect that template
  * view to exist.
- * 
+ *
  */
 
 module.exports = {
@@ -29,14 +29,19 @@ module.exports = {
         route: '/'
     },
     'donate': {
-        controller: false,
-        templatePrefix: 'donate',
+        controller: routes.views.donate,
+        //controller: false,
+        //templatePrefix: 'donate',
+        sharedTemplate: 'donate',
+        method: 'all',
         languages: {
             'en': {
-                route: 'https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172',
+              route: '/donate'
+              //  route: 'https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172',
             },
             'de': {
-                route: 'https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172',
+              route: '/donate'
+              //  route: 'https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172',
             },
         }
     },
@@ -52,7 +57,7 @@ module.exports = {
             },
         }
     },
-    
+
     'about.whatwedo' : {
         controller: false,
         templatePrefix: 'about-whatwedo',
@@ -114,7 +119,19 @@ module.exports = {
                 route: '/etwa/unterstutzer',
             },
         }
-    },  
+    },
+
+    'about.financials' : {
+        controller: routes.views.annualreports,
+        languages: {
+            'en': {
+                route: '/about/jahresberichte',
+            },
+            'de': {
+                route: '/etwa/annualreports',
+            },
+        }
+    },
     'getinvolved': {
         controller: false,
         sharedTemplate: 'get-involved',
@@ -158,7 +175,7 @@ module.exports = {
      *  see how this one has a controller? if you look at it (routes/views/updates.js)
      *  it does a bit of prep such as load in the updates from the database and make
      *  them available in the 'locals' variable which the template can access.
-     *  
+     *
      *  If you look right at the bottom it will say view.render('updates')
      *  this string is the template it uses. so instead of dynamically configuring the
      *  template name here, it is manually loaded from within the controller.

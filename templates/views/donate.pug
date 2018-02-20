@@ -1,0 +1,42 @@
+extends ../layouts/donateheader
+
+mixin renderDonation (donateOption)
+	if donateOption.image
+		div.donation_card
+			a(href=donateOption._.image.fit(300,300))
+				img.donation_image(src=donateOption._.image.fit(200,200))
+				h9.donation_image #{donateOption.title} : #{donateOption.donationAmount} $
+				section
+					h9.donation_image #{donateOption.title} : #{donateOption.donationAmount} $
+					br
+					div.donation_image #{donateOption.message}
+						form(method="post", action="donate", target="_top")
+							input(type='hidden', name='action', value='pay')
+							input(class= 'form-control', type='hidden', name='donationAmount', value=donateOption.donationAmount)
+							input(class="form-control", type="text", name="name", placeholder="Your name", required="true")
+							input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
+							input(type="submit", name="submit", value="", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
+
+
+block content
+	.content-container.donations_wrapper
+		.gallery.donationOptions.donations_wrapper
+			if donateOptions.length
+				each donateOption in donateOptions
+					+renderDonation(donateOption)
+			else
+				h3.text-muted There are no options for donation yet
+
+		.directpayment
+			h9 enter your own amount
+			form(method="post", action="donate", target="_top")
+				input(type='hidden', name='action', value='pay')
+				input(class="form-control", type="number", name="donationAmount", placeholder="Amount in USD", min=5, required="true")
+				input(class="form-control", type="text", name="name", placeholder="Your name", required="true")
+				input(class="form-control", type="email", name="email", placeholder="E-mail (optional)")
+				input(type="image", name="submit", alt="", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
+			a(href="/contact/#payment-op") #{__('contact.othmeansofpayment')}
+
+block extendscripts
+	script(src='/js/jquery.poptrox.min.js')
+	script(src='/js/init-donationOptions.js')

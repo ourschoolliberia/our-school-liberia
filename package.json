@@ -8,6 +8,10 @@
     {
       "name": "Andrea Agatha",
       "email": "andrea@example.com"
+    },
+    {
+      "name": "Andreas Meyer",
+      "email": "andreas.meyer@example.xx"
     }
   ],
   "dependencies": {
@@ -22,7 +26,9 @@
     "node-sass-middleware": "^0.9.8",
     "pug": "^2.0.0-beta11",
     "react": "^15.4.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "paypal-rest-sdk": "^1.6.0",
+    "aws-sdk": "*"
   },
   "devDependencies": {
     "gulp": "^3.7.0",

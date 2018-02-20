@@ -1,9 +1,5 @@
 extends ../layouts/mainheader
 
-block pagetitle
-	h3 #{__('about.supporters.title')}
-
-
 mixin renderSupporterCompany (supporterCompany)
 	div.supporter-company
 		a(href=supporterCompany.url)
@@ -32,5 +28,3 @@ block content
 						#{supporterIndividual.name.first} #{supporterIndividual.name.last}
 		else
 			h3.text-muted There are no Supporter Individuals.
-
-

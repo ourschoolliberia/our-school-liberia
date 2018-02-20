@@ -1,3 +1,5 @@
 mixin buildRoute(routeName, params, text)
 	a(href=url(getLocale() + '.' + routeName, params))= text
 
+mixin buildRouteToId(routeName, params, id, text)
+	a(href=url(getLocale() + '.' + routeName, params)+'#'+id)= text

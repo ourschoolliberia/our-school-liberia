@@ -1,8 +1,5 @@
 extends ../layouts/mainheader
 
-block pagetitle
-	h3 #{__('news.videos.title')}
-
 mixin renderVideo (video)
 	if video.details
 		script
@@ -25,4 +22,3 @@ block content
 					+renderVideo(video)
 			else
 				h3.text-muted There are no Videos posted yet.
-
