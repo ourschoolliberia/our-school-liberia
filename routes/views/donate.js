@@ -10,8 +10,8 @@ var config = {
 		"mode": "sandbox", //sandbox or live
     // "host" : "api.sandbox.paypal.com",
     // "port" : "",
-    "client_id" : process.env.Paypal_Client_ID,
-    "client_secret" : process.env.Paypal_Secret
+    "client_id" : process.env.PAYPAL_CLIENT_ID,
+    "client_secret" : process.env.PAYPAL_SECRET
 //
   }
 }

@@ -17,7 +17,7 @@ Using Keystonejs (https://github.com/keystonejs/keystone)
 * run node keystone.js
 
 
-### Environment File `.env` 
+### Environment File `.env`
 
 You should create a file in the root directory called `.env`.
 This file should never be committed to source control.
@@ -56,7 +56,7 @@ Pages can either be static (rendered pug template only), or dynamic (controller 
 
 Static pages can either specify a 'templatePrefix' to have seperate templates per language (template files suffixed '-en', or '-de', etc), or a 'sharedTemplate'. All templates have access to i18n functions which do lookups on translations listed in /locales/en.js etc, most useful for the shared templates.
 
-So far, dynamic pages share a controller across languages.  
+So far, dynamic pages share a controller across languages.
 
 
 #### Environment set up (.env)
@@ -67,8 +67,8 @@ So far, dynamic pages share a controller across languages.
 4. Create .env file with the following content
 CLOUDINARY_URL=cloudinary://<your full url>
 EMBEDLY_API_KEY=...
-Paypal_Client_ID=<your id>
-Paypal_Secret=<your secret id>
+PAYPAL_CLIENT_ID=<your id>
+PAYPAL_SECRET=<your secret id>
 Site_URL=http://localhost:3000 <return URL for paypal payments>
 S3_BUCKET=<AWS S3 bucket name for file upload>
 S3_KEY=<your key>
