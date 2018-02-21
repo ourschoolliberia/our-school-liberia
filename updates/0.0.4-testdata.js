@@ -119,9 +119,9 @@ var demoStudent = {
 };
 
 var demoCompany = {
-  companyName: 'BigMobile',
+  companyName: 'A Company',
   logo: logo,
-  url: 'http://bigmobile.com',
+  url: 'http://google.com',
 };
 
 var demoIndividual = {
