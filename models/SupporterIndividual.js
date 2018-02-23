@@ -24,6 +24,8 @@ SupporterIndividual.add({
   donatedOn: { type: Date },
   published: { type: Boolean },
 });
+// })
+// SupporterIndividual.defaultColumns = 'name';
 
 // Automatically set the date of donation when payment has been processsed
 SupporterIndividual.schema.methods.isPaymentCompleted = function() {
