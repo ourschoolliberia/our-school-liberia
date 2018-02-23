@@ -21,7 +21,7 @@ Donation.add({
   },
   image: { type: Types.CloudinaryImage },
   message: { type: Types.Textarea, height: 150 },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
 });
 
 // Donation.schema.pre('save', function(next) {

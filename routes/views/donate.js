@@ -15,7 +15,7 @@ exports = module.exports = function(req, res) {
   locals.donationReceived = false;
 
   view.query('donateOptions', keystone.list('DonationOptions').model.find());
-  
+
   /*
      On POST request: User has clicked donate
   
@@ -24,11 +24,10 @@ exports = module.exports = function(req, res) {
     - Redirect to Paypal auth screen
   */
   view.on('post', { action: 'pay' }, function(next) {
-
     const donationAmount = parseInt(req.body.donationAmount);
     const donatorName = req.body.name;
     console.log(`processing payment for donation of: ${donationAmount} from: ${donatorName}`);
-    
+
     paymentProcessor.createPayment(
       donationAmount,
       function success(paymentId, redirectUrl) {
@@ -53,7 +52,6 @@ exports = module.exports = function(req, res) {
             }
           }
         );
-
       },
       function error() {
         req.flash(
@@ -71,9 +69,7 @@ exports = module.exports = function(req, res) {
      - cancel meaning the user has cancelled
   */
   view.on('get', function(next) {
-    
     if (req.query.outcome == 'success') {
-      
       const payerId = req.query.PayerID;
       const paymentId = req.query.paymentId;
 
@@ -83,7 +79,7 @@ exports = module.exports = function(req, res) {
         .exec(function(err, user) {
           if (user) {
             console.log('user found: ' + user.name + ' donation amount: ' + user.donationAmount);
-            
+
             // finalize payment on paypal
             paymentProcessor.executePayment(
               payerId,
@@ -91,7 +87,7 @@ exports = module.exports = function(req, res) {
               user.donationAmount,
               function success(payment) {
                 user.paymentCompleted = 'true';
-                //TODO: add payerId to model 
+                //TODO: add payerId to model
                 user.save(function(err) {
                   console.log('donator updated...');
                   req.flash('success', 'Payment complete. Thank you for your donation!');
@@ -106,7 +102,6 @@ exports = module.exports = function(req, res) {
                 next();
               }
             );
-
           } else {
             req.flash(
               'error',
@@ -116,16 +111,12 @@ exports = module.exports = function(req, res) {
           }
         });
     } else if (req.query.outcome == 'cancel') {
-      req.flash(
-        'warning',
-        'Your payment has been cancelled. You have not been charged.'
-      );
+      req.flash('warning', 'Your payment has been cancelled. You have not been charged.');
       next();
     } else {
       next();
     }
   });
-
 
   view.render('donate');
 };
