@@ -23,7 +23,7 @@ Subscriber.add({
 });
 
 Subscriber.schema.pre('save', function(next) {
-  this.wasNew = this.isNew;   
+  this.wasNew = this.isNew;
   next();
 });
 
@@ -34,14 +34,12 @@ Subscriber.schema.post('save', function() {
 });
 
 Subscriber.schema.methods.sendNotificationEmail = function(callback) {
-  Subscriber.model
-    .findById(this._id)
-    .exec((err, subscriber) => {
-      if (err) {
-        throw new Error(err);
-      }
-      notifications.sendSubscriptionNotification(subscriber, callback);
-    });
+  Subscriber.model.findById(this._id).exec((err, subscriber) => {
+    if (err) {
+      throw new Error(err);
+    }
+    notifications.sendSubscriptionNotification(subscriber, callback);
+  });
 };
 
 Subscriber.defaultSort = '-createdAt';

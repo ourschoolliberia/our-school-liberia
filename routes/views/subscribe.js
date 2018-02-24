@@ -27,9 +27,9 @@ exports = module.exports = function(req, res) {
     var updater = newSubscriber.getUpdateHandler(req);
 
     // TEMP: set language to English by default
-    console.log(req.body)
+    console.log(req.body);
     req.body.preferredLanguage = 'en';
-    
+
     updater.process(
       req.body,
       {
