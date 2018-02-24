@@ -37,6 +37,23 @@ block content
 				input(type="image", name="submit", alt="", title="PayPal - The safer, easier way to pay online!", class="paypalbutton")
 			a(href="/contact/#payment-op") #{__('contact.othmeansofpayment')}
 
+		.meansOfPayment
+			h2.bigskip-header Bank details for donations
+				a(id="payment-op")
+			.bankDetails
+				pre.
+					Intermediary bank:			Ghana International Bank Ltd
+					Intermediary bank address:		London
+					Intermediary SWIFT code:		GHIBGB2L
+
+					Beneficiary bank:			International Bank (Liberia) Ltd
+					Beneficiary bank address:		64 Broad Street, Monrovia, Liberia
+					Beneficiary bank SWIFT code:		IBLRLRLM
+
+					Beneficiary name:			Liberia Renaissance Education Complex
+					Beneficiary account number:		10.2010-101977-01
+					IBAN No: 				GB62 GHIB 7006 1310170907
+
 block extendscripts
 	script(src='/js/jquery.poptrox.min.js')
 	script(src='/js/init-donationOptions.js')

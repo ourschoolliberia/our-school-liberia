@@ -28,18 +28,13 @@ module.exports = {
   },
   donate: {
     controller: routes.views.donate,
-    //controller: false,
-    //templatePrefix: 'donate',
-    sharedTemplate: 'donate',
     method: 'all',
     languages: {
       en: {
         route: '/donate',
-        //  route: 'https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172',
       },
       de: {
         route: '/donate',
-        //  route: 'https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=KDejKRgqsioDSOssCnGatJ-UwbbeIfWry4l8zOEHl15rOb0C2uDLJ8DXdm4&dispatch=5885d80a13c0db1f8e263663d3faee8dcce3e160f5b9538489e17951d2c62172',
       },
     },
   },
@@ -59,13 +54,12 @@ module.exports = {
   'about.whatwedo': {
     controller: false,
     templatePrefix: 'about-whatwedo',
-    // sharedTemplate: 'about-whatwedo',
     languages: {
       en: {
         route: '/about/what-we-do',
       },
       de: {
-        route: '/etwa/vhat-ve-do',
+        route: '/etwa/was-wir-machen',
       },
     },
   },
@@ -119,17 +113,17 @@ module.exports = {
     },
   },
 
-  'about.financials': {
-    controller: routes.views.annualreports,
-    languages: {
-      en: {
-        route: '/about/jahresberichte',
-      },
-      de: {
-        route: '/etwa/annualreports',
-      },
-    },
-  },
+  // 'about.financials': {
+  //   controller: routes.views.annualreports,
+  //   languages: {
+  //     en: {
+  //       route: '/about/jahresberichte',
+  //     },
+  //     de: {
+  //       route: '/etwa/annualreports',
+  //     },
+  //   },
+  // },
 
   getinvolved: {
     controller: false,

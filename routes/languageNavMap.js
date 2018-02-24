@@ -11,9 +11,9 @@ module.exports = {
       href: '/etwa',
       children: {
         whatwedo: {
-          label: 'Vhat Ve Do',
-          key: 'etwa-vhatvedo',
-          href: '/etwa/vhat-ve-do',
+          label: 'Was wir machen',
+          key: 'etwa-was-wir-machen',
+          href: '/etwa/was-wir-machen',
         },
         wherewework: {
           label: 'Wo Wir Arbeiten',
@@ -35,11 +35,11 @@ module.exports = {
           key: 'etwa-unterstutzer',
           href: '/etwa/unterstutzer',
         },
-        financials: {
-          label: 'Jahresberichte',
-          key: 'etwa-financials',
-          href: '/etwa/jahresberichte',
-        },
+        // financials: {
+        //   label: 'Jahresberichte',
+        //   key: 'etwa-financials',
+        //   href: '/etwa/jahresberichte',
+        // },
       },
     },
     donate: {
@@ -134,11 +134,11 @@ module.exports = {
           key: 'about-supporters',
           href: '/about/supporters',
         },
-        financials: {
-          label: 'Annual reports',
-          key: 'about-financials',
-          href: '/etwa/annualreports',
-        },
+        // financials: {
+        //   label: 'Annual reports',
+        //   key: 'about-financials',
+        //   href: '/etwa/annualreports',
+        // },
       },
     },
     donate: {
