@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var notifications = require('../lib/notifications');
-
+var Language = keystone.list('Language');
 var Types = keystone.Field.Types;
 
 /**
@@ -18,12 +18,12 @@ var dateParseFormat = 'DD/MM/YYYY';
 Subscriber.add({
   name: { type: Types.Name, required: true },
   email: { type: Types.Email, required: true },
-  preferredLanguage: { type: Types.Relationship, ref: 'Language' },
+  preferredLanguage: { type: String, default: 'en' },
   createdAt: { type: Date, default: Date.now },
 });
 
 Subscriber.schema.pre('save', function(next) {
-  this.wasNew = this.isNew;
+  this.wasNew = this.isNew;   
   next();
 });
 
@@ -36,7 +36,6 @@ Subscriber.schema.post('save', function() {
 Subscriber.schema.methods.sendNotificationEmail = function(callback) {
   Subscriber.model
     .findById(this._id)
-    .populate('preferredLanguage')
     .exec((err, subscriber) => {
       if (err) {
         throw new Error(err);

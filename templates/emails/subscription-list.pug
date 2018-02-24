@@ -12,8 +12,8 @@ block content
 				| <a href="mailto:#{subscriber.email}">#{subscriber.email}</a>
 			if subscriber.name.full && subscriber.email
 				| )
-		p.text-larger Preferred Language: #{subscriber.preferredLanguage.name}
+		p.text-larger Preferred Language: #{subscriber.preferredLanguage}
 	
 	p.text-muted Sent #{subscriber._.createdAt.format()}
 	p &nbsp;
-	+button({ url: 'http://localhost:3000/admin/subscribers/' + subscriber.id, label: 'Open In Admin' })
+	+button({ url: siteUrl + '/admin/subscribers/' + subscriber.id, label: 'Open In Admin' })
