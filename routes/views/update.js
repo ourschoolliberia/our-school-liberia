@@ -40,11 +40,11 @@ exports = module.exports = function(req, res) {
         res.languageRedirect(req, res, next);
         return;
       } else {
-        //no translation
-        req.flash('info', req.i18n.__('messages.news-update-not-available'));
+        //warn no translation available
+        const notAvailable = req.i18n.__('messages.news-update-not-available');
+        req.flash('info', notAvailable);
       }
     }
-
     next();
   });
 
@@ -56,11 +56,11 @@ exports = module.exports = function(req, res) {
       .where('state', 'published')
       .sort('-publishedDate')
       .populate('author')
-      .limit('4');
-    console.log('loding other posts');
+      .limit(4);
+    console.log('loading other posts');
     q.exec(function(err, results) {
       locals.data.posts = results;
-      next(err);
+      next();
     });
   });
 
