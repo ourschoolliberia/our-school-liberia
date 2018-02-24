@@ -11,9 +11,9 @@ module.exports = {
       href: '/etwa',
       children: {
         whatwedo: {
-          label: 'Vhat Ve Do',
-          key: 'etwa-vhatvedo',
-          href: '/etwa/vhat-ve-do',
+          label: 'Was wir machen',
+          key: 'etwa-was-wir-machen',
+          href: '/etwa/was-wir-machen',
         },
         wherewework: {
           label: 'Wo Wir Arbeiten',
