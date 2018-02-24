@@ -35,11 +35,11 @@ module.exports = {
           key: 'etwa-unterstutzer',
           href: '/etwa/unterstutzer',
         },
-        financials: {
-          label: 'Jahresberichte',
-          key: 'etwa-financials',
-          href: '/etwa/jahresberichte',
-        },
+        // financials: {
+        //   label: 'Jahresberichte',
+        //   key: 'etwa-financials',
+        //   href: '/etwa/jahresberichte',
+        // },
       },
     },
     donate: {
@@ -134,11 +134,11 @@ module.exports = {
           key: 'about-supporters',
           href: '/about/supporters',
         },
-        financials: {
-          label: 'Annual reports',
-          key: 'about-financials',
-          href: '/etwa/annualreports',
-        },
+        // financials: {
+        //   label: 'Annual reports',
+        //   key: 'about-financials',
+        //   href: '/etwa/annualreports',
+        // },
       },
     },
     donate: {

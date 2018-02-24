@@ -113,17 +113,17 @@ module.exports = {
     },
   },
 
-  'about.financials': {
-    controller: routes.views.annualreports,
-    languages: {
-      en: {
-        route: '/about/jahresberichte',
-      },
-      de: {
-        route: '/etwa/annualreports',
-      },
-    },
-  },
+  // 'about.financials': {
+  //   controller: routes.views.annualreports,
+  //   languages: {
+  //     en: {
+  //       route: '/about/jahresberichte',
+  //     },
+  //     de: {
+  //       route: '/etwa/annualreports',
+  //     },
+  //   },
+  // },
 
   getinvolved: {
     controller: false,
