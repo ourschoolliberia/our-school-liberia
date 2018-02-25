@@ -1,0 +1,13 @@
+mixin gallery(gallery)
+	.gallery-container
+		h2= gallery.name
+
+		#gallery
+			each image in gallery.images
+				a(href="http://unitegallery.net")
+					img(
+						alt="Lemon Slice"
+						src=image.limit(300,300)
+						data-image=image.url
+						data-description="This is a Lemon Slice"
+					 )

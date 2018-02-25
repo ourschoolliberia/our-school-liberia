@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
         state: 'published',
         slug: locals.filters.post,
       })
-      .populate('author categories language translation');
+      .populate('author categories language translation gallery');
 
     q.exec(function(err, result) {
       locals.data.post = result;

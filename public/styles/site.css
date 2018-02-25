@@ -5831,11 +5831,6 @@ button.close {
   padding-top: 30px;
   color: #777777; }
 
-.gallery-image img {
-  display: block;
-  max-width: 100%;
-  height: auto; }
-
 @font-face {
   font-family: "Open Sans";
   font-style: normal;

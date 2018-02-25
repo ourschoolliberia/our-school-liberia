@@ -228,18 +228,17 @@ module.exports = {
       },
     },
   },
-  // 'gallery': {
-  //  controller: false,
-  //  sharedTemplate: 'gallery',
-  //  languages: {
-  //      'en': {
-  //          route: '/gallery',
-  //      },
-  //      'de': {
-  //          route: '/fototelier',
-  //      },
-  //  }
-  // },
+  'gallery': {
+   controller: routes.views.gallery,
+   languages: {
+       'en': {
+           route: '/gallery',
+       },
+       'de': {
+           route: '/fototelier',
+       },
+   }
+  },
   contact: {
     controller: routes.views.contact,
     route: '/contact',
