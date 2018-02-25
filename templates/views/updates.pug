@@ -16,9 +16,9 @@ mixin post(post)
 			h2(id=post.slug): +postLink(post, post.title)
 			p.lead.text-muted Posted
 				if post.publishedDate
-					| on #{post._.publishedDate.format('MMMM Do, YYYY')}
+					| &nbsp;on #{post._.publishedDate.format('MMMM Do, YYYY')}
 				if post.categories && post.categories.length
-					| in
+					| &nbsp;in
 					each cat, i in post.categories
 						a(href=url(getLocale() + '.news.updates.category:category', {category: cat.key}))= cat.name
 						if i < post.categories.length - 1
@@ -26,7 +26,7 @@ mixin post(post)
 						else
 							|
 				if post.author
-					| by #{post.author.name.first}
+					| &nbsp;by #{post.author.name.first}
 			if post.image.exists
 				img(src=post._.image.fit(160,160)).img.pull-right
 			p!= post.content.brief
