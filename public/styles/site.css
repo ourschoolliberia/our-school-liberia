@@ -5831,24 +5831,6 @@ button.close {
   padding-top: 30px;
   color: #777777; }
 
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: light;
-  src: url("../fonts/fonts/Light/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/fonts/Light/OpenSans-Light.woff2") format("woff2"), url("../fonts/fonts/Light/OpenSans-Light.woff") format("woff"), url("../fonts/fonts/Light/OpenSans-Light.ttf") format("truetype"), url("../fonts/fonts/Light/OpenSans-Light.svg#Open Sans") format("svg"); }
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/fonts/Regular/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/fonts/Regular/OpenSans-Regular.woff2") format("woff2"), url("../fonts/fonts/Regular/OpenSans-Regular.woff") format("woff"), url("../fonts/fonts/Regular/OpenSans-Regular.ttf") format("truetype"), url("../fonts/fonts/Regular/OpenSans-Regular.svg#Open Sans") format("svg"); }
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: bold;
-  src: url("../fonts/fonts/Bold/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/fonts/Bold/OpenSans-Bold.woff2") format("woff2"), url("../fonts/fonts/Bold/OpenSans-Bold.woff") format("woff"), url("../fonts/fonts/Bold/OpenSans-Bold.ttf") format("truetype"), url("../fonts/fonts/Bold/OpenSans-Bold.svg#Open Sans") format("svg"); }
-
 body {
   font-family: "Open Sans";
   width: 100%;
