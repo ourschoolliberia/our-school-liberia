@@ -3,11 +3,10 @@ mixin gallery(gallery)
 		h2= gallery.name
 
 		#gallery
-			each image in gallery.images
+			each image, index in gallery.images
 				a(href="http://unitegallery.net")
 					img(
-						alt="Lemon Slice"
+						alt="Image " + (index + 1)
 						src=image.limit(300,300)
 						data-image=image.url
-						data-description="This is a Lemon Slice"
 					 )
