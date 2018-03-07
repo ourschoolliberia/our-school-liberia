@@ -43,6 +43,9 @@
 		},
 		"videos.title": "videos.title"
 	},
+	"contact": {
+		"othmeansofpayment": "Other means of payment"
+	},
 	"messages": {
 		"news-update-not-available": "This News Update is Not Available in the selected Language"
 	},

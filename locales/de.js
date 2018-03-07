@@ -1,6 +1,6 @@
 {
-	"backto": "backto",
-	"updates": "updates",
+	"backto": "zurück zu",
+	"updates": "Neuigkeiten",
 	"intro": {
 		"donatenow": "SPENDE JETZT",
 		"aboutourschool": "UNSERE SCHULE",
@@ -16,7 +16,7 @@
 			"p3": "p3"
 		},
 		"wherewework": {
-			"title": "wo wir arbeiten",
+			"title": "Wo wir arbeiten",
 			"maincontent": "Dies ist der Hauptinhalt"
 		},
 		"ourteam.title": "ourteam.title",
@@ -45,12 +45,15 @@
 	},
 	"news": {
 		"updates": {
-			"back": "Back to News Updates",
-			"title": "title"
+			"back": "Zurück zu Neuigkeiten",
+			"title": "Title"
 		}
 	},
+	"contact": {
+		"othmeansofpayment": "Andere Zahlungsmittel"
+	},
 	"messages": {
-		"news-update-not-available": "Das Messegen ick no en deuche"
+		"news-update-not-available": "Keine Nachrichten verfügbar"
 	},
 	"getinvolved.index.title": "getinvolved.index.title",
 	"getinvolved.index.maincontent": "getinvolved.index.maincontent",
@@ -84,5 +87,6 @@
 	"getinvolved.subscribe.firstname": "getinvolved.subscribe.firstname",
 	"getinvolved.subscribe.lastname": "getinvolved.subscribe.lastname",
 	"getinvolved.subscribe.email": "getinvolved.subscribe.email",
-	"getinvolved.subscribe.language": "getinvolved.subscribe.language"
+	"getinvolved.subscribe.language": "getinvolved.subscribe.language",
+	"languageRouter.routeNotAvailable": "languageRouter.routeNotAvailable"
 }

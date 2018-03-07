@@ -8,13 +8,17 @@
     {
       "name": "Andrea Agatha",
       "email": "andrea@example.com"
+    },
+    {
+      "name": "Andreas Meyer",
+      "email": "andreas.meyer@example.xx"
     }
   ],
   "dependencies": {
     "async": "^1.5.0",
     "dotenv": "^1.1.0",
     "invariant": "^2.2.0",
-    "keystone": "^4.0.0-beta.4",
+    "keystone": "4.0.0-beta.4",
     "keystone-email": "^1.0.5",
     "keystone-multilingual": "^1.0.0",
     "keystone-storage-adapter-s3": "^1.1.1",
@@ -22,7 +26,9 @@
     "node-sass-middleware": "^0.9.8",
     "pug": "^2.0.0-beta11",
     "react": "^15.4.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "paypal-rest-sdk": "^1.6.0",
+    "aws-sdk": "*"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
@@ -30,7 +36,8 @@
     "gulp-sass": "^2.2.0",
     "gulp-shell": "^0.5.0",
     "gulp-watch": "^4.3.5",
-    "jshint-stylish": "^0.1.3"
+    "jshint-stylish": "^0.1.3",
+    "prettier": "1.10.2"
   },
   "engines": {
     "node": ">=0.10.22",
@@ -40,7 +47,8 @@
     "start": "node keystone.js",
     "dev": "nodemon keystone.js --ignore locales/",
     "debug": "iron-node keystone.js",
-    "resetdb": "mongo our-school-liberia --eval 'db.dropDatabase()'"
+    "resetdb": "mongo our-school-liberia --eval 'db.dropDatabase()'",
+    "format": "prettier '{models,routes,updates}/**/*.js'"
   },
   "main": "keystone.js"
 }

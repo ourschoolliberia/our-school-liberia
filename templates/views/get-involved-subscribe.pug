@@ -22,11 +22,11 @@ block content
 					.form-group
 						label E-mail address
 						input(type="text", name="email" value=formData['email']).form-control
-					.form-group
-						label Preferred Language
-						select(name="preferredLanguage").form-control
-							each language in languages
-								option(value=(language.value), selected=(formData['preferredLanguage'] === language.value))= language.label
+					//- .form-group
+					//- 	label Preferred Language
+					//- 	select(name="preferredLanguage").form-control
+					//- 		each language in languages
+					//- 			option(value=(language.value), selected=(formData['preferredLanguage'] === language.value))= language.label
 					.form-actions
 						button(type='submit', value="submit").btn.btn-primary Send
 
@@ -42,9 +42,3 @@ block content
 			else
 				.content-container-alt
 					+subscribeForm()
-
-
-	block extendscripts
-		script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
-		script(src='/js/form-tweaks.js')
-

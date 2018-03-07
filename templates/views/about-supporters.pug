@@ -1,12 +1,30 @@
 extends ../layouts/mainheader
 
-block pagetitle
-	h3 #{__('about.supporters.title')}
+mixin renderSupporterCompany (supporterCompany)
+	div.supporter-company
+		a(href=supporterCompany.url)
+			if supporterCompany.logo
+				img(src=supporterCompany._.logo.fit(200,200))
+			section
+				h9 #{supporterCompany.companyName}
 
 block content
 	.content-container
-		p
-			h6 Supporters
-	.content-container-alt
-		.supporters
+		h2 Supporters
 
+		h3 Companies
+		.supporters
+			if companies.length
+				each supporterCompany in companies
+					+renderSupporterCompany(supporterCompany)
+			else
+				h3.text-muted There are no Supporter Companies.
+
+		h3 Individuals
+		if individuals.length
+			ul.supporters
+				each supporterIndividual in individuals
+					li.supporter-individual
+						#{supporterIndividual.name.first} #{supporterIndividual.name.last}
+		else
+			h3.text-muted There are no Supporter Individuals.

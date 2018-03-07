@@ -1,13 +1,10 @@
 extends ../layouts/mainheader
 
-block pagetitle
-	h3 #{__('pressreleases.title')}
-
 mixin renderPressRelease (pressRelease)
 	tr.pressrelease
-		td #{pressRelease._.dateReleased.format()} 
+		td #{pressRelease._.dateReleased.format()}
 		td
-			a(href=pressRelease.source) #{pressRelease.title} 
+			a(href=pressRelease.source) #{pressRelease.title}
 
 block content
 	.content-container

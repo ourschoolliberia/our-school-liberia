@@ -1,0 +1,12 @@
+mixin gallery(gallery)
+	.gallery-container
+		h2= gallery.name
+
+		#gallery
+			each image, index in gallery.images
+				a(href="http://unitegallery.net")
+					img(
+						alt="Image " + (index + 1)
+						src=image.limit(300,300)
+						data-image=image.url
+					 )

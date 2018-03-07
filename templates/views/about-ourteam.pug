@@ -1,13 +1,10 @@
 extends ../layouts/mainheader
 
-block pagetitle
-	h3 #{__('about.ourteam.title')}
-
 mixin renderTeamMember (teamMember)
 	if teamMember.image
 		div.card
-			a(href=teamMember._.image.fit(200,200))
-				img(src=teamMember._.image.fit(200,200))
+			a(href=teamMember._.image.fit(350,350))
+				img(src=teamMember._.image.fit(350,350))
 				section
 					h9 #{teamMember.name.first} #{teamMember.name.last} -
 					br
@@ -21,7 +18,7 @@ block content
 				each teamMember in teamMembers
 					+renderTeamMember(teamMember)
 			else
-				h3.text-muted There are no Staff Members yet.
+				h3.text-muted There are no Staff members yet.
 
 
 block extendscripts

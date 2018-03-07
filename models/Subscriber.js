@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var notifications = require('../lib/notifications');
-
+var Language = keystone.list('Language');
 var Types = keystone.Field.Types;
 
 /**
@@ -18,7 +18,7 @@ var dateParseFormat = 'DD/MM/YYYY';
 Subscriber.add({
   name: { type: Types.Name, required: true },
   email: { type: Types.Email, required: true },
-  preferredLanguage: { type: Types.Relationship, ref: 'Language' },
+  preferredLanguage: { type: String, default: 'en' },
   createdAt: { type: Date, default: Date.now },
 });
 
@@ -34,15 +34,12 @@ Subscriber.schema.post('save', function() {
 });
 
 Subscriber.schema.methods.sendNotificationEmail = function(callback) {
-  Subscriber.model
-    .findById(this._id)
-    .populate('preferredLanguage')
-    .exec((err, subscriber) => {
-      if (err) {
-        throw new Error(err);
-      }
-      notifications.sendSubscriptionNotification(subscriber, callback);
-    })
+  Subscriber.model.findById(this._id).exec((err, subscriber) => {
+    if (err) {
+      throw new Error(err);
+    }
+    notifications.sendSubscriptionNotification(subscriber, callback);
+  });
 };
 
 Subscriber.defaultSort = '-createdAt';

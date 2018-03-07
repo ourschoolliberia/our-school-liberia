@@ -7,16 +7,15 @@ var Types = keystone.Field.Types;
  */
 
 var PressRelease = new keystone.List('PressRelease', {
-	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true },
-	defaultSort: '-dateReleased'
+  map: { name: 'title' },
+  autokey: { path: 'slug', from: 'title', unique: true },
+  defaultSort: '-dateReleased',
 });
 
 PressRelease.add({
-	title: { type: String },
-	source: { type: Types.Url },
-	dateReleased: { type: Types.Date, format: 'dddd DD MMM YY' },
-
+  title: { type: String },
+  source: { type: Types.Url },
+  dateReleased: { type: Types.Date, format: 'dddd DD MMM YY' },
 });
 
 PressRelease.defaultColumns = 'title, source, dateReleased';

@@ -1,7 +1,5 @@
-$( document ).ready(function() {
-	$('.gallery').poptrox({
-		preload: true,
-		usePopupCaption: true,
-		caption: { selector: "section", remove: true }
-	});
+jQuery(document).ready(function() {
+    jQuery('#gallery').unitegallery({
+      tiles_type:"nested"
+    });
 });
